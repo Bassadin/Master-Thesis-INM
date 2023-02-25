@@ -17,7 +17,7 @@
 - API von The Things Network querien, um Standorte von Gatways zu erhalten
 - Voronoi-Diagramme zum Interpolieren von fehlenden Messungen anlegen
 - Geht auch TOF MEssung?
-	- Je nachdem, wie genau die Zeitstempel von TTN sind
+  - Je nachdem, wie genau die Zeitstempel von TTN sind
 
 ## Zeitplan
 
