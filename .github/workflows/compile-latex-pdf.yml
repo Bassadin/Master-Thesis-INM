@@ -9,6 +9,7 @@ jobs:
       - name: TeXLive Action (Compile Latex)
         uses: repaction/texlive@mini-v2
         with:
+            compiler: pdflatex
             tex_files: thesis/main.tex
             extra_system_packages: "cmap"
       - name: Upload PDF file
