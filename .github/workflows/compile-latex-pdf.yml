@@ -10,6 +10,7 @@ jobs:
         uses: repaction/texlive@mini-v2
         with:
             tex_files: thesis/main.tex
+            extra_system_packages: "cmap"
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
