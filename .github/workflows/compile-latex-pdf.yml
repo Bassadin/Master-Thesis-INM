@@ -7,11 +7,12 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
       - name: TeXLive Action (Compile Latex)
-        uses: repaction/texlive@mini-v2
+        uses: xu-cheng/texlive-action/full@v1
         with:
-            compiler: pdflatex
-            tex_files: thesis/main.tex
-            extra_system_packages: "cmap"
+            run: |
+                apk add make
+                cd thesis
+                make
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
