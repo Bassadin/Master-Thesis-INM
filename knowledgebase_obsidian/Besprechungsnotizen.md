@@ -14,5 +14,5 @@
 
 - Yay, 32 bit Anwendung auf 64 bit Raspberry Pi OS :DDD
   - Nochmal neu aufgesetzt - seither gehts
-- Cochlovius scheint das LG308er Gateway noch registriert zu haben
+- Cochlovius scheint das LG308er Gateway noch registriert zu haben, siehe [[Tagebuch - LG308 Gateway#BLOCKER: Gateway ist schon/noch registriert?]]
   - kann so nicht auf TTN registriert werden
