@@ -1,4 +1,4 @@
-## 19.02.2023
+## 19.02.23
 
 ### Neue Hardware erhalten
 
@@ -10,7 +10,9 @@
 
 - Zahoransky bis 28.02.2023 im Urlaub
 
-## TODO fürs nächste Mal
+## 28.02.23
 
 - Yay, 32 bit Anwendung auf 64 bit Raspberry Pi OS :DDD
+  - Nochmal neu aufgesetzt - seither gehts
 - Cochlovius scheint das LG308er Gateway noch registriert zu haben
+  - kann so nicht auf TTN registriert werden
