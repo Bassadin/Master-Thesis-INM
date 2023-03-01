@@ -1,116 +1,53 @@
 \documentclass[
-	12pt,
-	a4paper,
-	bibtotoc,
-	cleardoubleempty, 
-	idxtotoc,
-	ngerman,
-	openright
-	final,
-	listof=nochaptergap,
-	]{scrbook}
-\usepackage{cmap}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+    fontsize=12pt,          % default font size 12pt
+    paper=a4,               % DIN A4 page format
+    numbers=noenddot,       % remove dots behind chapter numbers (e.g. 1.5 not 1.5.)
+    listof=totoc,           % add list of figures, tables, etc. to ToC
+    listof=entryprefix,     % add entry name to figures, tables, etc.
+    listof=nochaptergap,    % no chapter gap for figures, tables, etc.
+    bibliography=totoc,     % add bibliography to ToC but without a chapter number
+    parskip=half            % half line spacing between paragraphs
+]{scrbook}
 
-\include{preamble.tex}
+\include{preamble}                      % load preamble
 
 \begin{document}
 
-\setcounter{secnumdepth}{3}
+\include{framework/titlepage}           % title page
 
-% Titelblatt
-\include{content/framework/title.tex}
-\cleardoubleemptypage
-
+% Roman numbering
 \frontmatter
 \pagenumbering{Roman}
 
-% Abstract
-\include{content/framework/abstract.tex}
-\cleardoubleemptypage
+\include{framework/abstract}            % Abstract
+\tableofcontents                        % Contents
+\listoffigures                          % List of Figures
+\listoftables                           % List of Tables
+\lstlistoflistings                      % List of Code Listings
+\include{framework/abbreviations}       % Abbreviations
 
-% Inhaltsverzeichnis
-\phantomsection
-\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
-\tableofcontents
-\cleardoubleemptypage
-
-% Abbildungsverzeichnis einbinden und ins Inhaltsverzeichnis
-% WORKAROUND: tocloft und KOMA funktionieren zusammen nicht
-% korrekt\phantomsection
-\phantomsection 
-\addcontentsline{toc}{chapter}{\listfigurename} 
-\listoffigures
-\cleardoubleemptypage
-
-% Tabellenverzeichnis einbinden und ins Inhaltsverzeichnis
-% WORKAROUND: tocloft und KOMA funktionieren zusammen nicht
-% korrekt\phantomsection
-\phantomsection
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
-\cleardoubleemptypage
-
-% Quellcodeverzeichnis einbinden und ins Inhaltsverzeichnis
-\phantomsection
-\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
-
-%Define listing
-\makeatletter
-\begingroup\let\newcounter\@gobble\let\setcounter\@gobbletwo
-  \globaldefs\@ne \let\c@loldepth\@ne
-  \newlistof{listings}{lol}{\lstlistlistingname}
-\endgroup
-\let\l@lstlisting\l@listings
-\makeatother
-\setlength{\cftlistingsindent}{0em}
-\renewcommand{\cftlistingsafterpnum}{\vskip0pt} %Spacing between entries
-\renewcommand*{\cftlistingspresnum}{\lstlistingname~}
-\settowidth{\cftlistingsnumwidth}{\cftlistingspresnum}
-\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
-% Tabellenverzeichnis anpassen
-\renewcommand{\lstlistingname}{Codeauschnitt}
-\renewcommand{\cftlistingsaftersnum}{:}
-% Breite des Nummerierungsbereiches [Codeauschnitt 1:]
-\newlength{\codeLength}
-\settowidth{\codeLength}{\bfseries\lstlistingname\cftlistingsaftersnum}
-\addtolength{\codeLength}{5mm}
-\setlength{\cftlistingsnumwidth}{\codeLength}
-\lstlistoflistings
-\cleardoubleemptypage
-
-% Abkürzungsverzeichnis
-\include{content/framework/abbreviations}
-
+% Content
 \mainmatter
+\include{content/1_introduction}
+\include{content/2_background}
+\include{content/3_design}
+\include{content/4_implementation}
+\include{content/5_conclusion}
 
-\include{content/chapters/0_introduction}
-\include{content/chapters/1_basics}
-\include{content/chapters/2-7_custom_chapter}
-\include{content/chapters/8_prospect} 
-\include{content/chapters/9_conclusion}
+% Bibliography
+\begin{singlespace}
+    \printbibliography
+\end{singlespace}
 
-% Schalgwortverzeichnis (Index)
-%\printindex
+% Declaration of Authorship (in German)
+\include{framework/declaration_of_authorship}   
 
-% Literaturverzeichnis
-\singlespacing
-\bibliographystyle{alphadin}
-\bibliography{bibtex}
+% Appendices
+\appendix
 
-% Eidesstattliche Erklärung
-\include{content/framework/affirmation}
-
-%Zurücksetzen \chaptermark
-\let\chaptermark\oldchaptermark
-
-% Hier können Anhaenge angefuegt werden
 \begin{appendices}
-\chapter{Monatsberichte}
-Nun folgen die Monatsberichte
-\newpage
-\appendixsection{Monatsbericht Februar}{content/attachments/report.pdf}
-\appendixsection{Monatsbericht Januar}{content/attachments/report.pdf}
+    \include{appendix/A_monthly_reports}
+    \include{appendix/B_another_important_appendix}
 \end{appendices}
-\end{document}      
+
+\end{document}
