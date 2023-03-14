@@ -18,9 +18,10 @@ It needs to stay silent for the rest of the time.
 
 \subsection{\acf{TTN}}
 
-\ac{TTN} is a global community of people building a global open \ac{LoRaWAN} network.
+\ac{TTN} provides a free to use LoRaWAN network server that supports a global community of people building \ac{LoRaWAN} applications.
 It provides a free \ac{LoRaWAN} network for the public to use.
-It is based on the \ac{LoRaWAN} protocol and uses the \ac{CUPS} and \ac{LNS} architecture.
+
+\ac{TTN} was used in this thesis to enable the communication between the \ac{LoRa} devices and TTNMapper.
 
 % TODO: Explain the CUPS and LNS architecture
 
@@ -28,13 +29,31 @@ It is based on the \ac{LoRaWAN} protocol and uses the \ac{CUPS} and \ac{LNS} arc
 
 \subsection{Localization Methods}
 
+
+
 \subsubsection{\ac{GPS}}
 
-\subsection{Lateration}
+\subsection{Triangulation}
 
-\subsubsection{\ac{TDoA}-based}
+\subsection{Multilateration}
 
-\subsubsection{\ac{RSSI}-based}
+\subsection{\acs{ToA}-based}
+
+The \acf{ToA} based method uses the difference in the signal's time of arrival at the receiving stations.
+In conjunction with the speed of light, this time difference can be used to calculate the distance between the receiving stations and the transmitting station.
+
+\ac{ToA} is being used by radio location systems like \ac{GPS} to determine the position of a device by using Multilateration.
+
+\subsection{\acs{TDoA}-based}
+
+
+
+\subsection{\acs{RSSI}-based}
+
+The method based on \acf{RSSI} uses the signal strength of the signal that is received.
+Since signal strengths are not linear, the \ac{RSSI} values need to be converted to a linear scale.
+Different devices can have different \ac{RSSI} values for the same distance.
+\ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g. if there is a line of sight between the sender and receiver.
 
 \section{\ac{LoRa} Hardware}
 
@@ -43,7 +62,7 @@ It is based on the \ac{LoRaWAN} protocol and uses the \ac{CUPS} and \ac{LNS} arc
 A \ac{LoRa} gateway is the device that receives \ac{LoRa} packets from \ac{LoRa} nodes and forwards them to the \ac{LoRaWAN} server.
 The gateway is connected to the internet and can forward packets in two major ways:
 
-\subsubsection{\acf{UDP}}
+\subsubsection{Semtech \acs{UDP} Packet Forwarder}
 
 \subsubsection{\acf{TCP} / LoRa Basics\texttrademark~Station}
 
