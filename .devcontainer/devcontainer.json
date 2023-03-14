@@ -1,12 +1,8 @@
 {
     "name": "project-dev",
-    "dockerComposeFile": [
-        "docker-compose.yml"
-    ],
+    "dockerComposeFile": ["docker-compose.yml"],
     "service": "vscode",
-    "runServices": [
-        "vscode"
-    ],
+    "runServices": ["vscode"],
     "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",
     "postCreateCommand": "tlmgr update --self && tlmgr install koma-script bera && apt update && apt install texlive-bibtex-extra biber texlive-latex-extra texlive-fonts-extra -y && texhash",
@@ -14,8 +10,8 @@
         "vscode": {
             "extensions": [
                 "james-yu.latex-workshop",
-                // Git
-                "eamodio.gitlens",
+                "tecosaur.latex-utilities",
+                "valentjn.vscode-ltex",
                 // Other helpers
                 "shardulm94.trailing-spaces",
                 "stkb.rewrap", // rewrap comments after n characters on one line
