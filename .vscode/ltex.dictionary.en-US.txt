@@ -3,3 +3,4 @@ Furtwangen
 LoRaWAN
 Datagram
 TTNMapper
+kbps
