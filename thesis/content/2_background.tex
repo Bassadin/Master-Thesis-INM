@@ -6,13 +6,22 @@
 
 \section{\acf{LoRaWAN}}
 
+\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
+
 \subsection{Device Classes}
 
-\subsection{Authentication Methods}
+\ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_2017}.
 
-\subsubsection{\ac{ABP}}
+\subsubsection{Class A}
 
-\subsubsection{\ac{OTAA}}
+Class A is used for devices that need to consume as little power as possible.
+Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_2017}.
+
+A communication in Class A is always initiated by the end device itself.
+
+\subsubsection{Class B}
+
+\subsubsection{Class C}
 
 For the tracking devices used in this thesis, the \ac{OTAA} method of authenticating devices with the \ac{LoRaWAN} network server was used.
 
@@ -39,9 +48,7 @@ It provides a free \ac{LoRaWAN} network for the public to use.
 
 \section{Localization}
 
-\subsection{Localization Methods}
-
-
+\subsection{Technologies}
 
 \subsubsection{\ac{GPS}}
 
@@ -75,7 +82,7 @@ Different devices can have different \ac{RSSI} values for the same distance.
 \subsection{Gateways}
 
 A \ac{LoRa} gateway is the device that receives \ac{LoRa} packets from \ac{LoRa} nodes and forwards them to the \ac{LoRaWAN} server.
-The gateway is connected to the internet and can forward packets in two major ways:
+Gateways are connected to the internet and can forward \ac{LoRaWAN} packets that it receives to the \ac{LoRaWAN} network server in two major ways:
 
 \subsubsection{Semtech \acs{UDP} Packet Forwarder}
 
