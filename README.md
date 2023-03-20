@@ -13,8 +13,3 @@ The LaTeX source code is located in the `thesis` folder.
 2. `cd thesis`
 3. `make`
 4. Enjoy your `main.pdf`!
-
-## Knowledgebase
-
-The knowledgebase is located in the `knowledgebase_obsidian` folder.
-The markdown (`.md`) files can be viewed in any editor, but the best experience is achieved with [Obsidian.md]([C:\Users\basti\Documents\Git-Repos\Master-Thesis-INM\knowledgebase_obsidian](https://obsidian.md/)).
