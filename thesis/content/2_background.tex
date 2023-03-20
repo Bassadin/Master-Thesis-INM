@@ -10,6 +10,15 @@
 
 \ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/topology_semtech_developers.png}
+    \caption{\ac{LoRaWAN} network structure~\protect\cite{semtech_lora_developer_portal_-depth_nodate}}
+    \label{pic:lorawan-network-structure}
+\end{figure}
+
+% TODO: explain what uplink and downlink are
+
 \subsection{Device Classes}
 
 \ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_2017}.
@@ -18,14 +27,24 @@
 
 Class A is used for devices that need to consume as little power as possible.
 Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_2017}.
-
 A communication in Class A is always initiated by the end device itself.
+
+Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device.
+This also makes it impossible for the \ac{LNS} to send data to the device at any other time.
+
+Class A consumes the least amount of power of the three classes, since the devices itself may specify when and how often they want to communicate with the \ac{LNS}.
 
 \subsubsection{Class B}
 
+In addition to class A, class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows.
+In order to realize this without the need for a per-device RTC clock, class B devices receive time synchronized beacons from the gateways.
+
+These scheduled downlink windows result in a higher power consumption for the devices, since they need to be awake during these windows.
+
 \subsubsection{Class C}
 
-For the tracking devices used in this thesis, the \ac{OTAA} method of authenticating devices with the \ac{LoRaWAN} network server was used.
+Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
+In essence, they keep the downlink windows as specified in class B open all the time.
 
 \subsection{Duty Cycle}
 
@@ -41,7 +60,7 @@ It needs to stay silent for the rest of the time.
 
 \subsection{\acf{TTN}}
 
-\ac{TTN} provides a free to use LoRaWAN network server that supports a global community of people building \ac{LoRaWAN} applications.
+\ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
 It provides a free \ac{LoRaWAN} network for the public to use.
 
 \ac{TTN} was used in this thesis to enable the communication between the \ac{LoRa} devices and TTNMapper.
@@ -84,7 +103,7 @@ Different devices can have different \ac{RSSI} values for the same distance.
 \subsection{Gateways}
 
 A \ac{LoRa} gateway is the device that receives \ac{LoRa} packets from \ac{LoRa} nodes and forwards them to the \ac{LoRaWAN} server.
-Gateways are connected to the internet and can forward \ac{LoRaWAN} packets that it receives to the \ac{LoRaWAN} network server in two major ways:
+Gateways are connected to the internet and can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
 
 \subsubsection{Semtech \acs{UDP} Packet Forwarder}
 
