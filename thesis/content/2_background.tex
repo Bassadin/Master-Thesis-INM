@@ -8,14 +8,18 @@
 
 % TODO network structure
 
-\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
-
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/topology_semtech_developers.png}
     \caption{\ac{LoRaWAN} network structure~\protect\cite{semtech_lora_developer_portal_-depth_nodate}}
     \label{pic:lorawan-network-structure}
 \end{figure}
+
+\ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
+
+\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
+
+
 
 % TODO: explain what uplink and downlink are
 
@@ -37,6 +41,7 @@ Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_allian
 A communication in Class A is always initiated by the end device itself.
 
 Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device.
+This can be seen in \cref{pic:lorawan-device-class-a-schema}.
 This also makes it impossible for the \ac{LNS} to send data to the device at any other time.
 
 Class A consumes the least amount of power of the three classes, since the devices itself may specify when and how often they want to communicate with the \ac{LNS}.
@@ -52,6 +57,7 @@ Class A consumes the least amount of power of the three classes, since the devic
 
 In addition to class A, class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows.
 In order to realize this without the need for a per-device \ac{RTC}, class B devices receive time synchronized beacons from the gateways.
+The communication schema for class B devices can be seen in \cref{pic:lorawan-device-class-b-schema}.
 
 These scheduled downlink windows result in a higher power consumption for class B devices, since those need to be awake during these windows.
 
@@ -65,7 +71,7 @@ These scheduled downlink windows result in a higher power consumption for class 
 \end{figure}
 
 Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
-In essence, they keep the downlink windows as specified in class B open all the time.
+In essence, they keep the downlink windows as specified in class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
 
 \subsection{Duty Cycle}
 
@@ -74,10 +80,6 @@ In essence, they keep the downlink windows as specified in class B open all the 
 In the \ac{EU} region, the duty cycle for transmission in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
 This means that a \ac{LoRa} device using this frequency may only transmit for 1\% of a given time slot.
 It needs to stay silent for the rest of the time.
-
-\section{\acf{LoRaWAN}}
-
-\ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
 
 \subsection{\acf{TTN}}
 
