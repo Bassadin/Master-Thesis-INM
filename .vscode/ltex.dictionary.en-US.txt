@@ -4,3 +4,4 @@ LoRaWAN
 Datagram
 TTNMapper
 kbps
+downlink
