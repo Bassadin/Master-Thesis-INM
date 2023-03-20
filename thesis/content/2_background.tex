@@ -82,6 +82,9 @@ These scheduled downlink windows result in a higher power consumption for class 
 Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
 In essence, they keep the downlink windows as specified in class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
 
+Devices in class C consume the most power, since they are always listening for downlink messages.
+The fact that they're always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or a reliable accessibility via downlink.
+
 \subsection{Duty Cycle}
 
 % TODO add a figure with the duty cycle
