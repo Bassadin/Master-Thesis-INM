@@ -1,0 +1,30 @@
+@startuml LoRaWAN DB Schema
+entity device {
+    *DevEUI : hex <<PK>>
+}
+
+entity gateway {
+    *GatewayEUI : hex <<PK>>
+    latitude : number
+    longitude : number
+}
+
+entity geo_measurement {
+    *id : number <<PK>>
+    device_id : number
+    rssi : number
+    snr : number
+}   
+
+entity ttnmapper_measurement {
+    *id : number <<PK; From TTNMapper .csv>>
+    geo_measurement_id : number <<FK>>
+    GatewayEUI : number <<FK>>
+    rssi : number
+    snr : number
+}
+
+gateway "1" -- "0..*" ttnmapper_measurement
+geo_measurement "1" -- "0..*" ttnmapper_measurement
+device "1" -- "0..*" geo_measurement
+@enduml
