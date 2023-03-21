@@ -1,6 +1,8 @@
 @startuml LoRaWAN DB Schema
 entity device {
     *DevEUI : hex <<PK>>
+    name : string
+    description : string
 }
 
 entity gateway {
@@ -14,7 +16,7 @@ entity geo_measurement {
     device_id : number
     rssi : number
     snr : number
-}   
+}
 
 entity ttnmapper_measurement {
     *id : number <<PK; From TTNMapper .csv>>
