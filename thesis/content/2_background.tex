@@ -93,6 +93,13 @@ In essence, they keep the downlink windows as specified in class B open all the 
 Devices in class C consume the most power, since they are always listening for downlink messages.
 The fact that they're always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or a reliable accessibility via downlink.
 
+\section{\acf{TTN}}
+
+\ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
+It provides a free \ac{LoRaWAN} network for the public to use.
+
+\ac{TTN} was used in this thesis to enable the communication between the \ac{LoRa} devices and TTNMapper.
+
 \subsection{Gateways}
 
 Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
@@ -116,15 +123,6 @@ While the \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets, the \ac
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_network_lora_nodate}.
-
-\section{\acf{TTN}}
-
-\ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
-It provides a free \ac{LoRaWAN} network for the public to use.
-
-\ac{TTN} was used in this thesis to enable the communication between the \ac{LoRa} devices and TTNMapper.
-
-
 
 \section{Localization of devices}
 
