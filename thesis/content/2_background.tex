@@ -1,18 +1,27 @@
 \chapter{Background}
 
 \section{Wireless Communication}
+
 \section{\acf{LoRa}}
 
+\subsection{Duty Cycle}
+
+% TODO add a figure with the duty cycle
+
+In the \ac{EU} region, the duty cycle for transmission in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
+This means that a \ac{LoRa} device using this frequency may only transmit for 1\% of a given time slot.
+It needs to stay silent for the rest of the time.
+
+\subsection{Gateways}
+
+A \ac{LoRa} gateway is the device that receives \ac{LoRa} packets from \ac{LoRa} nodes and forwards them to the \ac{LoRaWAN} server.
 
 \section{\acf{LoRaWAN}}
-
-% TODO network structure
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lorawan-architecture.png}
-    \caption{\ac{LoRaWAN} network structure~\protect\cite{the_things_network_lorawan_nodate}}
-    \label{pic:lorawan-network-structure}
+    \caption{\ac{LoRaWAN} network structure~\protect\cite{the_things_network_lorawan_nodate}}\label{pic:lorawan-network-structure}
 \end{figure}
 
 \ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
@@ -30,8 +39,10 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 
 \subsection{Data Transmission}
 
-% TODO: explain what uplink and downlink are
+In LoRaWAN, data transmissions to and from the end nodes are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_2017}.
 
+Uplinks are relayed to the network server by one or more gateways from the end node.
+Downlinks, however, are only sent from the network server to the end node using a single gateway.
 \subsection{Device Classes}
 
 \ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_2017}.
@@ -41,8 +52,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-a.png}
-    \caption{\ac{LoRaWAN} Device class A communication schema~\protect\cite{the_things_network_device_nodate}}
-    \label{pic:lorawan-device-class-a-schema}
+    \caption{\ac{LoRaWAN} Device class A communication schema~\protect\cite{the_things_network_device_nodate}}\label{pic:lorawan-device-class-a-schema}
 \end{figure}
 
 Class A is used for devices that need to consume as little power as possible.
@@ -60,8 +70,7 @@ Class A consumes the least amount of power of the three classes, since the devic
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-b.png}
-    \caption{\ac{LoRaWAN} Device class B communication schema~\protect\cite{the_things_network_device_nodate}}
-    \label{pic:lorawan-device-class-b-schema}
+    \caption{\ac{LoRaWAN} Device class B communication schema~\protect\cite{the_things_network_device_nodate}}\label{pic:lorawan-device-class-b-schema}
 \end{figure}
 
 In addition to class A, class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows.
@@ -75,8 +84,7 @@ These scheduled downlink windows result in a higher power consumption for class 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-c.png}
-    \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{the_things_network_device_nodate}}
-    \label{pic:lorawan-device-class-c-schema}
+    \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{the_things_network_device_nodate}}\label{pic:lorawan-device-class-c-schema}
 \end{figure}
 
 Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
@@ -85,24 +93,38 @@ In essence, they keep the downlink windows as specified in class B open all the 
 Devices in class C consume the most power, since they are always listening for downlink messages.
 The fact that they're always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or a reliable accessibility via downlink.
 
-\subsection{Duty Cycle}
 
-% TODO add a figure with the duty cycle
 
-In the \ac{EU} region, the duty cycle for transmission in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
-This means that a \ac{LoRa} device using this frequency may only transmit for 1\% of a given time slot.
-It needs to stay silent for the rest of the time.
+\subsection{Authentication in the \ac{LoRaWAN} network}
 
-\subsection{\acf{TTN}}
+% TODO: Explain the CUPS and LNS architecture
+
+\subsection{Gateways}
+
+Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
+
+\subsubsection{Semtech \acs{UDP} Packet Forwarder}
+
+The Semtech UDP Packet Forwarder is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+
+\subsubsection{\acf{TCP} / LoRa Basics\texttrademark~Station}
+
+Since \ac{TTN} v3, \ac{TTN} recommends using the \ac{TCP}-based LoRa Basics\texttrademark~Station protocol to connect gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+
+% Recommended by TTN
+
+\section{\acf{TTN}}
+
+% TODO explain who made it and when
 
 \ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
 It provides a free \ac{LoRaWAN} network for the public to use.
 
 \ac{TTN} was used in this thesis to enable the communication between the \ac{LoRa} devices and TTNMapper.
 
-% TODO: Explain the CUPS and LNS architecture
 
-\section{Localization}
+
+\section{Localization of devices}
 
 \subsection{Technologies}
 
@@ -124,7 +146,7 @@ In conjunction with the speed of light, this time difference can be used to calc
 
 \subsection{\acs{TDoA}-based}
 
-
+% how does it work
 
 \subsection{\acs{RSSI}-based}
 
@@ -133,19 +155,13 @@ Since signal strengths are not linear, the \ac{RSSI} values need to be converted
 Different devices can have different \ac{RSSI} values for the same distance.
 \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g. if there is a line of sight between the sender and receiver.
 
-\section{\ac{LoRa} Hardware}
+% does this belong here or in the implementation chapter?
+\section{Used \ac{LoRa} Hardware}
 
 \subsection{Gateways}
 
-A \ac{LoRa} gateway is the device that receives \ac{LoRa} packets from \ac{LoRa} nodes and forwards them to the \ac{LoRaWAN} server.
-Gateways are connected to the internet and can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
-
-\subsubsection{Semtech \acs{UDP} Packet Forwarder}
-
-% TTN rät seit v3 davon ab
-
-\subsubsection{\acf{TCP} / LoRa Basics\texttrademark~Station}
-
-% Recommended by TTN
+% list the gateways that were used
 
 \subsection{Nodes}
+
+% list the nodes that were used
