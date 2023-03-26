@@ -5,3 +5,5 @@ Datagram
 TTNMapper
 kbps
 downlink
+Downlinks
+Multilateration
