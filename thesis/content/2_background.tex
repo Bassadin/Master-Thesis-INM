@@ -93,29 +93,31 @@ In essence, they keep the downlink windows as specified in class B open all the 
 Devices in class C consume the most power, since they are always listening for downlink messages.
 The fact that they're always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or a reliable accessibility via downlink.
 
-
-
-\subsection{Authentication in the \ac{LoRaWAN} network}
-
-% TODO: Explain the CUPS and LNS architecture
-
 \subsection{Gateways}
 
 Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
 
-\subsubsection{Semtech \acs{UDP} Packet Forwarder}
+\subsubsection{\acf{SUPF}}
 
-The Semtech UDP Packet Forwarder is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+The \acl{SUPF} is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+The \ac{SUPF} relays \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
 
-\subsubsection{\acf{TCP} / LoRa Basics\texttrademark~Station}
+It may be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
 
-Since \ac{TTN} v3, \ac{TTN} recommends using the \ac{TCP}-based LoRa Basics\texttrademark~Station protocol to connect gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+\subsubsection{\acf{LBS}}
 
-% Recommended by TTN
+Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+
+\ac{LBS} uses TLS-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_network_lora_nodate}.
+
+The two main components of \acl{LBS} are the \ac{LNS} itself as well as the \acf{CUPS}.
+
+While the \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets, the \acl{CUPS} is responsible for handling the configuration of the gateways.
+
+While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
+When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_network_lora_nodate}.
 
 \section{\acf{TTN}}
-
-% TODO explain who made it and when
 
 \ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
 It provides a free \ac{LoRaWAN} network for the public to use.
@@ -165,3 +167,11 @@ Different devices can have different \ac{RSSI} values for the same distance.
 \subsection{Nodes}
 
 % list the nodes that were used
+
+\section{\acf{TTNM}}
+
+% TODO explain who made it and when
+
+% explain how it works in conjunction with TTN
+
+% explain why it is important for the thesis
