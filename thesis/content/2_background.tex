@@ -61,8 +61,8 @@ Downlinks, however, are only sent from the network server to the end node using 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-a.png}
-    \caption{\ac{LoRaWAN} Device class A communication schema~\protect\cite{the_things_network_device_nodate}}\label{pic:lorawan-device-class-a-schema}
+    \includegraphics[width=1\textwidth]{pictures/device-classes/class-a.png}
+    \caption{\ac{LoRaWAN} Device class A communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-a-schema}
 \end{figure}
 
 Class A is used for devices that need to consume as little power as possible.
@@ -79,8 +79,8 @@ Class A consumes the least amount of power of the three classes, since the devic
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-b.png}
-    \caption{\ac{LoRaWAN} Device class B communication schema~\protect\cite{the_things_network_device_nodate}}\label{pic:lorawan-device-class-b-schema}
+    \includegraphics[width=1\textwidth]{pictures/device-classes/class-b.png}
+    \caption{\ac{LoRaWAN} Device class B communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-b-schema}
 \end{figure}
 
 In addition to class A, class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows.
@@ -93,8 +93,8 @@ These scheduled downlink windows result in a higher power consumption for class 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-c.png}
-    \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{the_things_network_device_nodate}}\label{pic:lorawan-device-class-c-schema}
+    \includegraphics[width=1\textwidth]{pictures/device-classes/class-c.png}
+    \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-c-schema}
 \end{figure}
 
 Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
@@ -124,23 +124,23 @@ Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in tw
 
 \subsubsection{\acf{SUPF}}
 
-The \acl{SUPF} is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+The \acl{SUPF} is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 The \ac{SUPF} relays \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
 
 It may be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
 
 \subsubsection{\acf{LBS}}
 
-Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_network_semtech_nodate}.
+Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 
-\ac{LBS} uses TLS-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_network_lora_nodate}.
+\ac{LBS} uses TLS-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
 
 The two main components of \acl{LBS} are the \ac{LNS} itself as well as the \acf{CUPS}.
 
 While the \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets, the \acl{CUPS} is responsible for handling the configuration of the gateways.
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
-When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_network_lora_nodate}.
+When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
 
 \section{Localization of devices}
 
