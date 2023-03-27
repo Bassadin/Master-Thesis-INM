@@ -131,6 +131,12 @@ It may be configured using JSON files such as \lstinline{global_conf.json} and \
 
 \subsubsection{\acf{LBS}}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
+    \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{semtech_lora_developer_portal_lora_2022}}\label{pic:lora-basics-station-schema}
+\end{figure}
+
 Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 
 \ac{LBS} uses TLS-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
