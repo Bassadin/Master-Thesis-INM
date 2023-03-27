@@ -25,7 +25,7 @@ A \ac{LoRa} gateway is the device that receives \ac{LoRa} packets from \ac{LoRa}
 \begin{figure}[h]
     \centering
     \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
-    \caption{\ac{LoRaWAN} logo~\protect\cite{alliance_francais_2022}}
+    \caption{\ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}}
 \end{figure}
 
 \ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
@@ -113,7 +113,7 @@ The fact that they're always reachable by the \ac{LNS} also makes them the most 
 
 \ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
 
-While, officially, it is called \emph{The Things Stack Community Edition} since 2021, it is still commonly referred to as \acf{TTN}~\cite{the_things_network_what_nodate}.
+While, officially, it is called \emph{The Things Stack Community Edition} since 2021, it is still commonly referred to as \acf{TTN}~\cite{the_things_industries_bv_what_2022}.
 Its users provide \ac{TTN} with gateways that other users can use, making it a decentralized and crowdsourced \ac{LoRaWAN} network.
 
 In addition
@@ -142,8 +142,9 @@ Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended ov
 \ac{LBS} uses TLS-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
 
 The two main components of \acl{LBS} are the \ac{LNS} itself as well as the \acf{CUPS}.
+The communication schema can be seen in \cref{pic:lora-basics-station-schema}.
 
-While the \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets, the \acl{CUPS} is responsible for handling the configuration of the gateways.
+The \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets whereas the \acl{CUPS} is responsible for handling the configuration of the gateways.
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
