@@ -205,8 +205,17 @@ It was chosen after recommendation by a member of the HSN-TTN team.
 
 \section{\acf{TTNM}}
 
-% TODO explain who made it and when
+% What quotes to use?
+
+\acf{TTNM} was created by JP Meijers in 2015. % Source: Linkedin profile okay?
+While he first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway, the project has since been expanded to map the coverages of almost all gateways registered in the public \ac{TTN} network.
 
 % explain how it works in conjunction with TTN
 
+\acl{TTNM} works by using \ac{LoRaWAN} nodes with GPS modules that send their location to the \ac{TTN} network via uplink messages.
+Alongside the location information, those nodes' messages also include information about which gateways received the message.
+Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' GPS modules to build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
+
 % explain why it is important for the thesis
+
+As far as this thesis is concerned, \acl{TTNM} is important because it provided a way to access \ac{RSSI} and location data points for measurements done by GPS-enabled \ac{LoRaWAN} nodes.
