@@ -14,8 +14,10 @@ entity gateway {
 entity geo_measurement {
     *id : number <<PK>>
     device_id : number
-    rssi : number
-    snr : number
+    latitude : number
+    longitude : number
+    altitude : number
+    hdop : number
 }
 
 entity ttnmapper_measurement {
