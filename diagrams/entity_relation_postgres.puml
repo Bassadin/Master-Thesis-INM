@@ -23,7 +23,7 @@ entity geo_measurement {
 entity ttnmapper_measurement {
     *id : number <<PK; From TTNMapper .csv>>
     geo_measurement_id : number <<FK>>
-    GatewayEUI : number <<FK>>
+    GatewayEUI : hex <<FK>>
     rssi : number
     snr : number
 }
