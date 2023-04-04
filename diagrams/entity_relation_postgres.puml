@@ -11,7 +11,7 @@ entity gateway {
     longitude : number
 }
 
-entity geo_measurement {
+entity device_gps_datapoint {
     *id : number <<PK>>
     device_id : number
     latitude : number
@@ -20,15 +20,15 @@ entity geo_measurement {
     hdop : number
 }
 
-entity ttnmapper_measurement {
+entity ttnmapper_datapoint {
     *id : number <<PK; From TTNMapper .csv>>
-    geo_measurement_id : number <<FK>>
+    device_gps_datapoint_id : number <<FK>>
     GatewayEUI : hex <<FK>>
     rssi : number
     snr : number
 }
 
-gateway "1" -- "0..*" ttnmapper_measurement
-geo_measurement "1" -- "0..*" ttnmapper_measurement
-device "1" -- "0..*" geo_measurement
+gateway "1" -- "1..*" ttnmapper_datapoint
+device_gps_datapoint "1" -- "1..*" ttnmapper_datapoint
+device "1" -- "1..*" device_gps_datapoint
 @enduml
