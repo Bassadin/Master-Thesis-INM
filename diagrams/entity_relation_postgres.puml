@@ -1,19 +1,20 @@
 @startuml LoRaWAN DB Schema
 entity device {
-    *DevEUI : hex <<PK>>
+    *device_id : string <<PK>>
     name : string
     description : string
 }
 
 entity gateway {
-    *GatewayEUI : hex <<PK>>
+    *gateway_id : string <<PK>>
     latitude : number
     longitude : number
 }
 
 entity device_gps_datapoint {
     *id : number <<PK>>
-    device_id : number
+    timestamp : datetime
+    device_id : number <<FK>>
     latitude : number
     longitude : number
     altitude : number
@@ -22,8 +23,9 @@ entity device_gps_datapoint {
 
 entity ttnmapper_datapoint {
     *id : number <<PK; From TTNMapper .csv>>
+    timestamp : datetime
     device_gps_datapoint_id : number <<FK>>
-    GatewayEUI : hex <<FK>>
+    gateway_EUI : string <<FK>>
     rssi : number
     snr : number
 }
