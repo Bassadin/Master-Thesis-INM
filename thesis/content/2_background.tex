@@ -12,9 +12,12 @@
 
 % TODO add a figure with the duty cycle
 
-In the \ac{EU} region, the duty cycle for transmission in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
-This means that a \ac{LoRa} device using this frequency may only transmit for 1\% of a given time slot.
+In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
+This means that a \ac{LoRa} device using a frequency band in this range may only transmit for 1\% of a given time slot.
+If, for example, a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
 It needs to stay silent for the rest of the time.
+
+Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
 
 \subsection{Gateways}
 
