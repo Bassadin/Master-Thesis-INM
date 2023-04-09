@@ -2,15 +2,50 @@
 
 \section{Installing gateways in Furtwangen}
 
-\section{A, B and C buildings}
+Since, at the beginning of this thesis, there were only two gateways installed in the vicinity of Furtwangen, the first step was to research, order and then install additional gateways in the city.
 
-The first antenna and gateway installed to last was the MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
-While not as high in altitude as the GHB building, it is still a good location to receive signals from the surrounding area.
+The gateways that were used in this thesis were mainly ones that were already in the possession of the \ac{HFU}.
+Such was the case for the two \emph{Dragino LG308} indoor gateways as well as a \emph{RAK7258} indoor gateway.
 
-% ggf abbreviations?
-\subsection{Großhausberg (GHB) and Albert-Schweizer-Haus (ASH) dormitories}
+Additionally, for development purposes, a \emph{Dragino PG1301} outdoor gateway was also used.
+The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
 
-\subsection{Brend tower}
+\subsection{Researching gateways}
+
+One notable exception are the two MikroTik wAP LR8 kit gateways that was purchased for the thesis.
+It was chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{noauthor_eingesetzte_nodate}.
+The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices.
+A picture of this gateway can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
+The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna which can be seen in \cref{pic:mikrotik-antenna-c-building}.
+
+The other gateway that was purchased for the thesis was a \emph{Dragino DLOS8N} outdoor gateway.
+This gateway was chosen because of difficulties in ordering the second MikroTik wAP LR8 kit.
+It was available right away at the time of ordering and was thus chosen as a short-term replacement.
+Still, it was used anyway as the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
+The DLOS8N also has a case that is weatherproof and made for outdoor use. 
+
+\subsection{Locations}
+
+% TODO: Add map with Gateway locations
+
+Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
+In the following sections, the chosen locations are described and evaluated.
+
+\subsubsection{\ac{HFU} C building}
+
+The first antenna and gateway installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
+While not as high in altitude as the GHB building, it was thought to still be a good location to receive signals from the surrounding area.
+The roof of the C building is located in an exposed in the middle of the valley Furtwangen is situated in.
+
+\subsubsection{\acf{GHB} and \acf{ASH} student dormitories}
+
+The \ac{GHB} is a popular student dormitory located on the Großhausberg mountainside in Furtwangen.
+Its exposed location and the fact that it is among the highest buildings in the city makes it a good location for putting up a \ac{LoRaWAN} gateway.
+
+The network infrastructure of both the \ac{GHB} and the \ac{ASH} are managed by the ``\ac{GHB} netadmins'' who are students of \ac{HFU}.
+Thus, with their help, it was possible to install antennas on the roofs of the GHB and ASH student dormitories.
+
+\subsubsection{Brend tower}
 
 % todo: explain talks with EGT GmbH and problems associated with deployment (private network, etc.)
 

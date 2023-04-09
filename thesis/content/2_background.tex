@@ -26,6 +26,8 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 \section{\acf{LoRa} modulation}
 
 % explain the basics of LoRa with things like modulation, spreading factor, etc.
+While, in the 868 MHz band used in the \ac{EU}, there are only a few channels available, \ac{LoRa} uses a technique called modulation to overcome this problem.
+
 
 \subsection{Why use \ac{LoRa}?}
 
@@ -233,29 +235,6 @@ The method based on \acf{RSSI} uses the signal strength of the signal that is re
 Since signal strengths are not linear, the \ac{RSSI} values need to be converted to a linear scale.
 Different devices can have different \ac{RSSI} values for the same distance.
 \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g. if there is a line of sight between the sender and receiver.
-
-% does this belong here or in the implementation chapter?
-\section{Used \ac{LoRa} Hardware}
-
-\subsection{Gateways}
-
-The gateways being used in this thesis were mainly ones that were already in the possession of the \ac{HFU}.
-
-One notable exception is the two MikroTik wAP LR8 kit gateway that was purchased for the thesis.
-It was chosen after recommendation by a member of the HSN-TTN team.
-
-% list the gateways that were used, images
-
-% Mikrotik lr8 + antenne (deployment on ask, ghb)
-% Dragino LG308 (deployment c building)
-
-\subsection{Nodes}
-
-% list the nodes that were used
-
-% HTCC-AB02s
-% ELV GPS long boi
-% dnt solar tracker
 
 \section{\acf{TTNM}}
 
