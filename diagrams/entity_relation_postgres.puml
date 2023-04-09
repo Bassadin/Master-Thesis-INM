@@ -3,12 +3,16 @@ entity device {
     *device_id : string <<PK>>
     name : string
     description : string
+    created_at : datetime
+    updated_at : datetime
 }
 
 entity gateway {
     *gateway_id : string <<PK>>
     latitude : number
     longitude : number
+    created_at : datetime
+    updated_at : datetime
 }
 
 entity device_gps_datapoint {
@@ -33,6 +37,8 @@ entity ttnmapper_datapoint {
 entity device_subscription {
     *id : number <<PK>>
     device_id : number <<FK>>
+    created_at : datetime
+    updated_at : datetime
 }
 
 gateway "1" -- "1..*" ttnmapper_datapoint
