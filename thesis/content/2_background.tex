@@ -5,22 +5,32 @@
 
 \subsection{Why not use Wi-Fi, ZigBee, LTE/4G, etc.? - Problems with established wireless communication techniques}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
+    \caption{Comparison between different wireless communication protocols~\protect\cite{wang_comparison_2021}}\label{pic:wireless-protocols-comparison}
+\end{figure}
+
 % show problems with current, widely used wireless communication techniques such as Wi-Fi, LTE, etc. 
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, LTE/4G and other, these technologies are not suitable for all use cases.
-
-%  todo add figure with bitrate, range, power consumption, etc. for different technologies
 
 % TODO
 For example, Wi-Fi is not suitable for battery-powered devices that are deployed in remote areas, as it requires a lot of power to operate.
 ZigBee is also not suitable for battery-powered devices, as it is not designed for long distances and thus has a very short range.
 LTE/4G not suitable for battery-powered devices either as it requires a lot of power.
+A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
 \subsection{\ac{RSSI} vs. \ac{SNR}}
 
 \section{\acf{LoRa} modulation}
 
 % explain the basics of LoRa with things like modulation, spreading factor, etc.
+
+\subsection{Why use \ac{LoRa}?}
+
+% todo: little power consumption, long range, low cost, etc. (link to diagram above)
+As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
 \subsection{Duty Cycle (in the \ac{EU} region)}
 
