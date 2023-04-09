@@ -9,3 +9,9 @@ Downlinks
 Multilateration
 Semtech
 MikroTik
+Dragino
+dBi
+Großhausberg
+wAP
+HSN-TTN
+RouterOS
