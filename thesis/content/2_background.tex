@@ -16,11 +16,13 @@ For example, Wi-Fi is not suitable for battery-powered devices that are deployed
 ZigBee is also not suitable for battery-powered devices, as it is not designed for long distances and thus has a very short range.
 LTE/4G not suitable for battery-powered devices either as it requires a lot of power.
 
-\section{\acf{LoRa}}
+\subsection{\ac{RSSI} vs. \ac{SNR}}
+
+\section{\acf{LoRa} modulation}
 
 % explain the basics of LoRa with things like modulation, spreading factor, etc.
 
-\subsection{Duty Cycle}
+\subsection{Duty Cycle (in the \ac{EU} region)}
 
 % TODO add a figure with the duty cycle
 
@@ -30,6 +32,33 @@ If, for example, a device transmits data for 36 seconds, it must stay silent for
 It needs to stay silent for the rest of the time.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
+
+\section{\acf{LoRaWAN}}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
+    \caption{\ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}}
+\end{figure}
+
+\ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lorawan-architecture.png}
+    \caption{\ac{LoRaWAN} network structure~\protect\cite{the_things_industries_bv_lorawan_nodate}}\label{pic:lorawan-network-structure}
+\end{figure}
+
+The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_2017}:
+
+\begin{itemize}
+    \item the end nodes (also called devices or motes),
+    \item the gateways (also called concentrators or base stations),
+    \item the \ac{LNS}, and
+    \item the \acp{AS}.
+\end{itemize}
+
+\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
 
 \subsection{Gateways}
 
@@ -60,33 +89,6 @@ While gateways like these usually have a built-in antenna, their range is usuall
 It is, however, also possible to use external antennas if one needs to cover a much larger area as was the need in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
 While there are many choices for external antennas, as far as the MikroTik gateway is concerned, the choice was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
-
-\section{\acf{LoRaWAN}}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
-    \caption{\ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}}
-\end{figure}
-
-\ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lorawan-architecture.png}
-    \caption{\ac{LoRaWAN} network structure~\protect\cite{the_things_industries_bv_lorawan_nodate}}\label{pic:lorawan-network-structure}
-\end{figure}
-
-The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_2017}:
-
-\begin{itemize}
-    \item the end nodes (also called devices or motes),
-    \item the gateways (also called concentrators or base stations),
-    \item the \ac{LNS}, and
-    \item the \acp{AS}.
-\end{itemize}
-
-\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
 
 \subsection{Data Transmission}
 
