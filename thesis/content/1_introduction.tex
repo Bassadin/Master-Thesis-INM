@@ -2,7 +2,7 @@
 
 \section{Motivation}
 
-The global market for IoT devices is expected to grow from 397.62 B USD in 2019 to 1,110 B USD by 2028~\cite{grand_view_research_global_2022}.
+The global market for \ac{IoT} devices is expected to grow from 397.62 B USD in 2019 to 1,110 B USD by 2028~\cite{grand_view_research_global_2022}.
 % todo better transition
 Over short ranges, it is relatively easy to connect devices to the internet wirelessly with technologies such as ZigBee.
 Bridging long distances, however, can become a challenge if devices are also to consume as little power as possible.
@@ -13,14 +13,14 @@ While, realistically, such devices usually reach much shorter distances, they ca
 
 While \ac{LoRa} end devices can feature \ac{GPS} receivers to geolocate them when deployed, they use additional space and, more importantly, power.
 This is especially problematic for battery-powered devices that are deployed in remote areas.
-Contrary to \ac{GPS}, \ac{LoRa} nodes may also be geolocated without a GPS receiver by using the signals they send to the \ac{LoRa} Gateways in the network.
+Contrary to \ac{GPS}, \ac{LoRa} nodes may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} Gateways in the network.
 
 Using available \ac{LoRa} Gateways that are registered in \acf{TTN} as well as placing new ones in the vicinity of the \acf{HFU}, this thesis aims to analyze and compare \ac{GPS}-less methods to geolocate off-the-shelf \ac{LoRaWAN} nodes.
 
 \section{Research Questions}
 
 \begin{enumerate}
-    \item In what ways can \ac{LoRa} devices be geolocated without the need for a GPS receiver?
+    \item In what ways can \ac{LoRa} devices be geolocated without the need for a \ac{GPS} receiver?
     \item How do these ways compare to each other?
     \item What factors can influence the accuracy of these kinds of geolocation?
 \end{enumerate}
@@ -28,8 +28,8 @@ Using available \ac{LoRa} Gateways that are registered in \acf{TTN} as well as p
 \section{Existing Work}
 
 Some papers have already looked into the topic of geolocation of \ac{LoRa} devices.
-\cite{mackey_lora-based_2019}~used some \ac{LoRa} gateways over relatively short distances to geolocate \ac{LoRa} devices by using their signal strength RSSI values.
-In another example,~\cite{lam_new_2018} proposed a method to geolocate \ac{LoRa} devices using a new kind of algorithm that is also based on RSSI values.
+\cite{mackey_lora-based_2019}~used some \ac{LoRa} gateways over relatively short distances to geolocate \ac{LoRa} devices by using their signal strength \ac{RSSI} values.
+In another example,~\cite{lam_new_2018} proposed a method to geolocate \ac{LoRa} devices using a new kind of algorithm that is also based on \ac{RSSI} values.
 
 Gu et al. researched \ac{LoRa}-based localization in 2018.
 They came concluded that both \ac{ToA} and \ac{RSSI} based methods have their downsides and are not accurate enough for any task that requires precision, such as steering of autonomous vehicles and similar use cases~\cite{gu_lora-based_2018}.

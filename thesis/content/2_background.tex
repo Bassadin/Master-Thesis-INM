@@ -3,7 +3,7 @@
 \section{Wireless Communication}
 
 
-\subsection{Why not use Wi-Fi, ZigBee, LTE/4G, etc.? - Problems with established wireless communication techniques}
+\subsection{Why not use Wi-Fi, ZigBee, \ac{LTE}/4G, etc.? - Problems with established wireless communication techniques}
 
 \begin{figure}[h]
     \centering
@@ -13,12 +13,12 @@
 
 % show problems with current, widely used wireless communication techniques such as Wi-Fi, LTE, etc. 
 
-While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, LTE/4G and other, these technologies are not suitable for all use cases.
+While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
 
 % TODO
 For example, Wi-Fi is not suitable for battery-powered devices that are deployed in remote areas, as it requires a lot of power to operate.
 ZigBee is also not suitable for battery-powered devices, as it is not designed for long distances and thus has a very short range.
-LTE/4G not suitable for battery-powered devices either as it requires a lot of power.
+\ac{LTE} not suitable for battery-powered devices either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
 \subsection{\ac{RSSI} vs. \ac{SNR}}
@@ -86,7 +86,8 @@ A \ac{LoRa} gateway is a device that receives \ac{LoRa} packets (usually from \a
 The \ac{CPU} processes the incoming data and forwards the packets to the \ac{LoRaWAN} server.
 
 To achieve the connection to the \ac{LoRaWAN} server, the gateway needs to be connected to the internet.
-The most widely used methods, called \emph{backhauls}, to realize this are Ethernet/LAN, Wi-Fi and 4G/LTE connections.
+This connection is a also called \emph{backhaul}.
+The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections.
 
 One example of a gateway used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the student dorm \ac{GHB}.
@@ -195,7 +196,7 @@ It is advised to use the \acl{LBS} protocol instead.
 
 Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 
-\ac{LBS} uses TLS-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
+\ac{LBS} uses \ac{TLS}-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
 
 The two main components of \acl{LBS} are the \ac{LNS} itself as well as the \acf{CUPS}.
 The communication schema can be seen in \cref{pic:lora-basics-station-schema}.
@@ -245,10 +246,10 @@ While he first created it as a personal project to map the range of his own \ac{
 
 % explain how it works in conjunction with TTN
 
-\acl{TTNM} works by using \ac{LoRaWAN} nodes with GPS modules that send their location to the \ac{TTN} network via uplink messages.
+\acl{TTNM} works by using \ac{LoRaWAN} nodes with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
 Alongside the location information, those nodes' messages also include information about which gateways received the message.
-Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' GPS modules to build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
+Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules to build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
 
 % explain why it is important for the thesis
 
-As far as this thesis is concerned, \acl{TTNM} is important because it provided a way to access \ac{RSSI} and location data points for measurements done by GPS-enabled \ac{LoRaWAN} nodes.
+As far as this thesis is concerned, \acl{TTNM} is important because it provided a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} nodes.
