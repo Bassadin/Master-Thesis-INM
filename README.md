@@ -13,3 +13,7 @@ The LaTeX source code is located in the `thesis` folder.
 2. `cd thesis`
 3. `make`
 4. Enjoy your `main.pdf`!
+
+### Useful regexes
+
+- `(?<!\\ac\{)(\b[A-Z]{2,}\b)(?!\})`: Find all abbreviation without `\ac{}`.
