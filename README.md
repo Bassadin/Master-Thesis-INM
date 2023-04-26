@@ -3,6 +3,10 @@
 My master's thesis in Computer Science during Summer Semester 2023 about Localization in LoRa-based networks at [HFU Furtwangen University](https://www.hs-furtwangen.de/).
 The repo will get updated during the semester.
 
+## PDF
+
+Ready-made PDFs available in the [Releases section](https://github.com/Bassadin/Master-Thesis-INM/releases)
+
 ## LaTeX
 
 The LaTeX source code is located in the `thesis` folder.
