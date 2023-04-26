@@ -17,3 +17,8 @@ The LaTeX source code is located in the `thesis` folder.
 ### Useful regexes
 
 - `(?<!\\ac\{)(\b[A-Z]{2,}\b)(?!\})`: Find all abbreviation without `\ac{}`.
+
+## Other parts of this thesis
+
+- [API/Backend](https://github.com/Bassadin/ttn-locator-backend)
+- [Frontend](https://github.com/Bassadin/ttn-locator-frontend)
