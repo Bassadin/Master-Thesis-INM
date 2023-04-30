@@ -3,20 +3,23 @@
 \section{Wireless Communication}
 
 
-\subsection{Why not use Wi-Fi, ZigBee, \ac{LTE}/4G, etc.? - Problems with established wireless communication techniques}
+\subsection{Problems with established wireless communication techniques}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
-    \caption{Comparison between different wireless communication protocols~\protect\cite{wang_comparison_2021}}\label{pic:wireless-protocols-comparison}
+    \caption{Comparison of data rate, power consumption and range between different wireless communication protocols~\protect\cite{wang_comparison_2021}}\label{pic:wireless-protocols-comparison}
 \end{figure}
 
 % show problems with current, widely used wireless communication techniques such as Wi-Fi, LTE, etc. 
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
 
+Deployments of sensors in remote areas, for example, might need long-range and low-power sensors that need to run on batteries for several years since replacing the batteries is expensive.
+Likewise, sensors that are deployed in such areas can be hard to reach or placed apart by several hundred meters.
+
 % TODO
-For example, Wi-Fi is not suitable for battery-powered devices that are deployed in remote areas, as it requires a lot of power to operate.
+Wi-Fi is not suitable for battery-powered devices that are deployed in remote areas, as it requires a lot of power to operate.
 ZigBee is also not suitable for battery-powered devices, as it is not designed for long distances and thus has a very short range.
 \ac{LTE} not suitable for battery-powered devices either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
@@ -87,7 +90,7 @@ The \ac{CPU} processes the incoming data and forwards the packets to the \ac{LoR
 
 To achieve the connection to the \ac{LoRaWAN} server, the gateway needs to be connected to the internet.
 This connection is a also called \emph{backhaul}.
-The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections.
+The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections. 
 
 One example of a gateway used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the student dorm \ac{GHB}.
@@ -98,8 +101,8 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
     \caption{The MikroTik antenna installed on top of the \ac{HFU} C building}\label{pic:mikrotik-antenna-c-building}
 \end{figure}
 
-While gateways like these usually have a built-in antenna, their range is usually only sufficient for covering small to medium-sized buildings or areas.
-It is, however, also possible to use external antennas if one needs to cover a much larger area as was the need in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
+While gateways like these usually have a built-in antenna, their range is only sufficient for covering small to medium-sized buildings or areas.
+It is, however, also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
 While there are many choices for external antennas, as far as the MikroTik gateway is concerned, the choice was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
