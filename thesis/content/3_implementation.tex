@@ -78,7 +78,19 @@ It has a USB-C port, which made powering the tracker with an external power bank
 % TODO
 \subsection{dnt-LW-ATS}
 
-% TODO mention problems with the node (configuration, etc.)
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
+    \caption{dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}}
+\end{figure}
+
+At first glance, this was the most promising \ac{LoRa} node for the task at hand.
+It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
+
+However, the node proved to be difficult to configure and use.
+The device offers a \emph{motion based cyclic} mode in which, during physical movement, the node sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
+This, however, did not work in practice and the node would only send its coordinates very irregularly, if at all.
+The documentation was not very helpful with finding the root cause and the manufacturer also could only offer to replace the hardware.
 
 \section{Program structure}
 
