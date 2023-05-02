@@ -2,17 +2,20 @@
 
 \section{Installing gateways in Furtwangen}
 
+\ac{TTNM} already had a number of datapoints for existing \ac{LoRaWAN} gateways in the Furtwangen area.
+However, to make a good geolocation prediction for a \ac{LoRaWAN} node, it is necessary to have at least three gateways in range of the node.
+
 Since, at the beginning of this thesis, there were only two gateways installed in the vicinity of Furtwangen, the first step was to research, order and then install additional gateways in the city.
 
-The gateways that were used in this thesis were mainly ones that were already in the possession of the \ac{HFU}.
-Such was the case for the two \emph{Dragino LG308} indoor gateways as well as a \emph{RAK7258} indoor gateway.
+Some gateways that were used in this thesis were ones that were already in the possession of the \ac{HFU}.
+Such was the case for the \emph{Dragino LG308 / LG308N} indoor gateways as well as a \emph{RAK7258} indoor gateway.
 
-Additionally, for development purposes, a \emph{Dragino PG1301} outdoor gateway was also used.
+Additionally, for development purposes, a \emph{Dragino PG1301} gateway was also used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
 
 \subsection{Researching gateways}
 
-One notable exception are the two MikroTik wAP LR8 kit gateways that was purchased for the thesis.
+Two MikroTik wAP LR8 kit gateways were purchased for the thesis.
 It was chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
 The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices.
 A picture of this gateway can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
@@ -26,7 +29,7 @@ The DLOS8N also has a case that is weatherproof and made for outdoor use.
 
 \subsection{Locations}
 
-% TODO: Add map with Gateway locations
+% TODO: Add map with Gateway locations (later)
 
 Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
 In the following sections, the chosen locations are described and evaluated.
@@ -55,7 +58,8 @@ With their help, it was possible to install antennas on the roofs of the \ac{GHB
 
 \section{Collecting additional \ac{TTNM} data in the Furtwangen area}
 
-In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN} \ac{RSSI} and \ac{GPS} data that could be synthesized.
+In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
+This was done by using \ac{LoRaWAN} nodes that were equipped with \ac{GPS} modules and then moving them around the city of Furtwangen.
 
 \subsection{Used \ac{LoRa} nodes}
 
