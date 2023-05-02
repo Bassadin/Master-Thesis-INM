@@ -57,13 +57,29 @@ In order to have more data to work with as far as geolocation calculations are c
 
 In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 
-\subsection{ELV LoRIS}
+\subsection{ELV LW experimental platform}
 
-% worked the best out of the box, great manuals, etc.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
+    \caption{ELV-AM-GPS \ac{LoRaWAN} node on top of the LoRIS base~\label{pic:loris-node-bare}}
+\end{figure}
 
-The ELV LoRIS was the \ac{GPS} tracker that worked best out of the box as far as general usability is concerned.
+The ELV LW experimental platform was the \ac{LoRaWAN} node out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned\cite{elv_elektronik_ag_elv-lw-base_2023}.
+The ELV LW experimental platform consists of a base module called ELV-BM-TRX1 and a number of different sensor modules that can be stacked on top of it as seen in \cref{pic:loris-node-bare}.
 It has a USB-C port, which made powering the tracker with an external power bank simple.
 
+Little had to be done in order to begin using the base with the additional \ac{GPS} module ELV-AM-GPS~\cite{elv_elektronik_ag_elv-track_2022}.
+Flashing the firmware using a tool provided by the manufacturer was the first step.
+Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS module had to be entered into \ac{TTN}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
+    \caption{ELV-AM-GPS \ac{LoRaWAN} node in self-designed 3D printed case~\label{pic:loris-node-with-case}}
+\end{figure}
+
+To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
 
 \subsection{ELV \ac{GPS} Tracker}
 
@@ -144,3 +160,5 @@ It is used in this thesis for the frontend of the \ac{TTNL} web application.
 \subsubsection{Vuetify}
 
 \subsubsection{Leaflet}
+
+\subsection{Locating \ac{LoRaWAN} nodes with multiple techniques using \ac{TTNL}}
