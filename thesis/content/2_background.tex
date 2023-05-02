@@ -40,12 +40,20 @@ A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theor
 
 \subsection{Duty Cycle (in the \ac{EU} region)}
 
-% TODO add a figure with the duty cycle
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\textwidth]{pictures/lora/duty-cycle-single-channel-off-air.png}
+    \caption{\ac{LoRa} duty cycle example~\protect\cite{the_things_industries_bv_duty_nodate}}\label{pic:lora-duty-cycle}
+\end{figure}
 
 In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
 This means that a \ac{LoRa} device using a frequency band in this range may only transmit for 1\% of a given time slot.
 If, for example, a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
 It needs to stay silent for the rest of the time.
+
+An example of a \ac{LoRa} duty cycle can be seen in \cref{pic:lora-duty-cycle}.
+In this example, the duty cycle is 20%.
+The device, which transmits for one block of time needs to stay silent for the next four blocks of time until it can transmit again.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
 
