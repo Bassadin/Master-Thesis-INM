@@ -1,7 +1,7 @@
 # Master-Thesis-INM
 
 My master's thesis in Computer Science during the summer semester 2023 about Localization in LoRa-based networks at [HFU Furtwangen University](https://www.hs-furtwangen.de/).
-The repo will get updated during the semester.
+This repo will get updated during the semester.
 
 ## PDF
 
