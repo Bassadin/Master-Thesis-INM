@@ -26,3 +26,4 @@ The LaTeX source code is located in the `thesis` folder.
 
 - [API/Backend](https://github.com/Bassadin/ttn-locator-backend)
 - [Frontend](https://github.com/Bassadin/ttn-locator-frontend)
+- [Other Code, e.g. for LoRaWAN clients, etc.](https://github.com/Bassadin/Master-Thesis-INM-Clients-Code)
