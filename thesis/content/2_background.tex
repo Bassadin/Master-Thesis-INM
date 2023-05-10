@@ -267,14 +267,35 @@ Different devices can have different \ac{RSSI} values for the same distance.
 % What quotes to use?
 
 \acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
-While he first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway, the project has since been expanded to map the coverages of almost all gateways registered in the public \ac{TTN} network~\cite{the_things_network_jp_2018}.
+He first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway.
+However, the project has since been expanded to map the coverages of almost all gateways registered in the public \ac{TTN} network~\cite{the_things_network_jp_2018}.
 
 % explain how it works in conjunction with TTN
 
 \acl{TTNM} works by using \ac{LoRaWAN} nodes with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
 Alongside the location information, those nodes' messages also include information about which gateways received the message.
-Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules to build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
+Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules.
+With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
 
-% explain why it is important for the thesis
+\subsection{Frontend data views}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
+    \caption{Screenshot of \ac{TTNM}'s \emph{heatmap} view with some gateways visible (small blue and white circles) in the Furtwangen area~\protect\cite{ttn_mapper_ttn_2023}}\label{pic:ttn-mapper-heatmap-with-gateways}
+\end{figure}
+
+\Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
+This page displays an interactive world map with a heatmap overlay.
+It shows the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
+Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LoRaWAN} node and has its location accessible from \ac{TTN} is displayed on the map.
+
+\subsection{Data access}
 
 As far as this thesis is concerned, \acl{TTNM} is important because it provided a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} nodes.
+
+% Mention open API endpoints for accessing data with .csv files
+
+\subsection{Importance for this thesis}
+
+% explain why it is important for the thesis, providing data, etc.
