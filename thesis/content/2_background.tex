@@ -239,11 +239,11 @@ In the following chapters, several concepts relating to localization will be exp
 
 % Explain HDOP and relevance to GPS accuracy
 
-\subsection{Lateration}
+\subsection{Multilateration}
 
 % Explain lateration
 
-\subsection{\acs{ToA}-based}
+\subsubsection{\acs{ToA}-based}
 
 The \acf{ToA} based method uses the difference in the signal's time of arrival at the receiving stations.
 In conjunction with the speed of light, this time difference can be used to calculate the distance between the receiving stations and the transmitting station.
@@ -251,12 +251,16 @@ In conjunction with the speed of light, this time difference can be used to calc
 \ac{ToA} is being used by radio location systems like \ac{GPS} to determine the position of a device by using Multilateration.
 For GPS, usually four or more satellites are required to determine the position of a device accurately.
 
-\subsection{\acs{RSSI}-based}
+\subsubsection{\acs{RSSI}-based}
 
 The method based on \acf{RSSI} uses the signal strength of the signal that is received.
 Since signal strengths are not linear, the \ac{RSSI} values need to be converted to a linear scale.
 Different devices can have different \ac{RSSI} values for the same distance.
 \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g. if there is a line of sight between the sender and receiver.
+
+\subsubsection{Fingerprinting}
+
+% explain context of location fingerprinting (maybe get some sources too)
 
 \section{\acf{TTNM}}
 
