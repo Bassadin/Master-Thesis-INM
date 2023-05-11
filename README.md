@@ -22,6 +22,10 @@ The LaTeX source code is located in the `thesis` folder.
 
 - `(?<!\\ac\{)(\b[A-Z]{2,}\b)(?!\})`: Find all abbreviation without `\ac{}`.
 
+### Useful commands
+
+- `detex main.tex | Measure-Object -word `: Count words in `main.tex` (Windows PowerShell)
+
 ## Other parts of this thesis
 
 - [API/Backend](https://github.com/Bassadin/ttn-locator-backend)
