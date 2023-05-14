@@ -3,6 +3,8 @@
         "james-yu.latex-workshop",
         "tecosaur.latex-utilities",
         "valentjn.vscode-ltex",
-        "jebbs.plantuml"
+        "jebbs.plantuml",
+        "bierner.markdown-mermaid",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
     ]
 }
