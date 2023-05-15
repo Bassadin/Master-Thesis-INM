@@ -22,16 +22,16 @@ ZigBee is also not suitable for battery-powered devices, as it is not designed f
 \ac{LTE} not suitable for battery-powered devices either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
-\subsection{\ac{RSSI}}
+\subsection{\acf{RSSI}}
 
 % TODO
 
-\subsection{\ac{SNR}}
+\subsection{\acf{SNR}}
 
 % TODO
 % SNR = Signal-to-Noise Ratio = PR/PN. A low SNR indicates a noisy signal.
 
-\section{Terminology: \ac{LoRa} vs. \ac{LoRaWAN}}
+\section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
 % Explain the difference between LoRa and LoRaWAN
 
@@ -44,7 +44,7 @@ While, in the 868 MHz band used in the \ac{EU}, there are only a few channels av
 
 % spreading factors: SF7 = high data rate, low range; SF12 = low data rate, high range
 
-\subsection{Why use \ac{LoRa}?}
+\subsection{Why use \acs{LoRa}?}
 
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
@@ -52,7 +52,7 @@ A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theor
 
 % Use https://dramco.be/tools/lora-calculator/ to give another example of battery life
 
-\subsection{Duty Cycle (in the \ac{EU} region)}
+\subsection{Duty Cycle (in the \acs{EU} region)}
 
 \begin{figure}[h]
     \centering
@@ -94,7 +94,7 @@ Luckily, LoRa packets are usually only a few bytes small and can thus be transmi
 The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_2017}:
 
 \begin{itemize}
-    \item the end nodes (also called devices or motes),
+    \item The end nodes (also called devices or motes),
     \item the gateways (also called concentrators or base stations),
     \item the \ac{LNS}, and
     \item the \acp{AS}.
@@ -259,7 +259,7 @@ In the following chapters, several concepts relating to localization will be exp
 
 \subsection{Multilateration}
 
-% Explain lateration
+% Explain lateration and compare to triangulation (term confusion)
 
 \subsubsection{\acs{ToA}-based}
 
