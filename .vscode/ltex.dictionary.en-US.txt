@@ -31,3 +31,4 @@ Triberg
 Mackey
 conf
 json
+GeoJSON
