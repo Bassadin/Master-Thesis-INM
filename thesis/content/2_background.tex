@@ -269,13 +269,24 @@ In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time di
 \ac{ToA} is being used by radio location systems like \ac{GPS} to determine the position of a device by using Multilateration.
 For GPS, usually four or more satellites are required to determine the position of a device accurately.
 
+% TODO explain the needed accuracy of timestamps for this to work
+
 \subsubsection{\acs{RSSI}-based}
 
 % explain basics of RSSI, dbm, etc.
 
-The method based on \acf{RSSI} uses the signal strength of the signal that is received.
+This method uses \acf{RSSI} values to determine the distance between sender and receiver.
+
+% TODO: Quote for this? It's basically just physics?
+Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance.
 Different devices can have different \ac{RSSI} values for the same distance.
+
 \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.\ if there is a line of sight between the sender and receiver.
+The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
+
+Additionally, a radio transmission phenomenon called \acf{MPP} can occur.
+\acf{MPP} cause the \ac{RSSI} values to fluctuate even when the distance between the sender and receiver does not change.
+This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}).
 
 \subsubsection{Fingerprinting}
 
