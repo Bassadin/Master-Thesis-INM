@@ -35,3 +35,7 @@ GeoJSON
 Brunen
 Lüthje
 Blaßdörfer
+ELV-AM-GPS
+LoRIS
+ELV
+LW
