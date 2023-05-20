@@ -284,9 +284,15 @@ Different devices can have different \ac{RSSI} values for the same distance.
 \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.\ if there is a line of sight between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
+    \caption{Example for \acf{MPP} of \ac{RF} waves\protect\cite{milosevic_key_2017}}\label{pic:figure_multipath_propagation}
+\end{figure}
+
 Additionally, a radio transmission phenomenon called \acf{MPP} can occur.
 \acf{MPP} cause the \ac{RSSI} values to fluctuate even when the distance between the sender and receiver does not change~\cite[p. 136]{abdelfadeel_how_2019}.
-This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}).
+This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
 
 \subsubsection{Fingerprinting}
 
