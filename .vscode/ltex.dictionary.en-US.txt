@@ -39,3 +39,4 @@ ELV-AM-GPS
 LoRIS
 ELV
 LW
+Heltec
