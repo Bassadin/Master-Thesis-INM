@@ -40,3 +40,4 @@ LoRIS
 ELV
 LW
 Heltec
+OTAA
