@@ -2,7 +2,7 @@
 
 \section{Installing gateways in Furtwangen}
 
-\ac{TTNM} already had a number of datapoints for existing \ac{LoRaWAN} gateways in the Furtwangen area.
+\ac{TTNM} already had a number of data points for existing \ac{LoRaWAN} gateways in the Furtwangen area.
 However, to make a good geolocation prediction for a \ac{LoRaWAN} node, it is necessary to have at least three gateways in range of the node.
 
 Since, at the beginning of this thesis, there were only two gateways installed in the vicinity of Furtwangen, the first step was to research, order and then install additional gateways in the city.
@@ -16,16 +16,16 @@ The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in
 \subsection{Researching gateways}
 
 Two MikroTik wAP LR8 kit gateways were purchased for the thesis.
-It was chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
-The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices.
+They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
+The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
 A picture of this gateway can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna which can be seen in \cref{pic:mikrotik-antenna-c-building}.
 
 The other gateway that was purchased for the thesis was a \emph{Dragino DLOS8N} outdoor gateway.
 This gateway was chosen because of difficulties in ordering the second MikroTik wAP LR8 kit.
 It was available right away at the time of ordering and was thus chosen as a short-term replacement.
-Still, it was used anyway as the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
-The DLOS8N also has a case that is weatherproof and made for outdoor use.
+It was used even after the second LR8 arrived as the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
+The DLOS8N also has a case that is weatherproof and made for outdoor use, making it similarly suitable as the LR8.
 
 \subsection{Locations}
 
@@ -34,11 +34,16 @@ The DLOS8N also has a case that is weatherproof and made for outdoor use.
 Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
 In the following sections, the chosen locations are described and evaluated.
 
-\subsubsection{\ac{HFU} C building}
+\subsubsection{\ac{HFU} B and C building}
+
+% TODO add more info about gateway deployments?
 
 The first antenna and gateway installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
 The roof of the C building is located in an exposed in the middle of the valley Furtwangen is situated in.
+
+Another gateway with antenna was deployed on top of the B building as there already was ample infrastructure available.
+A Dragino DLOS8N gateway was used here because of its ability to easily be powered by \ac{PoE}.
 
 \subsubsection{\acf{GHB} and \acf{ASH} student dormitories}
 
@@ -51,10 +56,11 @@ With their help, it was possible to install antennas on the roofs of the \ac{GHB
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/lr8_ghb_installation.jpg}
-    \caption{Installed MikroTik LR8 wAP with antenna on the GHB student dormitory~\label{pic:mikrotik-gateway-ghb-installation}}
+    \caption{Installed MikroTik LR8 wAP with antenna on the GHB student dormitory\label{pic:mikrotik-gateway-ghb-installation}}
 \end{figure}
 
 \Cref{pic:mikrotik-gateway-ghb-installation} shows the installed MikroTik wAP LR8 kit gateway on the roof of the \ac{GHB} student dormitory.
+Again, \ac{PoE} was used to power the gateway since only one cable needed to be put through the existing cable duct.
 
 \section{Collecting additional \acf{TTNM} data in the Furtwangen area}
 
@@ -70,7 +76,7 @@ In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{T
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
-    \caption{ELV-AM-GPS \ac{LoRaWAN} node on top of the LoRIS base~\label{pic:loris-node-bare}}
+    \caption{ELV-AM-GPS \ac{LoRaWAN} node on top of the LoRIS base\label{pic:loris-node-bare}}
 \end{figure}
 
 The ELV LW experimental platform was the \ac{LoRaWAN} node out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned\cite{elv_elektronik_ag_elv-lw-base_2023}.
@@ -84,7 +90,7 @@ Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS mo
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
-    \caption{ELV-AM-GPS \ac{LoRaWAN} node in self-designed 3D printed case~\label{pic:loris-node-with-case}}
+    \caption{ELV-AM-GPS \ac{LoRaWAN} node in self-designed 3D printed case\label{pic:loris-node-with-case}}
 \end{figure}
 
 To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
