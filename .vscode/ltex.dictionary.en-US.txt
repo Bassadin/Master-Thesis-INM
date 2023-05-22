@@ -41,3 +41,5 @@ ELV
 LW
 Heltec
 OTAA
+Milesight
+Kasper
