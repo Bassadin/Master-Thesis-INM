@@ -159,7 +159,14 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 
 \subsubsection{Prisma}
 
-\subsubsection{PostgreSQL}
+% TODO: mention that not using Prisma might have been more suitable since some very specific queries had to be written by hand
+
+\subsubsection{PostgreSQL / PostGIS}
+
+% TODO: Explain the choice of DB and why PostGIS was used (geo queries, etc.)
+% Also: sources for postgres and postgis
+
+% Question: explain this here on in background?
 
 \subsubsection{Jest for testing}
 
@@ -181,6 +188,12 @@ Its usage as import-able predefined Vue components also allowed for a quick and 
 \subsubsection{GeoJSON}
 
 GeoJSON is a format used for representing geographical data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
+
+% TODO: explain why and how it was used
+
+\subsection{Cleaning collected data}
+
+% TODO: show how the data was filtered and cleaned (e.g. by removing outliers, limiting HDOP, etc.)
 
 \subsection{Locating \acs{LoRaWAN} nodes with multiple techniques}
 
