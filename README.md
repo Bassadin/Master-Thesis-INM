@@ -25,6 +25,9 @@ The LaTeX source code is located in the `thesis` folder.
 ### Useful commands
 
 - `detex main.tex | Measure-Object -word `: Count words in `main.tex` (Windows PowerShell)
+- When using LaTeX Workshop in VSCode
+  - `CTRL+ALT+V` to open the PDF in the integrated PDF viewer
+  - `CTRL+ALT+J` to jump to the corresponding position in the PDF
 
 ## Other parts of this thesis
 
