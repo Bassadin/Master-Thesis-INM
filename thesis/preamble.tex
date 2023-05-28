@@ -156,6 +156,66 @@
     tabsize=2,
     escapeinside={(*@}{@*)}
 }
+
+% Stolen from here:
+% https://github.com/knecht-d/EinfacheLatexvorlage/blob/master/settings/text.tex
+\lstdefinelanguage{TypeScript}{
+    keywords={typeof, new, true, false, catch, function, return, null, catch,
+            switch, var, let, const, if, in, while, do, else, case, break, number, string, Date, async, await},
+    ndkeywords={class, export, boolean, throw, implements, import, this, type, defaults, extends, from, as},
+    ndkeywordstyle=\color{magenta}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=true,
+    morecomment=[s]{<}{>}, % Actually not a Comment but a Tag
+    morestring=[b]',
+    morestring=[b]",
+    morestring=[b]`,
+}
+
+\lstdefinelanguage{JavaScript}{
+    keywords={typeof, new, true, false, catch, function, return, null, catch,
+            switch, var, let, const, if, in, while, do, else, case, break, number, string, Date, async, await},
+    ndkeywords={class, export, boolean, throw, implements, import, this, defaults, extends},
+    ndkeywordstyle=\color{magenta}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=true,
+    morecomment=[l]{//},
+    morestring=[b]',
+    morestring=[b]",
+    morestring=[b]`,
+}
+
+
+\lstdefinelanguage{json}{
+string=[s]{"}{"},
+morecomment=[l]{//},
+literate=
+*{0}{{{\color{numb}0}}}{1}
+{1}{{{\color{numb}1}}}{1}
+{2}{{{\color{numb}2}}}{1}
+{3}{{{\color{numb}3}}}{1}
+{4}{{{\color{numb}4}}}{1}
+{5}{{{\color{numb}5}}}{1}
+{6}{{{\color{numb}6}}}{1}
+{7}{{{\color{numb}7}}}{1}
+{8}{{{\color{numb}8}}}{1}
+{9}{{{\color{numb}9}}}{1}
+{:}{{{\color{punct}{:}}}}{1}
+{,}{{{\color{punct}{,}}}}{1}
+{\{}{{{\color{delim}{\{}}}}{1}
+{\}}{{{\color{delim}{\}}}}}{1}
+{[}{{{\color{delim}{[}}}}{1}
+{]}{{{\color{delim}{]}}}}{1}
+}
+
+\lstdefinelanguage{yaml}{
+    identifierstyle=\color{delim},
+    sensitive=false,
+    comment=[l]{\#},
+    morestring=[b]',
+    morestring=[b]"
+}
+
 \lstset{style=codestyle, numberbychapter=false}
 
 
