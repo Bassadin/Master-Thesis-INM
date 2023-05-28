@@ -277,9 +277,16 @@ model Post {
 
 \Cref{lst:prisma-schema-example} shows an example of a Prisma schema that defines two database tables, \lstinline{User} and \lstinline{Post}, and their relationship: A User can have many Posts.
 
-% TODO: mention that not using Prisma might have been more suitable since some very specific queries had to be written by hand
+While Prisma enables the developer to write typesafe database queries using \ac{TS}, it does not support all possible queries (yet).
+Some advanced queries, such as the one shown in \cref{lst:postgis-example-distance}, had to be written by hand using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
+
+% TODO: this maybe should be in the conclusion section?
+There were several such cases in this thesis, which is why it might have been more suitable to not use Prisma at all and instead use \ac{SQL} in a more direct way.
+However, Prismas ability to generate migrations from a schema and its type safety were still useful features that made it worth using.
 
 \subsubsection{Vitest}
+
+% TODO 
 
 \subsection{Used technologies - Frontend}
 
