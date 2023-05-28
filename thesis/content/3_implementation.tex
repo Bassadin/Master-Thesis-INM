@@ -174,30 +174,59 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 
 % TODO add diagram of program structure
 
+% TODO mention the extensive usage of docker and docker-compose to enable easy deployment of the application
+
 \subsection{Database}
 
 % TODO add ER diagram of database
 
 \subsection{Used technologies - Backend}
 
-% TODO
-
-\subsubsection{Node.js}
+This chapter describes the technologies used in the backend part of the \ac{TTNL} web application.
+The chosen stack uses Express.js with \ac{TS} as the programming language, PostGIS as the database system as well as the Prisma \ac{ORM} to connect to the \ac{DB}.
+These services are designed to be running in Docker containers and are orchestrated using Docker Compose.
 
 \subsubsection{\acf{JS} / \acf{TS}}
 
-\subsubsection{Express}
+\subsubsection{Node.js}
 
-\subsubsection{Prisma}
+Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{noauthor_nodejs_nodate}.
+It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{noauthor_v8_nodate}.
+Its main benefit is being able to use a single language for both frontend and backend development - \ac{JS}, or, in this case, \ac{TS}.
 
-% TODO: mention that not using Prisma might have been more suitable since some very specific queries had to be written by hand
+Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
+
+\subsubsection{Express.js}
+
+Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{noauthor_express_nodate}.
+``Unopinionated'' means that it does not enforce any specific way of implementing a web application and instead focuses on the premise ``configuration over convention'', leaving the developer to decide how to implement the specifics of the application~\cite{mardan_pro_2014}.
+
+It was used in this thesis as a means to implement the backend part of the \ac{TTNL} web application.
+Express.js allows for the creation of \ac{REST} \ac{API} endpoints that can be used by the frontend or by other applications.
+
+\begin{lstlisting}[language=TypeScript, float, caption={Example of an Express.js \ac{API} endpoint}, label={lst:express-api-endpoint}]
+router.get('/', async (request: Request, response: Response) => {
+    const numberOfDeviceSubscriptions = await GetterFunctions.getAmountOfDeviceSubscriptions();
+    response.send({
+        message: `Hello from ttn-locator-backend!\nCurrent amount of Device subscriptions: ${numberOfDeviceSubscriptions}`,
+    });
+});
+\end{lstlisting}
+
+\Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{noauthor_express_nodate-1}.
+Express also allows for the creation of more complex endpoints that can, for example, return data from a database.
+Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
 \subsubsection{PostgreSQL / PostGIS}
 
 % TODO: Explain the choice of DB and why PostGIS was used (geo queries, etc.)
 % Also: sources for postgres and postgis
 
-% Question: explain this here on in background?
+PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
+
+\subsubsection{Prisma}
+
+% TODO: mention that not using Prisma might have been more suitable since some very specific queries had to be written by hand
 
 \subsubsection{Vitest for testing}
 
@@ -207,6 +236,10 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 
 Vue.js is a \ac{JS} framework for building reactive user interfaces~\cite{evan_you_vuejs_2023}.
 It was used in this thesis as a means to implement the frontend of the \ac{TTNL} web application.
+Vue can also use \ac{TS} as a programming language, which was used in this thesis for making the code more robust and easier to maintain due to its type safety.
+
+Vue.js was chosen because of the author's previous experience with it and because of its ease of use and quick development time.
+It also offers many plugins and libraries that can be used to extend its functionality as well as a large community that can be consulted for help.
 
 \subsubsection{Vuetify}
 
