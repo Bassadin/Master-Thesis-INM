@@ -2,3 +2,4 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdnt-LW-ATS \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q node \\E(?:Dummy|Ina|Jimmy-)[0-9]+$"}
 {"rule":"EN_A_VS_AN","sentence":"^\\QInstalling this \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q node as well as connecting it to \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and adding an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to it to allow monitoring of the water level of the Breg river would be a good future project for students of the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, enabled by the gateways placed during this thesis.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QGu et al. researched \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-based localization in 2018.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QList of AbbreviationsList of Abbreviations.\\E$"}

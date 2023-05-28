@@ -45,3 +45,15 @@ Milesight
 Kasper
 Unopinionated
 unopinionated
+HFU
+Albert-Schweizer-Haus
+PoE
+QoS
+GLONASS
+HDOP
+LPWAN
+SUPF
+ToA
+TDoA
+kNN
+HochschwarzwaldSmartNet-TheThingsNetwork
