@@ -78,16 +78,18 @@ Its network infrastructure is also managed by the ``\ac{GHB} netadmins'', which 
 This gateway is also powered by \ac{PoE}.
 The ``\ac{GHB} netadmins'' already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the gateway.
 
-\section{Collecting additional \acf{TTNM} data in the Furtwangen area}
+\section{Collecting additional \acf{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
 
 In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
+This data was especially important for doing geolocation calculations via fingerprinting.
+
 This was done by using \ac{LoRaWAN} nodes that were equipped with \ac{GPS} modules and then moving them around the city of Furtwangen.
 
 \subsection{Used \acs{LoRa} nodes}
 
 In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 
-\subsection{ELV LW experimental platform}
+\subsubsection{ELV LW experimental platform}
 
 \begin{figure}
     \centering
@@ -111,7 +113,7 @@ Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS mo
 
 To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
 
-\subsection{ELV \acs{GPS} Tracker}
+\subsubsection{ELV \acs{GPS} Tracker}
 
 \begin{figure}
     \centering
@@ -128,15 +130,16 @@ While it can be powered by a 9V battery, those usually have a low capacity and a
 
 % TODO how was this solved?
 
-
-\subsection{Heltec HTCC-AB02S}
+\subsubsection{Heltec HTCC-AB02S}
 
 % didn't work well enough without additional GPS antenna
 % screen is pretty nice, though
 
 % TODO
-\subsection{dnt-LW-ATS}
 
+\subsubsection{dnt-LW-ATS}
+
+% TODO
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
@@ -150,6 +153,18 @@ However, the node proved to be difficult to configure and use.
 The device offers a \emph{motion based cyclic} mode in which, during physical movement, the node sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
 This, however, did not work in practice and the node would only send its coordinates very irregularly, if at all.
 The documentation was not very helpful with finding the root cause and the manufacturer also could only offer to replace the hardware.
+
+\subsection{\acl{TTNM} heatmap view before additional data collection}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{pictures/ttn-mapper/ttnmapper_heatmap_before.png}
+    \caption{\ac{TTNM} heatmap view before additional data collection during this thesis\label{pic:ttnm-before-data-collection}}
+\end{figure}
+
+\Cref{pic:ttnm-before-data-collection} shows the \ac{TTNM} heatmap view before additional data collection during this thesis.
+As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data needed to be collected in order to be able to create better fingerprinting results.
+\Cref{sec:ttm_heatmap_after} shows the heatmap view after additional data collection.
 
 \section{Program structure: \acf{TTNL}}\label{section:ttnl}
 
