@@ -5,7 +5,7 @@
 
 \subsection{Problems with established wireless communication techniques}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
     \caption{Comparison of data rate, power consumption and range between different wireless communication protocols~\protect\cite{wang_comparison_2021}}\label{pic:wireless-protocols-comparison}
@@ -54,7 +54,7 @@ A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theor
 
 \subsection{Duty Cycle (in the \acs{EU} region)}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{pictures/lora/duty-cycle-single-channel-off-air.png}
     \caption{\ac{LoRa} duty cycle example~\protect\cite{the_things_industries_bv_duty_nodate}}\label{pic:lora-duty-cycle}
@@ -77,7 +77,7 @@ Luckily, LoRa packets are usually only a few bytes small and can thus be transmi
 
 \section{\acf{LoRaWAN}}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
     \caption{\ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}}
@@ -85,7 +85,7 @@ Luckily, LoRa packets are usually only a few bytes small and can thus be transmi
 
 \ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lorawan-architecture.png}
     \caption{\ac{LoRaWAN} network structure~\protect\cite{the_things_industries_bv_lorawan_nodate}}\label{pic:lorawan-network-structure}
@@ -104,7 +104,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 
 \subsection{Gateways}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateways/mikrotik-lr8-kit.png}
     \caption{MikroTik wAP LR8 kit Gateway~\protect\cite{the_things_industries_bv_lorawan_nodate}}\label{pic:mikrotik-lr8-kit-gateway}
@@ -122,7 +122,7 @@ The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \a
 One example of a gateway used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the student dorm \ac{GHB}.
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gateway-deployment/mikrotik-antenna-c-building.jpg}
     \caption{The MikroTik antenna installed on top of the \ac{HFU} C building}\label{pic:mikrotik-antenna-c-building}
@@ -145,7 +145,7 @@ Downlinks, however, are only sent from the network server to the end node using 
 
 \subsubsection{Class A}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-a.png}
     \caption{\ac{LoRaWAN} Device class A communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-a-schema}
@@ -163,7 +163,7 @@ Class A consumes the least amount of power of the three classes, since the devic
 
 \subsubsection{Class B}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-b.png}
     \caption{\ac{LoRaWAN} Device class B communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-b-schema}
@@ -177,7 +177,7 @@ These scheduled downlink windows result in a higher power consumption for class 
 
 \subsubsection{Class C}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-c.png}
     \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-c-schema}
@@ -195,7 +195,7 @@ The fact that they're always reachable by the \ac{LNS} also makes them the most 
 
 \section{\acf{TTN}}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=0.3\textwidth]{pictures/logos/TTN-logo.eps}
     \caption{\acf{TTN} logo~\protect\cite{the_things_industries_bv_quick_nodate}}
@@ -222,7 +222,7 @@ It is advised to use the \acl{LBS} protocol instead.
 
 \subsubsection{\acf{LBS}}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
     \caption{\acf{LBS} communication schema~\protect\cite{semtech_lora_developer_portal_lora_2022}}\label{pic:lora-basics-station-schema}
@@ -284,7 +284,7 @@ Different devices can have different \ac{RSSI} values for the same distance.
 \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.\ if there is a line of sight between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
     \caption{Example for \acf{MPP} of \ac{RF} waves\protect\cite{milosevic_key_2017}}\label{pic:figure_multipath_propagation}
@@ -315,7 +315,7 @@ With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gatew
 
 \subsection{Frontend data views}
 
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
     \caption{Screenshot of \ac{TTNM}'s \emph{heatmap} view with some gateways visible (small blue and white circles) in the Furtwangen area~\protect\cite{ttn_mapper_ttn_2023}}\label{pic:ttn-mapper-heatmap-with-gateways}
