@@ -188,7 +188,26 @@ These services are designed to be running in Docker containers and are orchestra
 
 \subsubsection{\acf{JS} / \acf{TS}}
 
-\subsubsection{Node.js}
+\ac{JS} is an interpreted, \ac{JIT} compiled programming language that was designed for and is mostly used in web browsers to add interactivity to websites~\cite{mdn_javascript_2023}.
+However, it can also be used outside a browser, for example, to create server applications as is explained in \cref{sec:nodejs}.
+
+\ac{TS}, on the other hand, is a superset of \ac{JS} that adds static type checking to the language~\cite{microsoft_javascript_nodate}.
+This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler, making assigning the wrong type to a variable or passing the wrong type to a function trigger compile-time error instead of a runtime error.
+
+\begin{lstlisting}[language=TypeScript, float, caption={Example of type checking in \ac{TS}}, label={lst:example-ts-type-checking}]
+const user = {
+    firstName: "Teysa",
+    lastName: "Karlov",
+    role: "Guildmaster",
+}
+    
+console.log(user.name)
+\end{lstlisting}
+
+\Cref{lst:example-ts-type-checking} shows an example of how \ac{TS} can help prevent runtime errors.
+The \ac{TS} compiler would show the message \lstinline|Property 'name' does not exist on type { firstName: string; lastName: string; role: string; } | since \lstinline{name} is not a property of the \lstinline{user} object.
+
+\subsubsection{Node.js}\label{sec:nodejs}
 
 Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{noauthor_nodejs_nodate}.
 It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{noauthor_v8_nodate}.
@@ -219,16 +238,48 @@ Additionally, routes for different parts of requested data can be defined and pu
 
 \subsubsection{PostgreSQL / PostGIS}
 
-% TODO: Explain the choice of DB and why PostGIS was used (geo queries, etc.)
-% Also: sources for postgres and postgis
+PostgreSQL is an open-source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
+It is among the most popular database management systems worldwide~\cite{db-engines_most_2023}.
+
+In this thesis, for \ac{TTNL}, PostgreSQL was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.
+PostGIS is an extension for PostgreSQL that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
+
+\begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two points}, label={lst:postgis-example-distance}]
+SELECT ST_DistanceSphere(
+    ST_MakePoint(8.2047, 48.0502), -- Furtwangen
+    ST_MakePoint(7.85222, 47.9959) -- Freiburg
+);
+\end{lstlisting}
+
+\Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the earth's surface~\cite{noauthor_st_distancesphere_nodate}.
 
 PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
 
 \subsubsection{Prisma}
 
+Prisma is an \ac{ORM} that can be used with a variety of database management systems, including PostgreSQL~\cite{prisma_data_inc_prisma_2023}.
+\acp{ORM} allow for the creation of database queries using the programming language of the application instead of using the database's query language, which would be \ac{SQL} in the case of PostgreSQL.
+Instead, Prisma allows for the creation of queries using \ac{TS}.
+Prisma also lets the developer define a database schema and can generate migrations to generate the database tables from that schema.
+
+\begin{lstlisting}[float, caption={Example of a Prisma schema}, label={lst:prisma-schema-example}]
+model User {
+    id    Int     @id @default(autoincrement())
+    posts Post[]
+}
+    
+model Post {
+    id       Int   @id @default(autoincrement())
+    author   User? @relation(fields: [authorId], references: [id])
+    authorId Int?
+}
+\end{lstlisting}
+
+\Cref{lst:prisma-schema-example} shows an example of a Prisma schema that defines two database tables, \lstinline{User} and \lstinline{Post}, and their relationship: A User can have many Posts.
+
 % TODO: mention that not using Prisma might have been more suitable since some very specific queries had to be written by hand
 
-\subsubsection{Vitest for testing}
+\subsubsection{Vitest}
 
 \subsection{Used technologies - Frontend}
 
