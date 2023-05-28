@@ -294,11 +294,28 @@ It also offers many plugins and libraries that can be used to extend its functio
 
 \subsubsection{Vuetify}
 
-Vuetify is a \ac{UI} framework for Vue.js that provides components that are based on Google's Material Design guidelines~\cite{vuetify_vuetify_2023}\cite{google_llc_material_nodate}.
+Vuetify is a \ac{UI} framework for Vue.js that provides Vue components that are based on Google's Material Design guidelines~\cite{vuetify_vuetify_2023}~\cite{google_llc_material_nodate}.
 In this thesis, Vuetify was used as a modern looking \ac{UI} framework for the frontend of the \ac{TTNL} web application.
 Its usage as import-able predefined Vue components also allowed for a quick and easy implementation of the frontend.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/vuetify-form-example.png}
+    \caption{An example of a form created using Vuetify components\label{fig:vuetify-form-example}}
+\end{figure}
+
+\Cref{fig:vuetify-form-example} shows an example of a form created using Vuetify components in the \ac{TTNL} frontend.
+It uses several of Vuetify's components to enable the user to enter \ac{RSSI} values for several gateways for localization purposes.
+
 \subsubsection{Leaflet}
+
+Leaflet is a \ac{JS} library for displaying interactive maps in the browser~\cite{volodymyr_agafonkin_leaflet_2023}.
+It currently has around 800,000 weekly downloads on the npm package repository~\cite{npm_leaflet_2023}.
+It was used in this thesis to display the map on the frontend of the \ac{TTNL} web application.
+Leaflets widespread use and large community made it a good choice for this purpose since there are many examples and tutorials available online.
+
+To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{noauthor_vue_nodate}.
+It provides wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
 
 \subsubsection{GeoJSON}
 
