@@ -57,3 +57,4 @@ ToA
 TDoA
 kNN
 HochschwarzwaldSmartNet-TheThingsNetwork
+Vitest
