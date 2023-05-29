@@ -244,11 +244,13 @@ It is among the most popular database management systems worldwide~\cite{db-engi
 In this thesis, for \ac{TTNL}, PostgreSQL was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.
 PostGIS is an extension for PostgreSQL that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
 
-\begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two points}, label={lst:postgis-example-distance}]
+\begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two geolocation points in meters}, label={lst:postgis-example-distance}]
 SELECT ST_DistanceSphere(
     ST_MakePoint(8.2047, 48.0502), -- Furtwangen
     ST_MakePoint(7.85222, 47.9959) -- Freiburg
 );
+
+Result => 26900.55162337
 \end{lstlisting}
 
 \Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the earth's surface~\cite{noauthor_st_distancesphere_nodate}.
