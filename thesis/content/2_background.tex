@@ -27,10 +27,20 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 
 % TODO
 
+As far as this thesis is concerned, \ac{RSSI} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
+
 \subsection{\acf{SNR}}
 
-% TODO
-% SNR = Signal-to-Noise Ratio = PR/PN. A low SNR indicates a noisy signal.
+% TODO does this need a source?
+
+The \acf{SNR} is a measure of the strength of the signal compared to the noise in the signal.
+Its formula is as follows:
+
+\begin{equation}
+    \text{SNR} = \frac{P_{signal}}{P_{noise}}
+\end{equation}
+
+A low \ac{SNR} indicates a signal that is influenced by a lot of noise.
 
 \section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
