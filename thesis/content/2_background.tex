@@ -49,8 +49,7 @@ While, in the 868 MHz band used in the \ac{EU}, there are only a few channels av
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
 A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017-1}.
-
-% Use https://dramco.be/tools/lora-calculator/ to give another example of battery life
+LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device.
 
 \subsection{Duty Cycle (in the \acs{EU} region)}
 
@@ -66,7 +65,7 @@ If, for example, a device transmits data for 36 seconds, it must stay silent for
 It needs to stay silent for the rest of the time.
 
 An example of a \ac{LoRa} duty cycle can be seen in \cref{pic:lora-duty-cycle}.
-In this example, the duty cycle is 20%.
+In this example, the duty cycle is 20\%.
 The device, which transmits for one block of time needs to stay silent for the next four blocks of time until it can transmit again.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
