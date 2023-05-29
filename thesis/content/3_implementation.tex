@@ -410,9 +410,32 @@ It uses the \ac{RSSI} values of the device-based datapoints from a single gatewa
 This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
 Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 
+% TODO can this be said like this? outliers still seem kinda bad
+While there are blatant outliers in the data, the graph still shows an average linear correlation between the \ac{RSSI} values and their distance.
+
 \subsubsection{\ac{ToA}-based multilateration}
 
 % TODO describe (with some data) why this didn't work (timestamps are not accurate enough and also sometimes way off)
+
+One of the seemingly most promising techniques for locating \ac{LoRaWAN} nodes is \ac{ToA}-based multilateration.
+As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the time of arrival of a \ac{LoRa} signal to multiple gateways to calculate the position of the device that sent the signal using the speed of light.
+
+Unfortunately, this technique did not work as expected in the scope of this thesis.
+This was because the timestamps of signal arrival in the gateways that were used for this thesis were not accurate enough.
+Differences of up to 1 second between the timestamps of the same signal in different gateways were not uncommon, making distance calculations using these values utterly unusable.
+
+% TODO maybe take a better picture of this
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{pictures/multilateration/toa_bad_data_example_prisma_studio.png}
+    \caption{Example of divergent timestamp data planned to be used for \ac{ToA} multilateration. The time difference between the first and second signal arrival amounts to more than one second. Picture taken from Prisma's \emph{Prisma Studio} web frontend.\label{fig:toa-bad-data-example}}
+\end{figure}
+
+\Cref{fig:toa-bad-data-example} shows an example of the divergent timestamp data that was planned to be used for \ac{ToA} multilateration where the time difference between the first and second signal arrival amounts to more than one second.
+Since the speed of light is $299792458\ \mathrm{m/s}$, a difference of one second in the timestamps of two signals would result in a distance difference of $299792458\ \mathrm{m}$.
+This is a distance that is too big to be useful for performing any sort of meaningful multilateration.
+
+% TODO explain why this is the case and maybe how it could be fixed (using GPS time sync)
 
 \subsubsection{Fingerprinting with \ac{RSSI} values}
 
