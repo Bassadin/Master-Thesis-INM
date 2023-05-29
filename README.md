@@ -21,6 +21,7 @@ The LaTeX source code is located in the `thesis` folder.
 ### Useful regexes
 
 - `(?<!\\ac\{)(\b[A-Z]{2,}\b)(?!\})`: Find all abbreviation without `\ac{}`.
+- `\.(?!\n|$)`: Find all dots without a following newline.
 
 ### Useful commands
 
