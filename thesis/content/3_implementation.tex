@@ -391,13 +391,24 @@ However, the \ac{TTNL} application theoretically also allows for any other data 
 
 \subsubsection{\ac{RSSI}-based multilateration}
 
-\subsubsection{First idea: Fixed \ac{RSSI} to range scale}
+\subsubsection{First idea: Fixed \ac{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}
 
 % TODO add plot of fixed RSSI to range scale function to generate ranges for multilateration
 
 \paragraph{Plotting \ac{RSSI} to range from existing data}
 
 % TODO add positive and negative RSSI range plots as image examples and explain them
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
+    \caption{Positive example of a \ac{RSSI} to distance graph the frontend of \ac{TTNL} can generate from data in its \ac{DB}\label{fig:rssi-range-graph-example}}
+\end{figure}
+
+\Cref{fig:rssi-range-graph-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
+It uses the \ac{RSSI} values of the device-based datapoints from a single gateway to generate the graph by calculating the distance to said gateway.
+This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
+Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 
 \subsubsection{\ac{ToA}-based multilateration}
 
