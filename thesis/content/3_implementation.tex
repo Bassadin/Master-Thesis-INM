@@ -166,6 +166,14 @@ The documentation was not very helpful with finding the root cause and the manuf
 As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data needed to be collected in order to be able to create better fingerprinting results.
 \Cref{sec:ttm_heatmap_after} shows the heatmap view after additional data collection.
 
+\section{Used development tools}
+
+% TODO: is this necessary?
+
+\subsection{Visual Studio Code}
+
+\subsubsection{Extensions}
+
 \section{Program structure: \acf{TTNL}}\label{section:ttnl}
 
 The programmatic implementation of this thesis was called \acf{TTNL} and split into two parts: the backend and the frontend.
@@ -205,7 +213,7 @@ console.log(user.name)
 \end{lstlisting}
 
 \Cref{lst:example-ts-type-checking} shows an example of how \ac{TS} can help prevent runtime errors.
-The \ac{TS} compiler would show the message \lstinline|Property 'name' does not exist on type { firstName: string; lastName: string; role: string; } | since \lstinline{name} is not a property of the \lstinline{user} object.
+The \ac{TS} compiler would show the message \lstinline|Property `name' does not exist on type { firstName: string; lastName: string; role: string; } | since \lstinline{name} is not a property of the \lstinline{user} object.
 
 \subsubsection{Node.js}\label{sec:nodejs}
 
@@ -293,6 +301,7 @@ Prisma's schema file also acts as indirect documentation of the database structu
 
 Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023}.
 It was used in this thesis to write unit as well as intergration tests for the backend part of the \ac{TTNL} web application.
+Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for writing tests in \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023-1}.
 
 \subsection{Used technologies - Frontend}
 
@@ -361,7 +370,12 @@ This format was used in this thesis as a means to standardify the data format us
 
 \Cref{lst:geojson-example} shows an example of a GeoJSON object.
 
-\subsection{Consolidating \ac{TTNM} data into the \ac{TTNL} database}
+\subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} database}
+
+To be able to perform more advanced queries on the data, it needed to be, partly, transferred \ac{TTNL} database.
+Since, for the scope of this thesis, only devices that captured data near the Furtwangen area were of interest, only data from those devices was transferred.
+This is because fingerprinting on a larger or even global scale would likely result in the need for a much bigger, maybe even distributed \ac{RDBMS}.
+However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the database, as long as that device has been captured by \ac{TTNM} at some point in time.
 
 % TODO how was the data consolidated? (e.g. by using the ttnm api)
 % cronjob, etc.
@@ -373,10 +387,11 @@ This format was used in this thesis as a means to standardify the data format us
 
 \subsection{Locating \acs{LoRaWAN} nodes with multiple techniques}
 
+\subsubsection{\ac{RSSI}-based multilateration}
+
 \subsubsection{First idea: Fixed \ac{RSSI} to range scale}
 
 % TODO add plot of fixed RSSI to range scale function to generate ranges for multilateration
-\subsubsection{\ac{RSSI}-based multilateration}
 
 \paragraph{Plotting \ac{RSSI} to range from existing data}
 
