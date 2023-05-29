@@ -285,10 +285,14 @@ Some advanced queries, such as the one shown in \cref{lst:postgis-example-distan
 % TODO: this maybe should be in the conclusion section?
 There were several such cases in this thesis, which is why it might have been more suitable to not use Prisma at all and instead use \ac{SQL} in a more direct way.
 However, Prismas ability to generate migrations from a schema and its type safety were still useful features that made it worth using.
+Prisma's schema file also acts as indirect documentation of the database structure, which is useful for other developers that might want to contribute to the project.
+
+% TODO also add my own complete prisma schema?
 
 \subsubsection{Vitest}
 
-% TODO 
+Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023}.
+It was used in this thesis to write unit as well as intergration tests for the backend part of the \ac{TTNL} web application.
 
 \subsection{Used technologies - Frontend}
 
@@ -357,12 +361,15 @@ This format was used in this thesis as a means to standardify the data format us
 
 \Cref{lst:geojson-example} shows an example of a GeoJSON object.
 
-% TODO: explain why and how it was used
+\subsection{Consolidating \ac{TTNM} data into the \ac{TTNL} database}
+
+% TODO how was the data consolidated? (e.g. by using the ttnm api)
+% cronjob, etc.
 
 \subsection{Cleaning collected data}
 
 % TODO: show how the data was filtered and cleaned (e.g. by removing outliers, limiting HDOP, etc.)
-% also mention and show the sql
+% also mention and show the sql, cronjob, etc.
 
 \subsection{Locating \acs{LoRaWAN} nodes with multiple techniques}
 
