@@ -5,3 +5,6 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QList of AbbreviationsList of Abbreviations.\\E$"}
 {"rule":"EN_A_VS_AN","sentence":"^\\QPrisma is an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q that can be used with a variety of database management systems, including PostgreSQL \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q compiler would show the message |Property `name' does not exist on type firstName: string; lastName: string; role: string; | since name is not a property of the user object.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QVue.js.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QLeaflet.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QVuetify.\\E$"}
