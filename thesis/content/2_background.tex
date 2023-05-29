@@ -1,7 +1,8 @@
 \chapter{Background}
 
-\section{Wireless Communication}
+\section{Wireless Communications}
 
+This section aims to provide a general overview of wireless communication terminology and other principles needed to understand the more hardware-oriented part of this thesis.
 
 \subsection{Problems with established wireless communication techniques}
 
@@ -35,7 +36,14 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 
 % Explain the difference between LoRa and LoRaWAN
 
-\section{\acf{LoRa} modulation}
+\ac{LoRa} is a \ac{RF} communication modulation that offers a standard to send data packets over the air in a specific way.
+The term \ac{LoRa} stands for \textbf{Lo}ng \textbf{Ra}nge~\cite{semtech_corporation_lora_2023}.
+A rough explanation of its technical details can be found in \cref{sec:lora-modulation}.
+
+\ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer.
+It will be explained in more detail in \cref{sec:lorawan}.
+
+\section{\acf{LoRa} modulation}\label{sec:lora-modulation}
 
 % explain the basics of LoRa with things like modulation (Chirp Spread Spectrum), spreading factor, bandwidth, coding rate, channels etc.
 While, in the 868 MHz band used in the \ac{EU}, there are only a few channels available, \ac{LoRa} uses a technique called modulation to overcome this problem.
@@ -44,12 +52,22 @@ While, in the 868 MHz band used in the \ac{EU}, there are only a few channels av
 
 % spreading factors: SF7 = high data rate, low range; SF12 = low data rate, high range
 
+\subsection{Chirp Spread Spectrum}
+
+\ac{LoRa} uses a technique called \ac{CSS} to transmit data with the possibility for error detection and correction.
+
+% TODO
+
+\subsection{Spreading Factors}
+
+% TODO explain spreading factors, their effect on data rate and range and their relevance for this thesis
+
 \subsection{Why use \acs{LoRa}?}
 
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
 A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017-1}.
-LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device.
+LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device by entering data such as payload size, periodicity of the data transmission and the battery type used.
 
 \subsection{Duty Cycle (in the \acs{EU} region)}
 
@@ -74,7 +92,7 @@ Luckily, LoRa packets are usually only a few bytes small and can thus be transmi
 
 %  Explain how bit rates are affected by the duty cycle, spreading factor, bandwidth and coding rate
 
-\section{\acf{LoRaWAN}}
+\section{\acf{LoRaWAN}}\label{sec:lorawan}
 
 \begin{figure}
     \centering
