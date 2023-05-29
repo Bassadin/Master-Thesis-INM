@@ -25,7 +25,7 @@ Zahoransky
 Gütenbach
 Netzint
 Schellhammer
-netadmins
+NetAdmins
 Jäger
 Triberg
 Mackey
