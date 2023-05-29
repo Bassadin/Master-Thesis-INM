@@ -329,6 +329,33 @@ It wraps Leaflet's functionality into Vue components and provides reactive bindi
 \subsubsection{GeoJSON}
 
 GeoJSON is a format used for representing geographical data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
+This format was used in this thesis as a means to standardify the data format used for representing geographical data as well as its communication between client and server.
+
+\begin{lstlisting}[language=JSON, float, caption={Example of a GeoJSON that represents a rectangle above the furtwangen city center}, label={lst:geojson-example}]
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "coordinates": [
+                    [
+                        [8.2032444080252, 48.05293370858834],
+                        [8.2032444080252, 48.04823334925436],
+                        [8.20949460707348, 48.04823334925436],
+                        [8.20949460707348, 48.05293370858834],
+                        [8.2032444080252, 48.05293370858834]
+                    ]
+                ],
+                "type": "Polygon"
+            }
+        }
+    ]
+}  
+\end{lstlisting}
+
+\Cref{lst:geojson-example} shows an example of a GeoJSON object.
 
 % TODO: explain why and how it was used
 
