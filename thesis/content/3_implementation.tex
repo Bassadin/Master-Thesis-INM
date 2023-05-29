@@ -36,13 +36,12 @@ In the following sections, the chosen locations are described and evaluated.
 
 \subsubsection{\ac{HFU} B and C building}
 
-% TODO add more info about gateway deployments?
-
 The first antenna and gateway installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
-The roof of the C building is located in an exposed in the middle of the valley Furtwangen is situated in.
+The roof of the C building is located in the center of the valley Furtwangen is situated in.
 
 Another gateway with antenna was deployed on top of the B building as there already was ample infrastructure available.
+Additionally, this roof was two stories higher than the C building roof, making it a good location for a gateway as well.
 A Dragino DLOS8N gateway was used here because of its ability to easily be powered by \ac{PoE}.
 
 \subsubsection{\acf{GHB} student dormitory}
@@ -151,10 +150,10 @@ While it can be powered by a 9V battery, those usually have a low capacity and a
 At first glance, this was the most promising \ac{LoRa} node for the task at hand.
 It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
 
-However, the node proved to be difficult to configure and use.
+However, the node was challenging to set up and operate.
 The device offers a \emph{motion based cyclic} mode in which, during physical movement, the node sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
 This, however, did not work in practice and the node would only send its coordinates very irregularly, if at all.
-The documentation was not very helpful with finding the root cause and the manufacturer also could only offer to replace the hardware.
+The documentation was not very helpful with finding the root cause and the manufacturer could only offer to replace the hardware.
 
 \subsection{\acl{TTNM} heatmap view before additional data collection}
 
@@ -190,7 +189,7 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 
 % TODO add ER diagram of database
 
-\subsection{Used technologies - Backend}
+\subsection{Used technologies --- Backend}
 
 This chapter describes the technologies used in the backend part of the \ac{TTNL} web application.
 The chosen stack uses Express.js with \ac{TS} as the programming language, PostGIS as the database system as well as the Prisma \ac{ORM} to connect to the \ac{DB}.
@@ -202,7 +201,8 @@ These services are designed to be running in Docker containers and are orchestra
 However, it can also be used outside a browser, for example, to create server applications as is explained in \cref{sec:nodejs}.
 
 \ac{TS}, on the other hand, is a superset of \ac{JS} that adds static type checking to the language~\cite{microsoft_javascript_nodate}.
-This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler, making assigning the wrong type to a variable or passing the wrong type to a function trigger compile-time error instead of a runtime error.
+This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler.
+Assigning the wrong type to a variable or passing the wrong type to a function then triggers compile-time error instead of a runtime error.
 
 \begin{lstlisting}[language=TypeScript, float, caption={Example of type checking in \ac{TS}}, label={lst:example-ts-type-checking}]
 const user = {
@@ -221,7 +221,7 @@ The \ac{TS} compiler would show the message \lstinline|Property `name' does not 
 
 Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{noauthor_nodejs_nodate}.
 It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{noauthor_v8_nodate}.
-Its main benefit is being able to use a single language for both frontend and backend development - \ac{JS}, or, in this case, \ac{TS}.
+Its main benefit is being able to use a single language for both frontend and backend development --- \ac{JS}, or, in this case, \ac{TS}.
 
 Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
 
@@ -251,7 +251,7 @@ Additionally, routes for different parts of requested data can be defined and pu
 PostgreSQL is an open-source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
 It is among the most popular database management systems worldwide~\cite{db-engines_most_2023}.
 
-In this thesis, for \ac{TTNL}, PostgreSQL was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.
+In this thesis, for \ac{TTNL}, PostgreSQL was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
 PostGIS is an extension for PostgreSQL that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
 
 \begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two geolocation points in meters}, label={lst:postgis-example-distance}]
@@ -270,7 +270,7 @@ PostGIS is also available as a Docker image, making it easy to deploy in the giv
 \subsubsection{Prisma}
 
 Prisma is an \ac{ORM} that can be used with a variety of database management systems, including PostgreSQL~\cite{prisma_data_inc_prisma_2023}.
-\acp{ORM} allow for the creation of database queries using the programming language of the application instead of using the database's query language, which would be \ac{SQL} in the case of PostgreSQL.
+\acp{ORM} allow for the creation of database queries using the programming language of the application instead of using the database's query language, which would be \ac{SQL} in the case of PostgreSQL.\
 Instead, Prisma allows for the creation of queries using \ac{TS}.
 Prisma also lets the developer define a database schema and can generate migrations to generate the database tables from that schema.
 
@@ -289,7 +289,7 @@ model Post {
 
 \Cref{lst:prisma-schema-example} shows an example of a Prisma schema that defines two database tables, \lstinline{User} and \lstinline{Post}, and their relationship: A User can have many Posts.
 
-While Prisma enables the developer to write typesafe database queries using \ac{TS}, it does not support all possible queries (yet).
+While Prisma enables the developer to write type safe database queries using \ac{TS}, it does not support all possible queries (yet).
 Some advanced queries, such as the one shown in \cref{lst:postgis-example-distance}, had to be written by hand using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
 
 % TODO: this maybe should be in the conclusion section?
@@ -305,7 +305,7 @@ Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2
 It was used in this thesis to write unit as well as intergration tests for the backend part of the \ac{TTNL} web application.
 Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for writing tests in \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023-1}.
 
-\subsection{Used technologies - Frontend}
+\subsection{Used technologies --- Frontend}
 
 \subsubsection{Vue.js}
 
