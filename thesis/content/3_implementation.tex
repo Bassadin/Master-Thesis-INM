@@ -246,13 +246,13 @@ router.get('/', async (request: Request, response: Response) => {
 Express also allows for the creation of more complex endpoints that can, for example, return data from a database.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
-\subsubsection{PostgreSQL / PostGIS}
+\subsubsection{\ac{PSQL} / PostGIS}
 
-PostgreSQL is an open-source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
+\ac{PSQL} is an open-source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
 It is among the most popular database management systems worldwide~\cite{db-engines_most_2023}.
 
-In this thesis, for \ac{TTNL}, PostgreSQL was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
-PostGIS is an extension for PostgreSQL that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
+In this thesis, for \ac{TTNL}, \ac{PSQL} was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
+PostGIS is an extension for \ac{PSQL} that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
 
 \begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two geolocation points in meters}, label={lst:postgis-example-distance}]
 SELECT ST_DistanceSphere(
@@ -269,8 +269,8 @@ PostGIS is also available as a Docker image, making it easy to deploy in the giv
 
 \subsubsection{Prisma}
 
-Prisma is an \ac{ORM} that can be used with a variety of database management systems, including PostgreSQL~\cite{prisma_data_inc_prisma_2023}.
-\acp{ORM} allow for the creation of database queries using the programming language of the application instead of using the database's query language, which would be \ac{SQL} in the case of PostgreSQL.\
+Prisma is an \ac{ORM} that can be used with a variety of database management systems, including \ac{PSQL}~\cite{prisma_data_inc_prisma_2023}.
+\acp{ORM} allow for the creation of database queries using the programming language of the application instead of using the database's query language, which would be \ac{SQL} in the case of \ac{PSQL}.\
 Instead, Prisma allows for the creation of queries using \ac{TS}.
 Prisma also lets the developer define a database schema and can generate migrations to generate the database tables from that schema.
 
@@ -379,6 +379,10 @@ Since, for the scope of this thesis, only devices that captured data near the Fu
 This is because fingerprinting on a larger or even global scale would likely result in the need for a much bigger, maybe even distributed \ac{RDBMS}.
 However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the database, as long as that device has been captured by \ac{TTNM} at some point in time.
 
+To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given device in a given time frame.
+The \ac{TTNM} \ac{API} returns data in a \ac{JSON} format.
+This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} database.
+
 % TODO how was the data consolidated? (e.g. by using the ttnm api)
 % cronjob, etc.
 
@@ -387,17 +391,52 @@ However, the \ac{TTNL} application theoretically also allows for any other data 
 % TODO: show how the data was filtered and cleaned (e.g. by removing outliers, limiting HDOP, etc.)
 % also mention and show the sql, cronjob, etc.
 
-\subsection{Locating \acs{LoRaWAN} nodes with multiple techniques}
+\section{Locating \acs{LoRaWAN} nodes with multiple techniques}
 
-\subsubsection{\ac{RSSI}-based multilateration}
+This section will describe the different techniques used to locate \ac{LoRaWAN} nodes in this thesis.
 
-\subsubsection{First idea: Fixed \ac{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}
+\subsection{\acs{RSSI}-based multilateration}
+
+The general idea behind using \ac{RSSI} values to determine the distance to a gateway is simple.
+The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the device and the gateway.
+The further away a device is from a gateway, the lower the \ac{RSSI} value will be.
+
+Based on this fact, several attempts were made to calculate the distance between a device and a gateway.
+
+\subsection{First idea: Fixed \acs{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}
+
+The first idea for determining the distance between a device and a gateway was to use a fixed \ac{RSSI} to range scale.
+This means that for a given \ac{RSSI} value, a range is determined by inputting said \ac{RSSI} value into a function.
+The equation depicted in \cref{eq:fixed-rssi-to-range-scale} shows an example where a \ac{RSSI} value is inputted.
+The result is the distance $D_{gateway}$ to the gateway in meters.
+
+\begin{equation}
+    \label{eq:fixed-rssi-to-range-scale}
+    D_{gateway} = -12 * rssi - 605
+\end{equation}
+
+For example, a \ac{RSSI} value of -80 would result in a distance of 355 meters.
+A value of -110 would result in a distance of 715 meters.
+
+The values for this equation were derived by doing a linear regression on the \ac{RSSI} values of the device-based GPS datapoints from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
+While those values work well for the \ac{RF} reception behavior of the gateway that was used to derive them, they are not necessarily applicable to other gateways.
+Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their anntennas might be different from one another.
+
+While rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
+In the example above, this is the case with values >= -50.
+
+% TODO how was this dealt with
 
 % TODO add plot of fixed RSSI to range scale function to generate ranges for multilateration
 
-\paragraph{Plotting \ac{RSSI} to range from existing data}
+\subsubsection{Plotting \acs{RSSI} to range from existing data}
 
 % TODO add positive and negative RSSI range plots as image examples and explain them
+
+\Cref{fig:rssi-range-graph-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
+It uses the \ac{RSSI} values of the device-based datapoints from a single gateway to generate the graph by calculating the distance to said gateway.
+This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
+Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 
 \begin{figure}
     \centering
@@ -405,15 +444,10 @@ However, the \ac{TTNL} application theoretically also allows for any other data 
     \caption{Positive example of a \ac{RSSI} to distance graph the frontend of \ac{TTNL} can generate from data in its \ac{DB}\label{fig:rssi-range-graph-example}}
 \end{figure}
 
-\Cref{fig:rssi-range-graph-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-It uses the \ac{RSSI} values of the device-based datapoints from a single gateway to generate the graph by calculating the distance to said gateway.
-This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
-Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
-
 % TODO can this be said like this? outliers still seem kinda bad
 While there are blatant outliers in the data, the graph still shows an average linear correlation between the \ac{RSSI} values and their distance.
 
-\subsubsection{\ac{ToA}-based multilateration}
+\subsection{\acf{ToA}-based multilateration}
 
 % TODO describe (with some data) why this didn't work (timestamps are not accurate enough and also sometimes way off)
 
@@ -437,6 +471,6 @@ This is a distance that is too big to be useful for performing any sort of meani
 
 % TODO explain why this is the case and maybe how it could be fixed (using GPS time sync)
 
-\subsubsection{Fingerprinting with \ac{RSSI} values}
+\subsection{Fingerprinting with \acs{RSSI} values}
 
 % Show how this worked (quite alright, but needs a lot of pre-existing data that needs to be collected, etc.)

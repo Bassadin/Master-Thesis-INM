@@ -10,3 +10,4 @@
 {"rule":"SENTENCE_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QVuetify.\\E$"}
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qamateur radio club station (Neueck, Gütenbach).\\E$"}
 {"rule":"THREE_NN","sentence":"^\\QIn this thesis, for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, PostgreSQL was used as the database management system because of its popularity, its possibility to be used with the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Prisma as well as PostGIS.\\E$"}
+{"rule":"THREE_NN","sentence":"^\\QIn this thesis, for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q was used as the database management system because of its popularity, its possibility to be used with the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Prisma as well as PostGIS.\\E$"}
