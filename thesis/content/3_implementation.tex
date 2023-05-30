@@ -427,9 +427,10 @@ Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be 
 While rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
 In the example above, this is the case with values >= -50.
 
-% TODO how was this dealt with
+Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSSI} values to fluctuate, even when end device, gateway and the distance between them stay the same.
+This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no line of sight between them.
 
-% TODO add plot of fixed RSSI to range scale function to generate ranges for multilateration
+% TODO how was this dealt with
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}
 
