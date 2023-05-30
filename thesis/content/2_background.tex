@@ -218,7 +218,11 @@ The fact that they're always reachable by the \ac{LNS} also makes them the most 
 
 \subsubsection{Conclusion}
 
-% TODO: Add a conclusion about device classes here
+As far as this thesis was concerned, only devices with class A were used.
+This is because class B and C use significantly more power than class A because they keep their radio on for extended periods of time, which is a problem for battery-powered devices.
+
+In their work ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C  would need a battery around 19 times as large as a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017-1}.
+As mobile devices that have the need to be located are usually battery-powered, class A is the most viable option for them.
 
 \section{\acf{TTN}}
 
