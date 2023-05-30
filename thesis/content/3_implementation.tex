@@ -187,12 +187,12 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 
 \subsection{Database}
 
-% TODO add ER diagram of database
+% TODO add ER diagram of \ac{DB}
 
 \subsection{Used technologies --- Backend}
 
 This chapter describes the technologies used in the backend part of the \ac{TTNL} web application.
-The chosen stack uses Express.js with \ac{TS} as the programming language, PostGIS as the database system as well as the Prisma \ac{ORM} to connect to the \ac{DB}.
+The chosen stack uses Express.js with \ac{TS} as the programming language, PostGIS as the \ac{DB} system as well as the Prisma \ac{ORM} to connect to the \ac{DB}.
 These services are designed to be running in Docker containers and are orchestrated using Docker Compose.
 
 \subsubsection{\acf{JS} / \acf{TS}}
@@ -243,15 +243,15 @@ router.get('/', async (request: Request, response: Response) => {
 \end{lstlisting}
 
 \Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{noauthor_express_nodate-1}.
-Express also allows for the creation of more complex endpoints that can, for example, return data from a database.
+Express also allows for the creation of more complex endpoints that can, for example, return data from a \ac{DB}.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
 \subsubsection{\ac{PSQL} / PostGIS}
 
 \ac{PSQL} is an open-source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
-It is among the most popular database management systems worldwide~\cite{db-engines_most_2023}.
+It is among the most popular \ac{DB} management systems worldwide~\cite{db-engines_most_2023}.
 
-In this thesis, for \ac{TTNL}, \ac{PSQL} was used as the database management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
+In this thesis, for \ac{TTNL}, \ac{PSQL} was used as the \ac{DB} management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
 PostGIS is an extension for \ac{PSQL} that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
 
 \begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two geolocation points in meters}, label={lst:postgis-example-distance}]
@@ -269,10 +269,10 @@ PostGIS is also available as a Docker image, making it easy to deploy in the giv
 
 \subsubsection{Prisma}
 
-Prisma is an \ac{ORM} that can be used with a variety of database management systems, including \ac{PSQL}~\cite{prisma_data_inc_prisma_2023}.
-\acp{ORM} allow for the creation of database queries using the programming language of the application instead of using the database's query language, which would be \ac{SQL} in the case of \ac{PSQL}.\
+Prisma is an \ac{ORM} that can be used with a variety of \ac{DB} management systems, including \ac{PSQL}~\cite{prisma_data_inc_prisma_2023}.
+\acp{ORM} allow for the creation of \ac{DB} queries using the programming language of the application instead of using the \ac{DB}'s query language, which would be \ac{SQL} in the case of \ac{PSQL}.\
 Instead, Prisma allows for the creation of queries using \ac{TS}.
-Prisma also lets the developer define a database schema and can generate migrations to generate the database tables from that schema.
+Prisma also lets the developer define a \ac{DB} schema and can generate migrations to generate the \ac{DB} tables from that schema.
 
 \begin{lstlisting}[float, caption={Example of a Prisma schema}, label={lst:prisma-schema-example}]
 model User {
@@ -287,15 +287,15 @@ model Post {
 }
 \end{lstlisting}
 
-\Cref{lst:prisma-schema-example} shows an example of a Prisma schema that defines two database tables, \lstinline{User} and \lstinline{Post}, and their relationship: A User can have many Posts.
+\Cref{lst:prisma-schema-example} shows an example of a Prisma schema that defines two \ac{DB} tables, \lstinline{User} and \lstinline{Post}, and their relationship: A User can have many Posts.
 
-While Prisma enables the developer to write type safe database queries using \ac{TS}, it does not support all possible queries (yet).
+While Prisma enables the developer to write type safe \ac{DB} queries using \ac{TS}, it does not support all possible queries (yet).
 Some advanced queries, such as the one shown in \cref{lst:postgis-example-distance}, had to be written by hand using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
 
 % TODO: this maybe should be in the conclusion section?
 There were several such cases in this thesis, which is why it might have been more suitable to not use Prisma at all and instead use \ac{SQL} in a more direct way.
 However, Prismas ability to generate migrations from a schema and its type safety were still useful features that made it worth using.
-Prisma's schema file also acts as indirect documentation of the database structure, which is useful for other developers that might want to contribute to the project.
+Prisma's schema file also acts as indirect documentation of the \ac{DB} structure, which is useful for other developers that might want to contribute to the project.
 
 % TODO also add my own complete prisma schema?
 
@@ -372,20 +372,21 @@ This format was used in this thesis as a means to standardify the data format us
 
 \Cref{lst:geojson-example} shows an example of a GeoJSON object.
 
-\subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} database}
+\subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}
 
-To be able to perform more advanced queries on the data, it needed to be, partly, transferred \ac{TTNL} database.
+To be able to perform more advanced queries on the data, it needed to be, partly, transferred into the \ac{TTNL} \acl{DB}.
 Since, for the scope of this thesis, only devices that captured data near the Furtwangen area were of interest, only data from those devices was transferred.
 This is because fingerprinting on a larger or even global scale would likely result in the need for a much bigger, maybe even distributed \ac{RDBMS}.
-However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the database, as long as that device has been captured by \ac{TTNM} at some point in time.
+However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the \ac{DB}, as long as that device has been captured by \ac{TTNM} at some point in time.
 
 To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given device in a given time frame.
 For example, to get data for a \ac{LoRaWAN} device with the id \emph{blinkeding} from the first week of april 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
 This \ac{TTNM} \ac{API} route returns data in a \ac{JSON} format.
-This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} database.
+This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} \ac{DB}.
 
-% TODO how was the data consolidated? (e.g. by using the ttnm api)
-% cronjob, etc.
+To avoid having to do this importing of data regularly, the \ac{TTNL} backend includes a cronjob-like periodically executed task that automatically imports data from \ac{TTNM} every 24 hours.
+It only does this for devices that have been entered into its \ac{DB} by a user to avoid flooding the \ac{DB} with irrelevant data.
+This ensures that the \ac{TTNL} \ac{DB} is always up to date with the device specific data from the \ac{TTNM} \ac{DB}.
 
 \subsection{Cleaning collected data}
 
