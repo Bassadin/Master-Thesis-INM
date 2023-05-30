@@ -60,3 +60,4 @@ HochschwarzwaldSmartNet-TheThingsNetwork
 Vitest
 Perković
 Neueck
+HyperText
