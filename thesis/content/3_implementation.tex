@@ -383,14 +383,53 @@ For example, to get data for a \ac{LoRaWAN} device with the id \emph{blinkeding}
 This \ac{TTNM} \ac{API} route returns data in a \ac{JSON} format.
 This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} \ac{DB}.
 
-To avoid having to do this importing of data regularly, the \ac{TTNL} backend includes a cronjob-like periodically executed task that automatically imports data from \ac{TTNM} every 24 hours.
+% TODO: do i need to explain what a cronjob is?
+To avoid having to do this importing of data regularly, the \ac{TTNL} backend includes a cronjob task that automatically imports data from \ac{TTNM} every 24 hours.
 It only does this for devices that have been entered into its \ac{DB} by a user to avoid flooding the \ac{DB} with irrelevant data.
 This ensures that the \ac{TTNL} \ac{DB} is always up to date with the device specific data from the \ac{TTNM} \ac{DB}.
 
 \subsection{Cleaning collected data}
 
-% TODO: show how the data was filtered and cleaned (e.g. by removing outliers, limiting HDOP, etc.)
-% also mention and show the sql, cronjob, etc.
+The data that was collected from \ac{TTNM} was not without errors.
+\ac{TTNM} filters out some of the data that is sent to it.
+For example, it does not accept datapoints that have a \ac{HDOP} value of more than a certain unspecifíed amount.
+As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values above 5 were recorded so it is likely that this is the cutoff point.
+There were several problems that were noticed when trying to use the data for localization purposes:
+
+\begin{itemize}
+    \item \textbf{Outliers:} Some data points were clearly outliers, i.e. the device moved from one location to another one that was far away in a short amount of time.
+    \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate datapoints.
+\end{itemize}
+
+To counteract these problems, another cronjob in the \ac{TTNL} backend was created.
+This cronjob runs every few hours and executes a \ac{SQL} query with Prisma's \lstinline|$executeRaw| that removes outliers and duplicates from the \ac{TTNL} \ac{DB}.
+
+\begin{lstlisting}[
+    language=SQL,
+    float,
+    caption={Part of the \ac{SQL} query that was used to remove outliers and duplicated from the collected \ac{TTNM} data. This section handles the calculation of the speed the end device moved at between the current and the previous datapoint.},
+    label={lst:sql-remove-outliers}
+]
+CASE
+    WHEN prev_latitude IS NOT NULL
+    AND prev_longitude IS NOT NULL
+    AND prev_timestamp IS NOT NULL THEN ST_DistanceSphere(
+        ST_MakePoint(longitude, latitude),
+        ST_MakePoint(prev_longitude, prev_latitude)
+    ) / EXTRACT(
+        EPOCH
+        FROM
+            (timestamp - prev_timestamp)
+    )
+    ELSE NULL
+END AS speed
+\end{lstlisting}
+
+\Cref{lst:sql-remove-outliers} shows the \ac{SQL} code that was used to determine the speed between subsequent data points of the same device.
+The PostGIS function \lstinline|ST_DistanceSphere| is used to calculate the distance between the current and the previous data point.
+
+Duplicates were removed using a similar approach.
+Instead of calculating the distance between the two data points, their latitude, longitude, \ac{HDOP} and altitude values were compared.
 
 \section{Locating \acs{LoRaWAN} nodes with multiple techniques}
 
@@ -419,9 +458,9 @@ The result is the distance $D_{gateway}$ to the gateway in meters.
 For example, a \ac{RSSI} value of -80 would result in a distance of 355 meters.
 A value of -110 would result in a distance of 715 meters.
 
-The values for this equation were derived by doing a linear regression on the \ac{RSSI} values of the device-based GPS datapoints from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
+The values for this equation were derived by doing a linear regression on the \ac{RSSI} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
 While those values work well for the \ac{RF} reception behavior of the gateway that was used to derive them, they are not necessarily applicable to other gateways.
-Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their anntennas might be different from one another.
+Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
 While rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
 In the example above, this is the case with values >= -50.
