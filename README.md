@@ -22,6 +22,7 @@ The LaTeX source code is located in the `thesis` folder.
 
 - `(?<!\\ac\{)(\b[A-Z]{2,}\b)(?!\})`: Find all abbreviation without `\ac{}`.
 - `\.(?!\n|$)`: Find all dots without a following newline.
+- Find all contractions that aren't in lines that are commented out: `(?<!%)(\b\w{1,3}'\w{1,3}\b)(?!%)`
 
 ### Useful commands
 
