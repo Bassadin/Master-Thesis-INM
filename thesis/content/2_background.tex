@@ -335,6 +335,11 @@ When a new set of \ac{RSSI} values is recorded by a device, its \ac{RSSI} values
 The device's location can then be estimated by comparing the \ac{RSSI} values to the known fingerprints.
 If multiple fingerprints match the \ac{RSSI} values, the device's location can be estimated by calculating the average or center of the locations of the matching fingerprints.
 
+Using a multilayer perceptron \ac{ML} algorithm, Anagnostopoulos and Kalousis were able to achieve a median error of 204 meters using \ac{RSSI} fingerprinting~\cite{anagnostopoulos_reproducible_2019}.
+
+This thesis will explore the use of \ac{RSSI} fingerprinting for \ac{LoRaWAN} localization in \cref{sec:fingerprinting-with-rssi-values}.
+However, \ac{ML} was not used in this approach but only simpler similarity calculations.
+
 \section{\acf{TTNM}}
 
 \acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
