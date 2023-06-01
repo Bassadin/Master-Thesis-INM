@@ -325,9 +325,15 @@ Additionally, a radio transmission phenomenon called \acf{MPP} can occur.
 \acl{MPP} cause the \ac{RSSI} values to fluctuate even when neither the distance between the sender and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
 This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
 
-\subsubsection{Fingerprinting}
+\subsubsection{\acs{RSSI} Fingerprinting}
 
-% explain context of location fingerprinting (maybe get some sources too)
+Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
+It uses a set of known device locations with their corresponding \ac{RSSI} values to locate devices based on the \ac{RSSI} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
+The combination of an \ac{RSSI} value and the corresponding location is called a fingerprint.
+
+When a new set of \ac{RSSI} values is recorded by a device, its \ac{RSSI} values are compared to the known \ac{DB} of known fingerprints.
+The device's location can then be estimated by comparing the \ac{RSSI} values to the known fingerprints.
+If multiple fingerprints match the \ac{RSSI} values, the device's location can be estimated by calculating the average or center of the locations of the matching fingerprints.
 
 \section{\acf{TTNM}}
 
