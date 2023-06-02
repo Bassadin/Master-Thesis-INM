@@ -3,17 +3,20 @@
 \section{Installing gateways in Furtwangen}
 
 \ac{TTNM} already had a number of data points for existing \ac{LoRaWAN} gateways in the Furtwangen area.
-However, to make a good geolocation prediction for a \ac{LoRaWAN} node, it is necessary to have at least three gateways in range of the node.
+However, to make a good geolocation through multilateration for a \ac{LoRaWAN} node, it is necessary to have at least three gateways in range of the node, as shown in \cref{sec:multilateration-basics}.
 
-Since, at the beginning of this thesis, there were only two gateways installed in the vicinity of Furtwangen, the first step was to research, order and then install additional gateways in the city.
+Since, at the beginning of this thesis, there were only two gateways installed in the vicinity of Furtwangen, the first step was to research and order additional gateways.
+
+Afterwards, the gateways had to be installed at suitable locations.
+This was possible due to many helping hands that were involved in the installation process, as mentioned in \cref{sec:expression-of-thanks}.
+
+\subsection{Researching gateways}
 
 Some gateways that were used in this thesis were ones that were already in the possession of the \ac{HFU}.
 Such was the case for the \emph{Dragino LG308 / LG308N} indoor gateways as well as a \emph{RAK7258} indoor gateway.
 
 Additionally, for development purposes, a \emph{Dragino PG1301} gateway was also used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
-
-\subsection{Researching gateways}
 
 Two MikroTik wAP LR8 kit gateways were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
@@ -29,10 +32,17 @@ The DLOS8N also has a case that is weatherproof and made for outdoor use, making
 
 \subsection{Locations}
 
-% TODO: Add map with Gateway locations (later)
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
+    \caption{Overview map of \ac{LoRaWAN} gateways situated in the Furtwangen area. Shows Gateways placed during this thesis as well as already existing ones.\label{pic:gateways-placement-map}}
+\end{figure}
 
 Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
-In the following sections, the chosen locations are described and evaluated.
+Multiple factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
+Altitude was also a factor that was considered, as a placement on a higher altitude will usually allow for a larger range of the gateway, especially in urban areas such as the city of Furtwangen.
+\Cref{pic:gateways-placement-map} shows the locations of the gateways that were installed during this thesis and also some that were already present.
+In the following sections, these final chosen locations are described and evaluated.    
 
 \subsubsection{\ac{HFU} B and C building}
 
@@ -79,6 +89,15 @@ The ``\ac{GHB} NetAdmins'' already had a network switch with \ac{PoE} capabiliti
 
 \subsubsection{\emph{DL0FIS} amateur radio club station (Neueck, Gütenbach)}
 
+The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
+With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \cref{pic:antenna-dl0fis-clubhouse}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
+    \caption{Antenna with 8dBi gain installed on top of the \emph{DL0FIS} amateur radio club clubhouse (bottom right)\label{pic:antenna-dl0fis-clubhouse}}
+\end{figure}
+
 \section{Collecting additional \acf{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
 
 In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
@@ -86,7 +105,7 @@ This data was especially important for doing geolocation calculations via finger
 
 This was done by using \ac{LoRaWAN} nodes that were equipped with \ac{GPS} modules and then moving them around the city of Furtwangen.
 
-\subsection{Used \acs{LoRa} nodes}
+\subsection{Used \acs{LoRa} nodes}\label{subsec:used-lora-nodes}
 
 In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 

@@ -57,10 +57,9 @@ Its formula is as follows:
 \end{equation}
 
 A low \ac{SNR} indicates a signal that is influenced by a lot of noise.
-
 The \ac{SNR} can be impacted by several environmental factors, such as the temperature and humidity of the air~\cite{jeftenic_impact_2020}.
 
-% TODO mention relevance for this thesis
+As far as this thesis is concerned, \ac{SNR} values were used alongside \ac{RSSI} values in fingerprinting.
 
 \section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
@@ -76,8 +75,6 @@ It will be explained in more detail in \cref{sec:lorawan}.
 % explain the basics of LoRa with things like modulation (Chirp Spread Spectrum), spreading factor, bandwidth, coding rate, channels etc.
 While, in the 868 MHz band used in the \ac{EU}, there are only a few channels available, \ac{LoRa} uses a technique called modulation to overcome this problem.
 
-% exaplain context of signal propagation and how it is affected by the environment
-
 \subsection{Chirp Spread Spectrum}
 
 \ac{LoRa} uses a technique called \ac{CSS} to transmit data with the possibility for error detection and correction.
@@ -88,13 +85,6 @@ While, in the 868 MHz band used in the \ac{EU}, there are only a few channels av
 
 % TODO explain spreading factors, their effect on data rate and range and their relevance for this thesis
 % spreading factors: SF7 = high data rate, low range; SF12 = low data rate, high range
-
-\subsection{Why use \acs{LoRa}?}
-
-As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
-
-A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017-1}.
-LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device by entering data such as payload size, periodicity of the data transmission and the battery type used.
 
 \subsection{Duty Cycle (in the \acs{EU} region)}
 
@@ -115,9 +105,16 @@ The device, which transmits for one block of time needs to stay silent for the n
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
 
-\subsubsection{\ac{LoRaWAN} transmission bit rates}
+\subsubsection{\ac{LoRa} transmission bit rates}
 
 %  Explain how bit rates are affected by the duty cycle, spreading factor, bandwidth and coding rate
+
+\subsection{Why use \acs{LoRa}?}
+
+As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
+
+A \ac{LoRa} node that transmits 75 bytes of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017-1}.
+LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device by entering data such as payload size, periodicity of the data transmission and the battery type used.
 
 \section{\acf{LoRaWAN}}\label{sec:lorawan}
 
@@ -337,20 +334,7 @@ Such queries were not possible with the \ac{TTNM} \ac{API} alone, as it doesn't 
 Through building a database of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
 This was one of the techniques used to locate devices in this thesis.
 
-\section{Localization of devices}
-
-\subsection{\acf{GPS}}
-
-% Genauigkeit von GPS mit quelle
-% GPS verwendet lateration -> quelle
-
-In the following chapters, several concepts relating to localization will be explained.
-
-\subsubsection{\acf{HDOP}}
-
-% Explain HDOP and relevance to GPS accuracy
-
-\subsection{Multilateration}
+\section{Multilateration}\label{sec:multilateration-basics}
 
 In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a device based on the distance to multiple other devices.
 However, triangulation uses the angles between the end device and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
@@ -359,7 +343,45 @@ This process requires the end device to be able to determine the angles to the r
 The correct term to use when using distances between an end device and multiple receivers to achieve a localization of the end device is \emph{multilateration}.
 A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
 
-\subsubsection{\acs{ToA}-based}\label{sec:toa-based-multilateration}
+\section{\acf{GNSS}}
+
+\ac{GNSS} is a generic term for systems that use satellites orbiting the earth to determine the location of a device.
+In everyday language, the term \ac{GPS} is often used as a synonym for \ac{GNSS}.
+However, \ac{GPS} is only one of the several \ac{GNSS} systems that are currently in use.
+\ac{GNSS} system use multilateration to determine the location of end devices as explained in \cref{sec:multilateration-basics}.
+To determine the distance from the end device to the satellites, the time it takes for a signal to travel from the satellite to the end device is measured.
+This approach is called \acf{ToA}.
+
+\subsection{\acf{GPS}}
+
+\ac{GPS}, in fact, is the \ac{GNSS} system that is operated by the United States of America and is correctly called \emph{NAVSTAR \ac{GPS}}~\cite{department_of_defense_usa_gps_2020}.
+The version of GPS the public has access to is called \acf{SPS}.
+Additionally, there is the \acf{PPS} that is only available to the military and other authorized users~\cite{department_of_defense_usa_gps_2007}.
+
+Using an iPhone 6, Merry and Bettinger measured the accuracy of \ac{GPS} to be between 7 and 13 meters in an urban environment~\cite{merry_smartphone_2019}.
+
+\subsection{Other \acs{GNSS} systems}
+
+There are several other \ac{GNSS} systems in use or in development by different countries.
+For example, the Russian \acf{GLONASS} system, the European \acf{Galileo} system, the Chinese \acf{BDS} system, and the Indian \acf{IRNSS} system.
+
+Most modern user devices such as smartphones support multiple \ac{GNSS} systems to improve the accuracy of the location determination.
+For example, one of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, \ac{GLONASS}, \ac{Galileo}, and \ac{BDS}~\cite{gsmarena_samsung_2023}.
+
+The \ac{LoRaWAN} nodes used in this thesis, as described in \cref{subsec:used-lora-nodes}, only use \ac{GPS} to determine their location.
+
+\subsection{\acf{HDOP}}
+
+% Explain HDOP and relevance to GPS accuracy
+
+\section{Localization of devices}
+
+
+\section{Localization techniques for usage with \acs{LoRaWAN}}\label{sec:lorawan-localization-techniques}
+
+In the following sections, several concepts relating to localization will be explained.
+
+\subsection{\acs{ToA}-based}\label{sec:toa-based-multilateration}
 
 The \acf{ToA} based method uses the difference in the signal's time of arrival at the receiving stations.
 In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time difference can be used to calculate the distance between the receiving stations and the transmitting station~\cite{khalaf-allah_time_2015}.
@@ -369,7 +391,7 @@ For GPS, usually four or more satellites are required to determine the position 
 
 % TODO explain the needed accuracy of timestamps for this to work + find a source for it
 
-\subsubsection{\acs{RSSI}-based}\label{sec:rssi-based-multilateration}
+\subsection{\acs{RSSI}-based}\label{sec:rssi-based-multilateration}
 
 % explain basics of RSSI, dbm, etc.
 
@@ -380,7 +402,7 @@ However, as was mentioned in \cref{sec:multipath-propagation}, the \ac{RSSI} val
 These facts make \ac{RSSI}-based localization only work accurately in environments with little to no obstacles and thus a low amount of multipath propagation.
 \Cref{sec:rssi-based-multilateration-implementation} will describe how this method was implemented in two different forms in this thesis.
 
-\subsubsection{\acs{RSSI} Fingerprinting}\label{sec:rssi-fingerprinting}
+\subsection{\acs{RSSI} Fingerprinting}\label{sec:rssi-fingerprinting}
 
 Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
 It uses a set of known device locations with their corresponding \ac{RSSI} values to locate devices based on the \ac{RSSI} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
