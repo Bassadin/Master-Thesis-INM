@@ -3,10 +3,28 @@
 \section{Gateway Locations}
 
 % Evaluate the chosen gateway locations and give example of the ranges, etc.
-
 % Also add graphs of recorded gateway ranges from TTN Mapper?
+This section will evaluate the chosen gateway locations as described in \cref{sec:gateway-locations} and give some examples of the ranges that can be achieved with them.
+The maps used to show range data were taken from the \emph{Advanced Maps} feature of \ac{TTNM}.
+Thus, as explained in \cref{subsec:cleaning-collected-data}, they may contain some inaccuracies and outliers.
 
-\section{Collected data in Furtwangen on TTN Mapper}
+\subsection{\acf{GHB} student dormitory}
+
+The MikroTik gateway deployed on top of the \ac{GHB} student dormitory is the gateway with the highest range in Furtwangen.
+This doesn't come as a surprise, given its exposed location on top of a hill plus the height of the building itself.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ghb_mikrotik_gw_range.png}
+    \caption{Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on top of the \ac{GHB} student dormitory\label{pic:ghb_mikrotik_gw_range}}
+\end{figure}
+
+The maximum range recorded for this gateway is \SI{14.2}{\kilo\meter}, which is the blue point in the lower left hand corner of \cref{pic:ghb_mikrotik_gw_range}.
+While that data point may be considered an error or outlier, a more realistic one is the blue point on the rightmost side of the image which is \SI{5.3}{\kilo\meter} away from the gateway.
+
+
+
+\section{Collected data in Furtwangen on \acl{TTNM}}
 
 % TODO: add before and after images of TTN Mapper heatmap
 

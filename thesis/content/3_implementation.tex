@@ -30,7 +30,11 @@ It was available right away at the time of ordering and was thus chosen as a sho
 It was used even after the second LR8 arrived as the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
 The DLOS8N also has a case that is weatherproof and made for outdoor use, making it similarly suitable as the LR8.
 
-\subsection{Locations}
+\subsection{Locations}\label{sec:gateway-locations}
+
+Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
+Multiple factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
+Altitude was also a factor that was considered, as a placement on a higher altitude will usually allow for a larger range of the gateway, especially in urban areas such as the city of Furtwangen.
 
 \begin{figure}
     \centering
@@ -38,9 +42,6 @@ The DLOS8N also has a case that is weatherproof and made for outdoor use, making
     \caption{Overview map of \ac{LoRaWAN} gateways situated in the Furtwangen area. Shows Gateways placed during this thesis as well as already existing ones.\label{pic:gateways-placement-map}}
 \end{figure}
 
-Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
-Multiple factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
-Altitude was also a factor that was considered, as a placement on a higher altitude will usually allow for a larger range of the gateway, especially in urban areas such as the city of Furtwangen.
 \Cref{pic:gateways-placement-map} shows the locations of the gateways that were installed during this thesis and also some that were already present.
 In the following sections, these final chosen locations are described and evaluated.    
 
@@ -407,7 +408,7 @@ To avoid having to do this importing of data regularly, the \ac{TTNL} backend in
 It only does this for devices that have been entered into its \ac{DB} by a user to avoid flooding the \ac{DB} with irrelevant data.
 This ensures that the \ac{TTNL} \ac{DB} is always up to date with the device specific data from the \ac{TTNM} \ac{DB}.
 
-\subsection{Cleaning collected data}
+\subsection{Cleaning collected data}\label{subsec:cleaning-collected-data}
 
 The data that was collected from \ac{TTNM} was not without errors.
 \ac{TTNM} filters out some of the data that is sent to it.
