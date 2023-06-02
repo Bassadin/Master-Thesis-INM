@@ -271,6 +271,55 @@ The \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets whereas the \a
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
 
+\section{\acf{TTNM}}
+
+\acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
+He first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway.
+However, the project has since been expanded to map the coverages of almost all gateways registered in the public \ac{TTN} network~\cite{the_things_network_jp_2018}.
+
+\subsection{Data collection}
+
+\acl{TTNM} works by using \ac{LoRaWAN} nodes with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
+Alongside the location information, those nodes' messages that are processed by \ac{TTN} also include information about which gateways received them.
+
+Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules.
+This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network.
+With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
+
+\subsection{Frontend data views}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
+    \caption{Screenshot of \ac{TTNM}'s \emph{heatmap} view with some gateways visible (small blue and white circles) in the Furtwangen area~\protect\cite{ttn_mapper_ttn_2023}}\label{pic:ttn-mapper-heatmap-with-gateways}
+\end{figure}
+
+\Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
+This page displays an interactive world map with a heatmap overlay.
+It shows the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
+Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LoRaWAN} node and has its location accessible from \ac{TTN} is displayed on the map.
+
+\subsection{Data access}
+
+As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} nodes.
+
+% Mention open API endpoints for accessing data with .csv files
+\ac{TTNM} provides a (partly) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
+Data can be requested based on the end device that sent the message or the gateway that received it.
+Additionally, the data can be filtered by the time that it was recorded on.
+The data is provided in graphical (map-based) form as well as in \ac{CSV} files.
+There is an additional non-documented part of the \ac{API} that can be used to access the data in \ac{JSON} form.
+This was the part of the \ac{API} that was used most for this thesis.
+
+\subsection{Importance for this thesis}\label{sec:ttn-mapper-importance}
+
+The data that is provided via the \ac{TTNM} \ac{REST} \ac{API} was the core of this thesis.
+The \ac{TTNL} application that will be described in \cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
+Such queries were not possible with the \ac{TTNM} \ac{API} alone, as it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the data filtering that was needed for this thesis.
+
+Through building a database of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
+This was one of the techniques used to locate devices in this thesis.
+
 \section{Localization of devices}
 
 \subsection{Technologies}
@@ -325,7 +374,7 @@ Additionally, a radio transmission phenomenon called \acf{MPP} can occur.
 \acl{MPP} cause the \ac{RSSI} values to fluctuate even when neither the distance between the sender and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
 This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
 
-\subsubsection{\acs{RSSI} Fingerprinting}
+\subsubsection{\acs{RSSI} Fingerprinting}\label{sec:rssi-fingerprinting}
 
 Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
 It uses a set of known device locations with their corresponding \ac{RSSI} values to locate devices based on the \ac{RSSI} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
@@ -339,49 +388,4 @@ Using a multilayer perceptron \ac{ML} algorithm, Anagnostopoulos and Kalousis we
 
 This thesis will explore the use of \ac{RSSI} fingerprinting for \ac{LoRaWAN} localization in \cref{sec:fingerprinting-with-rssi-values}.
 However, \ac{ML} was not used in this approach but only simpler similarity calculations.
-
-\section{\acf{TTNM}}
-
-\acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
-He first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway.
-However, the project has since been expanded to map the coverages of almost all gateways registered in the public \ac{TTN} network~\cite{the_things_network_jp_2018}.
-
-\subsection{Data collection}
-
-\acl{TTNM} works by using \ac{LoRaWAN} nodes with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
-Alongside the location information, those nodes' messages that are processed by \ac{TTN} also include information about which gateways received them.
-
-Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules.
-This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network.
-With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
-
-\subsection{Frontend data views}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
-    \caption{Screenshot of \ac{TTNM}'s \emph{heatmap} view with some gateways visible (small blue and white circles) in the Furtwangen area~\protect\cite{ttn_mapper_ttn_2023}}\label{pic:ttn-mapper-heatmap-with-gateways}
-\end{figure}
-
-\Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
-This page displays an interactive world map with a heatmap overlay.
-It shows the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
-Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LoRaWAN} node and has its location accessible from \ac{TTN} is displayed on the map.
-
-\subsection{Data access}
-
-As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} nodes.
-
-% Mention open API endpoints for accessing data with .csv files
-\ac{TTNM} provides a (partly) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
-Data can be requested based on the end device that sent the message or the gateway that received it.
-Additionally, the data can be filtered by the time that it was recorded on.
-The data is provided in graphical (map-based) form as well as in \ac{CSV} files.
-There is an additional non-documented part of the \ac{API} that can be used to access the data in \ac{JSON} form.
-This was the part of the \ac{API} that was used most for this thesis.
-
-\subsection{Importance for this thesis}
-
-The data that is provided via the \ac{TTNM} \ac{REST} \ac{API} was the core of this thesis.
-The \ac{TTNL} application that will be described in \cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
-Such queries were not possible with the \ac{TTNM} \ac{API} alone, as it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the data filtering that was needed for this thesis.
+Luckily, building a \ac{DB} of fingerprints for the use case explored in this thesis is rather simple, since the \ac{TTNM} \ac{API} already provides the necessary raw data as mentioned in \cref{sec:ttn-mapper-importance}.
