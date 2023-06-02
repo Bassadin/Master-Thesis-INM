@@ -23,15 +23,31 @@ ZigBee is also not suitable for battery-powered devices, as it is not designed f
 \ac{LTE} not suitable for battery-powered devices either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
-\subsection{\acf{RSSI}}
+\subsection{\acf{RSSI}}\label{sec:rssi}
 
-% TODO
-
+The \acl{RSSI} is a measure of the strength of a signal received by a device.
 As far as this thesis is concerned, \ac{RSSI} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
-\subsection{\acf{SNR}}
+% TODO: Quote for this? It's basically just physics?
+Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance.
+Different devices can have different \ac{RSSI} values for the same distance because of factors such as antennas with different gains.
 
-% TODO does this need a source?
+\ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a line of sight between the sender and receiver.
+The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
+
+\subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
+    \caption{Example for \acf{MPP} of \ac{RF} waves\protect\cite{milosevic_key_2017}}\label{pic:figure_multipath_propagation}
+\end{figure}
+
+Additionally, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
+\acl{MPP} cause the \ac{RSSI} values to fluctuate even when neither the distance between the sender and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
+This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
+
+\subsection{\acf{SNR}}
 
 The \acf{SNR} is a measure of the strength of the signal compared to the noise in the signal.
 Its formula is as follows:
@@ -42,9 +58,11 @@ Its formula is as follows:
 
 A low \ac{SNR} indicates a signal that is influenced by a lot of noise.
 
-\section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
+The \ac{SNR} can be impacted by several environmental factors, such as the temperature and humidity of the air~\cite{jeftenic_impact_2020}.
 
-% Explain the difference between LoRa and LoRaWAN
+% TODO mention relevance for this thesis
+
+\section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
 \ac{LoRa} is a \ac{RF} communication modulation that offers a standard to send data packets over the air in a specific way.
 The term \ac{LoRa} stands for \textbf{Lo}ng \textbf{Ra}nge~\cite{semtech_corporation_lora_2023}.
@@ -60,8 +78,6 @@ While, in the 868 MHz band used in the \ac{EU}, there are only a few channels av
 
 % exaplain context of signal propagation and how it is affected by the environment
 
-% spreading factors: SF7 = high data rate, low range; SF12 = low data rate, high range
-
 \subsection{Chirp Spread Spectrum}
 
 \ac{LoRa} uses a technique called \ac{CSS} to transmit data with the possibility for error detection and correction.
@@ -71,6 +87,7 @@ While, in the 868 MHz band used in the \ac{EU}, there are only a few channels av
 \subsection{\acfp{SF}}\label{sec:spreading-factors}
 
 % TODO explain spreading factors, their effect on data rate and range and their relevance for this thesis
+% spreading factors: SF7 = high data rate, low range; SF12 = low data rate, high range
 
 \subsection{Why use \acs{LoRa}?}
 
@@ -322,18 +339,14 @@ This was one of the techniques used to locate devices in this thesis.
 
 \section{Localization of devices}
 
-\subsection{Technologies}
-
-This section will describe some technologies used in this thesis with the goal of making it easier to understand the topics being discussed.
-
-\subsubsection{\ac{GPS}}
+\subsection{\acf{GPS}}
 
 % Genauigkeit von GPS mit quelle
 % GPS verwendet lateration -> quelle
 
 In the following chapters, several concepts relating to localization will be explained.
 
-\paragraph{\ac{HDOP}}
+\subsubsection{\acf{HDOP}}
 
 % Explain HDOP and relevance to GPS accuracy
 
@@ -355,24 +368,12 @@ For GPS, usually four or more satellites are required to determine the position 
 
 % explain basics of RSSI, dbm, etc.
 
-This method uses \acf{RSSI} values to determine the distance between sender and receiver.
+This method uses the \acf{RSSI} values that were explained in \cref{sec:rssi} to determine the distance between sender and receiver.
+The distance between sender and receiver usually decreases in correlation with the measured \ac{RSSI} value.
+However, as was mentioned in \cref{sec:multipath-propagation}, the \ac{RSSI} value can be also affected by other factors like obstacles and the environment.
 
-% TODO: Quote for this? It's basically just physics?
-Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance.
-Different devices can have different \ac{RSSI} values for the same distance.
-
-\ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a line of sight between the sender and receiver.
-The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
-    \caption{Example for \acf{MPP} of \ac{RF} waves\protect\cite{milosevic_key_2017}}\label{pic:figure_multipath_propagation}
-\end{figure}
-
-Additionally, a radio transmission phenomenon called \acf{MPP} can occur.
-\acl{MPP} cause the \ac{RSSI} values to fluctuate even when neither the distance between the sender and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
-This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
+These facts make \ac{RSSI}-based localization only work accurately in environments with little to no obstacles and thus a low amount of multipath propagation.
+\Cref{sec:rssi-based-multilateration-implementation} will describe how this method was implemented in two different forms in this thesis.
 
 \subsubsection{\acs{RSSI} Fingerprinting}\label{sec:rssi-fingerprinting}
 

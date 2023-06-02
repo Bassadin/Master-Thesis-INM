@@ -438,7 +438,7 @@ Instead of calculating the distance between the two data points, their latitude,
 
 This section will describe the different techniques used to locate \ac{LoRaWAN} nodes in this thesis.
 
-\subsection{\acs{RSSI}-based multilateration}
+\subsection{\acs{RSSI}-based multilateration}\label{sec:rssi-based-multilateration-implementation}
 
 The general idea behind using \ac{RSSI} values to determine the distance to a gateway is simple.
 The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the device and the gateway.
@@ -446,7 +446,7 @@ The further away a device is from a gateway, the lower the \ac{RSSI} value will 
 
 Based on this fact, several attempts were made to calculate the distance between a device and a gateway.
 
-\subsection{First idea: Fixed \acs{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}
+\subsubsection{First idea: Fixed \acs{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}
 
 The first idea for determining the distance between a device and a gateway was to use a fixed \ac{RSSI} to range scale.
 This means that for a given \ac{RSSI} value, a range is determined by inputting said \ac{RSSI} value into a function.
