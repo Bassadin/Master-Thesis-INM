@@ -352,7 +352,12 @@ In the following chapters, several concepts relating to localization will be exp
 
 \subsection{Multilateration}
 
-% Explain lateration and compare to triangulation (term confusion)
+In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a device based on the distance to multiple other devices.
+However, triangulation uses the angles between the end device and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
+This process requires the end device to be able to determine the angles to the reference points, which is needs specific hardware.
+
+The correct term to use when using distances between an end device and multiple receivers to achieve a localization of the end device is \emph{multilateration}.
+A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from.
 
 \subsubsection{\acs{ToA}-based}\label{sec:toa-based-multilateration}
 
