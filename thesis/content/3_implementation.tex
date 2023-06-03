@@ -238,15 +238,15 @@ The \ac{TS} compiler would show the message \lstinline|Property `name' does not 
 
 \subsubsection{Node.js}\label{sec:nodejs}
 
-Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{noauthor_nodejs_nodate}.
-It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{noauthor_v8_nodate}.
+Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{openjs_foundation_nodejs_nodate}.
+It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{google_llc_v8_nodate}.
 Its main benefit is being able to use a single language for both frontend and backend development --- \ac{JS}, or, in this case, \ac{TS}.
 
 Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
 
 \subsubsection{Express.js}
 
-Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{noauthor_express_nodate}.
+Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{openjs_foundation_express_nodate}.
 ``Unopinionated'' means that it does not enforce any specific way of implementing a web application and instead focuses on the premise ``configuration over convention'', leaving the developer to decide how to implement the specifics of the application~\cite{mardan_pro_2014}.
 
 It was used in this thesis as a means to implement the backend part of the \ac{TTNL} web application.
@@ -261,7 +261,7 @@ router.get('/', async (request: Request, response: Response) => {
 });
 \end{lstlisting}
 
-\Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{noauthor_express_nodate-1}.
+\Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{openjs_foundation_express_nodate-1}.
 Express also allows for the creation of more complex endpoints that can, for example, return data from a \ac{DB}.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
@@ -282,7 +282,7 @@ SELECT ST_DistanceSphere(
 Result => 26900.55162337
 \end{lstlisting}
 
-\Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the earth's surface~\cite{noauthor_st_distancesphere_nodate}.
+\Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the earth's surface~\cite{postgis_psc__osgeo_st_distancesphere_nodate}.
 
 PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
 
@@ -357,7 +357,7 @@ It currently has around 800,000 weekly downloads on the npm package repository~\
 It was used in this thesis to display the map on the frontend of the \ac{TTNL} web application.
 Leaflets widespread use and large community made it a good choice for this purpose since there are many examples and tutorials available online.
 
-To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{noauthor_vue_nodate}.
+To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{vue_leaflet_team_vue_nodate}.
 It wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
 
 \subsubsection{GeoJSON}
@@ -488,7 +488,7 @@ Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be 
 While rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
 In the example above, this is the case with values >= -50.
 
-Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSSI} values to fluctuate, even when end device, gateway and the distance between them stay the same.
+Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSSI} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
 This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no line of sight between them.
 
 % TODO how was this dealt with
@@ -498,7 +498,7 @@ This makes RSSI values in general a rather unreliable metric for determining the
 % TODO add positive and negative RSSI range plots as image examples and explain them
 
 \Cref{fig:rssi-range-graph-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-It uses the \ac{RSSI} values of the device-based datapoints from a single gateway to generate the graph by calculating the distance to said gateway.
+It uses the \ac{RSSI} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
 This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
 Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 
