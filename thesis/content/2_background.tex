@@ -72,25 +72,14 @@ It will be explained in more detail in \cref{sec:lorawan}.
 
 \section{\acf{LoRa} modulation}\label{sec:lora-modulation}
 
+The \ac{LoRa} modulation is also sometimes referred to as \ac{LoRa}\ PHY~\cite{chaudhari_understanding_2022}.
+It uses several techniques to achieve long-range communication with low power consumption.
+This section will explain some of its concepts that are relevant to this thesis.
+However, it will not go into detail about the technical details of the modulation.
+
 % explain the basics of LoRa with things like modulation (Chirp Spread Spectrum), spreading factor, bandwidth, coding rate, channels etc.
-While, in the 868 MHz band used in the \ac{EU}, there are only a few channels available, \ac{LoRa} uses a technique called modulation to overcome this problem.
 
-\subsection{Chirp Spread Spectrum}
-
-\ac{LoRa} uses a technique called \ac{CSS} to transmit data with the possibility for error detection and correction.
-
-% TODO
-
-\subsection{\acfp{SF}}\label{sec:spreading-factors}
-
-The \ac{LoRa} modulation uses different \acp{SF} to transmit data.
-
-% TODO explain spreading factors, their effect on data rate and range and their relevance for this thesis
-% spreading factors: SF7 = high data rate, low range; SF12 = low data rate, high range
-
-\subsubsection{Correlation of \acs{SF} and \acs{RSSI} + \acs{SNR}}
-
-\subsection{Duty Cycle (in the \acs{EU} region)}
+\subsection{Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
 
 \begin{figure}
     \centering
@@ -108,6 +97,44 @@ In this example, the duty cycle is 20\%.
 The device, which transmits for one block of time needs to stay silent for the next four blocks of time until it can transmit again.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
+
+\subsection{\acf{CSS}}\label{sec:chirp-spread-spectrum}
+
+\ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction.
+This technique is important to be able to understand the \acp{SF} in \cref{sec:spreading-factors}.
+
+% TODO is this section even necessary? technical details seem to be out of scope for this thesis
+
+\subsection{\acfp{SF}}\label{sec:spreading-factors}
+
+The \ac{LoRa} modulation uses different \acp{SF} to transmit data~\cite{the_things_network_spreading_2023}.
+
+The \ac{SF} determines the chirp rate and thereby the data rate and range of the transmission.
+
+There are six different \acp{SF} available in the \ac{EU} region, ranging from \ac{SF}7 to \ac{SF}12.
+\ac{SF} offers the highest data rate and the lowest range, while \ac{SF}12 offers the lowest data rate and the highest range.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
+    \caption{Comparison of different \ac{SF} in the time and frequency dimensions.\protect\cite{sakshama_ghoslya_lora_2017}}\label{pic:lora-sf-comparison}
+\end{figure}
+
+\Cref{pic:lora-sf-comparison} shows the difference between different \acp{SF} in the time and frequency dimensions.
+It shows that the higher the \ac{SF}, the longer the transmission takes.
+In fact, the transmission time is proportional to $2^{\text{SF}}$~\cite{sakshama_ghoslya_lora_2017}.
+This means that, for example, a transmission using \ac{SF}10 takes twice as long as a transmission using \ac{SF}9.
+
+While a higher \ac{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
+Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \ac{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
+
+Different \acp{SF} also are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
+
+\subsubsection{Correlation of \acs{SF} and \acs{RSSI} + \acs{SNR}}
+
+\acp{SF} are important for this thesis because they interact with the \ac{RSSI} and \ac{SNR} values of a transmission.
+
+% TODO write more
 
 \subsubsection{\ac{LoRa} transmission bit rates}
 
