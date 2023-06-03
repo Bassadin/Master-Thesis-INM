@@ -282,7 +282,7 @@ As mobile devices that have the need to be located are usually battery-powered, 
 While, officially, it is called \emph{The Things Stack Community Edition} since 2021, it is still commonly referred to as \acf{TTN}~\cite{the_things_industries_bv_what_2022}.
 Its users provide \ac{TTN} with gateways that other users can use, making it a decentralized and crowdsourced \ac{LoRaWAN} network.
 
-\subsection{Gateways}
+\subsection{Receiving packets from \ac{LoRaWAN} Gateways}
 
 Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
 
@@ -315,6 +315,18 @@ The \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets whereas the \a
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
+
+\subsection{Web Interface and Device Management}
+
+% TODO
+
+\subsection{Methods of forwarding data from \ac{TTN} to \acfp{AS}}
+
+% TODO
+
+\subsection{Alternatives to \ac{TTN}}
+
+% Mention ChirpStack and maybe others
 
 \section{\acf{TTNM}}
 
@@ -404,9 +416,6 @@ The \ac{LoRaWAN} nodes used in this thesis, as described in \cref{subsec:used-lo
 \subsection{\acf{HDOP}}
 
 % Explain HDOP and relevance to GPS accuracy
-
-\section{Localization of devices}
-
 
 \section{Localization techniques for usage with \acs{LoRaWAN}}\label{sec:lorawan-localization-techniques}
 
