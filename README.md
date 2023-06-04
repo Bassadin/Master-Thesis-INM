@@ -33,7 +33,7 @@ The LaTeX source code is located in the `thesis` folder.
 #### Word count
 
 - `detex main.tex | Measure-Object -word`: Count words in `main.tex` (Windows PowerShell)
-- `cd thesis` && `texcount -inc .\main.tex`: Count several things in `main.tex`
+- `cd thesis` && `texcount -inc .\main.tex -total -sum`: Count several things in `main.tex`
 
 ## Other parts of this thesis
 
