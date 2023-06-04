@@ -90,11 +90,11 @@ However, it will not go into detail about the technical details of the modulatio
 In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
 This means that a \ac{LoRa} device using a frequency band in this range may only transmit for 1\% of a given time slot.
 If, for example, a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
-It needs to stay silent for the rest of the time.
+It needs to stay silent for the rest of the time slot.
 
 An example of a \ac{LoRa} duty cycle can be seen in \cref{pic:lora-duty-cycle}.
 In this example, the duty cycle is 20\%.
-The device, which transmits for one block of time needs to stay silent for the next four blocks of time until it can transmit again.
+The device that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
 
@@ -202,7 +202,7 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
 
 While gateways like these usually have a built-in antenna, their range is only sufficient for covering small to medium-sized buildings or areas.
 It is, however, also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
-While there are many choices for external antennas, as far as the MikroTik gateway is concerned, the choice was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
+While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
 \subsection{Data Transmission}
@@ -263,10 +263,10 @@ The fact that they are always reachable by the \ac{LNS} also makes them the most
 
 \subsubsection{Conclusion}
 
-As far as this thesis was concerned, only devices with class A were used.
+As far as this thesis was concerned, only class A devices were used.
 This is because class B and C use significantly more power than class A because they keep their radio on for extended periods of time, which is a problem for battery-powered devices.
 
-In their work ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C  would need a battery around 19 times as large as a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017-1}.
+In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017-1}.
 As mobile devices that have the need to be located are usually battery-powered, class A is the most viable option for them.
 
 \section{\acf{TTN}}
@@ -335,10 +335,10 @@ It also provides a generic \ac{HTTP} webhook integration that can be used to for
 
 Additionally, \ac{TTN} provides a MQTT integration, which can send data to an MQTT broker.
 MQTT is a widely used lightweight publish-subscribe messaging protocol that is often used in \ac{IoT} applications~\cite{mqtt_mqtt_2022}.
-It is not used in this thesis, so it will not be explained in more detail.
+It is not used in this thesis, so it will not be discussed further.
 
 \ac{TTNM}, the service that was used to collect geolocation data from \ac{LoRaWAN} devices in this thesis, uses a webhook integration to collect data from \ac{TTN}.
-This will be explained in more detail in \cref{sec:ttm-data-collection}.
+This is explained in more detail in \cref{sec:ttm-data-collection}.
 
 Integrations are usually managed on a per-application basis.
 This means that different integrations can be used for different applications.
@@ -388,9 +388,9 @@ Additionally, any gateway that has received at least one message from a \ac{GPS}
 
 As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} nodes.
 
-\ac{TTNM} provides a (partly) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
+\ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
 Data can be requested based on the end device that sent the message or the gateway that received it.
-Additionally, the data can be filtered by the time that it was recorded on.
+In addition, the data can be filtered by the time that it was recorded on.
 The data is provided in graphical (map-based) form as well as in \ac{CSV} files.
 
 There is an additional non-documented part of the \ac{API} that can be used to access the data in \ac{JSON} form.
@@ -426,7 +426,7 @@ A specific case of multilateration is \emph{trilateration}, which specifies thre
 \ac{GNSS} is a generic term for systems that use satellites orbiting the earth to determine the location of a device.
 In everyday language, the term \ac{GPS} is often used as a synonym for \ac{GNSS}.
 However, \ac{GPS} is only one of the several \ac{GNSS} systems that are currently in use.
-\ac{GNSS} system use multilateration to determine the location of end devices as explained in \cref{sec:multilateration-basics}.
+\ac{GNSS} systems use multilateration to determine the location of end devices as explained in \cref{sec:multilateration-basics}.
 \Cref{pic:multilateration-gps-2d-3d-example} shows an example of how this works with \ac{GNSS} satellites in 2D and 3D.
 To determine the distance from the end device to the satellites, the time it takes for a signal to travel from the satellite to the end device is measured.
 This approach is called \acf{ToA}.
