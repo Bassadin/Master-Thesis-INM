@@ -497,19 +497,31 @@ This makes RSSI values in general a rather unreliable metric for determining the
 
 % TODO add positive and negative RSSI range plots as image examples and explain them
 
-\Cref{fig:rssi-range-graph-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
+\Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
 It uses the \ac{RSSI} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
 This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
 Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
+The example in \cref{fig:rssi-range-graph-positive-example} works quite well for this.
 
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
-    \caption{Positive example of a \ac{RSSI} to distance graph the frontend of \ac{TTNL} can generate from data in its \ac{DB}\label{fig:rssi-range-graph-example}}
+    \caption{Positive example of a \ac{RSSI} to distance graph the frontend of \ac{TTNL} can generate from data in its \ac{DB}.\label{fig:rssi-range-graph-positive-example}}
 \end{figure}
 
-% TODO can this be said like this? outliers still seem kinda bad
-While there are outliers in the data, the graph still shows an average linear correlation between the \ac{RSSI} values and their distance.
+While there are outliers in the data, the graph still shows a logical average linear correlation between the \ac{RSSI} values and their distance where the \ac{RSSI} values decrease as the distance increases.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
+    \caption{Negative example of a \ac{RSSI} to distance graph.\label{fig:rssi-range-graph-negative-example}}
+\end{figure}
+
+\Cref{fig:rssi-range-graph-negative-example} shows another example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
+In this example, the \ac{RSSI} values do not decrease as the distance increases.
+This could have several reasons.
+
+% TODO
 
 \subsection{\acf{ToA}-based multilateration}
 
