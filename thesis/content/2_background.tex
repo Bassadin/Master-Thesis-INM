@@ -271,18 +271,20 @@ As mobile devices that have the need to be located are usually battery-powered, 
 
 \section{\acf{TTN}}
 
+\ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
+Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{noauthor_thethingsnetworklorawan-stack_2023}.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.3\textwidth]{pictures/logos/TTN-logo.eps}
     \caption{\acf{TTN} logo~\protect\cite{the_things_industries_bv_quick_nodate}}
 \end{figure}
 
-\ac{TTN} provides a free to use \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
 
 While, officially, it is called \emph{The Things Stack Community Edition} since 2021, it is still commonly referred to as \acf{TTN}~\cite{the_things_industries_bv_what_2022}.
 Its users provide \ac{TTN} with gateways that other users can use, making it a decentralized and crowdsourced \ac{LoRaWAN} network.
 
-\subsection{Receiving packets from \ac{LoRaWAN} Gateways}
+\subsection{Receiving packets from \acs{LoRaWAN} Gateways}
 
 Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
 
@@ -298,35 +300,56 @@ It is advised to use the \acl{LBS} protocol instead.
 
 \subsubsection{\acf{LBS}}
 
+Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
     \caption{\acf{LBS} communication schema~\protect\cite{semtech_lora_developer_portal_lora_2022}}\label{pic:lora-basics-station-schema}
 \end{figure}
 
-Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
-
 \ac{LBS} uses \ac{TLS}-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
 
 The two main components of \acl{LBS} are the \ac{LNS} itself as well as the \acf{CUPS}.
 The communication schema can be seen in \cref{pic:lora-basics-station-schema}.
 
-The \ac{LNS} is responsible for handling the \ac{LoRaWAN} packets whereas the \acl{CUPS} is responsible for handling the configuration of the gateways.
+The \ac{LNS} uses \ac{WSS} for communication and is responsible for handling the \ac{LoRaWAN} packets whereas the \acl{CUPS} is responsible for handling the configuration of the gateways.
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
+It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with token-based authentication.
 When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
 
 \subsection{Web Interface and Device Management}
 
 % TODO
+\ac{TTN} provides a web interface for managing devices and gateways that are registered to the network.
+It also provides a \ac{REST} \ac{API} for managing devices and gateways programmatically.
 
-\subsection{Methods of forwarding data from \ac{TTN} to \acfp{AS}}
+End devices are grouped into \emph{applications} that can be used to manage \ac{LoRaWAN} end devices that belong to a bigger project or device group.
 
-% TODO
+\subsection{Forwarding data from \acf{TTN} to \acfp{AS}}\label{sec:forwarding-data-from-ttn-to-as}
 
-\subsection{Alternatives to \ac{TTN}}
+To transmit data from \ac{TTN} to an \ac{AS}, \ac{TTN} provides \emph{integrations}~\cite{the_things_network_integrations_2021}.
+\ac{TTN} offers several integrations for different cloud \acp{AS} such as \ac{AWS} IoT Core and Microsoft Azure IoT Hub.
+It also provides a generic \ac{HTTP} webhook integration that can be used to forward data to any \ac{HTTP} or \ac{HTTPS} endpoint.
+Additionally, \ac{TTN} provides a MQTT integration, which can send data to an MQTT broker.
+MQTT is a widely used lightweight publish-subscribe messaging protocol that is often used in \ac{IoT} applications~\cite{mqtt_mqtt_2022}.
+It is not used in this thesis, so it will not be explained in more detail.
 
-% Mention ChirpStack and maybe others
+\ac{TTNM}, the service that was used to collect geolocation data from \ac{LoRaWAN} devices in this thesis, uses a webhook integration to collect data from \ac{TTN}.
+This will be explained in more detail in \cref{sec:ttm-data-collection}.
+
+\subsection{Alternatives to \acf{TTN}}
+
+While anyone can use \ac{TTN} for free as a cloud-hosted \ac{SaaS}, it is not the only \ac{LNS} available.
+\ac{TTN} can also be self-hosted, for example using Docker, using the open-source \ac{LNS} \emph{The Things Stack}~\cite{the_things_network_host_2023}.
+
+There are also several other \acp{LNS} that can be used to build a private \ac{LoRaWAN} network.
+\emph{LORIOT} is \ac{TTN} --- it has a public community instance that acts similar to the \ac{SaaS} version of \ac{TTN}, and it also offers a self-hosted version~\cite{loriot_ag_loriot_2023}.
+It is, contrary to \ac{TTN}, not open-source.
+
+Another well-known \ac{LNS} is \emph{ChirpStack}, which is open-source and can be self-hosted~\cite{chirpstack_chirpstack_2023}.
+Contrary to \ac{TTN}, it is not a \ac{SaaS} and does not offer a public community instance.
 
 \section{\acf{TTNM}}
 
@@ -334,13 +357,13 @@ When a gateway is configured with \ac{CUPS}, it will automatically receive its c
 He first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway.
 However, the project has since been expanded to map the coverages of almost all gateways registered in the public \ac{TTN} network~\cite{the_things_network_jp_2018}.
 
-\subsection{Data collection}
+\subsection{Data collection}\label{sec:ttm-data-collection}
 
 \acl{TTNM} works by using \ac{LoRaWAN} nodes with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
 Alongside the location information, those nodes' messages that are processed by \ac{TTN} also include information about which gateways received them.
 
 Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules.
-This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network.
+This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
 
 \subsection{Frontend data views}
