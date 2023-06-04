@@ -70,3 +70,5 @@ Bettinger
 Vöhrenbach
 LORIOT
 ChirpStack
+annuli
+annulus

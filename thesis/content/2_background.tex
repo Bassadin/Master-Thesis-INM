@@ -457,7 +457,28 @@ The \ac{LoRaWAN} nodes used in this thesis, as described in \cref{subsec:used-lo
 
 In the following sections, several concepts relating to localization will be explained.
 
-\subsection{\acs{ToA}-based}\label{sec:toa-based-multilateration}
+\subsection{Multilateration}\label{sec:lorawan-multilateration}
+
+As explained in \cref{sec:multilateration-basics}, multilateration uses the distance between a device and multiple receivers to determine the location of the end device.
+However, while the theoretical concept of multilateration, as shown in \cref{pic:multilateration-gps-2d-3d-example} is simple, there are several challenges when applying it to real-world scenarios.
+Distances measured between devices are often not accurate enough to determine the location of a device accurately.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{pictures/multilateration/multilateration_error_ranges.png}
+    \caption{Example of multilateration in 2D with error ranges. Contrary to \cref{pic:multilateration-gps-2d-3d-example}, the margins of error can be seen as well as the non-definitive margin of error around the estimated device position.\protect\cite{kapoor_novel_2016}}\label{pic:multilateration-with-error-ranges-example}
+\end{figure}
+
+When dealing with such inaccuracies, the calculated position of the device often is calculated as not a single point but a range of possible positions.
+% TODO explain what an annulus is? lol
+\Cref{pic:multilateration-with-error-ranges-example} shows an example of this in 2D where the device's position is estimated to be in the area where the three annuli overlap.
+This does not result in a definite position of the device but rather a range of possible positions.
+The size of this estimated localization range depends on the accuracy of the distance measurements.
+
+The following sections will explain different methods of determining the distance between a device and a receiver.
+However, as was just mentioned, the accuracy of these measurements is crucial for the accuracy of the actual localization.
+
+\subsubsection{\acs{ToA}-based}\label{sec:toa-based-multilateration}
 
 The \acf{ToA} based method uses the difference in the signal's time of arrival at the receiving stations.
 In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time difference can be used to calculate the distance between the receiving stations and the transmitting station~\cite{khalaf-allah_time_2015}.
@@ -467,7 +488,7 @@ For GPS, usually four or more satellites are required to determine the position 
 
 % TODO explain the needed accuracy of timestamps for this to work + find a source for it
 
-\subsection{\acs{RSSI}-based}\label{sec:rssi-based-multilateration}
+\subsubsection{\acs{RSSI}-based}\label{sec:rssi-based-multilateration}
 
 % explain basics of RSSI, dbm, etc.
 
