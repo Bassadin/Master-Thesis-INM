@@ -188,7 +188,8 @@ As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data need
 
 \section{Used development tools}
 
-% TODO: is this necessary?
+% TODO: is this necessary? Copilot, extensions, etc.
+% Maybe GitHub actions, etc.
 
 \subsection{Visual Studio Code}
 
@@ -391,7 +392,7 @@ This format was used in this thesis as a means to standardify the data format us
 
 \Cref{lst:geojson-example} shows an example of a GeoJSON object.
 
-\subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}
+\subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
 
 To be able to perform more advanced queries on the data, it needed to be, partly, transferred into the \ac{TTNL} \acl{DB}.
 Since, for the scope of this thesis, only devices that captured data near the Furtwangen area were of interest, only data from those devices was transferred.
@@ -412,7 +413,7 @@ This ensures that the \ac{TTNL} \ac{DB} is always up to date with the device spe
 
 The data that was collected from \ac{TTNM} was not without errors.
 \ac{TTNM} filters out some of the data that is sent to it.
-For example, it does not accept datapoints that have a \ac{HDOP} value of more than a certain unspecifíed amount.
+It, for example, does not accept datapoints that have a \ac{HDOP} value of more than a certain unspecifíed amount.
 As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values above 5 were recorded so it is likely that this is the cutoff point.
 There were several problems that were noticed when trying to use the data for localization purposes:
 
@@ -519,7 +520,7 @@ While there are outliers in the data, the graph still shows a logical average li
 
 \Cref{fig:rssi-range-graph-negative-example} shows another example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
 In this example, the \ac{RSSI} values do not decrease as the distance increases.
-This could have several reasons.
+This could have several reasons, such as not enough data points being available (the negative example has only 131 vs.\ almost 3,000 for the positive example).
 
 % TODO
 

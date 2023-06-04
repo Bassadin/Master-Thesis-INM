@@ -72,3 +72,4 @@ LORIOT
 ChirpStack
 annuli
 annulus
+deviceId

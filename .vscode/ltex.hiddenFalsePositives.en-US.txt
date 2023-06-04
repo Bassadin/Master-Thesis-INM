@@ -13,3 +13,4 @@
 {"rule":"THREE_NN","sentence":"^\\QIn this thesis, for \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q was used as the database management system because of its popularity, its possibility to be used with the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Prisma as well as PostGIS.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe PostGIS function |ST_DistanceSphere| is used to calculate the distance between the current and the previous data point.\\E$"}
 {"rule":"EN_A_VS_AN","sentence":"^\\QTo transmit data from \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q to an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q provides integrations \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QFor example, |LAG(latitude) OVER (PARTITION BY \"deviceId\" ORDER BY timestamp AS prev_latitude| gets the latitude of the previous \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q data point of the same device.\\E$"}
