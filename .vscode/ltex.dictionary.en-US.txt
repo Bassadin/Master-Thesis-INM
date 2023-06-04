@@ -68,3 +68,5 @@ trilateration
 NAVSTAR
 Bettinger
 Vöhrenbach
+LORIOT
+ChirpStack
