@@ -120,12 +120,16 @@ Such a project could be realized with software like \emph{Node-RED}.
 
 \subsection{Improving the \acf{TTNL} software}
 
+\subsubsection{Recognizing moving gateways}
+
 % TODO: Recognize moving gateways
 
 Currently, the backend of the \ac{TTNL} software cannot recognize if a gateway has moved its position since the last time it was captured.
 This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data
 points were captured at the same location.
 \ac{TTNL} could be improved by adding a feature that recognizes if a gateway has moved and then deletes all data points that were captured at the old location of the gateway.
+
+\subsubsection{Choice of technologies}
 
 \subsection{Further research}
 
