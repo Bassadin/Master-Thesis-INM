@@ -39,7 +39,10 @@ Altitude was also a factor that was considered, as a placement on a higher altit
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
-    \caption{Overview map of \ac{LoRaWAN} gateways situated in the Furtwangen area. Shows Gateways placed during this thesis as well as already existing ones.\label{pic:gateways-placement-map}}
+    \caption{
+        Overview map of \ac{LoRaWAN} gateways situated in the Furtwangen area.
+        This map shows gateways that were placed during this thesis as well as already existing ones.
+    }\label{pic:gateways-placement-map}
 \end{figure}
 
 \Cref{pic:gateways-placement-map} shows the locations of the gateways that were installed during this thesis and also some that were already present.
@@ -66,7 +69,11 @@ With their help, it was possible to install antennas on the roofs of the \ac{GHB
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/lr8_ghb_installation.jpg}
-    \caption{Installed MikroTik LR8 wAP gateway with antenna on the \ac{GHB} student dormitory\label{pic:mikrotik-gateway-ghb-installation}}
+    \caption{
+        The MikroTik LR8 wAP gateway and its antenna installed on the roof of the \ac{GHB} dormitory.
+        The impressive \ac{LoS} range of the gateway can be seen in the background.
+        It can reach most of the valley in which Furtwangen is located.
+    }\label{pic:mikrotik-gateway-ghb-installation}
 \end{figure}
 
 \Cref{pic:mikrotik-gateway-ghb-installation} shows the installed MikroTik wAP LR8 kit gateway on the roof of the \ac{GHB} student dormitory.
@@ -81,7 +88,11 @@ Its network infrastructure is also managed by the ``\ac{GHB} NetAdmins'', which 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
-    \caption{Installed Dragino DLOS8N gateway with antenna on the \acf{ASH}\label{pic:dragino-gateway-ash}}
+    \caption{
+        Installed Dragino DLOS8N gateway with antenna on the roof of the \ac{ASH}.
+        Once again, the \ac{LoS} area of the gateway can be seen in the background.
+        Also in the background, to the left and right of the gateway, are the two towers of the \ac{GHB} dormitories.
+    }\label{pic:dragino-gateway-ash}
 \end{figure}
 
 \Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N gateway on the roof of the \ac{ASH} student dormitory.
@@ -96,7 +107,12 @@ With their friendly support, it was possible to install an antenna on top of the
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
-    \caption{Antenna with 8dBi gain installed on top of the \emph{DL0FIS} amateur radio club clubhouse (bottom right)\label{pic:antenna-dl0fis-clubhouse}}
+    \caption{
+        Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
+        The antenna has a gain of 8dBi and was connected to a Dragino LG308N gateway.
+        It was the largest antenna used in this thesis.
+        The picture does not show the impressive location of the antenna on a hill between Gütenbach and Furtwangen.
+    }\label{pic:antenna-dl0fis-clubhouse}
 \end{figure}
 
 \section{Collecting additional \acf{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
@@ -115,7 +131,13 @@ In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{T
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
-    \caption{ELV-AM-GPS \ac{LoRaWAN} node on top of the LoRIS base\label{pic:loris-node-bare}}
+    \caption{
+        ELV-AM-GPS \ac{LoRaWAN} node on the LoRIS base.
+        The brownish \ac{GPS} module can be seen on the right.
+        There are several other modules that can be stacked on top of the base, such as a CO\textsubscript{2} or temperature sensor.
+        Battery operation is possible by stacking a battery module on top of the base.
+        Unfortunately, the \ac{GPS} module consumes too much power to be used with the battery module.
+    }\label{pic:loris-node-bare}
 \end{figure}
 
 The ELV LW experimental platform was the \ac{LoRaWAN} node out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned\cite{elv_elektronik_ag_elv-lw-base_2023}.
@@ -129,7 +151,10 @@ Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS mo
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
-    \caption{ELV-AM-GPS \ac{LoRaWAN} node in self-designed 3D printed case\label{pic:loris-node-with-case}}
+    \caption{
+        ELV-AM-GPS \ac{LoRaWAN} node inside a quickly designed 3D printed case.
+        The case and the node are held together by a few rubber bands.
+    }\label{pic:loris-node-with-case}
 \end{figure}
 
 To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
@@ -138,12 +163,18 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
-    \caption{ELV-LW-GPS1 \ac{LoRaWAN} node~\protect\cite{elv_elektronik_ag_elv_2023}}
+    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
+    \caption{
+        ELV-LW-GPS1 \ac{LoRaWAN} node~\protect\cite{elv_elektronik_ag_elv_2023}.
+        The brownish \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the right.
+        It uses a similar \ac{LoRa} module as the ELV LW experimental platform.
+        The header on the right is used to connect the 5 to 40V power supply as well as an optional physical contact to start a localization on demand.
+    }
 \end{figure}
 
-The ELV-LW-GPS1 is another \ac{LoRaWAN} node that is designed to be used as a \ac{GPS} tracker.
-It takes a power source that can range from 5 to 40 volts which makes it flexible in terms of power supply and makes it possible to use it, for example, with a car battery that usually has a voltage of 12 volts.
+The ELV-LW-GPS1 is another \ac{LoRaWAN} node designed to be used as a \ac{GPS} tracker.
+It requires a power source that can range from 5 to 40 V, which makes it flexible in terms of power supply.
+For example, it can be used with a car battery, which usually has a voltage of 12V.
 
 Finding a power source to be able to use it for this thesis was a challenge.
 While it can be powered by a 9V battery, those usually have a low capacity and are not rechargeable.
@@ -163,7 +194,10 @@ While it can be powered by a 9V battery, those usually have a low capacity and a
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
-    \caption{dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}}
+    \caption{
+        The dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}.
+        Between the two white labels on the top of the device, the solar module for power harvesting can be seen.
+    }\label{pic:dnt-lw-ats}
 \end{figure}
 
 At first glance, this was the most promising \ac{LoRa} node for the task at hand.
@@ -178,8 +212,10 @@ The documentation was not helpful with finding the root cause and the manufactur
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{pictures/ttn-mapper/ttnmapper_heatmap_before.png}
-    \caption{\ac{TTNM} heatmap view before additional data collection during this thesis\label{pic:ttnm-before-data-collection}}
+    \includegraphics[width=0.7\textwidth]{pictures/ttn-mapper/ttnmapper_heatmap_before.png}
+    \caption{
+        The \ac{TTNM} heatmap view before additional data collection during this thesis~\cite{ttn_mapper_ttn_2023}.
+    }\label{pic:ttnm-before-data-collection}
 \end{figure}
 
 \Cref{pic:ttnm-before-data-collection} shows the \ac{TTNM} heatmap view before additional data collection during this thesis.
@@ -224,7 +260,12 @@ However, it can also be used outside a browser, for example, to create server ap
 This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler.
 Assigning the wrong type to a variable or passing the wrong type to a function then triggers compile-time error instead of a runtime error.
 
-\begin{lstlisting}[language=TypeScript, float, caption={Example of type checking in \ac{TS}}, label={lst:example-ts-type-checking}]
+\begin{lstlisting}[
+    language=TypeScript,
+    float,
+    caption={Example of type checking in \ac{TS}},
+    label={lst:example-ts-type-checking}
+]
 const user = {
     firstName: "Teysa",
     lastName: "Karlov",
@@ -232,10 +273,12 @@ const user = {
 }
     
 console.log(user.name)
+
+// Would show the error: "Property `name' does not exist on type { firstName: string; lastName: string; role: string; }"
 \end{lstlisting}
 
 \Cref{lst:example-ts-type-checking} shows an example of how \ac{TS} can help prevent runtime errors.
-The \ac{TS} compiler would show the message \lstinline|Property `name' does not exist on type { firstName: string; lastName: string; role: string; } | since \lstinline{name} is not a property of the \lstinline{user} object.
+The \ac{TS} compiler would show the message \lstinline|Property `name' does not exist on type { firstName: string; lastName: string; role: string; }| since \lstinline{name} is not a property of the \lstinline{user} object.
 
 \subsubsection{Node.js}\label{sec:nodejs}
 
@@ -329,6 +372,8 @@ Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for
 
 \subsubsection{Vue.js}
 
+% TODO: Explain reactivity?
+
 Vue.js is a \ac{JS} framework for building reactive user interfaces~\cite{evan_you_vuejs_2023}.
 It was used in this thesis as a means to implement the frontend of the \ac{TTNL} web application.
 Vue can also use \ac{TS} as a programming language, which was used in this thesis for making the code more robust and easier to maintain due to its type safety.
@@ -345,7 +390,10 @@ Its usage as import-able predefined Vue components also allowed for a quick and 
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/vuetify-form-example.png}
-    \caption{An example of a form created using Vuetify components\label{fig:vuetify-form-example}}
+    \caption{
+        An example of a form created using Vuetify components.
+        The values of the form fields can be accessed reactively from the Vue component's script part.
+    }\label{fig:vuetify-form-example}
 \end{figure}
 
 \Cref{fig:vuetify-form-example} shows an example of a form created using Vuetify components in the \ac{TTNL} frontend.
@@ -474,8 +522,7 @@ This means that for a given \ac{RSSI} value, a range is determined by inputting 
 The equation depicted in \cref{eq:fixed-rssi-to-range-scale} shows an example where a \ac{RSSI} value is inputted.
 The result is the distance $D_{gateway}$ to the gateway in meters.
 
-\begin{equation}
-    \label{eq:fixed-rssi-to-range-scale}
+\begin{equation}\label{eq:fixed-rssi-to-range-scale}
     D_{gateway} = -12 * rssi - 605
 \end{equation}
 
@@ -490,7 +537,7 @@ While rare, \ac{RSSI} values that are larger than a certain threshold can also r
 In the example above, this is the case with values >= -50.
 
 Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSSI} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
-This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no line of sight between them.
+This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no \ac{LoS} between them.
 
 % TODO how was this dealt with
 
@@ -507,7 +554,10 @@ The example in \cref{fig:rssi-range-graph-positive-example} works quite well for
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
-    \caption{Positive example of a \ac{RSSI} to distance graph the frontend of \ac{TTNL} can generate from data in its \ac{DB}.\label{fig:rssi-range-graph-positive-example}}
+    \caption{
+        Positive example of a \ac{RSSI} to distance graph that the \ac{TTNL} frontend can generate from data in its \ac{DB}.
+        Some outliers are visible in the upper left of the graph.
+    }\label{fig:rssi-range-graph-positive-example}
 \end{figure}
 
 While there are outliers in the data, the graph still shows a logical average linear correlation between the \ac{RSSI} values and their distance where the \ac{RSSI} values decrease as the distance increases.
@@ -515,7 +565,11 @@ While there are outliers in the data, the graph still shows a logical average li
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
-    \caption{Negative example of a \ac{RSSI} to distance graph.\label{fig:rssi-range-graph-negative-example}}
+    \caption{
+        Negative example of a \ac{RSSI} to distance graph.
+        The \ac{RSSI} values do not decrease as the distance increases in this case.
+        It is possible that this is caused by not enough data points being available as compared to the positive example in \cref{fig:rssi-range-graph-positive-example}.
+    }\label{fig:rssi-range-graph-negative-example}
 \end{figure}
 
 \Cref{fig:rssi-range-graph-negative-example} shows another example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
@@ -537,7 +591,11 @@ Differences of up to 1 second between the timestamps of the same signal in diffe
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/toa_bad_data_example_prisma_studio.png}
-    \caption{Example of divergent timestamp data planned to be used for \ac{ToA} multilateration. The time difference between the first and second signal arrival amounts to more than one second. Picture taken from Prisma's \emph{Prisma Studio} web frontend.\label{fig:toa-bad-data-example}}
+    \caption{
+        Example of divergent timestamp data planned to be used for \ac{ToA} multilateration.
+        The time difference between the first and second signal arrival amounts to more than one second.
+        Picture taken from Prisma's \emph{Prisma Studio} web frontend.
+    }\label{fig:toa-bad-data-example}
 \end{figure}
 
 \Cref{fig:toa-bad-data-example} shows an example of the divergent timestamp data that was planned to be used for \ac{ToA} multilateration where the time difference between the first and second signal arrival amounts to more than one second.

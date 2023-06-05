@@ -9,7 +9,10 @@ This section aims to provide a general overview of wireless communication termin
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
-    \caption{Comparison of data rate, power consumption and range between different wireless communication protocols~\protect\cite{wang_comparison_2021}}\label{pic:wireless-protocols-comparison}
+    \caption{
+        Comparison of data rate, power consumption and range between different wireless communication protocols.
+        While \ac{LoRaWAN} has significantly lower data rates compared to cellular networks, its power consumption is also much lower.~\protect\cite{wang_comparison_2021}
+    }\label{pic:wireless-protocols-comparison}
 \end{figure}
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
@@ -32,7 +35,7 @@ As far as this thesis is concerned, \ac{RSSI} values are measured in dBm since \
 Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance.
 Different devices can have different \ac{RSSI} values for the same distance because of factors such as antennas with different gains.
 
-\ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a line of sight between the sender and receiver.
+\ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \ac{LoS} between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
 
 \subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
@@ -40,7 +43,10 @@ The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or oth
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
-    \caption{Example for \acf{MPP} of \ac{RF} waves\protect\cite{milosevic_key_2017}}\label{pic:figure_multipath_propagation}
+    \caption{
+        Example for different kinds of \acf{MPP} of \ac{RF} waves.
+        Notably, all of them make the signal travel time longer than direct \ac{LoS} would take.~\protect\cite{milosevic_key_2017}
+    }\label{pic:figure_multipath_propagation}
 \end{figure}
 
 Additionally, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
@@ -84,7 +90,10 @@ However, it will not go into detail about the technical details of the modulatio
 \begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{pictures/lora/duty-cycle-single-channel-off-air.png}
-    \caption{\ac{LoRa} duty cycle example~\protect\cite{the_things_industries_bv_duty_nodate}}\label{pic:lora-duty-cycle}
+    \caption{
+        Schematic example of duty cycle in \ac{LoRa}.
+        For this example, the duty cycle is 20\%.~\protect\cite{the_things_industries_bv_duty_nodate}
+    }\label{pic:lora-duty-cycle}
 \end{figure}
 
 In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
@@ -117,7 +126,10 @@ There are six different \acp{SF} available in the \ac{EU} region, ranging from \
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
-    \caption{Comparison of different \ac{SF} in the time and frequency dimensions.\protect\cite{sakshama_ghoslya_lora_2017}}\label{pic:lora-sf-comparison}
+    \caption{
+        Comparison of \acp{SF} \ac{SF}7 to \ac{SF} 12 in the time and frequency dimensions.
+        The doubling of the transmission time between \acp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
+    }\label{pic:lora-sf-comparison}
 \end{figure}
 
 \Cref{pic:lora-sf-comparison} shows the difference between different \acp{SF} in the time and frequency dimensions.
@@ -152,7 +164,9 @@ LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is ano
 \begin{figure}
     \centering
     \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
-    \caption{\ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}}
+    \caption{
+        \ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}
+    }
 \end{figure}
 
 \ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
@@ -160,7 +174,9 @@ LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is ano
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lorawan-architecture.png}
-    \caption{\ac{LoRaWAN} network structure~\protect\cite{the_things_industries_bv_lorawan_nodate}}\label{pic:lorawan-network-structure}
+    \caption{
+        The structure of a \ac{LoRaWAN} network.~\protect\cite{the_things_industries_bv_lorawan_nodate}
+    }\label{pic:lorawan-network-structure}
 \end{figure}
 
 The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_2017}:
@@ -179,7 +195,10 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 \begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateways/mikrotik-lr8-kit.png}
-    \caption{MikroTik wAP LR8 kit Gateway~\protect\cite{the_things_industries_bv_lorawan_nodate}}\label{pic:mikrotik-lr8-kit-gateway}
+    \caption{
+        A MikroTik wAP LR8 kit \ac{LoRaWAN} Gateway.
+        This was one of the gateways used during this thesis.~\protect\cite{the_things_industries_bv_lorawan_nodate}
+    }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
 
 A \ac{LoRa} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRa} nodes/end devices) and forwards them to the \ac{LoRaWAN} server.
@@ -197,7 +216,11 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gateway-deployment/mikrotik-antenna-c-building.jpg}
-    \caption{The MikroTik antenna installed on top of the \ac{HFU} C building}\label{pic:mikrotik-antenna-c-building}
+    \caption{
+        A MikroTik antenna installed on top of the \ac{HFU} C building.
+        The exposed position of the roof in the valley where Furtwangen is located can be seen.
+        In the background, on the right, the two buildings of the \ac{GHB} dormitories are visible.
+    }\label{pic:mikrotik-antenna-c-building}
 \end{figure}
 
 While gateways like these usually have a built-in antenna, their range is only sufficient for covering small to medium-sized buildings or areas.
@@ -220,7 +243,10 @@ Downlinks, however, are only sent from the network server to the end node using 
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-a.png}
-    \caption{\ac{LoRaWAN} Device class A communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-a-schema}
+    \caption{
+        A schema of a \ac{LoRaWAN} Class A device communication.
+        The two receive windows (RX1 and RX2) are visible.~\protect\cite{the_things_industries_bv_device_nodate}
+    }\label{pic:lorawan-device-class-a-schema}
 \end{figure}
 
 Class A is used for devices that need to consume as little power as possible.
@@ -238,7 +264,10 @@ Class A consumes the least amount of power of the three classes, since the devic
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-b.png}
-    \caption{\ac{LoRaWAN} Device class B communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-b-schema}
+    \caption{
+        A schema of a \ac{LoRaWAN} Class B device communication.
+        The additional ping slots where the end device is reachable by gateways can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
+    }\label{pic:lorawan-device-class-b-schema}
 \end{figure}
 
 In addition to class A, class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows.
@@ -252,7 +281,10 @@ These scheduled downlink windows result in a higher power consumption for class 
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-c.png}
-    \caption{\ac{LoRaWAN} Device class C communication schema~\protect\cite{the_things_industries_bv_device_nodate}}\label{pic:lorawan-device-class-c-schema}
+    \caption{
+        A schema of a \ac{LoRaWAN} Class C device communication.
+        The RX2 window is kept open between uplink transmissions to allow gateways to reach the end device at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
+    }\label{pic:lorawan-device-class-c-schema}
 \end{figure}
 
 Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
@@ -305,7 +337,10 @@ Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended ov
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
-    \caption{\acf{LBS} communication schema~\protect\cite{semtech_lora_developer_portal_lora_2022}}\label{pic:lora-basics-station-schema}
+    \caption{
+        A schema of communications from a gateway and a \ac{LNS} using \acf{LBS}.
+        The \ac{CUPS} service can be seen in the top right.~\protect\cite{semtech_lora_developer_portal_lora_2022}
+    }\label{pic:lora-basics-station-schema}
 \end{figure}
 
 \ac{LBS} uses \ac{TLS}-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
@@ -376,7 +411,14 @@ With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gatew
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
-    \caption{Screenshot of \ac{TTNM}'s \emph{heatmap} view with some gateways visible (small blue and white circles) in the Furtwangen area~\protect\cite{ttn_mapper_ttn_2023}}\label{pic:ttn-mapper-heatmap-with-gateways}
+    \caption{
+        A screenshot of \ac{TTNM}'s \emph{heatmap} view of the Furtwangen area.
+        The heatmap shows places where strong signals from \ac{LoRaWAN} gateways were recorded in reddish colors.
+        Weaker signals are shown in blueish colors.
+        Some gateways are visible as small blue and white circles.
+        This screenshot was taken at a time when there were already several instances of data collection.
+        \Cref{sec:collected-data-in-furtwangen-on-ttnm} will show before and after images of the same heatmap view for comparison.~\protect\cite{ttn_mapper_ttn_2023}
+    }\label{pic:ttn-mapper-heatmap-with-gateways}
 \end{figure}
 
 \Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
@@ -414,7 +456,10 @@ This process requires the end device to be able to determine the angles to the r
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/gps_multilateration.png}
-    \caption{Example of how multilateration works in \ac{GNSS} in 2D and 3D.\protect\cite{gisgeography_how_2018}}\label{pic:multilateration-gps-2d-3d-example}
+    \caption{
+        An example of how multilateration works in \ac{GNSS} in 2D and 3D~\protect\cite{gisgeography_how_2018}.
+        It can be seen that 4 Satellites are needed to get a three-dimensional fix while only 3 are needed for a two-dimensional fix.
+    }\label{pic:multilateration-gps-2d-3d-example}
 \end{figure}
 
 The correct term to use when using distances between an end device and multiple receivers to achieve a localization of the end device is \emph{multilateration}.
@@ -466,7 +511,10 @@ Distances measured between devices are often not accurate enough to determine th
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/multilateration_error_ranges.png}
-    \caption{Example of multilateration in 2D with error ranges. Contrary to \cref{pic:multilateration-gps-2d-3d-example}, the margins of error can be seen as well as the non-definitive margin of error around the estimated device position.\protect\cite{kapoor_novel_2016}}\label{pic:multilateration-with-error-ranges-example}
+    \caption{
+        An example of multilateration in 2D with error ranges.
+        In contrast to the example shown in \cref{pic:multilateration-gps-2d-3d-example}, the margins of error can be seen as well as the non-definite margin of error around the estimated device position~\protect\cite{kapoor_novel_2016}.
+    }\label{pic:multilateration-with-error-ranges-example}
 \end{figure}
 
 When dealing with such inaccuracies, the calculated position of the device often is calculated as not a single point but a range of possible positions.
