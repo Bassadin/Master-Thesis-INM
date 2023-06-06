@@ -529,11 +529,11 @@ The result is the distance $D_{gateway}$ to the gateway in meters.
 For example, a \ac{RSSI} value of -80 would result in a distance of 355 meters.
 A value of -110 would result in a distance of 715 meters.
 
-The values for this equation were derived by doing a linear regression on the \ac{RSSI} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
+The values for this equation were derived by performing a linear regression on the \ac{RSSI} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
 While those values work well for the \ac{RF} reception behavior of the gateway that was used to derive them, they are not necessarily applicable to other gateways.
 Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
-While rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
+Although rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
 In the example above, this is the case with values >= -50.
 
 Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSSI} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
