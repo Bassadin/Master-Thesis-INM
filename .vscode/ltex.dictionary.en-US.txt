@@ -74,3 +74,4 @@ annuli
 annulus
 deviceId
 dnt-LW-ATS
+Bregtal
