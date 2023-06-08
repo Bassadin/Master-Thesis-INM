@@ -156,7 +156,7 @@ Different \acp{SF} also are orthogonal to each other, so they can be used at the
 
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
-A \ac{LoRa} node that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017-1}.
+A \ac{LoRa} node that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device by entering data such as payload size, periodicity of the data transmission and the battery type used.
 
 \section{\acf{LoRaWAN}}\label{sec:lorawan}
@@ -298,13 +298,13 @@ The fact that they are always reachable by the \ac{LNS} also makes them the most
 As far as this thesis was concerned, only class A devices were used.
 This is because class B and C use significantly more power than class A because they keep their radio on for extended periods of time, which is a problem for battery-powered devices.
 
-In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017-1}.
+In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
 As mobile devices that have the need to be located are usually battery-powered, class A is the most viable option for them.
 
 \section{\acf{TTN}}
 
 \ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
-Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{noauthor_thethingsnetworklorawan-stack_2023}.
+Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023-stack_2023}.
 
 \begin{figure}
     \centering
