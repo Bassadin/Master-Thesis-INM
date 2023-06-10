@@ -75,3 +75,6 @@ annulus
 deviceId
 dnt-LW-ATS
 Bregtal
+Knott
+DeviceGPSDatapoint
+TtnMapperDatapoint

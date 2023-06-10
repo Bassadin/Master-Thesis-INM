@@ -245,6 +245,16 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 
 % TODO add ER diagram of \ac{DB}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{pictures/ttn-locator/backend/prisma-erd.eps}
+    \caption{
+        The \ac{DB} structure of the \ac{TTNL} application as an \ac{ERD}.
+        The connections between its Device, Gateway, DeviceGPSDatapoint and TtnMapperDatapoint tables are included as well.
+        This image was generated using Simon Knott's \emph{Prisma ERD} generator~\cite{simon_knott_prisma_2023}.
+    }\label{pic:prisma-erd}
+\end{figure}
+
 \subsection{Used technologies --- Backend}
 
 This chapter describes the technologies used in the backend part of the \ac{TTNL} web application.
