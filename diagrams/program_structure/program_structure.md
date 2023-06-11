@@ -1,6 +1,7 @@
 ---
 title: TTN Locator Program structure
 ---
+<!-- Use "garden" theme -->
 ```mermaid
 flowchart TD
     subgraph TTNL [TTN Locator]
