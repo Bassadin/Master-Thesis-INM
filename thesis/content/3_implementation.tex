@@ -238,12 +238,36 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 \subsection{Overview}
 
 % TODO add diagram of program structure
-
 % TODO mention the extensive usage of docker and docker-compose to enable easy deployment of the application
+This section aims to give an overview over the program structure of the \ac{TTNL} application.
+It also includes the \ac{LoRaWAN} gateways, devices and other parts such as the \ac{TTN} \ac{LNS} in the explanation of the data flow.
 
-\subsection{Database}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{pictures/ttn-locator/program_structure.png}
+    \caption{
+        The program structure and data flow of the \ac{TTNL} application as a flowchart.
+        \ac{TTNL}, the part that was created during this thesis, is highlighted in yellow.
+        The diagram was made with Mermaid~\cite{mermaid_mermaid_2023}.
+    }\label{pic:program-structure}
+\end{figure}
 
-% TODO add ER diagram of \ac{DB}
+\Cref{pic:program-structure} shows the program structure and data flow of the \ac{TTNL} application as a flowchart.
+The part that was implemented during this thesis is highlighted in yellow.
+
+The data flow starts with the \ac{LoRaWAN} end devices on the right that collect \ac{GPS} data and send it to the \ac{LoRaWAN} gateways using the \ac{LoRaWAN} protocol.
+The gateways then forward the packets to the \ac{TTN} \ac{LNS}.
+In the Applications section of the \ac{TTN} \ac{LNS}, the \ac{TTNL} application is configured to receive the packets and transform their byte data into a \ac{JSON} format that can be processed by \ac{TTNM}.
+Using the \ac{TTNM} integration, \ac{TTN} then sends the data to \ac{TTNM}.
+
+The left side of the diagram shows the \ac{TTNL} application.
+The backend periodically fetches the data from \ac{TTNM} via its \ac{REST} \ac{API} and stores it in a \ac{PSQL} \ac{DB}.
+The \ac{TTNL} frontend can retrieve data from the backend using a \ac{REST} \ac{API} and present it to the user in various ways.
+
+The following sections will explain each part of the \ac{TTNL} application in detail and show how they were implemented.
+The tools and technologies used for the implementation are also explained.
+
+\subsection{Data structure}
 
 \begin{figure}
     \centering
@@ -251,9 +275,14 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
     \caption{
         The \ac{DB} structure of the \ac{TTNL} application as an \ac{ERD}.
         The connections between its Device, Gateway, DeviceGPSDatapoint and TtnMapperDatapoint tables are included as well.
-        This image was generated using Simon Knott's \emph{Prisma ERD} generator~\cite{simon_knott_prisma_2023}.
+        This image was generated using Simon Knott's \emph{Prisma ERD} generator that uses a Prisma schema definition file~\cite{simon_knott_prisma_2023}.
     }\label{pic:prisma-erd}
 \end{figure}
+
+\Cref{pic:prisma-erd} shows the \ac{DB} structure of the \ac{TTNL} application as an \ac{ERD}.
+It splits up the data received from \ac{TTNM} into four main tables: Device, Gateway, DeviceGPSDatapoint and TtnMapperDatapoint.
+
+\Cref{sec:consolidating-ttnm-data-into-ttnl-db} will describe how the data from \ac{TTNM} was structured to be able to be stored in the \ac{TTNL} \ac{DB} to be able to perform more advanced queries on it.
 
 \subsection{Used technologies --- Backend}
 
@@ -370,7 +399,7 @@ There were several such cases in this thesis, which is why it might have been mo
 However, Prismas ability to generate migrations from a schema and its type safety were still useful features that made it worth using.
 Prisma's schema file also acts as indirect documentation of the \ac{DB} structure, which is useful for other developers that might want to contribute to the project.
 
-% TODO also add my own complete prisma schema?
+\Cref{pic:prisma-erd} shows a diagram rendered from the Prisma schema that was used in this thesis.
 
 \subsubsection{Vitest}
 
