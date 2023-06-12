@@ -6,7 +6,7 @@ This section aims to provide a general overview of wireless communication termin
 
 \subsection{Problems with established wireless communication techniques}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
     \caption{
@@ -59,7 +59,7 @@ As an example, the \ac{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\met
 
 \subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
     \caption{
@@ -106,7 +106,7 @@ However, it will not go into detail about the technical details of the modulatio
 
 \subsection{Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{pictures/lora/duty-cycle-single-channel-off-air.png}
     \caption{
@@ -142,7 +142,7 @@ The \ac{SF} determines the chirp rate and thereby the data rate and range of the
 There are six different \acp{SF} available in the \ac{EU} region, ranging from \ac{SF}7 to \ac{SF}12.
 \ac{SF} offers the highest data rate and the lowest range, while \ac{SF}12 offers the lowest data rate and the highest range.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
     \caption{
@@ -180,7 +180,7 @@ LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is ano
 
 \section{\acf{LoRaWAN}}\label{sec:lorawan}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
     \caption{
@@ -190,7 +190,7 @@ LoRa Energy Calculator\footnote{https://dramco.be/tools/lora-calculator/} is ano
 
 \ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lorawan-architecture.png}
     \caption{
@@ -211,7 +211,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 
 \subsection{Gateways}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateways/mikrotik-lr8-kit.png}
     \caption{
@@ -232,7 +232,7 @@ The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \a
 One example of a gateway used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the student dorm \ac{GHB}.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gateway-deployment/mikrotik-antenna-c-building.jpg}
     \caption{
@@ -259,7 +259,7 @@ Downlinks, however, are only sent from the network server to the end node using 
 
 \subsubsection{Class A}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-a.png}
     \caption{
@@ -280,7 +280,7 @@ Class A consumes the least amount of power of the three classes, since the devic
 
 \subsubsection{Class B}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-b.png}
     \caption{
@@ -297,7 +297,7 @@ These scheduled downlink windows result in a higher power consumption for class 
 
 \subsubsection{Class C}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/device-classes/class-c.png}
     \caption{
@@ -325,7 +325,7 @@ As mobile devices that have the need to be located are usually battery-powered, 
 \ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
 Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023}.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.3\textwidth]{pictures/logos/TTN-logo.eps}
     \caption{\acf{TTN} logo~\protect\cite{the_things_industries_bv_quick_nodate}}
@@ -353,7 +353,7 @@ It is advised to use the \acl{LBS} protocol instead.
 
 Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
     \caption{
@@ -427,7 +427,7 @@ With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gatew
 
 \subsection{Frontend data views}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
     \caption{
@@ -472,7 +472,7 @@ In everyday language, people often use the term \emph{triangulation} or when tal
 However, triangulation uses the angles between the end device and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
 This process requires the end device to be able to determine the angles to the reference points, which is needs specific hardware.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/gps_multilateration.png}
     \caption{
@@ -527,7 +527,7 @@ As explained in \cref{sec:multilateration-basics}, multilateration uses the dist
 However, while the theoretical concept of multilateration, as shown in \cref{pic:multilateration-gps-2d-3d-example} is simple, there are several challenges when applying it to real-world scenarios.
 Distances measured between devices are often not accurate enough to determine the location of a device accurately.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/multilateration_error_ranges.png}
     \caption{

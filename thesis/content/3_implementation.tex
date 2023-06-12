@@ -36,7 +36,7 @@ Multiple locations proved themselves to be worth considering when it came to ins
 Multiple factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
 Altitude was also a factor that was considered, as a placement on a higher altitude will usually allow for a larger range of the gateway, especially in urban areas such as the city of Furtwangen.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
     \caption{
@@ -66,7 +66,7 @@ Its exposed location and the fact that it is among the highest buildings in the 
 The network infrastructure of both the \ac{GHB} and the \ac{ASH} are managed by the ``\ac{GHB} NetAdmins'' who are students of \ac{HFU}.
 With their help, it was possible to install antennas on the roofs of the \ac{GHB} and \ac{ASH} student dormitories.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/lr8_ghb_installation.jpg}
     \caption{
@@ -85,7 +85,7 @@ The \ac{ASH} is a former student dormitory located in the Furtwangen city area w
 It is located on a hillside in the city area and is thus a good location for a \ac{LoRaWAN} gateway.
 Its network infrastructure is also managed by the ``\ac{GHB} NetAdmins'', which made getting it connected to \ac{HFU} network infrastructure painless with their forthcoming support.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
     \caption{
@@ -104,7 +104,7 @@ The ``\ac{GHB} NetAdmins'' already had a network switch with \ac{PoE} capabiliti
 The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
 With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \cref{pic:antenna-dl0fis-clubhouse}.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
     \caption{
@@ -128,7 +128,7 @@ In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{T
 
 \subsubsection{ELV LW experimental platform}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
     \caption{
@@ -148,7 +148,7 @@ Little had to be done in order to begin using the base with the additional \ac{G
 Flashing the firmware using a tool provided by the manufacturer was the first step.
 Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS module had to be entered into \ac{TTN}.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
     \caption{
@@ -161,7 +161,7 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
 
 \subsubsection{ELV \acs{GPS} Tracker}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
     \caption{
@@ -191,7 +191,7 @@ While it can be powered by a 9V battery, those usually have a low capacity and a
 \subsubsection{dnt-LW-ATS}
 
 % TODO
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
     \caption{
@@ -210,7 +210,7 @@ The documentation was not helpful with finding the root cause and the manufactur
 
 \subsection{\acl{TTNM} heatmap view before additional data collection}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-mapper/ttnmapper_heatmap_before.png}
     \caption{
@@ -240,7 +240,7 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 This section aims to give an overview over the program structure of the \ac{TTNL} application.
 It also includes the \ac{LoRaWAN} gateways, devices and other parts such as the \ac{TTN} \ac{LNS} in the explanation of the data flow.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/ttn-locator/program_structure.png}
     \caption{
@@ -276,7 +276,7 @@ This allows for easy deployment of applications without having to worry about th
 In this thesis, Docker was used to containerize the \ac{TTNL} application.
 The backend and frontend each have their own \emph{Dockerfiles} that state how these applications should be built.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/docker_desktop.png}
     \caption{
@@ -290,7 +290,7 @@ Docker Compose was then used to assemble the different parts of the application:
 
 \subsection{Data structure}
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/ttn-locator/backend/prisma-erd.eps}
     \caption{
@@ -447,7 +447,7 @@ Vuetify is a \ac{UI} framework for Vue.js that provides Vue components that are 
 In this thesis, Vuetify was used as a modern looking \ac{UI} framework for the frontend of the \ac{TTNL} web application.
 Its usage as import-able predefined Vue components also allowed for a quick and easy implementation of the frontend.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/vuetify-form-example.png}
     \caption{
@@ -613,7 +613,7 @@ This makes it possible to determine the values of a linear regression function t
 Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 The example in \cref{fig:rssi-range-graph-positive-example} works quite well for this.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
     \caption{
@@ -624,7 +624,7 @@ The example in \cref{fig:rssi-range-graph-positive-example} works quite well for
 
 While there are outliers in the data, the graph still shows a logical average linear correlation between the \ac{RSSI} values and their distance where the \ac{RSSI} values decrease as the distance increases.
 
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
     \caption{
@@ -650,7 +650,7 @@ This was because the timestamps of signal arrival in the gateways that were used
 Differences of up to 1 second between the timestamps of the same signal in different gateways were not uncommon, making distance calculations using these values utterly unusable.
 
 % TODO maybe take a better picture of this
-\begin{figure}
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/toa_bad_data_example_prisma_studio.png}
     \caption{
