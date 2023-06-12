@@ -31,12 +31,31 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 The \acl{RSSI} is a measure of the strength of a signal received by a device.
 As far as this thesis is concerned, \ac{RSSI} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
-% TODO: Quote for this? It's basically just physics?
-Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance.
 Different devices can have different \ac{RSSI} values for the same distance because of factors such as antennas with different gains.
-
-\ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \ac{LoS} between the sender and receiver.
+Furthermore, \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \ac{LoS} between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
+
+\subsubsection{Correlation between \acs{RSSI} values and distance --- \acf{FSPL}}\label{sec:background-free-space-path-loss}
+
+Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
+When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between the sender and receiver and the \ac{RSSI} value.
+
+The equation to calculate this so-called \acl{FSPL} in decibels can be seen in \cref{eq:fspl}~\cite[p. 1321]{whitaker_electronics_1996}.
+
+\begin{equation}\label{eq:fspl}
+    FSPL(dB) = 20 \log_{10}\left(\frac{4 \pi d}{\lambda}\right)
+\end{equation}
+
+$d$ is the distance between sender and receiver, while $\lambda$ is the wavelength of the signal.
+
+\begin{equation}\label{eq:wavelength-of-a-signal}
+    \lambda = \frac{c}{f}
+\end{equation}
+
+To calculate the wavelength of a signal the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
+As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$.
+
+As an example, the \ac{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $FSPL = 20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
 \subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
 
@@ -49,8 +68,8 @@ The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or oth
     }\label{pic:figure_multipath_propagation}
 \end{figure}
 
-Additionally, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
-\acl{MPP} cause the \ac{RSSI} values to fluctuate even when neither the distance between the sender and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
+In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
+\acl{MPP} causes the \ac{RSSI} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
 This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
 
 \subsection{\acf{SNR}}
