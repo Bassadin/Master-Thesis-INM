@@ -43,7 +43,7 @@ When using two non-directional (isotropic) antennas, there is a certain correlat
 The equation to calculate this so-called \acl{FSPL} in decibels can be seen in \cref{eq:fspl}~\cite[p. 1321]{whitaker_electronics_1996}.
 
 \begin{equation}\label{eq:fspl}
-    FSPL(dB) = 20 \log_{10}\left(\frac{4 \pi d}{\lambda}\right)
+    FSPL_{dB} = 20 \log_{10}\left(\frac{4 \pi d}{\lambda}\right)
 \end{equation}
 
 $d$ is the distance between sender and receiver, while $\lambda$ is the wavelength of the signal.
@@ -55,7 +55,7 @@ $d$ is the distance between sender and receiver, while $\lambda$ is the waveleng
 To calculate the wavelength of a signal the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
 As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$.
 
-As an example, the \ac{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $FSPL = 20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
+As an example, the \ac{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
 \subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
 
