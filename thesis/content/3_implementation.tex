@@ -561,8 +561,19 @@ END AS speed
 \Cref{lst:sql-remove-outliers} shows the \ac{SQL} code that was used to determine the speed between subsequent data points of the same device.
 The PostGIS function \lstinline|ST_DistanceSphere| is used to calculate the distance between the current and the previous data point.
 
+\begin{lstlisting}[
+    language=SQL,
+    float,
+    caption={
+        Example of a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same devicea \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same device.
+    },
+    label={lst:get-preceding-datapoint-sql}
+]
+LAG(latitude) OVER (PARTITION BY "deviceId" ORDER BY timestamp AS prev_latitude
+\end{lstlisting}
+
 In order to get the previous datapoint, the SQL \lstinline|LAG| function was used.
-For example, \lstinline|LAG(latitude) OVER (PARTITION BY "deviceId" ORDER BY timestamp AS prev_latitude| gets the latitude of the previous \ac{GPS} data point of the same device.
+For example, \cref{lst:get-preceding-datapoint-sql} shows a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same device.
 
 Duplicates were removed using a similar approach.
 Instead of calculating the distance between the two data points, their latitude, longitude, \ac{HDOP} and altitude values were compared.
