@@ -323,6 +323,14 @@ This is because class B and C use significantly more power than class A because 
 In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
 As mobile devices that have the need to be located are usually battery-powered, class A is the most viable option for them.
 
+\subsection{Data security}
+
+The security of the data sent is a major concern when talking about \ac{IoT} protocols.
+\ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
+Each end device usually has a unique 128-bit \ac{AES} key that is used for payload encryption~\cite{lora_alliance_inc_lorawan_2017-1}.
+
+This \ac{E2EE} also makes \ac{LoRaWAN} packages secure against replay attacks, since a so-called \ac{MIC} is determined using the frame data~\cite{lora_alliance_inc_lorawan_2017-1}.
+
 \section{\acf{TTN}}
 
 \ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
