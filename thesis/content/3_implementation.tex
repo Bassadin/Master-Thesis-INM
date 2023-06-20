@@ -38,7 +38,7 @@ Altitude was also a factor that was considered, as a placement on a higher altit
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
+    \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
     \caption{
         Overview map of \ac{LoRaWAN} gateways situated in the Furtwangen area.
         This map shows gateways that were placed during this thesis as well as already existing ones.
@@ -163,7 +163,7 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
+    \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
     \caption{
         ELV-LW-GPS1 \ac{LoRaWAN} node~\protect\cite{elv_elektronik_ag_elv_2023}.
         The brownish \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the right.
@@ -193,7 +193,7 @@ While it can be powered by a 9V battery, those usually have a low capacity and a
 % TODO
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
+    \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
     \caption{
         The dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}.
         Between the two white labels on the top of the device, the solar module for power harvesting can be seen.
@@ -267,8 +267,6 @@ The tools and technologies used for the implementation are also explained.
 
 \subsubsection{Usage of Containerization}
 
-% TODO mention the extensive usage of docker and docker-compose to enable easy deployment of the application
-
 To simplify deployment and development, \emph{Docker} and \emph{Docker Compose} were used extensively~\cite{docker_inc_docker_2022}\cite{docker_inc_docker_2023}.
 Docker allows for applications to be run in lightweight containers that are isolated from the rest of the system.
 This allows for easy deployment of applications without having to worry about the underlying system.
@@ -278,7 +276,7 @@ The backend and frontend each have their own \emph{Dockerfiles} that state how t
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/docker_desktop.png}
+    \includegraphics[width=1\textwidth]{pictures/ttn-locator/docker_desktop.png}
     \caption{
         A screenshot of the \emph{Docker Desktop} application that shows the running containers of the \ac{TTNL} application~\cite{docker_inc_download_2021}.
         The \acl{PSQL} \ac{DB} as well as the pgadmin management container are visible as well.
@@ -292,7 +290,7 @@ Docker Compose was then used to assemble the different parts of the application:
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{pictures/ttn-locator/backend/prisma-erd.eps}
+    \includegraphics[width=0.4\textwidth]{pictures/ttn-locator/backend/prisma-erd.eps}
     \caption{
         The \ac{DB} structure of the \ac{TTNL} application as an \ac{ERD}.
         The connections between its Device, Gateway, DeviceGPSDatapoint and TtnMapperDatapoint tables are included as well.
@@ -664,8 +662,7 @@ Differences of up to 1 second between the timestamps of the same signal in diffe
 Since the speed of light is $299792458\ \mathrm{m/s}$, a difference of one second in the timestamps of two signals would result in a distance difference of $299792458\ \mathrm{m}$.
 This is a distance that is too big to be useful for performing any sort of meaningful multilateration.
 
-% TODO explain why this is the case and maybe how it could be fixed (using GPS time sync)
-\Cref{subsec:conclusion-toa-tdoa} will explain why this is the case and how it could be fixed.
+\Cref{subsec:conclusion-toa-tdoa} will explain how this could be fixed.
 
 \subsection{Fingerprinting with \acs{RSSI} values}\label{sec:fingerprinting-with-rssi-values}
 
