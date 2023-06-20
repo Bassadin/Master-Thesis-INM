@@ -129,29 +129,28 @@ Luckily, LoRa packets are usually only a few bytes small and can thus be transmi
 \subsection{\acf{CSS}}\label{sec:chirp-spread-spectrum}
 
 \ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction.
-This technique is important to be able to understand the \acp{SF} in \cref{sec:spreading-factors}.
+This technique is important to be able to understand the \aclp{SF} in \cref{sec:spreading-factors}.
 
 % TODO is this section even necessary? technical details seem to be out of scope for this thesis
 
 \subsection{\acfp{SF}}\label{sec:spreading-factors}
 
-The \ac{LoRa} modulation uses different \acp{SF} to transmit data~\cite{the_things_network_spreading_2023}.
+The \ac{LoRa} modulation uses different \aclp{SF} to transmit data~\cite{the_things_network_spreading_2023}.
+The \acl{SF} determines the chirp rate and thereby the data rate and range of the transmission.
 
-The \ac{SF} determines the chirp rate and thereby the data rate and range of the transmission.
-
-There are six different \acp{SF} available in the \ac{EU} region, ranging from \ac{SF}7 to \ac{SF}12.
-\ac{SF} offers the highest data rate and the lowest range, while \ac{SF}12 offers the lowest data rate and the highest range.
+There are six different \aclp{SF} available in the \ac{EU} region, ranging from \ac{SF}7 to \ac{SF}12.
+\ac{SF}7 offers the highest data rate and the lowest range, while \ac{SF}12 offers the lowest data rate and the highest range.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
     \caption{
-        Comparison of \acp{SF} \ac{SF}7 to \ac{SF} 12 in the time and frequency dimensions.
-        The doubling of the transmission time between \acp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
+        Comparison of \aclp{SF} \ac{SF}7 to \ac{SF} 12 in the time and frequency dimensions.
+        The doubling of the transmission time between \aclp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
     }\label{pic:lora-sf-comparison}
 \end{figure}
 
-\Cref{pic:lora-sf-comparison} shows the difference between different \acp{SF} in the time and frequency dimensions.
+\Cref{pic:lora-sf-comparison} shows the difference between different \aclp{SF} in the time and frequency dimensions.
 It shows that the higher the \ac{SF}, the longer the transmission takes.
 In fact, the transmission time is proportional to $2^{\text{SF}}$~\cite{sakshama_ghoslya_lora_2017}.
 This means that, for example, a transmission using \ac{SF}10 takes twice as long as a transmission using \ac{SF}9.
@@ -159,11 +158,11 @@ This means that, for example, a transmission using \ac{SF}10 takes twice as long
 While a higher \ac{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
 Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \ac{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
 
-Different \acp{SF} also are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
+Different \aclp{SF} also are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
 
 \subsubsection{Correlation of \acs{SF} and \acs{RSSI} + \acs{SNR}}
 
-\acp{SF} are important for this thesis because they interact with the \ac{RSSI} and \ac{SNR} values of a transmission.
+\aclp{SF} are important for this thesis because they interact with the \ac{RSSI} and \ac{SNR} values of a transmission.
 
 % TODO write more
 
@@ -176,8 +175,11 @@ Different \acp{SF} also are orthogonal to each other, so they can be used at the
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
 A \ac{LoRa} node that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
+
 \emph{LoRa Energy Calculator} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device by entering data such as payload size, periodicity of the data transmission and the battery type used~\cite{dramco_research_group_lora_2023}.
 It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of 8 bytes, 1 hour of periodicity and a 2500 mAh AA type battery.
+The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
+Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged.
 
 \section{\acf{LoRaWAN}}\label{sec:lorawan}
 
