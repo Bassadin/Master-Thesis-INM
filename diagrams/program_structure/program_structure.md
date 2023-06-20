@@ -7,6 +7,7 @@ title: TTN Locator Program structure
 flowchart TD
     subgraph TTNL [TTN Locator]
     TTNLF[TTN Locator Frontend]-->|makes API requests to|TTNLB[TTN Locator Backend]
+    TTNLB-->|stores data in|TTNLDB["TTN Locator Database (PostGIS)"]
     end
     TTNLB-->|makes API requests to|TTNM
     DVs[Devices]-->|send data to|GWs
