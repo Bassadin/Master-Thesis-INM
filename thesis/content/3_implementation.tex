@@ -616,8 +616,6 @@ This makes RSSI values in general a rather unreliable metric for determining the
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}
 
-% TODO add positive and negative RSSI range plots as image examples and explain them
-
 \Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
 It uses the \ac{RSSI} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
 This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
@@ -649,7 +647,7 @@ While there are outliers in the data, the graph still shows a logical average li
 In this example, the \ac{RSSI} values do not decrease as the distance increases.
 This could have several reasons, such as not enough data points being available (the negative example has only 131 vs.\ almost 3,000 for the positive example).
 
-% TODO: Did this make the results any better?
+\Cref{subsubsec:conclusion-rssi-linear-regression} will discuss the results of using this technique and the resulting accuracy in more detail.
 
 \subsection{\acf{ToA}-based multilateration}
 
