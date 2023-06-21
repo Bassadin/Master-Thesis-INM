@@ -132,7 +132,11 @@ This section will compare the different geolocation methods that were used in th
 
 \Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from \ac{LoRaWAN} gateway to determine the range to the end device were too inaccurate to be used for \ac{ToA}-based geolocation.
 
-% TODO: not feasible due to lack of nanosecond level timestamps as well as the fact that the gateways' timestamps are not synchronized with the nodes' timestamps in all cases
+Solving this problem on the scope of the entire \ac{TTN} \ac{LoRaWAN} network is not feasible as it would entail synchronizing the clocks of all gateways in the network with \ac{GPS} receivers.
+However, if one were to deploy a \ac{LoRaWAN} network in a smaller area where control over every reachable gateway is realistic, this would be a possible solution.
+If every gateway in the network is time-synchronized, \ac{ToA} could be used for geolocation.
+
+% TOOD sources
 
 \subsection{Fingerprinting}
 
