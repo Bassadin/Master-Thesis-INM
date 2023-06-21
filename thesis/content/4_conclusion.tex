@@ -99,17 +99,28 @@ The gateway could thus be connected using Ethernet.
 
 \section{Collected data in Furtwangen on \acl{TTNM}}\label{sec:collected-data-in-furtwangen-on-ttnm}
 
-% TODO: add before and after images of TTN Mapper heatmap
-
-% TODO mention that collecting sats and accuracy data also would have been possible
+% TODO: add after images of TTN Mapper heatmap
 
 \subsection{\acl{TTNM} heatmap view after additional data collection}\label{sec:ttm_heatmap_after}
 
-% TODO add after image of TTN Mapper heatmap
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pictures/ttn-mapper/ttnm_heatmap_after_data_collection.jpg}
+    \caption{
+        View of the \ac{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023.
+        Compared to \cref{pic:ttnm-before-data-collection}, the coverage is better.
+        This is due to the fact that several \ac{LoRaWAN} gateways were deployed during this thesis as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers.
+    }\label{pic:ttnm-heatmap-after-data-collection}
+\end{figure}
+
+\Cref{pic:ttnm-heatmap-after-data-collection} shows a view of the \ac{TTNM} heatmap after the additional data collection that was done during this thesis.
+The much redder color of the map is visible, meaning that the signal strength in these areas is stronger than before.
+
+While there are still some blank spots, these are mostly due to the fact that these areas were not visited by \ac{GPS} trackers during the data collection in this thesis.
 
 \section{Comparison of Geolocation Methods}
 
-% TODO compare the geolocation methods
+This section will compare the different geolocation methods that were used in this thesis.
 
 \subsection{\acf{RSSI}}
 
@@ -119,6 +130,7 @@ The gateway could thus be connected using Ethernet.
 
 \subsection{\acf{ToA}}\label{subsec:conclusion-toa-tdoa}
 
+\Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from \ac{LoRaWAN} gateway to determine the range to the end device were too inaccurate to be used for \ac{ToA}-based geolocation.
 
 % TODO: not feasible due to lack of nanosecond level timestamps as well as the fact that the gateways' timestamps are not synchronized with the nodes' timestamps in all cases
 
