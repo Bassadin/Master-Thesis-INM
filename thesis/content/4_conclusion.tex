@@ -1,6 +1,6 @@
 \chapter{Conclusions}
 
-\section{Gateway Locations}
+\section{Gateway Locations}\label{sec:gateway-locations-conclusions}
 
 % Evaluate the chosen gateway locations and give example of the ranges, etc.
 % Also add graphs of recorded gateway ranges from TTN Mapper?
@@ -26,7 +26,7 @@ This doesn't come as a surprise, given its exposed location on top of a hill plu
 The maximum range recorded for this gateway is \SI{14.2}{\kilo\meter}, which is the blue point in the lower left-hand corner of \cref{pic:ghb_mikrotik_gw_range}.
 While that data point may be considered an error or outlier, a more realistic one is the blue point on the rightmost side of the image which is \SI{5.3}{\kilo\meter} away from the gateway.
 
-\subsection{\ac{HFU} C building}
+\subsection{\acs{HFU} C building}
 
 When viewed alongside the results from the \ac{GHB} gateway shown in \cref{subsec:ghb-student-dormitory-range-results}, the results from the \ac{HFU} C building gateway are exactly as one would expect.
 Since the Antenna was the same MikroTik one as the one used with the \ac{GHB} gateway, the coverage behavior is similar.
@@ -46,13 +46,56 @@ The ranges as a whole are slightly lower which stems from the fact that the \ac{
 Clearly visible is the slightly smaller range compared to \cref{pic:ghb_mikrotik_gw_range}.
 The maximum range recorded for this gateway is \SI{4.3}{\kilo\meter}, which is the rightmost blue point in the direction of Vöhrenbach again.
 
+Installing the gateway on the roof of the \ac{HFU} C building was rather easy since accessing the roof is not difficult.
+The cable of the antenna had to be pulled through a small conduit in the outer wall.
+Afterwards, it could be connected to the \ac{LoRaWAN} gateway located inside a small crawl space.
+
+Getting the network backhaul up and running wasn't as straightforward, though.
+There were no spare Ethernet ports available in the crawl space.
+However, there was a spare fiber optic cable run that was not in use at the moment.
+Using two media converters, the fiber optic cable was converted to Ethernet and connected to the \ac{HFU} network one story below the roof.
+
 \subsection{\acf{ASH}}
 
-% TODO
+Installing the \ac{LoRaWAN} gateway on the roof of the \ac{ASH} building was an arduous task, but it was worth it.
+The roof is difficult to access, and the gateway had to be installed on top of an antenna mast.
+
+Getting a backhaul connection was rather easy, since a \ac{PoE} switch was available in the server room just beneath the roof.
+
+However, the range, as shown in \cref{pic:ash_gw_range}, is very good and covers almost the entire Furtwangen area.
+It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} building is also a multi-story building on a hill.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ash_gw_range.jpg}
+    \caption{
+        Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \ac{ASH} building.
+        It has a good range into most parts of the Furtwangen area.
+    }\label{pic:ash_gw_range}
+\end{figure}
+
+The longest range recorded from the \ac{ASH} building thus far is around \SI{4.8}{\kilo\meter} which is the blue point on the right of \cref{pic:ash_gw_range}.
 
 \subsection{\emph{DL0FIS} amateur radio club station}
 
-% TODO
+While the location of the \ac{LoRaWAN} on top of a hill between Furtwangen and Gütenbach should have made for very good coverage, the reality looks different.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/dl0fis_gw_range.jpg}
+    \caption{
+        Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \emph{DL0FIS} clubhouse.
+        While the range is not consistent in every direction due to the hills and mountains in the area, the longest range of around \SI{8.8}{\kilo\meter} is still very good.
+        The range to the city of Furtwangen is almost nonexistent due to the hills in the way.
+    }\label{pic:dl0fis_gw_range}
+\end{figure}
+
+\Cref{pic:dl0fis_gw_range} shows the coverage of the \ac{LoRaWAN} gateway deployed on the roof of the \emph{DL0FIS} clubhouse.
+The longest range measured was one data point in the south with a distance of \SI{8.8}{\kilo\meter}.
+The gateway, up until now, wasn't of much use in the scope of this thesis though, since the hill between the Neueck clubhouse and the city of Furtwangen blocks most of the signal.
+
+Getting a backhaul connection to the \ac{LoRaWAN} gateway was easy since the clubhouse is equipped with a stable internet connection.
+The gateway could thus be connected using Ethernet.
 
 \section{Collected data in Furtwangen on \acl{TTNM}}\label{sec:collected-data-in-furtwangen-on-ttnm}
 
