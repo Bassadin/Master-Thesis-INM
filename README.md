@@ -20,7 +20,7 @@ The LaTeX source code is located in the `thesis` folder.
 
 ### Useful regexes
 
-- `(?<!\\ac\{)(\b[A-Z]{2,}\b)(?!\})`: Find all abbreviation without `\ac{}`.
+- `^(?!%)(?<!\{)[A-Z]{2,}\b`: Find all abbreviations without latex abbreviation.
 - `\.(?!\n|$)`: Find all dots without a following newline.
 - Find all contractions that aren't in lines that are commented out: `(?<!%)(\b\w{1,3}'\w{1,3}\b)(?!%)`
 
