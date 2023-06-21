@@ -135,7 +135,7 @@ This technique is important to be able to understand the \aclp{SF} in \cref{sec:
 
 \subsection{\acfp{SF}}\label{sec:spreading-factors}
 
-The \ac{LoRa} modulation uses different \aclp{SF} to transmit data~\cite{the_things_network_spreading_2023}.
+The \ac{LoRa} modulation uses different \acfp{SF} to transmit data~\cite{the_things_network_spreading_2023}.
 The \acl{SF} determines the chirp rate and thereby the data rate and range of the transmission.
 
 There are six different \aclp{SF} available in the \ac{EU} region, ranging from \ac{SF}7 to \ac{SF}12.
@@ -191,7 +191,35 @@ Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consi
     }
 \end{figure}
 
-\ac{LoRaWAN} uses the LoRa wireless communication protocol to create a \ac{WAN} where multiple devices can communicate with each other over long distances.
+\ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
+
+
+\subsection{\acf{WAN}}
+
+A \ac{WAN}, compared to a \acf{LAN} or \acf{MAN}, is a network that usually is not limited to one certain place, but connects multiple locations, across countries and continents~\cite[p. 2]{sadiku_fundamentals_2022}.
+A well-known example of a \ac{WAN} is the Internet.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.6\textwidth]{pictures/lorawan-structure/wan_diagram.png}
+    \caption{
+        An example connection between multiple \acfp{LAN} and \acfp{MAN} using a \acf{WAN} as a diagram.\protect\cite{sadiku_fundamentals_2022}
+    }\label{pic:wan-diagram}
+\end{figure}
+
+\Cref{pic:wan-diagram} shows the connections between \acfp{LAN}, \acfp{MAN} and \acfp{WAN}.
+\acp{WAN} consist of various \acp{MAN}.
+\acp{MAN}, in turn, consist of various \acp{LAN}.
+
+\subsubsection{\acf{LPWAN}}
+
+% TODO Specifiy what a LPWAN is
+
+While common \acp{WAN}, such as the Internet, usually have a high bandwidth and low latency, \acp{LPWAN} are designed to have ``low duty cycles, very low data rates, relatively longer latencies, low power consumption, and coverage over several kilometers''~\cite[p. 289]{kumar_connecting_2023}.
+
+% TODO write more, maybe an image for the structure?
+
+\subsection{\acs{LoRaWAN} network architecture}
 
 \begin{figure}[htbp]
     \centering
