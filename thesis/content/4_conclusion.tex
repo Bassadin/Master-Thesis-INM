@@ -153,16 +153,21 @@ If every gateway in the network is time-synchronized, \ac{ToA} could be used for
 
 \section{Problems}
 
+\subsection{Falsely entered gateway locations}
+
 % Mention problems with falsely entered gateway locations and how they could be fixed
+
+\subsection{Differences in \acfp{SF}}
 
 % TODO write some more about this
 As mentioned in \cref{sec:spreading-factors}, using a different \ac{SF} on the end devices can also impact the accuracy of the geolocation methods because they influence the \ac{RSSI} values.
+% TODO is this correct?
 
 \section{Outlook}
 
 % TODO: What else can be done? What are the next steps?
 
-\subsection{Shortcomings of the \acf{TTNL} software}
+\subsection{Improving the \acf{TTNL} software}
 
 % TODO: show what else could be done - automatically recognize if gateways moved too far away like in TTN Mapper etc.
 
@@ -228,3 +233,6 @@ points were captured at the same location.
 % TODO: if nanosecond level timestamps are available, the ToA method can be used to determine the position of the gateway. This would allow for a more accurate positioning of the gateway, which would in turn allow for a more accurate positioning of the nodes.
 
 \subsubsection{Using \acf{ML} to improve the fingerprinting method}
+
+There are several \ac{ML} methods that could be used to improve the fingerprinting method.
+For example, \ac{kNN} could be used to determine the location of a node based on the \ac{RSSI} values of the surrounding gateways~\cite{anagnostopoulos_reproducible_2019}.
