@@ -181,20 +181,7 @@ It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for 
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
 Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged.
 
-\section{\acf{LoRaWAN}}\label{sec:lorawan}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=.4\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
-    \caption{
-        \ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}
-    }
-\end{figure}
-
-\ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
-
-
-\subsection{\acf{WAN}}
+\section{\acf{WAN}}
 
 A \ac{WAN}, compared to a \acf{LAN} or \acf{MAN}, is a network that usually is not limited to one certain place, but connects multiple locations, across countries and continents~\cite[p. 2]{sadiku_fundamentals_2022}.
 A well-known example of a \ac{WAN} is the Internet.
@@ -211,13 +198,39 @@ A well-known example of a \ac{WAN} is the Internet.
 \acp{WAN} consist of various \acp{MAN}.
 \acp{MAN}, in turn, consist of various \acp{LAN}.
 
-\subsubsection{\acf{LPWAN}}
+\subsection{\acf{LPWAN}}
 
 % TODO Specifiy what a LPWAN is
 
 While most \acp{WAN}, such as the Internet, typically have a high bandwidth and low latency, \acp{LPWAN}, on the other hand are designed to have ``low duty cycles, very low data rates, relatively longer latencies, low power consumption, and coverage over several kilometers''~\cite[p. 289]{kumar_connecting_2023}.
+These factors make them more suitable for handling large amounts of sensors and actors that only need to transmit small amounts of data infrequently over long distances.
 
-% TODO write more, maybe an image for the structure?
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.5\textwidth]{pictures/lorawan-structure/lpwan_network_structure.jpg}
+    \caption{
+        A simple diagram of a \ac{LPWAN} network structure.
+        The connections between the entities can be seen.\protect\cite{fernandez_assessing_2020}
+    }\label{pic:lpwan-diagram}
+\end{figure}
+
+\Cref{pic:lpwan-diagram} shows the structure of a \ac{LPWAN} network.
+Multiple \ac{IoT} devices connect to gateways or base stations.
+Those gateways are in turn connected to the internet or a larger network via a backhaul connection.
+
+\section{\acf{LoRaWAN}}\label{sec:lorawan}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.3\textwidth]{pictures/logos/LoRaWAN_Logo.eps}
+    \caption{
+        \ac{LoRaWAN} logo~\protect\cite{lora_alliance_francais_2022}
+    }
+\end{figure}
+
+\ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
+It defines a secure way to transfer packets from the end devices to the application server by enforcing \ac{E2EE}.
+This section will explain the structure of a \ac{LoRaWAN} network and its inner workings.
 
 \subsection{\acs{LoRaWAN} network architecture}
 
