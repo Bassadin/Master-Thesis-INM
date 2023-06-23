@@ -22,3 +22,4 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe maximum range recorded for this gateway is 14.2 , which is the blue point in the lower left-hand corner of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QThe data point on the lower left is the maximum range recorded for this gateway — 14.2 .\\E$"}
 {"rule":"EN_A_VS_AN","sentence":"^\\QThe combination of an \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q value and the corresponding location is called a fingerprint.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Q“blinkeding” — Arduino with Shield from Prof. Zahoransky.\\E$"}
