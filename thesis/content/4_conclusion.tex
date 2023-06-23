@@ -99,8 +99,6 @@ The gateway could thus be connected using Ethernet.
 
 \section{Collected data in Furtwangen on \acl{TTNM}}\label{sec:collected-data-in-furtwangen-on-ttnm}
 
-% TODO: add after images of TTN Mapper heatmap
-
 \subsection{\acl{TTNM} heatmap view after additional data collection}\label{sec:ttm_heatmap_after}
 
 During the course of this thesis, additional data was collected using the \ac{LoRaWAN} \ac{GPS} trackers mentioned in \cref{subsec:used-lora-nodes}.
@@ -197,6 +195,13 @@ This would enable the \ac{TTNL} software to function without \ac{TTNM} and would
 
 \subsubsection{Choice of technologies}
 
+\subsubsection{Recognizing moving gateways}
+
+Currently, the backend of the \ac{TTNL} software cannot recognize if a gateway has moved its position since the last time it was captured.
+This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data
+points were captured at the same location.
+\ac{TTNL} could be improved by adding a feature that recognizes if a gateway has moved and then deletes all data points that were captured at the old location of the gateway.
+
 \subsection{Projects made possible due to better \acs{LoRaWAN} coverage in Furtwangen}
 
 As there are now several new \ac{LoRaWAN} gateways in Furtwangen, there are several projects that can be done in the future that would not have been possible before without installing such gateways by oneself.
@@ -220,24 +225,21 @@ The installation of \ac{LoRaWAN} gateways in the city of Furtwangen helped him i
 Another possible project would be an application that monitors the gateways and checks if they are still online.
 Such a project could be realized with software like \emph{Node-RED}.
 
-\subsection{Improving the \acf{TTNL} software}
-
-\subsubsection{Recognizing moving gateways}
-
-Currently, the backend of the \ac{TTNL} software cannot recognize if a gateway has moved its position since the last time it was captured.
-This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data
-points were captured at the same location.
-\ac{TTNL} could be improved by adding a feature that recognizes if a gateway has moved and then deletes all data points that were captured at the old location of the gateway.
-
-\subsubsection{Self-hosting of \acs{TTS} or \emph{ChirpStack}}
-
-% TODO: we could selfhost TTS to give us more control over the data and learn the inner workings of a LNS
-
 \subsection{Further research}
 
 \subsubsection{Improving timestamp accuracy for \acf{ToA} geolocation method}
 
-% TODO: if nanosecond level timestamps are available, the ToA method can be used to determine the position of the gateway. This would allow for a more accurate positioning of the gateway, which would in turn allow for a more accurate positioning of the nodes.
+As mentioned in \cref{subsec:conclusion-toa-tdoa}, the accuracy of the \ac{ToA} method could be greatly improved if nanosecond level timestamps were available.
+Unfortunately, \ac{TTN} does not provide nanosecond level timestamps for the packets received by the \ac{LoRaWAN} gateways.
+To solve this problem, a \ac{LNS} would need to be set up that has the ability to do that.
+
+In addition, \ac{LoRaWAN} gateways would need to be time synchronized to achieve the best possible accuracy.
+The latter problem could be solved by using \ac{GPS} receivers to synchronize the gateways.
+While some gateways have \ac{GPS} built-in receivers, most do not.
+For example, the \emph{Dragino DLOS8N} that was used twice during this thesis has a \ac{GPS} built-in receiver~\cite{dragino_technology_co_ltd_dlos8n_2023}, but none of the others do.
+
+In any case, using the \ac{ToA} method would require more specific hardware than what most of the \ac{TTN} community network currently uses.
+This makes it unsuitable for widespread use on that particular network.
 
 \subsubsection{Using \acf{ML} to improve the fingerprinting method}
 
@@ -252,6 +254,10 @@ This means that the \ac{SF} and \ac{SNR} values used by the end device could als
 Since the \ac{TTN} data frames include this information, it could be used to improve the fingerprinting method.
 
 A disadvantage of this approach would be that it would require more data to be collected, since the number of possible variables per captured gateway would increase from 1 (\ac{RSSI}) to 3 (\ac{RSSI}, \ac{SF}, \ac{SNR}).
+
+\subsubsection{Self-hosting of \acs{TTS} or \emph{ChirpStack}}
+
+% TODO: we could selfhost TTS to give us more control over the data and learn the inner workings of a LNS
 
 \subsubsection{Privacy concerns}
 
