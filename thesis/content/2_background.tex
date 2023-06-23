@@ -358,11 +358,14 @@ The fact that they are always reachable by the \ac{LNS} also makes them the most
 
 \subsubsection{Conclusion}
 
-As far as this thesis was concerned, only class A devices were used.
-This is because class B and C use significantly more power than class A because they keep their radio on for extended periods of time, which is a problem for battery-powered devices.
+As far as this thesis was concerned, only Class A devices were used.
+This is because Class B and C use significantly more power than class A because they keep their radio on for extended periods of time, which is a problem for battery-powered devices.
 
 In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
 As mobile devices that have the need to be located are usually battery-powered, class A is the most viable option for them.
+
+The geolocation methods evaluated in this thesis work with any \ac{LoRaWAN} device class.
+While using Class C would mean that devices could actually be asked directly for their location, using Class A devices is usually the better choice due to the lower power consumption.
 
 \subsection{Data security}
 
