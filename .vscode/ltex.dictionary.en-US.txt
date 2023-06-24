@@ -80,3 +80,5 @@ DeviceGPSDatapoint
 TtnMapperDatapoint
 pgadmin
 SIGFOX
+Jeftenić
+Aernouts
