@@ -79,3 +79,4 @@ Knott
 DeviceGPSDatapoint
 TtnMapperDatapoint
 pgadmin
+SIGFOX
