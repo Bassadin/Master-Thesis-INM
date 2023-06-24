@@ -37,6 +37,7 @@ Some papers have already looked into the topic of geolocation of \ac{LoRa} devic
 Mackey et al.~used \ac{LoRa} gateways over relatively short distances to geolocate \ac{LoRa} devices by using their \ac{RSSI} values~\cite{mackey_lora-based_2019}.
 They used a soccer field as their test environment and achieved an accuracy of \SIrange{9}{20}{\meter}.
 Notably, \ac{LoS} was a given in their test environment.
+
 In another example, Lam et al.~proposed a method to geolocate \ac{LoRa} devices using a new kind of algorithm that is also based on \ac{RSSI} values~\cite{lam_new_2018}.
 They focused specifically on noise affecting anchor nodes/gateways in their research.
 As a result, they proposed an algorithm called \acf{L3M-DC} which can select non-noisy nodes to geolocate \ac{LoRa} devices.
@@ -44,6 +45,7 @@ Using this algorithm, they achieve an accuracy of \SI{7.51}{\meter}.
 
 In January 2023, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization.
 They used a machine learning approach in addition to \ac{RSSI} and \ac{SNR} values to improve the accuracy of their localization method~\cite{perkovic_machine_2023}.
+
 Anagnostopoulos and Kalousis compared some fingerprinting based localization methods for \ac{LoRaWAN} in 2019~\cite{anagnostopoulos_reproducible_2019}.
 They used methods like \ac{kNN} as well as a neural network approach.
 Using the \ac{kNN} approach, they achieved an accuracy of \SIrange{273}{394}{\meter}.
@@ -54,6 +56,11 @@ They compared the accuracy of fingerprinting localization for \ac{LoRaWAN} and \
 It uses a different modulation technique, however.
 In urban environments, the accuracy was \SI{688.97}{\meter} for their \emph{SIGFOX} dataset and \SI{398.40}{\meter} for their LoRaWAN dataset.
 
+Anjum et al.\ also evaluated \ac{RSSI} fingerprinting in 2019~\cite{anjum_analysis_2019}.
+In their research, they compared \ac{LoS} and \ac{NLoS} scenarios, analyzing the path loss exponent and the standard deviation of the shadowing \ac{MPP} parameter in each of these environments.
+They didn't use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} nodes.
+Placing nodes in different stories of a building, they measured a varying accuracy of \ac{RSSI} to distance mappings.
+ 
 Fernandes et al.\ used a hybrid approach to locate elderly care recipients indoors: \ac{UWB} technology for localization and \ac{LoRaWAN} to send data to their caregivers~\cite{fernandes_hybrid_2020}.
 They chose the \ac{LoRaWAN} technology to transmit the actual localization data for its ability to be implemented as both public and private network infrastructures.
 
