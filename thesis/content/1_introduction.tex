@@ -30,7 +30,7 @@ To achieve this, available \ac{LoRa} Gateways that are registered in \acf{TTN} a
 \end{enumerate}
 
 \section{Existing / Related Work}
-% TODO: Zahoransky: about 1-3 (PDF) pages
+% Note: Zahoransky: Should be about 1-3 (PDF) pages
 
 Some papers have already looked into the topic of geolocation of \ac{LoRa} devices.
 
@@ -74,6 +74,12 @@ Snowing also led to fluctuations in \ac{RSS} and \ac{SNR} values if the \ac{LoRa
 Magno et al.\ showed another promising approach to locate \ac{LoRa} devices in 2018~\cite{magno_poster_2018}.
 They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
 \ac{RTK} is a technique that uses a fixed, time-synchronized base station with \ac{GPS} to correct the localization signal of a mobile device called Rover.
+
+In 2004, Elnahrawy et al.\ researched ``The Limits of Localization Using Signal Strength''~\cite{elnahrawy_limits_2004}.
+While they used Wi-Fi technology instead of \ac{LoRa}, their findings are still relevant.
+During their research, they concluded that indoor \ac{RSS}-based localization without any additional complex environmental models or additional localization infrastructure has a median localization error of \SI{3.04}{\meter} and a 97th percentile error of \SI{9.14}{\meter}.
+
+% TODO should there be some sort of conclusion here?
 
 \section{Outline}
 
