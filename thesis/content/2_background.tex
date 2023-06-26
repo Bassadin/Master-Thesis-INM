@@ -288,6 +288,7 @@ In LoRaWAN, data transmissions to and from the end nodes are called \emph{uplink
 
 Uplinks are relayed to the network server by one or more gateways from the end node.
 Downlinks, however, are only sent from the network server to the end node using a single gateway.
+
 \subsection{Device Classes}
 
 \ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_2017}.
@@ -364,7 +365,7 @@ The security of the data sent is a major concern when talking about \ac{IoT} pro
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
 Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite{lora_alliance_inc_lorawan_2017-1}.
 
-This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{DevNonce}, that is incremented with each packet sent~\cite{lora_alliance_inc_lorawan_2017-1}.
+This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{DevNonce}, a number that is incremented with each packet sent~\cite{lora_alliance_inc_lorawan_2017-1}.
 
 \section{\acf{TTN}}
 
@@ -378,7 +379,7 @@ Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.
 \end{figure}
 
 
-While, officially, it is called \emph{\acl{TTS} Community Edition} since 2021, it is still commonly referred to as \acf{TTN}~\cite{the_things_industries_bv_what_2022}.
+While it is officially called \emph{\acl{TTS} Community Edition} since 2021, it is still commonly referred to as \acf{TTN} by the community itself~\cite{the_things_industries_bv_what_2022}.
 Its users provide \ac{TTN} with gateways that other users can use, making it a decentralized and crowdsourced \ac{LoRaWAN} network.
 
 \subsection{Receiving packets from \acs{LoRaWAN} Gateways}
@@ -648,8 +649,8 @@ When a new set of \ac{RSSI} values is recorded by a device, its \ac{RSSI} values
 The device's location can then be estimated by comparing the \ac{RSSI} values to the known fingerprints.
 If multiple fingerprints match the \ac{RSSI} values, the device's location can be estimated by calculating the average or center of the locations of the matching fingerprints.
 
-Using a multilayer perceptron \ac{ML} algorithm, Anagnostopoulos and Kalousis were able to achieve a median error of 204 meters using \ac{RSSI} fingerprinting~\cite{anagnostopoulos_reproducible_2019}.
-
 This thesis will explore the use of \ac{RSSI} fingerprinting for \ac{LoRaWAN} localization in \cref{sec:fingerprinting-with-rssi-values}.
-However, \ac{ML} was not used in this approach but only simpler similarity calculations.
-Luckily, building a \ac{DB} of fingerprints for the use case explored in this thesis is rather simple, since the \ac{TTNM} \ac{API} already provides the necessary raw data as mentioned in \cref{sec:ttn-mapper-importance}.
+While \ac{ML} approaches can be used to improve fingerprinting, they were not used in this work, only simpler similarity calculations.
+
+Fortunately, building a \ac{DB} of fingerprints for the use case explored in this thesis is fairly straightforward, since the \ac{TTNM} \ac{API} already provides the necessary raw data, as mentioned in \cref{sec:ttn-mapper-importance}.
+\Cref{sec:collecting-additional-ttnm-data} will explain the \ac{LoRaWAN} devices used to collect additional data for fingerprinting.
