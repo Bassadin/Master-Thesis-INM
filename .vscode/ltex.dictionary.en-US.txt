@@ -90,3 +90,4 @@ Elnahrawy
 Magno
 decodable
 Lavalle
+SvelteKit
