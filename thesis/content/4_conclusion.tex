@@ -97,6 +97,15 @@ The gateway, up until now, wasn't of much use in the scope of this thesis though
 Getting a backhaul connection to the \ac{LoRaWAN} gateway was easy since the clubhouse is equipped with a stable internet connection.
 The gateway could thus be connected using Ethernet.
 
+\subsection{\acs{HFU} O building}\label{subsec:conclusion-hfu-o-building}
+
+Another possible location that was not mentioned in \cref{sec:gateway-locations} was the \ac{HFU} O building.
+Located in the northern part of Furtwangen, it is a multi-story building that used to be a hospital.
+Since the \ac{HFU} is only a tenant there, permission was needed from the building owner to install the gateway.
+Fortunately, the owner, Mr.\ Odin Jäger, was very cooperative and allowed the gateway to be installed.
+
+Unfortunately, it was not as easy to get a network connection and power on the roof as it was in the other buildings, so no gateway has been installed there yet.
+
 \section{Collected data in Furtwangen on \acl{TTNM}}\label{sec:collected-data-in-furtwangen-on-ttnm}
 
 \subsection{\acl{TTNM} heatmap view after additional data collection}\label{sec:ttm_heatmap_after}
@@ -259,6 +268,15 @@ This means that the \ac{SF} and \ac{SNR} values used by the end device could als
 Since the \ac{TTN} data frames include this information, it could be used to improve the fingerprinting method.
 
 A disadvantage of this approach would be that it would require more data to be collected, since the number of possible variables per captured gateway would increase from 1 (\ac{RSSI}) to 3 (\ac{RSSI}, \ac{SF}, \ac{SNR}).
+
+\subsubsection{Gateway on the roof of the \acs{HFU} O building}
+
+As was mentioned in \cref{subsec:conclusion-hfu-o-building}, the roof of the O building would make another good location for a \ac{LoRaWAN} gateway.
+The permission by the building's owner was granted.
+The problem that would need to be solved is getting a network connection as well as power to the roof of the building.
+
+Another option that would only require getting power to the roof is to use a \ac{LoRaWAN} gateway that has a \ac{LTE} backhaul connection.
+However, getting a \ac{PoE} connection to the roof of the building would still be preferable due to its stability.
 
 \subsubsection{Self-hosting of \acs{TTS} or \emph{ChirpStack}}
 
