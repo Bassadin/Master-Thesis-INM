@@ -88,3 +88,4 @@ UWB
 Anjum
 Elnahrawy
 Magno
+decodable

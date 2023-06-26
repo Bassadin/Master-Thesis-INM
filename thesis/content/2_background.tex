@@ -159,9 +159,11 @@ Different \aclp{SF} also are orthogonal to each other, so they can be used at th
 
 \subsubsection{Correlation of \acs{SF} and \acs{SNR}}\label{sec:sf-snr-correlation}
 
-\aclp{SF} are important for this thesis because they interact with the\ac{SNR} values of a transmission.
+\aclp{SF} are important for this thesis because they interact with the \ac{SNR} values of a transmission.
+Higher \ac{SF} values allow for lower \ac{SNR} values (more noise, less signal) to still be decodable, since the wider spread of the signal makes it more resilient to noise.
 
-% TODO write more = higher spreading factors mean that the SNR can be lower and the signal can still be recognized
+\ac{SNR} was a value that was considered to be used in the fingerprinting approach.
+Because of the correlation between \ac{SF} and \ac{SNR}, it is important to use both in conjunction.
 
 \subsection{Why use \acs{LoRa}?}
 
@@ -562,9 +564,6 @@ For example, one of Samsung's most recent devices as of writing this thesis, the
 The \ac{LoRaWAN} nodes used in this thesis, as described in \cref{subsec:used-lora-nodes}, only use \ac{GPS} to determine their location.
 
 \subsection{\acf{HDOP}}
-
-% TODO: Explain HDOP and relevance to GPS accuracy
-% relevance: only values with a low enough HDOP were considered
 
 When talking about how accurate a certain data point of a \ac{GNSS} system is, the term \ac{HDOP} is used regularly.
 In fact, there are multiple different terms that can be used to describe such accuracies: \ac{HDOP}, \ac{PDOP}, \ac{VDOP}, \ac{TDOP}, and \ac{GDOP}~\cite{langley_dilution_1999}.
