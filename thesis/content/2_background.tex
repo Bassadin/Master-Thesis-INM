@@ -362,9 +362,9 @@ While using Class C would mean that devices could actually be asked directly for
 
 The security of the data sent is a major concern when talking about \ac{IoT} protocols.
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
-Each end device usually has a unique 128-bit \ac{AES} key that is used for payload encryption~\cite{lora_alliance_inc_lorawan_2017-1}.
+Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite{lora_alliance_inc_lorawan_2017-1}.
 
-This \ac{E2EE} also makes \ac{LoRaWAN} packages secure against replay attacks, since a so-called \ac{MIC} is determined using the frame data~\cite{lora_alliance_inc_lorawan_2017-1}.
+This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{DevNonce}, that is incremented with each packet sent~\cite{lora_alliance_inc_lorawan_2017-1}.
 
 \section{\acf{TTN}}
 
@@ -373,7 +373,7 @@ Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.3\textwidth]{pictures/logos/TTN-logo.eps}
+    \includegraphics[width=0.2\textwidth]{pictures/logos/TTN-logo.eps}
     \caption{\acf{TTN} logo~\protect\cite{the_things_industries_bv_quick_nodate}}
 \end{figure}
 
@@ -388,12 +388,12 @@ Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in tw
 \subsubsection{\acf{SUPF}}
 
 The \ac{SUPF} is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
-The \ac{SUPF} relays \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
+The \ac{SUPF} forwards \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
 
-It may be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
+It can be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
 
 \ac{TTN} marked the \acl{SUPF} as deprecated, since it ``has many security and scalability drawbacks``~\cite{the_things_industries_bv_semtech_2022}.
-It is advised to use the \acl{LBS} protocol instead.
+It is recommended to use the \ac{LBS} protocol instead.
 
 \subsubsection{\acf{LBS}}
 
