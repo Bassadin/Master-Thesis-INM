@@ -182,7 +182,15 @@ This section will mention some ideas on how to improve the \ac{TTNL} software.
 
 \subsubsection{Automatically detecting moved gateways}
 
-% TODO write about this
+Although rare, it is possible for a \ac{LoRaWAN} gateway to be moved to a different location, or to have a different location set in the \ac{TTNL} console than it had before.
+Since the \ac{TTNL} software currently updates the gateway location after each \ac{TTNM} data collection run, it is possible for a gateway to be moved and not be detected by the \ac{TTNL} software.
+This can lead to inaccurate geolocation results if gateways are actually moved.
+
+A change should be made to the \ac{TTNL} backend where, on detection of a gateway moving further than a certain distance, each TtnMapperDatapoint associated with it is deleted to avoid the usage of false data in the calculations.
+
+\ac{TTNM} seems to do a similar thing based on the section ``My results were showing on the map before, but is gone now.'' in their FAQ~\cite{ttn_mapper_faq_nodate}.
+However, as far as the duration of this thesis is concerned, this was not observed.
+The gateway that is now deployed on the roof of the \emph{DL0FIS} clubhouse once was located on the \ac{HFU} B building, but was then moved to its final location.
 
 \subsubsection{Remove dependency on \acl{TTNM}}
 
@@ -203,8 +211,14 @@ The type definitions could also be moved to a separate repository that is used a
 
 \subsubsection{Choice of technologies}
 
-% TODO: could have used SvelteKit oder Nuxt.js to have the entire project in one repo
-% enables better type sharing, etc.
+This section will critically reflect on the choice of technologies used in this thesis as well as mention some alternatives.
+
+\paragraph{Full Stack Frameworks (SvelteKit, Nuxt.js)}
+
+As an alternative to the approach described in \cref{subsubsec:outlook-sharing-type-definitions}, the entire project could have been written using a full-stack framework such as SvelteKit or Nuxt.js.
+This would also have allowed the entire project to be in a single repository, which would have made sharing type definitions easier.
+However, this would also have meant a much tighter coupling of the \ac{TTNL} frontend and backend.
+As a result, it would no longer be possible to deploy the \ac{TTNL} frontend and backend services separately as Docker containers, since the entire project would have to be deployed as a single Docker container.
 
 \paragraph{Prisma}
 
@@ -214,6 +228,8 @@ There were several such cases in this thesis, which is why it might have been mo
 
 However, Prismas ability to generate migrations from a schema and its type safety were still useful features that made it worth using.
 Prisma's schema file also acts as indirect documentation of the \ac{DB} structure, which is useful for other developers that might want to contribute to the project.
+
+An alternative to Prisma would have been PgTyped, which is a library that can generate typesafe \ac{SQL} queries from \ac{TS} type definitions~\cite{salakh_pgtyped_2023}.
 
 \subsubsection{Recognizing moving gateways}
 
