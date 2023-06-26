@@ -185,18 +185,26 @@ While it can be powered by a 9V battery, those usually have a low capacity and a
 
 However, several such 9V batteries were used for data collection during this thesis.
 
-\subsubsection{Heltec HTCC-AB02S}
+\subsubsection{Heltec HTCC-AB02S}\label{subsubsec:heltec-htcc-ab02s}
 
 The \emph{Heltec HTCC-AB02S} is a \ac{LoRaWAN} node with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
 The package sounds very nice, but while the \ac{LoRa} module worked flawlessly, the same cannot be said for the \ac{GPS} module.
+\Cref{pic:heltec-htcc-ab02s} shows the device.
 Programming the device with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
 
 The \ac{GPS} module was not able to get a reliable fix on its own, even after ordering and using an external GPS antenna.
 This seems to be a hardware problem, since other users could get fixes reliably with external \ac{GPS} antennas.
 
-The combination of the \ac{LoRa} module, the \ac{GPS} module and an \ac{OLED} screen is interesting, though.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{pictures/hardware/gps-nodes/HTCC-AB02S.jpg}
+    \caption{
+        One of the Heltec HTCC-AB02S \ac{LoRaWAN} nodes used during this thesis.
+        The \ac{OLED} display as well as the \ac{GPS} module as well as the \ac{LoRaWAN} antenna on the top right can be seen.
+    }\label{pic:heltec-htcc-ab02s}
+\end{figure}
 
-% TODO: image
+The combination of the \ac{LoRa} module, the \ac{GPS} module and an \ac{OLED} screen is interesting, though.
 
 \subsubsection{dnt-LW-ATS}
 
