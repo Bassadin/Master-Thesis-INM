@@ -239,13 +239,56 @@ As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data need
 
 \section{Used development tools}
 
+This section will give an overview over some of the development tools used for the \ac{TTNL} application.
+
+\subsection{\emph{Docker} and \emph{Docker Compose}}
+
+To simplify deployment and development, \emph{Docker} and \emph{Docker Compose} were used extensively~\cite{docker_inc_docker_2022}\cite{docker_inc_docker_2023}.
+Docker allows for applications to be run in lightweight containers that are isolated from the rest of the system.
+This allows for easy deployment of applications without having to worry about the underlying system.
+
+In this thesis, Docker was used to containerize the \ac{TTNL} application.
+The backend and frontend each have their own \emph{Dockerfiles} that state how these applications should be built.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/ttn-locator/docker_desktop.png}
+    \caption{
+        A screenshot of the \emph{Docker Desktop} application that shows the running containers of the \ac{TTNL} application~\cite{docker_inc_download_2021}.
+        The \acl{PSQL} \ac{DB} as well as the pgadmin management container are visible as well.
+    }\label{pic:docker-desktop}
+\end{figure}
+
+Docker Compose was then used to assemble the different parts of the application: the backend, frontend, \acl{PSQL} \ac{DB} and \emph{pgadmin}, an admin interface to make viewing \acl{PSQL} data easier.
+\Cref{pic:docker-desktop} shows the running containers of the \ac{TTNL} application in the \emph{Docker Desktop} application~\cite{docker_inc_download_2021}.
+
 \subsection{\acf{VSC}}
+
+\acf{VSC} is a free and open-source code editor developed by Microsoft~\cite{microsoft_visual_2023}.
+It was chosen as the main code editor for this thesis because of its popularity and the large amount of extensions available for it.
 
 \subsubsection{Extensions}
 
+Of the several extensions that \ac{VSC} offers, some notable ones that helped development during this thesis are listed below.
+
 \paragraph{GitHub Copilot}
 
+GitHub Copilot is an extension that uses \ac{ML} to suggest code snippets based on the current context~\cite{github_inc_github_2023}.
+It makes repetitive coding tasks easier and faster by suggesting code snippets that can be inserted with a single keystroke.
+It was used extensively during this thesis, both in programming and in the actual writing of this thesis, as it can also autocomplete normal English sentences instead of just code.
+
+\paragraph{PlatformIO}
+
+% TODO: is this necessary?
+
 \subsection{GitHub Actions}
+
+\emph{GitHub Actions} is a feature of the \emph{GitHub} platform that allows for automated \ac{CI/CD} workflows to be run on the platform~\cite{github_inc_features_2023}.
+These automated workflows can be triggered by various events, such as a new commit being pushed to the repository or a new pull request being opened.
+
+In this thesis, \emph{GitHub Actions} was used to automatically test the \ac{TTNL} frontend and backend as well as build their respective \emph{Docker} images.
+These docker images are then pushed to the \emph{GitHub} container registry and can be pulled from there to be deployed.
+This allows for the built images to be used in \emph{Docker compose} files on the deployment server without having to build them there.
 
 \section{Program structure: \acf{TTNL}}\label{section:ttnl}
 
@@ -280,27 +323,6 @@ The \ac{TTNL} frontend can retrieve data from the backend using a \ac{REST} \ac{
 
 The following sections will explain each part of the \ac{TTNL} application in detail and show how they were implemented.
 The tools and technologies used for the implementation are also explained.
-
-\subsubsection{Usage of Containerization}
-
-To simplify deployment and development, \emph{Docker} and \emph{Docker Compose} were used extensively~\cite{docker_inc_docker_2022}\cite{docker_inc_docker_2023}.
-Docker allows for applications to be run in lightweight containers that are isolated from the rest of the system.
-This allows for easy deployment of applications without having to worry about the underlying system.
-
-In this thesis, Docker was used to containerize the \ac{TTNL} application.
-The backend and frontend each have their own \emph{Dockerfiles} that state how these applications should be built.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1\textwidth]{pictures/ttn-locator/docker_desktop.png}
-    \caption{
-        A screenshot of the \emph{Docker Desktop} application that shows the running containers of the \ac{TTNL} application~\cite{docker_inc_download_2021}.
-        The \acl{PSQL} \ac{DB} as well as the pgadmin management container are visible as well.
-    }\label{pic:docker-desktop}
-\end{figure}
-
-Docker Compose was then used to assemble the different parts of the application: the backend, frontend, \acl{PSQL} \ac{DB} and \emph{pgadmin}, an admin interface to make viewing \acl{PSQL} data easier.
-\Cref{pic:docker-desktop} shows the running containers of the \ac{TTNL} application in the \emph{Docker Desktop} application~\cite{docker_inc_download_2021}.
 
 \subsection{Data structure}
 
