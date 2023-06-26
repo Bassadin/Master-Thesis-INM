@@ -187,9 +187,14 @@ However, several such 9V batteries were used for data collection during this the
 
 \subsubsection{Heltec HTCC-AB02S}
 
-% TODO
-% didn't work well enough without additional GPS antenna
-% screen is pretty nice, though
+The \emph{Heltec HTCC-AB02S} is a \ac{LoRaWAN} node with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
+The package sounds very nice, but while the \ac{LoRa} module worked flawlessly, the same cannot be said for the \ac{GPS} module.
+Programming the device with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
+
+The \ac{GPS} module was not able to get a reliable fix on its own, even after ordering and using an external GPS antenna.
+This seems to be a hardware problem, since other users could get fixes reliably with external \ac{GPS} antennas.
+
+The combination of the \ac{LoRa} module, the \ac{GPS} module and an \ac{OLED} screen is interesting, though.
 
 % TODO: image
 
@@ -234,7 +239,7 @@ As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data need
 
 \section{Used development tools}
 
-\subsection{Visual Studio Code}
+\subsection{\acf{VSC}}
 
 \subsubsection{Extensions}
 
@@ -672,7 +677,7 @@ Differences of up to 1 second between the timestamps of the same signal in diffe
 
 \Cref{fig:toa-bad-data-example} shows an example of the divergent timestamp data that was planned to be used for \ac{ToA} multilateration where the time difference between the first and second signal arrival amounts to more than one second.
 Since the speed of light is $299792458\ \mathrm{m/s}$, a difference of one second in the timestamps of two signals would result in a distance difference of $299792458\ \mathrm{m}$.
-This is a distance that is too big to be useful for performing any sort of meaningful multilateration.
+This is a distance that is way too big to be useful for performing any sort of meaningful multilateration.
 
 \Cref{subsec:conclusion-toa-tdoa} will explain how this could be fixed.
 
