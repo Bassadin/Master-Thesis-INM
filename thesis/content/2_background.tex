@@ -422,16 +422,16 @@ While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packet
 It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with token-based authentication.
 When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
 
-\subsection{Web Interface and Device/Gateway Management}\label{sec:web-interface-and-device-gateway-management}
+\subsection{\acs{TTN} Console --- Device/Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
-\ac{TTN} provides a web interface for managing devices and gateways that are registered to the network.
+\ac{TTN} provides a web interface for managing devices and gateways that are registered to the network by the logged-in user.
 It also provides a \ac{REST} \ac{API} for managing devices and gateways programmatically.
 
 End devices are grouped into \emph{applications} that can be used to manage \ac{LoRaWAN} end devices that belong to a bigger project or device group.
 
 In this thesis, an application was used to group the \ac{LoRaWAN} \ac{GPS} trackers that were used for data collection.
 
-\subsection{Forwarding data from \acf{TTN} to \acfp{AS}}\label{sec:forwarding-data-from-ttn-to-as}
+\subsection{Forwarding data from \acs{TTN} to \aclp{AS}}\label{sec:forwarding-data-from-ttn-to-as}
 
 To transmit data from \ac{TTN} to an \ac{AS}, \ac{TTN} provides \emph{integrations}~\cite{the_things_network_integrations_2021}.
 \ac{TTN} offers several integrations for different cloud \acp{AS} such as \ac{AWS} IoT Core and Microsoft Azure IoT Hub.
