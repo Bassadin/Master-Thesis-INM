@@ -187,14 +187,14 @@ However, several such 9V batteries were used for data collection during this the
 
 \subsubsection{Heltec HTCC-AB02S}
 
+% TODO
 % didn't work well enough without additional GPS antenna
 % screen is pretty nice, though
 
-% TODO
+% TODO: image
 
 \subsubsection{dnt-LW-ATS}
 
-% TODO
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
@@ -215,6 +215,8 @@ The documentation was not helpful with finding the root cause and the manufactur
 \subsubsection{``blinkeding'' --- Arduino with Shield from Prof.\ Zahoransky}
 
 % TODO add this?
+
+Prof.\ Zahoransky provided an Arduino with a \ac{LoRa} shield that was also used as a \ac{GPS} tracker for this thesis.
 
 \subsection{\acl{TTNM} heatmap view before additional data collection}
 
@@ -419,29 +421,20 @@ model Post {
 
 \Cref{lst:prisma-schema-example} shows an example of a Prisma schema that defines two \ac{DB} tables, \lstinline{User} and \lstinline{Post}, and their relationship: A User can have many Posts.
 
-While Prisma enables the developer to write type safe \ac{DB} queries using \ac{TS}, it does not support all possible queries (yet).
-Some advanced queries, such as the one shown in \cref{lst:postgis-example-distance}, had to be written by hand using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
-
-% TODO: this maybe should be in the conclusion section?
-There were several such cases in this thesis, which is why it might have been more suitable to not use Prisma at all and instead use \ac{SQL} in a more direct way.
-However, Prismas ability to generate migrations from a schema and its type safety were still useful features that made it worth using.
-Prisma's schema file also acts as indirect documentation of the \ac{DB} structure, which is useful for other developers that might want to contribute to the project.
-
 \Cref{pic:prisma-erd} shows a diagram rendered from the Prisma schema that was used in this thesis.
 
 \subsubsection{Vitest}
 
 Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023}.
-It was used in this thesis to write unit as well as intergration tests for the backend part of the \ac{TTNL} web application.
+It was used in this thesis to write unit as well as integration tests for the backend part of the \ac{TTNL} web application.
 Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for writing tests in \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023-1}.
 
 \subsection{Used technologies --- Frontend}
 
 \subsubsection{Vue.js}
 
-% TODO: Explain reactivity?
-
 Vue.js is a \ac{JS} framework for building reactive user interfaces~\cite{evan_you_vuejs_2023}.
+Reactive in this context means the ability for the frontend to automatically react to changes in the \ac{JS}/\ac{TS} state.
 It was used in this thesis as a means to implement the frontend of the \ac{TTNL} web application.
 Vue can also use \ac{TS} as a programming language, which was used in this thesis for making the code more robust and easier to maintain due to its type safety.
 
