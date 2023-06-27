@@ -6,10 +6,10 @@ title: TTN Locator Program structure
 ```mermaid
 flowchart TD
     subgraph TTNL [TTN Locator]
-    TTNLF[TTN Locator Frontend]-->|makes API requests to|TTNLB[TTN Locator Backend]
-    TTNLB-->|stores data in|TTNLDB["TTN Locator Database (PostGIS)"]
+    TTNLF[TTN Locator Frontend]<-->|HTTP|TTNLB[TTN Locator Backend]
+    TTNLB<-->|stores / retrieves data in|TTNLDB["TTN Locator Database (PostGIS)"]
     end
-    TTNLB-->|makes API requests to|TTNM
+    TTNLB<-->|HTTP|TTNM
     DVs[Devices]-->|send data to|GWs
     GWs[Gateways]-->|forward data to|TTN-LNS
     TTN-LNS[TTN LoRaWAN Network Server]-->|sends data with integration to|TTNM[TTN Mapper]
