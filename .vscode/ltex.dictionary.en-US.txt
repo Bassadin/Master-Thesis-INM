@@ -91,3 +91,4 @@ Magno
 decodable
 Lavalle
 SvelteKit
+ETSI
