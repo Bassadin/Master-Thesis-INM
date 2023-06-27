@@ -317,6 +317,11 @@ Both of them are \ac{OSS} and can be self-hosted using Docker or Docker Compose.
 
 \subsubsection{Privacy concerns}
 
+Since the work in this thesis has shown that it is possible, at least at a rough level, to locate \ac{LoRaWAN} nodes using simple \ac{RSSI} value measurements of their receiving gateways, there are some privacy concerns that need to be addressed.
+
+\ac{LoRaWAN} nodes are small and can be hidden easily (for example under the hood of a car) while having a long battery life.
+This means that such devices could be used to track people without their knowledge even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration of fingerprinting.
+
 % TODO: write about privacy concerns with geolocation and tracking of people
 
 % Notes:
