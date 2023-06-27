@@ -106,7 +106,7 @@ Fortunately, the owner, Mr.\ Odin Jäger, was very cooperative and allowed the g
 
 Unfortunately, it was not as easy to get a network connection and power on the roof as it was in the other buildings, so no gateway has been installed there yet.
 
-\subsection{Factory building of the \emph{E. Wehrle} company}
+\subsection{Factory building of the \emph{E. Wehrle} company}\label{subsec:factory-building-of-the-e-wehrle-company}
 
 Although not considered at the beginning of this thesis, during the first weeks of data collection with \ac{GPS} trackers in Furtwangen, a gateway appeared in the \ac{TTN} packet metadata that had no location entered.
 After some investigation, it turned out that the gateway was located on the roof of the factory building of the \emph{E. Wehrle} company in the southwestern part of Furtwangen.
@@ -322,11 +322,5 @@ Since the work in this thesis has shown that it is possible, at least at a rough
 \ac{LoRaWAN} nodes are small and can be hidden easily (for example under the hood of a car) while having a long battery life.
 This means that such devices could be used to track people without their knowledge even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration of fingerprinting.
 
-% TODO: write about privacy concerns with geolocation and tracking of people
-
-% Notes:
-% Geräte können verfolgt werden (tracking)
-% - ggf. "welche Personen haben welche Geräte?"
-% - Geräte halten ewig und können aufgrund ihrer Größe leicht versteckt werden
-
-% Actually: Maybe mention how the gateway on top of the E. Wehrle Building could be located with just a bit of data collection?
+As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \ac{LoRaWAN} gateway with enough data collection and time.
+This could allow bad actors to physically attack gateways connected to the public \ac{TTN} network.
