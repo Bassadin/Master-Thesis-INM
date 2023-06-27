@@ -113,7 +113,7 @@ However, it will not go into detail about the technical details of the modulatio
     }\label{pic:lora-duty-cycle}
 \end{figure}
 
-In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite{etsi_etsi_2012}.
+In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite[p. 29]{etsi_etsi_2012}.
 This means that a \ac{LoRa} device using a frequency band in this range may only transmit for 1\% of a given time slot.
 If, for example, a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
 It needs to stay silent for the rest of the time slot.
@@ -123,6 +123,8 @@ In this example, the duty cycle is 20\%.
 The device that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
+
+The \emph{ETSI} standard also defines the \acf{ERP} that can be emitted from a device's antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
 
 \subsection{\acf{CSS}}\label{sec:chirp-spread-spectrum}
 
