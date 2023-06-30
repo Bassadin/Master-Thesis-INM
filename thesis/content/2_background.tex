@@ -605,6 +605,7 @@ As it is considerably well-documented on the manufacturer's website, it will be 
 The \emph{ELV-LW-GPS1} uses a \emph{Quectel LC86L} \ac{GNSS} chip as well as a \emph{dnt-TRX-ST1} \ac{LoRaWAN} module~\cite{elv_elektronik_ag_elv_2023}.
 
 The \emph{LC86L} module uses \SI{32}{\milli\ampere} during \ac{GPS} acquisition and has a \ac{TTFF} of \SI{35}{\second}~\cite{quectel_gnss_nodate}.
+This is during a cold start of the chip, which is often used for \ac{LoRaWAN} \ac{GNSS} trackers to save power.
 
 \begin{equation}\label{eq:LC86L-fix-consumption}
     mAh_{GPS\,Fix} = \SI{32}{\milli\ampere} \cdot \frac{\SI{35}{\second}}{3600} \approx \SI{0.311}{\milli\ampere\hour}
