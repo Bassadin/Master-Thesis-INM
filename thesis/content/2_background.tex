@@ -615,6 +615,7 @@ This is during a cold start of the chip, which is often used for \ac{LoRaWAN} \a
 
 While the \emph{dnt-TRX-ST1} has a similar power usage of \SI{29}{\milli\ampere} during transmission of \ac{LoRaWAN} packets, it takes a considerably shorter amount of time to transmit a \ac{LoRa} packet than it takes to acquire a \ac{GPS} fix.
 For example, when the \emph{ELV-LW-GPS1} module transmits one of its \ac{GPS} location data packets using \ac{SF} 9, it uses only \SI{0.246784}{\second} of airtime, according to \ac{TTN}.
+This transmission time can become even shorter when using a lower \ac{SF} or when fewer bytes are transmitted.
 
 \begin{equation}\label{eq:dnt-TRX-ST1-tx-consumption}
     mAh_{\ac{LoRa}\,TX} = \SI{29}{\milli\ampere} \cdot \frac{\SI{0.246784}{\second}}{3600} \approx \SI{0.00198}{\milli\ampere\hour}
