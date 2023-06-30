@@ -163,7 +163,7 @@ Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS mo
 
 To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
 
-\subsubsection{ELV \acs{GPS} Tracker}
+\subsubsection{ELV \acs{GPS} Tracker}\label{subsubsec:elv-gps-tracker-implementation}
 
 \begin{figure}[htbp]
     \centering
@@ -552,7 +552,7 @@ This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQ
 
 To avoid having to do this importing of data regularly, the \ac{TTNL} backend includes a cronjob task that automatically imports data from \ac{TTNM} every 24 hours.
 Cron allows for tasks to be executed at specific times or intervals.
-It uses a specific syntax to define these intervals, for example \emph{* */4 * * *} would execute a task every 4 hours.
+It uses a specific syntax to define these intervals, for example \emph{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
 
 The cronjob for importing new data only does this for devices that have been entered into its \ac{DB} by a user to avoid flooding the \ac{DB} with irrelevant data.
 This ensures that the \ac{TTNL} \ac{DB} is always up to date with the device specific data from the \ac{TTNM} \ac{DB}.
@@ -702,7 +702,7 @@ Differences of up to 1 second between the timestamps of the same signal in diffe
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/toa_bad_data_example_prisma_studio.png}
     \caption{
-        Example of divergent timestamp data planned to be used for \ac{ToA} multilateration.
+        Example of divergent timestamp data that was planned to be used for \ac{ToA} multilateration.
         The time difference between the first and second signal arrival amounts to more than one second.
         Picture taken from Prisma's \emph{Prisma Studio} web frontend.
     }\label{fig:toa-bad-data-example}
