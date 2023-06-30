@@ -6,18 +6,18 @@ The global market for \ac{IoT} devices is expected to grow from USD 397.42 billi
 Over short distances and with mains-powered devices, it is relatively easy to achieve connections to the internet wirelessly with technologies such as ZigBee, Thread or Wi-Fi.
 However, bridging long distances can become a challenge when devices also need to consume as little power as possible.
 
-The wireless communication protocol \ac{LoRa} promises to address this challenge by offering a vast range with the drawback of having little throughput.
+The \ac{LoRa} wireless communication protocol promises to address this challenge by offering a vast range with the drawback of having little throughput.
 The longest transmission range of a \ac{LoRa} device, under ideal conditions, has been measured at 832 km~\cite{the_things_network_global_team_lora_nodate}.
 While, realistically, \ac{LoRa} devices usually reach much shorter distances, they can still be used to connect devices over long distances of multiple kilometers.
 In the first half of 2020, \ac{LoRa} was the second most used \ac{LPWAN} technology worldwide, scoring 41\% and ranking just behind NB-IoT with 44\%~\cite{iot_analytics_lpwa_2020}.
 
 While \ac{LoRa} end devices can feature \ac{GPS} receivers to geolocate them when deployed, they use considerably more power, especially when trying to obtain a location fix.
-This is especially problematic for battery-powered devices that are deployed in remote areas.
-Contrary to \ac{GPS}, \ac{LoRa} nodes may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} Gateways in the network.
+This is particularly problematic for battery-powered devices that are deployed in remote areas.
+Unlike \ac{GPS}, \ac{LoRa} nodes may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
 
-The aim of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} nodes without modifying them or the gateways used.
-The aim is not to focus specifically on indoor or outdoor applications specifically but to provide a general overview of the topic.
-To achieve this, available \ac{LoRa} Gateways that are registered in \acf{TTN} as well as new ones placed in the vicinity of Furtwangen were used.
+The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} nodes without modifying them or the gateways used.
+The goal is not to focus specifically on indoor or outdoor applications specifically but to provide a general overview of the topic.
+To achieve this, the available \ac{LoRa} gateways registered in \acf{TTN} as well as new gateways placed in the vicinity of Furtwangen area were used.
 
 \section{Research Questions}
 
@@ -30,7 +30,7 @@ To achieve this, available \ac{LoRa} Gateways that are registered in \acf{TTN} a
 \end{enumerate}
 
 \section{Existing / Related Work}
-% Note: Zahoransky: Should be about 1-3 (PDF) pages
+% NOTE: Zahoransky: Should be about 1-3 (PDF) pages
 
 Some papers have already looked into the topic of geolocation of \ac{LoRa} devices.
 
