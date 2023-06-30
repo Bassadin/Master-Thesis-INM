@@ -513,7 +513,7 @@ This was the part of the \ac{API} that was used most for this thesis.
 
 The data that is provided via the \ac{TTNM} \ac{REST} \ac{API} was the core of this thesis.
 The \ac{TTNL} application that will be described in \cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
-Such queries were not possible with the \ac{TTNM} \ac{API} alone, as it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the data filtering that was needed for this thesis.
+Such queries were not possible with the \ac{TTNM} \ac{API} alone, since it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the kind of data filtering that was needed for this thesis.
 
 Through building a database of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
 This was one of the techniques used to locate devices in this thesis.
@@ -594,6 +594,39 @@ In a sense, \ac{PDOP} is a measure of the quality of the current \ac{GNSS} const
 \ac{HDOP} is relevant for this thesis since the \ac{GPS} tracker values sent to \ac{TTN} included the \ac{HDOP} value.
 It was used to filter out values that were not considered accurate enough to be used in the evaluation.
 As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes certain data points based on the \ac{HDOP} value.
+
+\subsection{Power usage}
+
+To show the relevance of using \ac{RSSI} values over \ac{GNSS} systems to locate end devices, this chapter will give a brief comparison of power usage between the two.
+The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
+It will be evaluated in more details in \cref{subsubsec:elv-gps-tracker-implementation}.
+
+As it is considerably well-documented on the manufacturer's website, it will be used to calculate some power usage values.
+The \emph{ELV-LW-GPS1} uses a \emph{Quectel LC86L} \ac{GNSS} chip as well as a \emph{dnt-TRX-ST1} \ac{LoRaWAN} module~\cite{elv_elektronik_ag_elv_2023}.
+
+The \emph{LC86L} module uses \SI{32}{\milli\ampere} during \ac{GPS} acquisition and has a \ac{TTFF} of \SI{35}{\second}~\cite{quectel_gnss_nodate}.
+
+\begin{equation}\label{eq:LC86L-fix-consumption}
+    mAh_{GPS\,Fix} = \SI{32}{\milli\ampere} \cdot \frac{\SI{35}{\second}}{3600} \approx \SI{0.311}{\milli\ampere\hour}
+\end{equation}
+
+\Cref{eq:LC86L-fix-consumption} shows the power usage of the \emph{LC86L} module during a single \ac{GPS} acquisition.
+
+While the \emph{dnt-TRX-ST1} has a similar power usage of \SI{29}{\milli\ampere} during transmission of \ac{LoRaWAN} packets, it takes a considerably shorter amount of time to transmit a \ac{LoRa} packet than it takes to acquire a \ac{GPS} fix.
+For example, when the \emph{ELV-LW-GPS1} module transmits one of its \ac{GPS} location data packets using \ac{SF} 9, it uses only \SI{0.246784}{\second} of airtime, according to \ac{TTN}.
+
+\begin{equation}\label{eq:dnt-TRX-ST1-tx-consumption}
+    mAh_{\ac{LoRa}\,TX} = \SI{29}{\milli\ampere} \cdot \frac{\SI{0.246784}{\second}}{3600} \approx \SI{0.00198}{\milli\ampere\hour}
+\end{equation}
+
+\Cref{eq:dnt-TRX-ST1-tx-consumption} shows the power usage of the \emph{dnt-TRX-ST1} module during a single \ac{LoRa} transmission.
+
+Because both modules operate at or around \SI{3}{\volt}, the power usages in \si{\milli\ampere\hour} are comparable.
+This means that acquiring a \ac{GPS} fix with the \emph{ELV-LW-GPS1} module uses approximately \SI{157}{\times} more power than transmitting a \ac{LoRa} packet with the same module.
+This comparison does not take into account the power consumption of the other components of the \emph{ELV-LW-GPS1} module.
+However, it still shows the dimensions of the difference in power consumption between \ac{GPS} and \ac{LoRaWAN} \ac{RSS} localization.
+
+% QUESTION: Show this section to Zahoransky
 
 \section{Localization techniques for usage with \acs{LoRaWAN}}\label{sec:lorawan-localization-techniques}
 
