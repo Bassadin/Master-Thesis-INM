@@ -301,7 +301,7 @@ Downlinks, however, are only sent from the network server to the end node using 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\textwidth]{pictures/device-classes/class-a.png}
+    \includegraphics[width=0.8\textwidth]{pictures/device-classes/class-a.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class A device communication.
         The two receive windows (RX1 and RX2) are visible.~\protect\cite{the_things_industries_bv_device_nodate}
@@ -322,7 +322,7 @@ Class A consumes the least amount of power of the three classes, since the devic
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\textwidth]{pictures/device-classes/class-b.png}
+    \includegraphics[width=0.8\textwidth]{pictures/device-classes/class-b.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class B device communication.
         The additional ping slots where the end device is reachable by gateways can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
@@ -339,7 +339,7 @@ These scheduled downlink windows result in a higher power consumption for class 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\textwidth]{pictures/device-classes/class-c.png}
+    \includegraphics[width=0.8\textwidth]{pictures/device-classes/class-c.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class C device communication.
         The RX2 window is kept open between uplink transmissions to allow gateways to reach the end device at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
@@ -349,8 +349,8 @@ These scheduled downlink windows result in a higher power consumption for class 
 Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
 In essence, they keep the downlink windows as specified in class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
 
-Devices in class C consume the most power, since they are always listening for downlink messages.
-The fact that they are always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or a reliable accessibility via downlink.
+Class C devices consume the most power because they are always listening for downlink messages.
+The fact that they are always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or reliable downlink accessibility.
 
 \subsubsection{Conclusion}
 
