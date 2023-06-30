@@ -94,3 +94,4 @@ SvelteKit
 ETSI
 Wehrle
 Quectel
+Cron

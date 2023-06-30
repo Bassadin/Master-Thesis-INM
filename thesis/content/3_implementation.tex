@@ -414,7 +414,7 @@ router.get('/', async (request: Request, response: Response) => {
 });
 \end{lstlisting}
 
-\Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{openjs_foundation_express_routing}.
+\Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{openjs_foundation_express_nodate-1}.
 Express also allows for the creation of more complex endpoints that can, for example, return data from a \ac{DB}.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
@@ -548,7 +548,7 @@ This is because fingerprinting on a larger or even global scale would likely res
 However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the \ac{DB}, as long as that device has been captured by \ac{TTNM} at some point in time.
 
 To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given device in a given time frame.
-For example, to get data for a \ac{LoRaWAN} device with the id \emph{blinkeding} from the first week of april 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
+For example, to get data for a \ac{LoRaWAN} device with the id \emph{blinkeding} from the first week of April 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
 This \ac{TTNM} \ac{API} route returns data in a \ac{JSON} format.
 This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} \ac{DB}.
 
@@ -557,19 +557,19 @@ Cron allows for tasks to be executed at specific times or intervals.
 It uses a specific syntax to define these intervals, for example \emph{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
 
 The cronjob for importing new data only does this for devices that have been entered into its \ac{DB} by a user to avoid flooding the \ac{DB} with irrelevant data.
-This ensures that the \ac{TTNL} \ac{DB} is always up to date with the device specific data from the \ac{TTNM} \ac{DB}.
+This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the device specific data from the \ac{TTNM} \ac{DB}.
 
 \subsection{Cleaning collected data}\label{subsec:cleaning-collected-data}
 
 The data that was collected from \ac{TTNM} was not without errors.
 \ac{TTNM} filters out some of the data that is sent to it.
 For example, it does not accept data points that have a \ac{HDOP} value greater than a certain unspecified amount.
-As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values above 5 were recorded so it is likely that this is the cutoff point.
+As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values above 5 were recorded, so it is likely that this is the cutoff point.
 There were several problems that were noticed when trying to use the data for localization purposes:
 
 \begin{itemize}
     \item \textbf{Outliers:} Some data points were clearly outliers, i.e. the device moved from one location to another one that was far away in a short amount of time.
-    \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate datapoints.
+    \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate data points.
 \end{itemize}
 
 To counteract these problems, another cronjob in the \ac{TTNL} backend was created.
