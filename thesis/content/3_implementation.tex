@@ -499,17 +499,7 @@ Its usage as import-able predefined Vue components also allowed for a quick and 
 \Cref{fig:vuetify-form-example} shows an example of a form created using Vuetify components in the \ac{TTNL} frontend.
 It uses several of Vuetify's components to enable the user to enter \ac{RSSI} values for several gateways for localization purposes.
 
-\subsubsection{Leaflet}
-
-Leaflet is a \ac{JS} library for displaying interactive maps in the browser~\cite{volodymyr_agafonkin_leaflet_2023}.
-It currently has around 800,000 weekly downloads on the npm package repository~\cite{npm_leaflet_2023}.
-It was used in this thesis to display the map on the frontend of the \ac{TTNL} web application.
-Leaflets widespread use and large community made it a good choice for this purpose since there are many examples and tutorials available online.
-
-To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{vue_leaflet_team_vue_nodate}.
-It wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
-
-\subsubsection{GeoJSON}
+\subsubsection{GeoJSON}\label{sec:geojson}
 
 GeoJSON is a format used for representing geographical data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
 This format was used in this thesis as a means to standardify the data format used for representing geographical data as well as its communication between client and server.
@@ -539,6 +529,19 @@ This format was used in this thesis as a means to standardify the data format us
 \end{lstlisting}
 
 \Cref{lst:geojson-example} shows an example of a GeoJSON object.
+
+\subsubsection{Leaflet}\label{sec:leaflet}
+
+Leaflet is a \ac{JS} library for displaying interactive maps in the browser~\cite{volodymyr_agafonkin_leaflet_2023}.
+It currently has around 800,000 weekly downloads on the npm package repository~\cite{npm_leaflet_2023}.
+It was used in this thesis to display the map on the frontend of the \ac{TTNL} web application.
+Leaflets widespread use and large community made it a good choice for this purpose since there are many examples and tutorials available online.
+
+To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{vue_leaflet_team_vue_nodate}.
+It wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
+
+Leaflet is able to render GeoJSON objects, as seen in \cref{sec:geojson}.
+This was used in this thesis to display some data from the \ac{TTNL} frontend on the map.
 
 \subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
 
