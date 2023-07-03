@@ -210,11 +210,36 @@ SELECT * FROM stats_data;
 The result on a data set of about \num{60000} collected ttnMapperDatapoints is roughly equal to \num{-0.2610}, indicating a medium to weak negative correlation between the \ac{RSSI} values and the distance to the gateway.
 To remove outliers, only gateways with at least \num{500} associated \ac{RSSI} values were considered in the calculation.
 
+\subsubsection{Accuracy of \acs{RSSI}-based multilateration with a fixed \acs{RSSI} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
+
+In general, the accuracy of using a fixed \ac{RSSI} to range mapping was poor.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
+    \caption{
+        Example of a multilateration with three gateways using a fixed \ac{RSSI} to range mapping.
+        It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the device.
+        The width of the annuli is an arbitrary value of \SI{100}{\meter} in this case.
+        The value can be changed in the frontend to test various error margins.
+    }\label{pic:bad-rssi-to-range-multilateration-example}
+\end{figure}
+
+\Cref{pic:bad-rssi-to-range-multilateration-example} shows an example of a multilateration with a fixed \ac{RSSI} to range mapping where the result is not at all accurate.
+
+\subsubsection{Accuracy of \acs{RSSI}-based multilateration with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
+
+As mentioned in \cref{subsubsec:per-gateway-rssi-to-range-scale}, another idea was to use linear regression to map \ac{RSSI} values to ranges for each gateway.
+This approach considers gateway-specific parameters such as position and antenna gain.
+However, it cannot consider \ac{MPP} effects as well as end device antenna gain.
+
+% TODO: did this make things better?
+
+\subsubsection{Conclusion}
+
 As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSSI} values to fluctuate heavily.
 In addition, as explained in \cref{sec:rssi}, different antennas on gateways and end devices can cause different \ac{RSSI} values to be measured for the same distance due to different antenna gains.
 This makes multilateration with \ac{RSSI} values as the only input data inaccurate.
-
-\subsubsection{Accuracy of \acs{RSSI}-based geolocation with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
 
 \subsection{\acf{ToA}}\label{subsec:conclusion-toa-tdoa}
 
