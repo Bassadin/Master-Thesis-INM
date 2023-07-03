@@ -209,6 +209,7 @@ SELECT * FROM stats_data;
 
 The result on a data set of about \num{60000} collected ttnMapperDatapoints is roughly equal to \num{-0.2610}, indicating a medium to weak negative correlation between the \ac{RSSI} values and the distance to the gateway.
 To remove outliers, only gateways with at least \num{500} associated \ac{RSSI} values were considered in the calculation.
+
 As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSSI} values to fluctuate heavily.
 In addition, as explained in \cref{sec:rssi}, different antennas on gateways and end devices can cause different \ac{RSSI} values to be measured for the same distance due to different antenna gains.
 This makes multilateration with \ac{RSSI} values as the only input data inaccurate.
@@ -294,6 +295,7 @@ This section will critically reflect on the choice of technologies used in this 
 
 As an alternative to the approach described in \cref{subsubsec:outlook-sharing-type-definitions}, the entire project could have been written using a full-stack framework such as SvelteKit or Nuxt.js.
 This would also have allowed the entire project to be in a single repository, which would have made sharing type definitions easier.
+
 However, this would also have meant a much tighter coupling of the \ac{TTNL} frontend and backend.
 As a result, it would no longer be possible to deploy the \ac{TTNL} frontend and backend services separately as Docker containers, since the entire project would have to be deployed as a single Docker container.
 
