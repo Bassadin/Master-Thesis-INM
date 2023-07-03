@@ -313,6 +313,18 @@ An alternative to Prisma would have been PgTyped, which is a library that can ge
 Currently, the backend of the \ac{TTNL} software cannot recognize if a gateway has moved its position since the last time it was captured.
 This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data
 points were captured at the same location.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/moved_gateway_example.png}
+    \caption{
+        Example of false data being displayed on a \acl{TTNM} map due to a gateway being moved.
+        The gateway placed on the right is the one on the roof of the \emph{DL0FIS} clubhouse.
+        The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building.
+    }\label{pic:gateway-moved-example}
+\end{figure}
+
+\Cref{pic:gateway-moved-example} shows an example where this happened in \ac{TTNM}.
 \ac{TTNL} could be improved by adding a feature that recognizes if a gateway has moved and then deletes all data points that were captured at the old location of the gateway.
 
 \subsection{Projects made possible due to better \acs{LoRaWAN} coverage in Furtwangen}
