@@ -96,3 +96,11 @@ Wehrle
 Quectel
 Cron
 ttnMapperDatapoints
+WebSocket
+VDOP
+TDOP
+PDOP
+IRNSS
+BeiDou
+GDOP
+UERE
