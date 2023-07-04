@@ -291,8 +291,7 @@ The deployment of this antenna on top of the \ac{HFU} C building is shown in \cr
 In LoRaWAN, data transmissions from the end nodes to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 Uplinks are relayed to the \ac{LNS} by one or more gateways from the end node.
-Downlinks, on the other hand, are only sent from the \ac{LNS} to the end node using a single gateway.
-Usually, the gateway that had the strongest \ac{RSS} value on the last uplink is chosen for the downlink.
+Downlinks, on the other hand, are only sent from the \ac{LNS} to the end node using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsection{Device Classes}
 
@@ -313,11 +312,11 @@ Class A is used for devices that need to consume as little power as possible.
 Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
 A communication in Class A is always initiated by the end device itself.
 
-Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device.
+Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
 This can be seen in \cref{pic:lorawan-device-class-a-schema}.
 This also makes it impossible for the \ac{LNS} to send data to the device at any other time.
 
-Class A consumes the least amount of power of the three classes, since the devices itself may specify when and how often they want to communicate with the \ac{LNS}.
+Class A consumes the least amount of power of the three classes, because the devices themselves may specify when and how often they want to communicate with the \ac{LNS}.
 
 \subsubsection{Class B}
 
@@ -330,11 +329,11 @@ Class A consumes the least amount of power of the three classes, since the devic
     }\label{pic:lorawan-device-class-b-schema}
 \end{figure}
 
-In addition to class A, class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows.
-In order to realize this without the need for a per-device \ac{RTC}, class B devices receive time synchronized beacons from the gateways.
-The communication schema for class B devices can be seen in \cref{pic:lorawan-device-class-b-schema}.
+In addition to Class A, Class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows~\cite[p. 67]{lora_alliance_inc_lorawan_specification_2017}.
+In order to realize this without the need for a per-device \ac{RTC}, Class B devices receive time synchronized beacons from the gateways.
+The communication schema for Class B devices can be seen in \cref{pic:lorawan-device-class-b-schema}.
 
-These scheduled downlink windows result in a higher power consumption for class B devices, since those need to be awake during these windows.
+These scheduled downlink windows result in a higher power consumption for Class B devices, since those need to be awake during these windows.
 
 \subsubsection{Class C}
 
@@ -347,34 +346,34 @@ These scheduled downlink windows result in a higher power consumption for class 
     }\label{pic:lorawan-device-class-c-schema}
 \end{figure}
 
-Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}.
-In essence, they keep the downlink windows as specified in class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
+Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}~\cite[p. 86]{lora_alliance_inc_lorawan_specification_2017}.
+In essence, they keep the downlink windows as specified in Class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
 
-Class C devices consume the most power because they are always listening for downlink messages.
+As a result, Class C devices consume the most power because they are always listening for downlink messages.
 The fact that they are always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or reliable downlink accessibility.
 
 \subsubsection{Conclusion}
 
 As far as this thesis was concerned, only Class A devices were used.
-This is because Class B and C use significantly more power than class A because they keep their radio on for extended periods of time, which is a problem for battery-powered devices.
+This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered devices.
 
 In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
-As mobile devices that have the need to be located are usually battery-powered, class A is the most viable option for them.
+As mobile devices that have the need to be located are usually battery-powered, Class A is the most viable option for them.
 
-The geolocation methods evaluated in this thesis work with any \ac{LoRaWAN} device class.
+The geolocation methods evaluated in this thesis work with any \ac{LoRaWAN} device Class.
 While using Class C would mean that devices could actually be asked directly for their location, using Class A devices is usually the better choice due to the lower power consumption.
 
 \subsection{Data security}
 
 The security of the data sent is a major concern when talking about \ac{IoT} protocols.
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
-Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite{lora_alliance_inc_lorawan_specification_2017-1}.
+Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite[p. 24]{lora_alliance_inc_lorawan_specification_2017}.
 
-This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{DevNonce}, a number that is incremented with each packet sent~\cite{lora_alliance_inc_lorawan_specification_2017-1}.
+This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown}, a number that is incremented with each packet sent and is also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
 
 \section{\acf{TTN}}
 
-\ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that supports a global community of people building \ac{LoRaWAN} applications.
+\ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that has a global community of people building \ac{LoRaWAN} applications.
 Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023}.
 
 \begin{figure}[htbp]
