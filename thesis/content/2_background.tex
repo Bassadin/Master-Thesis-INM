@@ -397,8 +397,8 @@ The \ac{SUPF} forwards \ac{LoRaWAN} packets that it receives from its connected 
 
 It can be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
 
-\ac{TTN} marked the \acl{SUPF} as deprecated, since it ``has many security and scalability drawbacks``~\cite{the_things_industries_bv_semtech_2022}.
-It is recommended to use the \ac{LBS} protocol instead.
+\ac{TTN} marked the \acl{SUPF} as deprecated, since it ``has many security and scalability drawbacks``.
+It is recommended to use the \ac{LBS} protocol instead~\cite{the_things_industries_bv_semtech_2022}.
 
 \subsubsection{\acf{LBS}}
 
@@ -422,7 +422,7 @@ The \ac{LNS} uses \ac{WSS} for communication and is responsible for handling the
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with token-based authentication.
-When a gateway is configured with \ac{CUPS}, it will automatically receive its configuration from the \ac{LNS} and be authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
+When a gateway is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
 
 \subsection{\acs{TTN} Console --- Device/Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
@@ -441,7 +441,7 @@ It also provides a generic \ac{HTTP} webhook integration that can be used to for
 
 Additionally, \ac{TTN} provides a MQTT integration, which can send data to an MQTT broker.
 MQTT is a widely used lightweight publish-subscribe messaging protocol that is often used in \ac{IoT} applications~\cite{mqtt_mqtt_2022}.
-It is not used in this thesis, so it will not be discussed further.
+The MQTT protocol is not used in this thesis, so it will not be discussed further.
 
 \ac{TTNM}, the service that was used to collect geolocation data from \ac{LoRaWAN} devices in this thesis, uses a webhook integration to collect data from \ac{TTN}.
 This is explained in more detail in \cref{sec:ttm-data-collection}.
@@ -451,15 +451,15 @@ This means that different integrations can be used for different applications.
 
 \subsection{Alternatives to \acf{TTN}}
 
-While anyone can use \ac{TTN} for free as a cloud-hosted \ac{SaaS}, it is not the only \ac{LNS} available.
-\ac{TTN} can also be self-hosted, for example using Docker, using the open-source \ac{LNS} \emph{The Things Stack}~\cite{the_things_network_host_2023}.
+While anyone can use the public \ac{SaaS} version of \ac{TTN} for free, it is not the only \ac{LNS} available.
+\ac{TTN} can also be self-hosted, for example using Docker, using the open source \ac{LNS} \emph{The Things Stack}~\cite{the_things_network_host_2023}.
 
 There are also several other \acp{LNS} that can be used to build a private \ac{LoRaWAN} network.
 
-\emph{LORIOT} is \ac{TTN} --- it has a public community instance that acts similar to the \ac{SaaS} version of \ac{TTN}, and it also offers a self-hosted version~\cite{loriot_ag_loriot_2023}.
-It is, contrary to \ac{TTN}, not open-source.
+\emph{LORIOT} has a public community instance that acts similar to the \ac{SaaS} version of \ac{TTN}, and it also offers a self-hosted version~\cite{loriot_ag_loriot_2023}.
+It is, contrary to \ac{TTN}, not open source.
 
-Another well-known \ac{LNS} is \emph{ChirpStack}, which is open-source and can be self-hosted~\cite{chirpstack_chirpstack_2023}.
+Another popular \ac{LNS} is \emph{ChirpStack}, which is open source and can be self-hosted~\cite{chirpstack_chirpstack_2023}.
 Contrary to \ac{TTN}, it is not a \ac{SaaS} and does not offer a public community instance.
 
 \section{\acf{TTNM}}
