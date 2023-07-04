@@ -497,7 +497,7 @@ Its usage as import-able predefined Vue components also allowed for a quick and 
 \end{figure}
 
 \Cref{fig:vuetify-form-example} shows an example of a form created using Vuetify components in the \ac{TTNL} frontend.
-It uses several of Vuetify's components to enable the user to enter \ac{RSSI} values for several gateways for localization purposes.
+It uses several of Vuetify's components to enable the user to enter \ac{RSS} values for several gateways for localization purposes.
 
 \subsubsection{GeoJSON}\label{sec:geojson}
 
@@ -629,7 +629,7 @@ This section will describe the different techniques used to locate \ac{LoRaWAN} 
 
 \subsection{\acs{RSSI}-based multilateration}\label{sec:rssi-based-multilateration-implementation}
 
-The general idea behind using \ac{RSSI} values to determine the distance to a gateway is simple.
+The general idea behind using \ac{RSS} values to determine the distance to a gateway is simple.
 The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the device and the gateway.
 The further away a device is from a gateway, the lower the \ac{RSSI} value will be.
 
@@ -649,20 +649,20 @@ The result is the distance $D_{gateway}$ to the gateway in meters.
 For example, a \ac{RSSI} value of -80 would result in a distance of \SI{355}{\meter}.
 A value of -110 would result in a distance of \SI{715}{\meter}.
 
-The values for this equation were derived by performing a linear regression on the \ac{RSSI} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
+The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
 While those values work well for the \ac{RF} reception behavior of the gateway that was used to derive them, they are not necessarily applicable to other gateways.
 Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
-Although rare, \ac{RSSI} values that are larger than a certain threshold can also return negative range values.
+Although rare, \ac{RSS} values that are larger than a certain threshold can also return negative range values.
 In the example above, this is the case with values $>= -50$.
 
-Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSSI} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
+Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
 This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no \ac{LoS} between them.
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}
 
 \Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-It uses the \ac{RSSI} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
+It uses the \ac{RSS} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
 This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
 Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 The example in \cref{fig:rssi-range-graph-positive-example} works quite well for this.
@@ -676,20 +676,20 @@ The example in \cref{fig:rssi-range-graph-positive-example} works quite well for
     }\label{fig:rssi-range-graph-positive-example}
 \end{figure}
 
-While there are outliers in the data, the graph still shows a logical average linear correlation between the \ac{RSSI} values and their distance where the \ac{RSSI} values decrease as the distance increases.
+While there are outliers in the data, the graph still shows a logical average linear correlation between the \ac{RSS} values and their distance where the \ac{RSS} values decrease as the distance increases.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
     \caption{
         Negative example of a \ac{RSSI} to distance graph.
-        The \ac{RSSI} values do not decrease as the distance increases in this case.
+        The \ac{RSS} values do not decrease as the distance increases in this case.
         It is possible that this is caused by not enough data points being available as compared to the positive example in \cref{fig:rssi-range-graph-positive-example}.
     }\label{fig:rssi-range-graph-negative-example}
 \end{figure}
 
 \Cref{fig:rssi-range-graph-negative-example} shows another example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-In this example, the \ac{RSSI} values do not decrease as the distance increases.
+In this example, the \ac{RSS} values do not decrease as the distance increases.
 This could have several reasons, such as not enough data points being available (the negative example has only 131 vs.\ almost 3,000 for the positive example).
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will discuss the results of using this technique and the resulting accuracy in more detail.
@@ -726,13 +726,13 @@ This is a distance that is way too big to be useful for performing any sort of m
 \subsection{Fingerprinting with \acs{RSSI} values}\label{sec:fingerprinting-with-rssi-values}
 
 The implementation of the fingerprinting approach was done in the backend part of \ac{TTNL}.
-An \ac{REST} endpoint was added to the backend that accepts a list of gateway IDs along with maximum and minimum \ac{RSSI} values for those particular gateways.
+An \ac{REST} endpoint was added to the backend that accepts a list of gateway IDs along with maximum and minimum \ac{RSS} values for those particular gateways.
 
 \begin{lstlisting}[
     language=TypeScript,
     float,
     caption={
-        Part of the Prisma query that filters the fingerprint data points by their similarity to the \ac{RSSI} values of gateways provided by the frontend.
+        Part of the Prisma query that filters the fingerprint data points by their similarity to the \ac{RSS} values of gateways provided by the frontend.
     },
     label={lst:prisma-rssi-fingerprinting-query}
 ]
@@ -770,7 +770,7 @@ The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that mat
     \caption{
         The frontend of \ac{TTNL} showing the form for entering gateway fingerprinting values.
         The top of the form shows the possibility of entering \ac{TTNM} datapoint IDs to load their respective similarity values from the \ac{DB}.
-        A ``RSSI'' checking range of 3 has been set, meaning that the entered \ac{RSSI} values will be checked against the \ac{RSSI} values of the \ac{TTNM} datapoints with a tolerance of 3.
+        A ``RSSI'' checking range of 3 has been set, meaning that the entered \ac{RSS} values will be checked against the \ac{RSS} values of the \ac{TTNM} datapoints with a tolerance of 3.
         For example, since the first gateway selected has an \ac{RSSI} value of -113, all \ac{TTNM} datapoints with an \ac{RSSI} value between -116 and -110 will be selected.
     }\label{fig:rssi-similarity-form-frontend}
 \end{figure}

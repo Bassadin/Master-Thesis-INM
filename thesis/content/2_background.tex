@@ -29,13 +29,13 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 \subsection{\acf{RSSI}}\label{sec:rssi}
 
 The \acl{RSSI} is a measure of the strength of a signal received by a device.
-As far as this thesis is concerned, \ac{RSSI} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
+As far as this thesis is concerned, \ac{RSS} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
-Different devices can have different \ac{RSSI} values for the same distance because of factors such as antennas with different gains.
-Furthermore, \ac{RSSI} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \ac{LoS} between the sender and receiver.
+Different devices can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
+Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \acl{LoS} between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
 
-\subsubsection{Correlation between \acs{RSSI} values and distance --- \acf{FSPL}}\label{sec:background-free-space-path-loss}
+\subsubsection{Correlation between \acs{RSS} values and distance --- \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
 Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
 When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between the sender and receiver and the \ac{RSSI} value.
@@ -55,7 +55,7 @@ $d$ is the distance between sender and receiver, while $\lambda$ is the waveleng
 To calculate the wavelength of a signal the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
 As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$.
 
-As an example, the \ac{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
+As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
 \subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
 
@@ -69,7 +69,7 @@ As an example, the \ac{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\met
 \end{figure}
 
 In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
-\acl{MPP} causes the \ac{RSSI} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
+\acl{MPP} causes the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
 This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
 
 \subsection{\acf{SNR}}
@@ -145,7 +145,7 @@ There are six different \aclp{SF} available in the \ac{EU} region, ranging from 
     \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
     \caption{
         Comparison of \aclp{SF} \ac{SF}7 to \ac{SF} 12 in the time and frequency dimensions.
-        The doubling of the transmission time between \aclp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
+        The doubling of the transmission time between increasing \aclp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
     }\label{pic:lora-sf-comparison}
 \end{figure}
 
@@ -154,18 +154,18 @@ It shows that the higher the \ac{SF}, the longer the transmission takes.
 In fact, the transmission time is proportional to $2^{\text{SF}}$~\cite{sakshama_ghoslya_lora_2017}.
 This means that, for example, a transmission using \ac{SF}10 takes twice as long as a transmission using \ac{SF}9.
 
-While a higher \ac{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
-Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \ac{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
+While a higher \acl{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
+Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \acl{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
 
 Different \aclp{SF} also are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
 
 \subsubsection{Correlation of \acs{SF} and \acs{SNR}}\label{sec:sf-snr-correlation}
 
 \aclp{SF} are important for this thesis because they interact with the \ac{SNR} values of a transmission.
-Higher \ac{SF} values allow for lower \ac{SNR} values (more noise, less signal) to still be decodable, since the wider spread of the signal makes it more resilient to noise.
+Higher \acl{SF} values allow for lower \ac{SNR} values (more noise, less signal) to still be decodable, since the wider spread of the signal makes it more resilient to noise.
 
 \ac{SNR} was a value that was considered to be used in the fingerprinting approach.
-Because of the correlation between \ac{SF} and \ac{SNR}, it is important to use both in conjunction.
+Because of the correlation between \acl{SF} and \acl{SNR}, it is important to use both in conjunction.
 
 \subsection{Why use \acs{LoRa}?}
 
@@ -597,7 +597,7 @@ As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes c
 
 \subsection{Power usage}\label{subsec:gnss-power-usage}
 
-In order to show the relevance of using \ac{RSSI} values over \ac{GNSS} systems to locate end devices, this chapter will give a brief comparison of power consumption between the two.
+In order to show the relevance of using \ac{RSS} values over \ac{GNSS} systems to locate end devices, this chapter will give a brief comparison of power consumption between the two.
 The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
 It will be evaluated in more detail in \cref{subsubsec:elv-gps-tracker-implementation}.
 
@@ -679,12 +679,12 @@ These facts make \ac{RSSI}-based localization only work accurately in environmen
 \subsection{\acs{RSSI} Fingerprinting}\label{sec:rssi-fingerprinting}
 
 Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
-It uses a set of known device locations with their corresponding \ac{RSSI} values to locate devices based on the \ac{RSSI} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
+It uses a set of known device locations with their corresponding \ac{RSS} values to locate devices based on the \ac{RSS} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
 The combination of an \ac{RSSI} value and the corresponding location is called a fingerprint.
 
-When a new set of \ac{RSSI} values is recorded by a device, its \ac{RSSI} values are compared to the known \ac{DB} of known fingerprints.
-The device's location can then be estimated by comparing the \ac{RSSI} values to the known fingerprints.
-If multiple fingerprints match the \ac{RSSI} values, the device's location can be estimated by calculating the average or center of the locations of the matching fingerprints.
+When a new set of \ac{RSS} values is recorded by a device, its \ac{RSS} values are compared to the known \ac{DB} of known fingerprints.
+The device's location can then be estimated by comparing the \ac{RSS} values to the known fingerprints.
+If multiple fingerprints match the \ac{RSS} values, the device's location can be estimated by calculating the average or center of the locations of the matching fingerprints.
 
 This thesis will explore the use of \ac{RSSI} fingerprinting for \ac{LoRaWAN} localization in \cref{sec:fingerprinting-with-rssi-values}.
 While \ac{ML} approaches can be used to improve fingerprinting, they were not used in this work, only simpler similarity calculations.
