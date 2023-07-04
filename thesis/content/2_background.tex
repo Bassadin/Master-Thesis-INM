@@ -237,7 +237,7 @@ This section will explain the structure of a \ac{LoRaWAN} network and its inner 
     }\label{pic:lorawan-network-structure}
 \end{figure}
 
-The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_2017}:
+The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
 
 \begin{itemize}
     \item The end nodes (also called end devices),
@@ -246,7 +246,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
     \item the \acfp{AS}.
 \end{itemize}
 
-\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_2017}.
+\ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsection{Gateways}
 
@@ -281,21 +281,22 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
     }\label{pic:mikrotik-antenna-c-building}
 \end{figure}
 
-While gateways like these usually have a built-in antenna, their range is only sufficient for covering small to medium-sized buildings or areas.
-It is, however, also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
+While such gateways usually have a built-in antenna, the range of these antennas is only sufficient to cover small to medium sized buildings or areas.
+However, it is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
 While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
 \subsection{Data Transmission}
 
-In LoRaWAN, data transmissions to and from the end nodes are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_2017}.
+In LoRaWAN, data transmissions from the end nodes to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
-Uplinks are relayed to the network server by one or more gateways from the end node.
-Downlinks, however, are only sent from the network server to the end node using a single gateway.
+Uplinks are relayed to the \ac{LNS} by one or more gateways from the end node.
+Downlinks, on the other hand, are only sent from the \ac{LNS} to the end node using a single gateway.
+Usually, the gateway that had the strongest \ac{RSS} value on the last uplink is chosen for the downlink.
 
 \subsection{Device Classes}
 
-\ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_2017}.
+\ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsubsection{Class A}
 
@@ -309,7 +310,7 @@ Downlinks, however, are only sent from the network server to the end node using 
 \end{figure}
 
 Class A is used for devices that need to consume as little power as possible.
-Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_2017}.
+Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
 A communication in Class A is always initiated by the end device itself.
 
 Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device.
@@ -367,9 +368,9 @@ While using Class C would mean that devices could actually be asked directly for
 
 The security of the data sent is a major concern when talking about \ac{IoT} protocols.
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
-Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite{lora_alliance_inc_lorawan_2017-1}.
+Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite{lora_alliance_inc_lorawan_specification_2017-1}.
 
-This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{DevNonce}, a number that is incremented with each packet sent~\cite{lora_alliance_inc_lorawan_2017-1}.
+This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{DevNonce}, a number that is incremented with each packet sent~\cite{lora_alliance_inc_lorawan_specification_2017-1}.
 
 \section{\acf{TTN}}
 
