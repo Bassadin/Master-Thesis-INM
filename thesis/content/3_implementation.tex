@@ -435,7 +435,8 @@ SELECT ST_DistanceSphere(
 Result => 26900.55162337
 \end{lstlisting}
 
-\Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the earth's surface~\cite{postgis_psc__osgeo_st_distancesphere_nodate}.
+\Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the Earth's surface~\cite{postgis_psc__osgeo_st_distancesphere_nodate}.
+It takes into account the curvature of the Earth and is therefore more accurate than using a simple Pythagorean Theorem calculation to determine the distance between two points.
 
 PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
 
@@ -465,9 +466,9 @@ model Post {
 
 \subsubsection{Vitest}
 
-Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023-1}.
+Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest-features_2023}.
 It was used in this thesis to write unit as well as integration tests for the backend part of the \ac{TTNL} web application.
-Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for writing tests in \ac{JS} and \ac{TS}~\cite{vitest_team_vitest_2023-1}.
+Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for writing tests in \ac{JS} and \ac{TS}~\cite{vitest_team_vitest-features_2023}.
 
 \subsection{Used technologies --- Frontend}
 
@@ -501,8 +502,8 @@ It uses several of Vuetify's components to enable the user to enter \ac{RSS} val
 
 \subsubsection{GeoJSON}\label{sec:geojson}
 
-GeoJSON is a format used for representing geographical data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
-This format was used in this thesis as a means to standardify the data format used for representing geographical data as well as its communication between client and server.
+GeoJSON is a format used for representing geographic data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
+This format was used in this thesis as a means to standardize the data format used to represent geographic data as well as its communication between client and server.
 
 \begin{lstlisting}[language=JSON, float, caption={Example of a GeoJSON that represents a rectangle above the furtwangen city center}, label={lst:geojson-example}]
 {
@@ -541,7 +542,7 @@ To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{
 It wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
 
 Leaflet is able to render GeoJSON objects, as seen in \cref{sec:geojson}.
-This was used in this thesis to display some data from the \ac{TTNL} frontend on the map.
+This was used in this thesis to display some data on the map of the \ac{TTNL} frontend, e.g.\ the multilateration annuli.
 
 \subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
 
@@ -564,14 +565,14 @@ This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the device spe
 
 \subsection{Cleaning collected data}\label{subsec:cleaning-collected-data}
 
-The data that was collected from \ac{TTNM} was not without errors.
+The data that was collected by \ac{TTNM} was not without errors and outliers.
 \ac{TTNM} filters out some of the data that is sent to it.
 For example, it does not accept data points that have a \ac{HDOP} value greater than a certain unspecified amount.
 As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values above 5 were recorded, so it is likely that this is the cutoff point.
 There were several problems that were noticed when trying to use the data for localization purposes:
 
 \begin{itemize}
-    \item \textbf{Outliers:} Some data points were clearly outliers, i.e. the device moved from one location to another one that was far away in a short amount of time.
+    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.\ the device moved from one location to another one that was far away in a short amount of time.
     \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate data points.
 \end{itemize}
 

@@ -10,7 +10,7 @@ Thus, as explained in \cref{subsec:cleaning-collected-data}, they may contain so
 
 \subsection{\acf{GHB} student dormitory}\label{subsec:ghb-student-dormitory-range-results}
 
-The MikroTik gateway deployed on top of the \ac{GHB} student dormitory is the gateway with the highest range in Furtwangen.
+The MikroTik gateway deployed on top of the \ac{GHB} student dormitory is the gateway with the highest range in Furtwangen among those deployed during this thesis.
 This doesn't come as a surprise, given its exposed location on top of a hill plus the height of the building itself.
 
 \begin{figure}[htbp]
@@ -222,6 +222,7 @@ In general, the accuracy of using a fixed \ac{RSSI} to range mapping was poor.
         It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the device.
         The width of the annuli is an arbitrary value of \SI{100}{\meter} in this case.
         The value can be changed in the frontend to test various error margins.
+        The annuli are drawn using Leaflet's ability to render GeoJSON.
     }\label{pic:bad-rssi-to-range-multilateration-example}
 \end{figure}
 
