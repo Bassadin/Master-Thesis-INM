@@ -432,9 +432,18 @@ The problem that would need to be solved is getting a network connection as well
 Another option that would only require getting power to the roof is to use a \ac{LoRaWAN} gateway that has a \ac{LTE} backhaul connection.
 However, getting a \ac{PoE} connection to the roof of the building would still be preferable due to its stability.
 
-\subsubsection{Meshing of \acs{LoRaWAN} gateways}
+\subsubsection{Meshing / repeating of \acs{LoRaWAN} gateways}
 
-% TODO mention how this could be possible, also mention Anton Petrov's thesis
+While \ac{LoRa} allows for communication between any sort of \ac{LoRa} device, be it end device or gateway, \ac{LoRaWAN} does not.
+Theoretically, a gateway to gateway communcation in pure \ac{LoRa} is possible.
+However, this behavior is not implemented in the \ac{LoRaWAN} protocol.
+
+If this functionality could be implemented in the \ac{LoRaWAN} protocol, it would allow for a sort of meshed network of \ac{LoRaWAN} gateways.
+Gateways acting as repeaters in such a network could forward \ac{LoRaWAN} packets without the need for a backhaul connection as mentioned in \cref{sec:gateways}.
+Since the \ac{LoRaWAN} protocol doesn't provide this functionality yet, it would need to be tested with a custom implementation of gateway firmware first.
+
+Anton Petrov is going to write his master thesis about this topic in the coming winter semester of 2023/2024.
+His thesis will also be supervised by Prof. Dr. Richard Zahoransky.
 
 \subsubsection{Self-hosting of \acs{TTS} or \emph{ChirpStack}}
 
