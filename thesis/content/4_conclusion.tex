@@ -142,7 +142,9 @@ While there are still some blank spots, these are mostly due to the fact that th
 
 This section will compare the different geolocation methods that were used in this thesis.
 
-\subsection{\acf{RSSI}}
+\subsection{Multilateration}\label{subsec:conclusion-multilateration}
+
+\subsubsection{\acf{RSSI}}
 
 \Cref{lst:sql-calculate-correlation-coefficient} shows the \ac{SQL} query that was used to calculate the correlation coefficient between the \ac{RSS} values and the associated distances.
 
@@ -213,13 +215,13 @@ The result on a data set of about \num{60000} collected ttnMapperDatapoints is r
 
 To remove outliers, only gateways with at least \num{500} associated \ac{RSS} values were considered in the calculation.
 
-\subsubsection{Accuracy of \acs{RSSI}-based multilateration with a fixed \acs{RSSI} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
+\paragraph{Accuracy of \acs{RSSI}-based multilateration with a fixed \acs{RSSI} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
 
 In general, the accuracy of using a fixed \ac{RSSI} to range mapping was poor.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
+    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
     \caption{
         Example of a multilateration with three gateways using a fixed \ac{RSSI} to range mapping.
         It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the device.
@@ -231,21 +233,36 @@ In general, the accuracy of using a fixed \ac{RSSI} to range mapping was poor.
 
 \Cref{pic:bad-rssi-to-range-multilateration-example} shows an example of a multilateration with a fixed \ac{RSSI} to range mapping where the result is not at all accurate.
 
-\subsubsection{Accuracy of \acs{RSSI}-based multilateration with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
+\paragraph{Accuracy of \acs{RSSI}-based multilateration with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
 
 As mentioned in \cref{subsubsec:per-gateway-rssi-to-range-scale}, another idea was to use linear regression to map \ac{RSS} values to ranges for each gateway.
-This approach considers gateway-specific parameters such as position and antenna gain.
+This approach considers gateway-specific parameters such as position and gateway antenna gain.
 However, it cannot consider \ac{MPP} effects as well as end device antenna gain.
 
-% TODO: did this make things better?
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_regression_example.png}
+    \caption{
+        Example of a multilateration with three gateways using a linear regression based \ac{RSSI} to range mapping per gateway.
+        It uses the same base data point as seen in \cref{pic:bad-rssi-to-range-multilateration-example}.
+        The estimated position, where the three green annuli intersect, is more accurate compared to the fixed range mapping.
+        The width of the annuli is, again, an arbitrary value of \SI{100}{\meter}.
+    }\label{pic:rssi-to-range-multilateration-example-with-linear-regression}
+\end{figure}
 
-\subsubsection{Conclusion}
+\Cref{pic:rssi-to-range-multilateration-example-with-linear-regression} shows an example of the same data point as in \cref{pic:bad-rssi-to-range-multilateration-example} but with such a linear regression model that determines a mapping of \ac{RSS} values to ranges for each gateway.
+The example shows that the resulting position estimation where the three annuli intersect is better than before.
+However, since the linear regression model cannot account for \ac{MPP} effects either, the results still typically deviate from the actual position by a few hundred meters.
+
+\paragraph{Conclusion}
 
 As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSS} values to fluctuate heavily.
 In addition, as explained in \cref{sec:rssi}, different antennas on gateways and end devices can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
-This makes multilateration with \ac{RSS} values as the only input data inaccurate.
 
-\subsection{\acf{ToA}}\label{subsec:conclusion-toa-tdoa}
+This makes multilateration with \ac{RSS} values as the only input data inaccurate.
+Even when using a linear regression model to generate a mapping of \ac{RSS} values to ranges for each gateway, the results were often inaccurate.
+
+\subsubsection{\acf{ToA}}\label{subsec:conclusion-toa-tdoa}
 
 \Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \ac{LoRaWAN} gateway to determine the range to the end device is too inaccurate to be used for \ac{ToA}-based geolocation.
 
@@ -264,7 +281,7 @@ The six decimal places after the seconds mean that the timestamp is accurate to 
     \text{ToA\,accuracy}_{\si{\nano\second}} = \frac{299792458 \frac{\si{\meter}}{\si{\second}}}{10^9} \approx 0.3 \si{\meter}
 \end{equation}
 
-Solving this problem on the scope of the entire \ac{TTN} \ac{LoRaWAN} network is not feasible as it would entail synchronizing the clocks of all gateways in the network with \ac{GPS} receivers.
+Solving this problem on the scope of the entire \ac{TTN} \ac{LoRaWAN} network is not feasible because it would require synchronizing the clocks of all gateways in the network with \ac{GPS} receivers.
 However, if one were to deploy a \ac{LoRaWAN} network in a smaller area where control over every reachable gateway is realistic, this would be a possible solution.
 If every gateway in the network is time-synchronized, \ac{ToA} could be used for geolocation.
 
