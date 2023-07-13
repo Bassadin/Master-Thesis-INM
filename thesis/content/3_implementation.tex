@@ -703,8 +703,11 @@ Using a similar linear regression approach as described in \cref{sec:plotting-rs
 As was mentioned in that chapter, this allows for gateway-specific parameters such as positioning and antenna type to be taken into account.
 
 The Gateway table in the \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
-This was only done for gateways that had more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results as seen in \cref{fig:rssi-range-graph-negative-example}.
+This was only done for gateways with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \cref{fig:rssi-range-graph-negative-example}.
 Again, a cron-like job was used since recalculating those linear regression values for all gateways each time a new data point was received would be too resource intensive.
+
+The frontend then uses these values to display annuli around each gateway on the map according to specific \ac{RSSI} values.
+If a gateway does not have linear regression values set in the \ac{DB} (possibly due to not having enough ttnMapperDatapoints yet), the frontend will fall back to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}.
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will show the results of using this technique and the accuracy improvements in more detail.
 
