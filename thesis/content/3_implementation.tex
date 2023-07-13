@@ -542,7 +542,7 @@ To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{
 It wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
 
 Leaflet is able to render GeoJSON objects, as seen in \cref{sec:geojson}.
-This was used in this thesis to display some data on the map of the \ac{TTNL} frontend, e.g.\ the multilateration annuli.
+This was used in this thesis to display some data on the map of the \ac{TTNL} frontend, e.g.,\ the multilateration annuli.
 
 \subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
 
@@ -572,7 +572,7 @@ As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values abov
 There were several problems that were noticed when trying to use the data for localization purposes:
 
 \begin{itemize}
-    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.\ the device moved from one location to another one that was far away in a short amount of time.
+    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the device moved from one location to another one that was far away in a short amount of time.
     \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate data points.
 \end{itemize}
 
@@ -662,7 +662,7 @@ In the example above, this is the case with values $>= -50$.
 Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
 This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no \ac{LoS} between them.
 
-\subsubsection{Plotting \acs{RSSI} to range from existing data}
+\subsubsection{Plotting \acs{RSSI} to range from existing data}\label{sec:plotting-rssi-to-range-from-existing-data}
 
 \Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
 It uses the \ac{RSS} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
@@ -699,7 +699,14 @@ This could have several reasons, such as not enough data points being available 
 
 \subsubsection{Using existing data to build a per-gateway \acs{RSSI} to range scale}\label{subsubsec:per-gateway-rssi-to-range-scale}
 
-% TODO: mention how thic could improve accuracy
+Using a similar linear regression approach as described in \cref{sec:plotting-rssi-to-range-from-existing-data}, a per-gateway \ac{RSSI} to range scale was realized.
+As was mentioned in that chapter, this allows for gateway-specific parameters such as positioning and antenna type to be taken into account.
+
+The Gateway table in the \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
+This was only done for gateways that had more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results as seen in \cref{fig:rssi-range-graph-negative-example}.
+Again, a cron-like job was used since recalculating those linear regression values for all gateways each time a new data point was received would be too resource intensive.
+
+\Cref{subsubsec:conclusion-rssi-linear-regression} will show the results of using this technique and the accuracy improvements in more detail.
 
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
 
