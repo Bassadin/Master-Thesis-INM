@@ -32,56 +32,56 @@ To achieve this, the available \ac{LoRa} gateways registered in \acf{TTN} as wel
 \section{Existing / Related Work}\label{sec:related-work}
 % NOTE: Zahoransky: Should be about 1-3 (PDF) pages
 
-% TODO sort chronologically
+Some papers have already looked into the topic of geolocation of \ac{LoRa} devices and \ac{IoT} devices in general.
 
-Some papers have already looked into the topic of geolocation of \ac{LoRa} devices.
+% TODO: overfull hbox?
+In 2004, Elnahrawy et al.\ researched ``The Limits of Localization Using Signal Strength''\cite{elnahrawy_limits_2004}.
+While they used Wi-Fi technology instead of \ac{LoRa}, their findings are still relevant.
+During their research, they concluded that indoor \ac{RSS}-based localization without any additional complex environmental models or additional localization infrastructure has a median localization error of \SI{3.04}{\meter} and a 97th percentile error of \SI{9.14}{\meter}.
 
-Mackey et al.~used \ac{LoRa} gateways over relatively short distances to geolocate \ac{LoRa} devices by using their \ac{RSS} values~\cite{mackey_lora-based_2019}.
-They used a soccer field as their test environment and achieved an accuracy of \SIrange{9}{20}{\meter}.
-Notably, \ac{LoS} was a given in their test environment.
+Magno et al.\ showed a promising approach to locate \ac{LoRa} devices in 2018~\cite{magno_poster_2018}.
+They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
+\ac{RTK} is a technique that uses a fixed, time-synchronized base station with \ac{GPS} to correct the localization signal of a mobile device called Rover.
+
+Gu et al.\ researched \ac{LoRa}-based localization in 2018.
+They concluded that both \ac{ToA} and \ac{RSSI} based methods are flawed and are not accurate enough for any task that requires precision, such as steering of autonomous vehicles and similar use cases~\cite{gu_lora-based_2018}.
+
+Aernouts et al.\ used a fingerprinting approach in 2018~\cite{aernouts_sigfox_2018}.
+They compared the accuracy of fingerprinting localization for \ac{LoRaWAN} and \emph{SIGFOX} and concluded that \ac{LoRaWAN} is more accurate than \emph{SIGFOX}.
+\emph{SIGFOX} is another \ac{LPWAN} technology similar to \ac{LoRaWAN}.
+It uses a different modulation technique, however.
+In urban environments, the accuracy was \SI{688.97}{\meter} for their \emph{SIGFOX} dataset and \SI{398.40}{\meter} for their LoRaWAN dataset.
 
 In another example, Lam et al.~proposed a method to geolocate \ac{LoRa} devices using a new kind of algorithm that is also based on \ac{RSS} values~\cite{lam_new_2018}.
 They focused specifically on noise affecting anchor nodes/gateways in their research.
 As a result, they proposed an algorithm called \acf{L3M-DC} which can select non-noisy nodes to geolocate \ac{LoRa} devices.
 Using this algorithm, they achieve an accuracy of \SI{7.51}{\meter}.
 
-In January 2023, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization.
-They used a machine learning approach in addition to \ac{RSSI} and \ac{SNR} values to improve the accuracy of their localization method~\cite{perkovic_machine_2023}.
+Mackey et al.~used \ac{LoRa} gateways over relatively short distances to geolocate \ac{LoRa} devices by using their \ac{RSS} values~\cite{mackey_lora-based_2019}.
+They used a soccer field as their test environment and achieved an accuracy of \SIrange{9}{20}{\meter}.
+Notably, \ac{LoS} was a given in their test environment.
 
 Anagnostopoulos and Kalousis compared some fingerprinting based localization methods for \ac{LoRaWAN} in 2019~\cite{anagnostopoulos_reproducible_2019}.
 They used methods like \ac{kNN} as well as a neural network approach.
 Using the \ac{kNN} approach, they achieved an accuracy of \SIrange{273}{394}{\meter}.
 
-Aernouts et al.\ also used a fingerprinting approach in 2018~\cite{aernouts_sigfox_2018}.
-They compared the accuracy of fingerprinting localization for \ac{LoRaWAN} and \emph{SIGFOX} and concluded that \ac{LoRaWAN} is more accurate than \emph{SIGFOX}.
-\emph{SIGFOX} is another \ac{LPWAN} technology similar to \ac{LoRaWAN}.
-It uses a different modulation technique, however.
-In urban environments, the accuracy was \SI{688.97}{\meter} for their \emph{SIGFOX} dataset and \SI{398.40}{\meter} for their LoRaWAN dataset.
-
 Anjum et al.\ also evaluated \ac{RSSI} fingerprinting in 2019~\cite{anjum_analysis_2019}.
 In their research, they compared \ac{LoS} and \ac{NLoS} scenarios, analyzing the path loss exponent and the standard deviation of the shadowing \ac{MPP} parameter in each of these environments.
 They didn't use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} nodes.
 Placing nodes in different stories of a building, they measured a varying accuracy of \ac{RSSI} to distance mappings.
- 
+
 Fernandes et al.\ used a hybrid approach to locate elderly care recipients indoors: \ac{UWB} technology for localization and \ac{LoRaWAN} to send data to their caregivers~\cite{fernandes_hybrid_2020}.
 They chose the \ac{LoRaWAN} technology to transmit the actual localization data for its ability to be implemented as both public and private network infrastructures.
-
-Gu et al.\ researched \ac{LoRa}-based localization in 2018.
-They concluded that both \ac{ToA} and \ac{RSSI} based methods are flawed and are not accurate enough for any task that requires precision, such as steering of autonomous vehicles and similar use cases~\cite{gu_lora-based_2018}.
 
 Jeftenić et al.\ researched the impact of environmental parameters such as precipitation, temperature, and humidity on \ac{SNR} and \ac{RSS} in \ac{LoRaWAN} in 2020~\cite{jeftenic_impact_2020}.
 Their results included a high negative impact of rising temperature and relative humidity on the \ac{RSS} and \ac{SNR} values.
 Snowing also led to fluctuations in \ac{RSS} and \ac{SNR} values.
 
-Magno et al.\ showed another promising approach to locate \ac{LoRa} devices in 2018~\cite{magno_poster_2018}.
-They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
-\ac{RTK} is a technique that uses a fixed, time-synchronized base station with \ac{GPS} to correct the localization signal of a mobile device called Rover.
+In January 2023, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization.
+They used a machine learning approach in addition to \ac{RSSI} and \ac{SNR} values to improve the accuracy of their localization method~\cite{perkovic_machine_2023}.
 
-In 2004, Elnahrawy et al.\ researched ``The Limits of Localization Using Signal Strength''~\cite{elnahrawy_limits_2004}.
-While they used Wi-Fi technology instead of \ac{LoRa}, their findings are still relevant.
-During their research, they concluded that indoor \ac{RSS}-based localization without any additional complex environmental models or additional localization infrastructure has a median localization error of \SI{3.04}{\meter} and a 97th percentile error of \SI{9.14}{\meter}.
-
-% QUESTION should there be some sort of conclusion here?
+In conclusion, some papers have already researched the topic of \ac{LoRa}-based localization and adjacent topics.
+This thesis will build upon the findings of these papers and try to apply the finding to a real-world deployment scenario in the city of Furtwangen.
 
 \section{Outline}
 
