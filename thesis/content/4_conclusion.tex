@@ -208,6 +208,9 @@ SELECT * FROM stats_data;
 \end{lstlisting}
 
 The result on a data set of about \num{60000} collected ttnMapperDatapoints is roughly equal to \num{-0.2610}, indicating a medium to weak negative correlation between the \ac{RSS} values and the distance to the gateway.
+
+% TODO this is bullshit because gateways differ, do it for one gateway as an example
+
 To remove outliers, only gateways with at least \num{500} associated \ac{RSS} values were considered in the calculation.
 
 \subsubsection{Accuracy of \acs{RSSI}-based multilateration with a fixed \acs{RSSI} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
@@ -409,7 +412,6 @@ This makes it unsuitable for widespread use on that particular network.
 
 \subsubsection{Using \acf{ML} to improve the fingerprinting method}
 
-
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
 For example, \ac{kNN} could be used to determine the location of a node based on the \ac{RSS} values of the surrounding gateways~\cite{anagnostopoulos_reproducible_2019}.
 
@@ -430,6 +432,10 @@ The problem that would need to be solved is getting a network connection as well
 Another option that would only require getting power to the roof is to use a \ac{LoRaWAN} gateway that has a \ac{LTE} backhaul connection.
 However, getting a \ac{PoE} connection to the roof of the building would still be preferable due to its stability.
 
+\subsubsection{Meshing of \acs{LoRaWAN} gateways}
+
+% TODO mention how this could be possible, also mention Anton Petrov's thesis
+
 \subsubsection{Self-hosting of \acs{TTS} or \emph{ChirpStack}}
 
 Another interesting project would be to self-host an instance of a \ac{LNS} like \ac{TTS} or \emph{ChirpStack} on \ac{HFU} infrastructure.
@@ -448,7 +454,7 @@ This could allow bad actors to physically attack gateways connected to the publi
 
 \section{Conclusion}
 
-% TODO
+% TODO answer research questions!
 
 This thesis deployed a truly full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
 From installing the \ac{LoRaWAN} gateways to collecting the data via end devices, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.

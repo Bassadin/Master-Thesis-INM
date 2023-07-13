@@ -21,16 +21,18 @@ To achieve this, the available \ac{LoRa} gateways registered in \acf{TTN} as wel
 
 \section{Research Questions}
 
-% TODO refine those
+% TODO refine those and also answer in the end thoroughly!
 
 \begin{enumerate}
-      \item In what ways can \ac{LoRa} devices be geolocated without the need for a \ac{GPS} receiver?
-      \item How do these methods compare?
+      \item Is it possible for \ac{LoRa} devices to be geolocated without the need for a \ac{GPS} receiver?
+      \item How do methods for such non-\ac{GPS} geolocation compare?
       \item What factors can affect the accuracy of this type of geolocation?
 \end{enumerate}
 
 \section{Existing / Related Work}\label{sec:related-work}
 % NOTE: Zahoransky: Should be about 1-3 (PDF) pages
+
+% TODO sort chronologically
 
 Some papers have already looked into the topic of geolocation of \ac{LoRa} devices.
 
@@ -69,7 +71,7 @@ They concluded that both \ac{ToA} and \ac{RSSI} based methods are flawed and are
 
 Jeftenić et al.\ researched the impact of environmental parameters such as precipitation, temperature, and humidity on \ac{SNR} and \ac{RSS} in \ac{LoRaWAN} in 2020~\cite{jeftenic_impact_2020}.
 Their results included a high negative impact of rising temperature and relative humidity on the \ac{RSS} and \ac{SNR} values.
-Snowing also led to fluctuations in \ac{RSS} and \ac{SNR} values if the \ac{LoRaWAN} features \ac{ADR} was disabled.
+Snowing also led to fluctuations in \ac{RSS} and \ac{SNR} values.
 
 Magno et al.\ showed another promising approach to locate \ac{LoRa} devices in 2018~\cite{magno_poster_2018}.
 They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
