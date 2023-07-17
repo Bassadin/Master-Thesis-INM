@@ -105,3 +105,4 @@ BeiDou
 GDOP
 UERE
 blinkeding
+npm
