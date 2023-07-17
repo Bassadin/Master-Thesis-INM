@@ -2,7 +2,7 @@
 
 \section{Wireless Communications}
 
-This section aims to provide a general overview of wireless communication terminology and other principles needed to understand the more hardware-oriented part of this thesis.
+This section aims to provide a general overview of wireless communication terminology and other principles necessary to understand the more hardware-oriented part of this thesis.
 
 \subsection{Problems with established wireless communication techniques}
 
@@ -17,9 +17,9 @@ This section aims to provide a general overview of wireless communication termin
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
 
-Deployments in remote or particularly spacious areas might need long-range protocols.
-Likewise, sensors that are deployed in such areas can be hard to reach or placed apart by several hundred meters.
-This makes low-power sensors that need to run on batteries for several years a necessity since replacing the batteries can be expensive or even impossible.
+Deployments in remote or particularly large areas may require long-range protocols.
+Likewise, sensors that are deployed in such areas may be hard to reach or placed apart by several hundred meters.
+This makes low-power sensors that run on batteries for several years a necessity, as battery replacement can be expensive or even impossible.
 
 Wi-Fi is not suitable for battery-powered devices that are deployed in remote areas, as it requires relatively high power to operate and doesn't have much range.
 ZigBee is also not suitable for battery-powered devices, as it is not designed for long distances and thus has a short range.
@@ -28,7 +28,7 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 
 \subsection{\acf{RSSI}}\label{sec:rssi}
 
-The \acl{RSSI} is a measure of the strength of a signal received by a device.
+The \acl{RSSI} is a measure of the strength of a wireless signal received by a device.
 As far as this thesis is concerned, \ac{RSS} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
 Different devices can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
@@ -63,7 +63,7 @@ As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\me
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
     \caption{
-        Example for different kinds of \acf{MPP} of \ac{RF} waves.
+        Example for different kinds of \acf{MPP} effects of \ac{RF} waves.
         Notably, all of them make the signal travel time longer than direct \ac{LoS} would take.~\protect\cite{milosevic_key_2017}
     }\label{pic:figure_multipath_propagation}
 \end{figure}
