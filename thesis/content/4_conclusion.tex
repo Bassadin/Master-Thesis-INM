@@ -251,7 +251,7 @@ Even when using a linear regression model to generate a mapping of \ac{RSS} valu
 
 \Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \ac{LoRaWAN} gateway to determine the range to the end device is too inaccurate to be used for \ac{ToA}-based geolocation.
 
-In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization, another factor has to be considered.
+In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \cref{fig:toa-bad-data-example}, another factor has to be considered.
 The device timestamps arrive at \ac{TTN} in a format such as \texttt{2023-06-23T15:11:11.678179Z}.
 The six decimal places after the seconds mean that the timestamp is accurate to \SI{1}{\micro\second}.
 \Cref{eq:toa-accuracy-ttn-microseconds} shows that when using microseconds to calculate the distance to a \ac{LoRaWAN} gateway based on the speed of light, a maximum accuracy of \SI{300}{\meter} can be achieved.

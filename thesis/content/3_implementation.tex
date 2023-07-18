@@ -611,7 +611,7 @@ The PostGIS function \lstinline|ST_DistanceSphere| is used to calculate the dist
     language=SQL,
     float,
     caption={
-        Example of a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same devicea \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same device.
+        Example of a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same device.
     },
     label={lst:get-preceding-datapoint-sql}
 ]
@@ -632,9 +632,24 @@ This section will describe the different techniques used to locate \ac{LoRaWAN} 
 
 The general idea behind using \ac{RSS} values to determine the distance to a gateway is simple.
 The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the device and the gateway.
-The further away a device is from a gateway, the lower the \ac{RSSI} value will be.
+The further away a device is from a gateway, the lower (or more negative) the \ac{RSSI} value will be.
 
-Based on this fact, several attempts were made to calculate the distance between a device and a gateway.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{pictures/multilateration/rssi-multilateration-example.png}
+    \caption{
+        An example of the theory behind mapping \ac{RSS} values to distances using three gateways.
+        The device (orange pin) is located at the intersection of the three circles originating from the gateways (green pins).
+        \ac{RSS} values that are received by the gateways are inversely proportional to the distance between the device and the gateway.
+        They are used to calculate the distance between the device and the gateway, making a multilateration possible.
+    }\label{fig:rssi-multilateration-theoretical-example}
+\end{figure}
+
+\Cref{fig:rssi-multilateration-theoretical-example} shows an example of how \ac{RSS} values can be used to determine the location of a device.
+A fact to take note of is that the \ac{RSSI} values measured by \ac{TTN} are only integers and not floating point numbers.
+This lowers the accuracy of the calculated distances and therefore the accuracy of the calculated location of the device.
+
+Based on these facts, several attempts were made to calculate the distance between a device and a gateway.
 
 \subsubsection{First idea: Fixed \acs{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}\label{sec:fixed-rssi-to-range-scale-impl}
 
@@ -670,7 +685,7 @@ The example in \cref{fig:rssi-range-graph-positive-example} works quite well for
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
+    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
     \caption{
         Positive example of a \ac{RSSI} to distance graph that the \ac{TTNL} frontend can generate from data in its \ac{DB}.
         Some outliers are visible in the upper left of the graph.
@@ -681,7 +696,7 @@ While there are outliers in the data, the graph still shows a logical average li
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
+    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
     \caption{
         Negative example of a \ac{RSSI} to distance graph.
         The \ac{RSS} values do not decrease as the distance increases in this case.
