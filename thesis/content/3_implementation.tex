@@ -838,8 +838,9 @@ The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that mat
     }\label{fig:fingerprinting-map-example-only-center}
 \end{figure}
 
-% TODO: update image with new dynamic radius circle and explain it
-
 \ac{TTNL} can show the matching datapoints on its map as can be seen in \cref{fig:fingerprinting-map-example-only-center}.
 The blue pin shows the actual position of the device.
 To calculate a position estimate, \ac{TTNL} takes the center of the matching datapoints and draws a circle around it with an arbitrary radius.
+
+This was improved later by fitting the radius of the estimated position circle to half of the matching datapoints.
+An explanation will be given in \cref{subsubsec:conclusion-rssi-linear-regression}.
