@@ -291,9 +291,12 @@ On the other hand, \cref{fig:fingerprinting-map-example-dynamic-radius} shows an
 This usually results in a larger error radius (low precision), but a higher rate of actually containing the actual position (high accuracy).
 
 % TODO: mention the potential of using machine learning to improve the fingerprinting method
-% TODO: mention that the fingerprinting method is not very scalable and needs a lot of manual work beforehand
 
 % TODO: mention that snr and sf could also be used for fingerprinting
+
+In comparison to the multilateration approach, the fingerprinting approach is not very scalable.
+It requires considerable manual work to create a fingerprint database for a certain area.
+This makes it only feasible for smaller, contained areas and rather unusable for larger-scale geolocation such as in a whole city or state.
 
 \section{Comparison of findings with existing work}
 
@@ -488,7 +491,7 @@ This could allow bad actors to physically attack gateways connected to the publi
 
 % TODO answer research questions!
 
-This thesis deployed a truly full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
+This thesis deployed a full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
 From installing the \ac{LoRaWAN} gateways to collecting the data via end devices, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
 
 The viability of \ac{RSSI}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
