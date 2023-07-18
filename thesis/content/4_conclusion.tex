@@ -491,10 +491,14 @@ This could allow bad actors to physically attack gateways connected to the publi
 
 This section will summarize the results of the work in this thesis and aims to answer the research questions posed in \cref{sec:introduction-research-questions}.
 
-% TODO answer research questions!
-
 This thesis deployed a full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
 From installing the \ac{LoRaWAN} gateways to collecting the data via end devices, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
 
-The viability of \ac{RSSI}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
-While the accuracy of the methods shown is inferior to that of \ac{GNSS}, it is still good enough for many use cases.
+The viability of \ac{RSS}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
+While the accuracy of the methods shown is, especially outdoors, inferior to that of \ac{GNSS}, it is still good enough for many use cases.
+
+In general, while the fingerprinting approach showed more promising accuracy results, it requires lots of manual work to collect the data.
+In comparison, the multilateration approach is easiert to implement and use without requiring manual work but is also much more easily affected by environmental factors.
+
+The influence of such environmental factors like \ac{MPP} has been shown to be significant in the preceding chapters.
+It affected all \ac{RSS}-based measurements and, to a lesser extent, also the \ac{GNSS} measurements.
