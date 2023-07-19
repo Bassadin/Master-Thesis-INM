@@ -440,13 +440,14 @@ This makes it unsuitable for widespread use on that particular network.
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
 For example, \ac{kNN} could be used to determine the location of a node based on the \ac{RSS} values of the surrounding gateways~\cite{anagnostopoulos_reproducible_2019}.
 
-\subsubsection{Also use \ac{SF} and \ac{SNR} values for fingerprinting}
+\subsubsection{Use \ac{SF} and \ac{SNR} values for fingerprinting}
 
 As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the end device has an influence on the \ac{SNR} values at which a signal can still be detected.
 This means that the \ac{SF} and \ac{SNR} values used by the end device could also be used to more accurately determine the location of the end device.
 Since the \ac{TTN} data frames include this information, it could be used to improve the fingerprinting method.
 
 A disadvantage of this approach would be that it would require more data to be collected, since the number of possible variables per captured gateway would increase from 1 (\ac{RSSI}) to 3 (\ac{RSSI}, \ac{SF}, \ac{SNR}).
+However, since \ac{TTN} captures all of those values with eack received data frame, this would not be a problem other than the increased amount of data that would need to be stored.
 
 \subsubsection{Using a Kalman filter to improve localization of devices known to be stationary}
 
