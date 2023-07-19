@@ -388,7 +388,8 @@ Its users provide \ac{TTN} with gateways that other users can use, making it a d
 
 \subsection{Receiving packets from \acs{LoRaWAN} Gateways}
 
-Gateways can forward \ac{LoRaWAN} packets that it receives to the \ac{LNS} in two major ways:
+Gateways can forward \ac{LoRaWAN} packets that they receive to the \ac{LNS} in two major ways.
+This section will explain both of them.
 
 \subsubsection{\acf{SUPF}}
 
@@ -400,7 +401,7 @@ It can be configured using JSON files such as \lstinline{global_conf.json} and \
 \ac{TTN} marked the \acl{SUPF} as deprecated, since it ``has many security and scalability drawbacks``.
 It is recommended to use the \ac{LBS} protocol instead~\cite{the_things_industries_bv_semtech_2022}.
 
-\subsubsection{\acf{LBS}}
+\subsubsection{\acf{LBS}}\label{sec:lorawan-lbs}
 
 Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 
@@ -423,6 +424,14 @@ The \ac{LNS} uses \ac{WSS} for communication and is responsible for handling the
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with token-based authentication.
 When a gateway is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
+
+\subsubsection{Which was used in this thesis?}
+
+Some of the gateways used in this thesis were unable to use the more modern \ac{LBS} protocol.
+This is especially true for the MikroTik LR8 wAP gateway, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
+It therefore uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
+
+Most of the other gateways deployed during this thesis, especially the ones from \emph{Dragino}, were able to use \ac{LBS} and therefore used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \cref{sec:lorawan-lbs}.
 
 \subsection{\acs{TTN} Console --- Device/Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 

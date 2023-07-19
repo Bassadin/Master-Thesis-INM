@@ -17,9 +17,9 @@ This doesn't come as a surprise, given its exposed location on top of a hill plu
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ghb_mikrotik_gw_range.png}
     \caption{
-        Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on top of the \ac{GHB} student dormitory.
+        Screenshot of a \ac{TTNM} map showing some data points taken from the \ac{LoRaWAN} gateway deployed on top of the \ac{GHB} student dormitory.
         The data point on the lower left is the maximum range recorded for this gateway --- \SI{14.2}{\kilo\meter}.
-        However, it can be considered an outlier, as the next highest range is \SI{5.3}{\kilo\meter} away from the gateway (on the far right).
+        However, it can be considered an outlier, as the next highest range is \SI{5.3}{\kilo\meter} away from the gateway (on the far right)~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ghb_mikrotik_gw_range}
 \end{figure}
 
@@ -36,9 +36,9 @@ The ranges as a whole are slightly lower which stems from the fact that the \ac{
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/c_building_gw_range.png}
     \caption{
-        Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on top of the C building.
+        Screenshot of a \ac{TTNM} map showing some data points taken from the \ac{LoRaWAN} gateway deployed on top of the C building.
         The slightly smaller range compared to \cref{pic:ghb_mikrotik_gw_range} is evident.
-        The maximum range, however, is still \SI{4.3}{\kilo\meter} which is the rightmost blue point in the direction of Vöhrenbach.
+        The maximum range, however, is still \SI{4.3}{\kilo\meter} which is the rightmost blue point in the direction of Vöhrenbach~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:c_building_gw_range}
 \end{figure}
 
@@ -69,8 +69,8 @@ It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} build
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ash_gw_range.jpg}
     \caption{
-        Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \ac{ASH} building.
-        It has a good range into most parts of the Furtwangen area.
+        Screenshot of a \ac{TTNM} map showing some data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \ac{ASH} building.
+        It has a good range into most parts of the Furtwangen area~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ash_gw_range}
 \end{figure}
 
@@ -84,9 +84,9 @@ While the location of the \ac{LoRaWAN} on top of a hill between Furtwangen and G
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/dl0fis_gw_range.jpg}
     \caption{
-        Map of some \ac{TTNM} data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \emph{DL0FIS} clubhouse.
+        Screenshot of a \ac{TTNM} map showing data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \emph{DL0FIS} clubhouse.
         While the range is not consistent in every direction due to the hills and mountains in the area, the longest range of around \SI{8.8}{\kilo\meter} is still very good.
-        The range to the city of Furtwangen is almost nonexistent due to the hills in the way.
+        The range to the city of Furtwangen is almost nonexistent due to the hills in the way~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:dl0fis_gw_range}
 \end{figure}
 
@@ -127,9 +127,9 @@ This lead to a denser data coverage of \acl{TTNM} in the Furtwangen area.
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-mapper/ttnm_heatmap_after_data_collection.jpg}
     \caption{
-        View of the \ac{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023.
+        Screenshot of the \ac{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023.
         Compared to \cref{pic:ttnm-before-data-collection}, the coverage is better.
-        This is due to the fact that several \ac{LoRaWAN} gateways were deployed during this thesis as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers.
+        This is due to the fact that several \ac{LoRaWAN} gateways were deployed during this thesis as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ttnm-heatmap-after-data-collection}
 \end{figure}
 
@@ -208,7 +208,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
     \caption{
-        Example of a multilateration with three gateways using a fixed \ac{RSSI} to range mapping.
+        Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three gateways using a fixed \ac{RSSI} to range mapping.
         It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the device.
         The width of the annuli is an arbitrary value of \SI{100}{\meter} in this case.
         The value can be changed in the frontend to test various error margins.
@@ -228,7 +228,7 @@ However, it cannot consider \ac{MPP} effects as well as end device antenna gain.
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_regression_example.png}
     \caption{
-        Example of a multilateration with three gateways using a linear regression based \ac{RSSI} to range mapping per gateway.
+        Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three gateways using a linear regression based \ac{RSSI} to range mapping per gateway.
         It uses the same base data point as seen in \cref{pic:bad-rssi-to-range-multilateration-example}.
         The estimated position, where the three green annuli intersect, is more accurate compared to the fixed range mapping.
         The width of the annuli is, again, an arbitrary value of \SI{100}{\meter}.
@@ -280,7 +280,7 @@ If every gateway in the network is time-synchronized, \ac{ToA} could be used for
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/ttn-locator/frontend/fingerprinting/rssi_similarity_map_example_dynamic_radius.png}
     \caption{
-        Example for a fingerprinting result map generated by \ac{TTNL}.
+        Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
         The blue pin shows the actual position of the device.
         The yellow circle shows the estimated position that \ac{TTNL} calculated out of the center of the matching data points.
         The radius is determined by having half of the matched points fit inside it.
@@ -386,9 +386,9 @@ points were captured at the same location.
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/moved_gateway_example.png}
     \caption{
-        Example of false data being displayed on a \acl{TTNM} map due to a gateway being moved.
+        Screenshot of a \ac{TTNM} map showing an example of false data being displayed due to a gateway being moved.
         The gateway placed on the right is the one on the roof of the \emph{DL0FIS} clubhouse.
-        The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building.
+        The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:gateway-moved-example}
 \end{figure}
 
