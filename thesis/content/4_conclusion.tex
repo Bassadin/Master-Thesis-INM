@@ -292,9 +292,13 @@ This usually results in a larger error radius (low precision), but a higher rate
 
 \textcolor{red}{<--- WIP --->}
 
-% TODO: mention the potential of using machine learning to improve the fingerprinting method
+As mentioned in \cref{sec:adding-snr-to-fingerprinting}, \ac{SNR} values were also used in the fingerprinting approach in addition to \ac{RSSI}.
+Even though \ac{SNR} values are also affected by \ac{MPP} effects, this improved the accuracy of the results in some cases.
+However, since \ac{SNR} values also depend on the \ac{SF} used, both of those should be used in conjunction.
 
-% TODO: mention that snr and sf could also be used for fingerprinting
+% TODO was this done?
+
+% TODO add image
 
 In comparison to the multilateration approach, the fingerprinting approach is not very scalable.
 It requires considerable manual work to create a fingerprint database for a certain area.
@@ -438,6 +442,9 @@ This makes it unsuitable for widespread use on that particular network.
 \subsubsection{Using \acf{ML} to improve the fingerprinting method}
 
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
+
+% TODO is kNN correct here?
+
 For example, \ac{kNN} could be used to determine the location of a node based on the \ac{RSS} values of the surrounding gateways~\cite{anagnostopoulos_reproducible_2019}.
 
 \subsubsection{Use \ac{SF} and \ac{SNR} values for fingerprinting}
@@ -480,7 +487,6 @@ It uses hardware similar to the \ac{LoRaWAN} nodes used in this thesis to create
 The German company \emph{Dryad Networks GmbH} uses meshed \ac{LoRa} gateways to build a network that can be used with their products~\cite{dryad_networks_gmbh_silvanet_2023}.
 It is used to detect wildfires early using a network of \ac{LoRa} sensors that can send their data over meshed gateways to avoid the need for a backhaul connection for each gateway placed over large areas of forest.
 
-% TODO ask for permission
 Anton Petrov is going to write his master thesis about this topic in the coming winter semester of 2023/2024.
 His thesis will also be supervised by Prof. Dr. Richard Zahoransky.
 
