@@ -696,7 +696,7 @@ The example in \cref{fig:rssi-range-graph-positive-example} works quite well for
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
     \caption{
-        Screenshot from the \ac{TTNL} frontend showing a positive example of a \ac{RSSI} to distance graph that the \ac{TTNL} frontend can generate from data in its \ac{DB}.
+        Screenshot from the \ac{TTNL} frontend showing a positive example of a \ac{RSSI} to distance graph.
         Some outliers are visible in the upper left of the graph.
     }\label{fig:rssi-range-graph-positive-example}
 \end{figure}
@@ -773,6 +773,31 @@ If a gateway does not have linear regression values set in the \ac{DB} (possibly
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will show the results of using this technique and the accuracy improvements in more detail.
 
+\subsubsection{Plotting \acs{SNR} to range from existing data}\label{sec:plotting-snr-to-range-from-existing-data}
+
+Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was also made to plot \ac{SNR} values to range from existing data, instead of the \ac{RSS}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_snr_range_graph.jpg}
+    \caption{
+        Screenshot from the \ac{TTNL} frontend showing an example of a \acf{SNR} to distance graph.
+        While the graph shows an attempt at fitting a linear regression function to the data, it is not accurate, since there is no strong linear correlation between \ac{SNR} and distance either.
+        Many outliers can be seen, making this approach unreliable as well.
+    }\label{fig:snr-range-graph-example}
+\end{figure}
+
+\Cref{fig:snr-range-graph-example} shows an example of this, using data from the \ac{GHB} gateway.
+Compared to \cref{fig:rssi-range-graph-positive-example}, the graph also shows a rather weak correlation between \ac{SNR} and distance similar to that between \ac{RSSI} and distance.
+
+However, mapping \ac{SNR} values to distance on their own seemed very unreliable.
+This is to be expected, since, as was explained in \cref{sec:background-snr}, the \ac{SNR} value can be influences by many things, such as external factors and the environment even more so than the \ac{RSS} value.
+
+% TODO should this go into conclusion?
+
+Additionally, data points with varying \acp{SF} were used to plot the graphs.
+Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be received, as explained in \cref{sec:sf-snr-correlation}, this could have also influenced the results.
+
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
 
 One of the seemingly most promising techniques for locating \ac{LoRaWAN} nodes is \ac{ToA}-based multilateration.
@@ -846,7 +871,7 @@ The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that mat
         Screenshot of the \ac{TTNL} frontend showing the form for entering gateway fingerprinting values.
         The top of the form shows the possibility of entering \ac{TTNM} datapoint IDs to load their respective similarity values from the \ac{DB}.
         A ``RSSI'' checking range of 3 has been set, meaning that the entered \ac{RSS} values will be checked against the \ac{RSS} values of the \ac{TTNM} datapoints with a tolerance of 3.
-        For example, since the first gateway selected has an \ac{RSSI} value of -113, all \ac{TTNM} datapoints with an \ac{RSSI} value between -116 and -110 will be selected.
+        For example, since the first gateway selected has an \ac{RSSI} value of -113, all \ac{TTNM} datapoints with an \ac{RSSI} value between -116 and -110 of that gateway will be matched.
     }\label{fig:rssi-similarity-form-frontend}
 \end{figure}
 
@@ -868,3 +893,14 @@ To calculate a position estimate, \ac{TTNL} takes the center of the matching dat
 
 This was improved later by fitting the radius of the estimated position circle to half of the matching datapoints.
 An explanation will be given in \cref{subsubsec:conclusion-rssi-linear-regression}.
+
+\subsubsection{Adding \acf{SNR} to fingerprinting}
+
+\textcolor{red}{<--- WIP --->}
+
+% TODO write about this
+
+In an attempt to make fingerprinting results more accurate, the \ac{SNR} value of the \ac{TTNM} datapoints was added to the fingerprinting algorithm in addition to the raw \ac{RSSI} values.
+Since \ac{TTN} captures \ac{SNR} and \ac{SF} with each forwarded package anyway, this didn't affect the diffficulty of data collection.
+
+\cref{subsec:conclusion-fingerprinting} will show the improvements that this approach brought.
