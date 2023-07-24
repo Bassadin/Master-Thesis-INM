@@ -327,13 +327,24 @@ This section will mention some ideas on how to improve the \ac{TTNL} software.
 
 Although rare, it is possible for a \ac{LoRaWAN} gateway to be moved to a different location, or to have a different location set in the \ac{TTNL} console than it had before.
 Since the \ac{TTNL} software currently updates the gateway location after each \ac{TTNM} data collection run, it is possible for a gateway to be moved and not be detected by the \ac{TTNL} software.
-This can lead to inaccurate geolocation results if gateways are actually moved.
+This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data points were captured at the same location.
 
-A change should be made to the \ac{TTNL} backend where, on detection of a gateway moving further than a certain distance, each TtnMapperDatapoint associated with it is deleted to avoid the usage of false data in the calculations.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/moved_gateway_example.png}
+    \caption{
+        Screenshot of a \ac{TTNM} map showing an example of false data being displayed due to a gateway being moved.
+        The gateway placed on the right is the one on the roof of the \emph{DL0FIS} clubhouse.
+        The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building~\cite{ttn_mapper_ttn_2023}.
+    }\label{pic:gateway-moved-example}
+\end{figure}
 
-\ac{TTNM} seems to do a similar thing based on the section ``My results were showing on the map before, but is gone now.'' in their FAQ~\cite{ttn_mapper_faq_nodate}.
-However, as far as the duration of this thesis is concerned, this was not observed.
-The gateway that is now deployed on the roof of the \emph{DL0FIS} clubhouse once was located on the \ac{HFU} B building, but was then moved to its final location.
+\Cref{pic:gateway-moved-example} shows an example where this happened in \ac{TTNM}.
+It shows a gateway that was located on the \ac{HFU} B building, but was then moved to its final location, the roof of the \emph{DL0FIS} clubhouse.
+\ac{TTNM} is supposed to perform a similar data cleaning as was described earlier based on the section ``My results were showing on the map before, but is gone now.'' in their FAQ~\cite{ttn_mapper_faq_nodate}.
+However, as far as the duration of this thesis is concerned, this was not observed, as evidenced by \cref{pic:gateway-moved-example}.
+
+\ac{TTNL} could be improved by adding a feature to the \ac{TTNL} backend where, on detection of a gateway moving further than a certain distance, each TtnMapperDatapoint associated with it is deleted to avoid the usage of false data in the calculations.
 
 \subsubsection{Remove dependency on \acl{TTNM}}
 
@@ -379,25 +390,6 @@ Another alternative would have been to use \emph{GraphQL} instead of \ac{HTTP} \
 GraphQL is a method for writing \ac{API} queries that lets the client specify which data it wants to receive from the server~\cite{graphql_foundation_graphql_2023}.
 It uses a syntax to modify and request data that is similar to \ac{JSON}.
 In doing so, GraphQL also ships its own type system that can be used to generate type definitions for the frontend.
-
-\subsubsection{Recognizing moving gateways}
-
-Currently, the backend of the \ac{TTNL} software cannot recognize if a gateway has moved its position since the last time it was captured.
-This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data
-points were captured at the same location.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/moved_gateway_example.png}
-    \caption{
-        Screenshot of a \ac{TTNM} map showing an example of false data being displayed due to a gateway being moved.
-        The gateway placed on the right is the one on the roof of the \emph{DL0FIS} clubhouse.
-        The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building~\cite{ttn_mapper_ttn_2023}.
-    }\label{pic:gateway-moved-example}
-\end{figure}
-
-\Cref{pic:gateway-moved-example} shows an example where this happened in \ac{TTNM}.
-\ac{TTNL} could be improved by adding a feature that recognizes if a gateway has moved and then deletes all data points that were captured at the old location of the gateway.
 
 \subsection{Projects made possible due to better \acs{LoRaWAN} coverage in Furtwangen}
 
