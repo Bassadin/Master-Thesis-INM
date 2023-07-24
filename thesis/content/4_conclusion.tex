@@ -304,6 +304,17 @@ In comparison to the multilateration approach, the fingerprinting approach is no
 It requires considerable manual work to create a fingerprint database for a certain area.
 This makes it only feasible for smaller, contained areas and rather unusable for larger-scale geolocation such as in a whole city or state.
 
+\textcolor{red}{<--- WIP begin --->}
+
+As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the end device has an influence on the \ac{SNR} values at which a signal can still be detected.
+This means that the \ac{SF} and \ac{SNR} values used by the end device could also be used to more accurately determine the location of the end device.
+Since the \ac{TTN} data frames include this information, it could be used to improve the fingerprinting method.
+
+A disadvantage of this approach would be that it would require more data to be collected, since the number of possible variables per captured gateway would increase from 1 (\ac{RSSI}) to 3 (\ac{RSSI}, \ac{SF}, \ac{SNR}).
+However, since \ac{TTN} captures all of those values with each received data frame, this would not be a problem other than the increased amount of data that would need to be stored.
+
+\textcolor{red}{<--- WIP end --->}
+
 \section{Comparison of findings with existing work}
 
 Several of the approaches found in \cref{sec:related-work} have better success in locating endpoints than the work in this thesis.
@@ -441,17 +452,6 @@ However, it does not calculate the center of the matching data points but uses t
 
 As was mentioned in \cref{sec:related-work}, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization where they used a deep learning approach.
 They trained their network with \ac{RSS} values and position samples similar to the ones used in this thesis.
-
-\subsubsection{Use \ac{SF} and \ac{SNR} values for fingerprinting}
-
-As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the end device has an influence on the \ac{SNR} values at which a signal can still be detected.
-This means that the \ac{SF} and \ac{SNR} values used by the end device could also be used to more accurately determine the location of the end device.
-Since the \ac{TTN} data frames include this information, it could be used to improve the fingerprinting method.
-
-A disadvantage of this approach would be that it would require more data to be collected, since the number of possible variables per captured gateway would increase from 1 (\ac{RSSI}) to 3 (\ac{RSSI}, \ac{SF}, \ac{SNR}).
-However, since \ac{TTN} captures all of those values with eack received data frame, this would not be a problem other than the increased amount of data that would need to be stored.
-
-\textcolor{red}{<--- WIP --->}
 
 \subsubsection{Gateway on the roof of the \acs{HFU} O building}
 
