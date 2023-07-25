@@ -274,6 +274,8 @@ If every gateway in the network is time-synchronized, \ac{ToA} could be used for
 
 % TODO: describe how this worked and how it could be improved (worked pretty okay but has only limited accuracy)
 
+\subsubsection{\acf{RSS} only}
+
 \Cref{fig:fingerprinting-map-example-only-center} already showed an example where the center of matching filtered data points was taken as the estimated position, along with an arbitrary radius to show the associated uncertainty.
 
 \begin{figure}[htbp]
@@ -289,6 +291,8 @@ If every gateway in the network is time-synchronized, \ac{ToA} could be used for
 
 On the other hand, \cref{fig:fingerprinting-map-example-dynamic-radius} shows an approach where the error radius is not arbitrary, but is calculated based on fitting half the matched points inside the circle.
 This usually results in a larger error radius (low precision), but a higher rate of actually containing the actual position (high accuracy).
+
+\subsubsection{Adding \acf{SNR}}
 
 \textcolor{red}{<--- WIP --->}
 
