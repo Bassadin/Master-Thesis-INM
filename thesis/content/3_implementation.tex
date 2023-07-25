@@ -794,9 +794,7 @@ Compared to \cref{fig:rssi-range-graph-positive-example}, the graph also shows a
 However, mapping \ac{SNR} values to distance on their own seemed very unreliable.
 This is to be expected, since, as was explained in \cref{sec:background-snr}, the \ac{SNR} value can be influences by many things, such as external factors and the environment even more so than the \ac{RSS} value.
 
-% TODO should this go into conclusion?
-
-Additionally, data points with varying \acp{SF} were used to plot the graphs.
+To plot the graphs, data points with varying \acp{SF} were used.
 Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be received, as explained in \cref{sec:sf-snr-correlation}, this could have also influenced the results.
 
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
@@ -824,7 +822,7 @@ This is a distance that is way too big to be useful for performing any sort of m
 
 \Cref{subsec:conclusion-toa-tdoa} will explain how this could be fixed.
 
-\subsection{Fingerprinting with \acs{RSSI} values}\label{sec:fingerprinting-with-rssi-values}
+\subsection{Fingerprinting with \acs{RSSI} and other values}\label{sec:fingerprinting-implementation}
 
 The implementation of the fingerprinting approach was done in the backend part of \ac{TTNL}.
 An \ac{REST} endpoint was added to the backend that accepts a list of gateway IDs along with maximum and minimum \ac{RSS} values for those particular gateways.
