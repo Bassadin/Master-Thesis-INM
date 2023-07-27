@@ -419,21 +419,27 @@ router.get('/', async (request: Request, response: Response) => {
 Express also allows for the creation of more complex endpoints that can, for example, return data from a \ac{DB}.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
-\subsubsection{\ac{PSQL} / PostGIS}
+\subsubsection{\acf{PSQL} / PostGIS}
 
-\ac{PSQL} is an open source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
+\acl{PSQL} (also sometimes simply called \emph{Postgres}) is an open source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
 It is among the most popular \ac{DB} management systems worldwide~\cite{db-engines_most_2023}.
 
 In this thesis, for \ac{TTNL}, \ac{PSQL} was used as the \ac{DB} management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
 PostGIS is an extension for \ac{PSQL} that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
 
-\begin{lstlisting}[language=SQL, float, caption={Example of a PostGIS query to calculate the distance between two geolocation points in meters}, label={lst:postgis-example-distance}]
+\begin{lstlisting}[
+    language=SQL,
+    float,
+    caption={
+        Example of a PostGIS query to calculate the distance between two geolocation points in meters.
+        The result for the two example points would be about 26900.5 meters.
+    },
+    label={lst:postgis-example-distance}
+    ]
 SELECT ST_DistanceSphere(
     ST_MakePoint(8.2047, 48.0502), -- Furtwangen
     ST_MakePoint(7.85222, 47.9959) -- Freiburg
 );
-
-Result => 26900.55162337
 \end{lstlisting}
 
 \Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the Earth's surface~\cite{postgis_psc__osgeo_st_distancesphere_nodate}.
@@ -448,7 +454,14 @@ Prisma is an \ac{ORM} that can be used with a variety of \ac{DB} management syst
 Instead, Prisma allows for the creation of queries using \ac{TS}.
 Prisma also lets the developer define a \ac{DB} schema and can generate migrations to generate the \ac{DB} tables from that schema.
 
-\begin{lstlisting}[float, caption={Example of a Prisma schema}, label={lst:prisma-schema-example}]
+\begin{lstlisting}[
+    float,
+    caption={
+        Example of a Prisma schema.
+        It defines two \ac{DB} tables, \lstinline{User} and \lstinline{Post}, as well as their relationship: A User can have many Posts.
+    },
+    label={lst:prisma-schema-example}
+]
 model User {
     id    Int     @id @default(autoincrement())
     posts Post[]
