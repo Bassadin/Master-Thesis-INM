@@ -642,12 +642,13 @@ This section will describe the different techniques used to locate \ac{LoRaWAN} 
 The general idea behind using \ac{RSS} values to determine the distance to a gateway is simple.
 The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the device and the gateway.
 The further away a device is from a gateway, the lower (or more negative) the \ac{RSSI} value will be.
+This correlation was explained in \cref{sec:background-free-space-path-loss}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/multilateration/rssi-multilateration-example.png}
     \caption{
-        An example of the theory behind mapping \ac{RSS} values to distances using three gateways.
+        An example of the theory behind mapping \ac{RSS} values to distances using three gateways, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
         The device (orange pin) is located at the intersection of the three circles originating from the gateways (green pins).
         \ac{RSS} values that are received by the gateways are inversely proportional to the distance between the device and the gateway.
         They are used to calculate the distance between the device and the gateway, making a multilateration possible.
