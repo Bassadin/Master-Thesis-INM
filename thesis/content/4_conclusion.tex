@@ -387,6 +387,15 @@ The type definitions could also be moved to a separate repository that is used a
 
 This section will critically reflect on the choice of technologies used in this thesis as well as mention some alternatives.
 
+\paragraph{Docker and Docker Compose}
+
+The usage of Docker and Docker Compose was a good choice.
+While it consumed some additional hours to make the backend and frontend work together in a Docker Compose environment, it was worth it.
+It made setting up a development environment on a \ac{VM} provided by the \ac{HFU} effortless.
+The only addition that needed to be made manually was adding a \emph{Traefik} reverse proxy to allow for secure \ac{HTTPS} connections to the frontend and backend services from outside the \ac{HFU} network~\cite{traefik_labs_traefik_2023}.
+
+Using Docker and Docker Compose also allows for easy reproducibility of the project, as the Docker Compose stack also includes the PostGIS \ac{DB} and can be started with a single command.
+
 \paragraph{Full Stack Frameworks (SvelteKit, Nuxt.js)}
 
 As an alternative to the approach described in \cref{subsubsec:outlook-sharing-type-definitions}, the entire project could have been written using a full-stack framework such as SvelteKit or Nuxt.js.
