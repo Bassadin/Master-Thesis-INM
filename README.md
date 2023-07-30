@@ -5,7 +5,8 @@ This repo will get updated during the semester.
 
 ## PDF
 
-Ready-made PDFs available in the [Releases section](https://github.com/Bassadin/Master-Thesis-INM/releases)
+Ready-made PDFs available in the [Releases section](https://github.com/Bassadin/Master-Thesis-INM/releases).
+For some reason, I decided to use [SemVer](https://semver.org/) for the versioning the PDFs.
 
 ## LaTeX
 
