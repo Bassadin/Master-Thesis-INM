@@ -102,6 +102,8 @@ It will be explained in more detail in \cref{sec:lorawan}.
 
 The \ac{LoRa} modulation is also sometimes referred to as \ac{LoRa}\ PHY~\cite{chaudhari_understanding_2022}.
 It uses several techniques to achieve long-range communication with low power consumption.
+In the \ac{EU}, it uses the \SI{868}{\mega\hertz} frequency band.
+
 This section will explain some of its concepts that are relevant to this thesis.
 However, it will not go into detail about the technical details of the modulation.
 
@@ -118,7 +120,7 @@ However, it will not go into detail about the technical details of the modulatio
     }\label{pic:lora-duty-cycle}
 \end{figure}
 
-In the \ac{EU} region, the duty cycle for transmissions in the 868 MHz band is limited to 1\%~\cite[p. 29]{etsi_etsi_2012}.
+In the \ac{EU} region, the duty cycle for transmissions in the \SI{868}{\mega\hertz} band is limited to 1\%~\cite[p. 29]{etsi_etsi_2012}.
 This means that a \ac{LoRa} device using a frequency band in this range may only transmit for 1\% of a given time slot.
 If, for example, a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
 It needs to stay silent for the rest of the time slot.
