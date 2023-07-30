@@ -2,7 +2,7 @@
 
 \section{Wireless Communications}
 
-This section aims to provide a general overview of wireless communication terminology and other principles necessary to understand the more hardware-oriented part of this thesis.
+This section aims to provide a general overview of relevant wireless communication terminology and other principles necessary to understand the more hardware-oriented part of this thesis.
 
 \subsection{Problems with established wireless communication techniques}
 
@@ -11,33 +11,33 @@ This section aims to provide a general overview of wireless communication termin
     \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
     \caption{
         Comparison of data rate, power consumption and range between different wireless communication protocols.
-        While \ac{LoRaWAN} has significantly lower data rates compared to cellular networks, its power consumption is also much lower.~\protect\cite{wang_comparison_2021}
+        While \ac{LoRaWAN} has significantly lower data rates compared to cellular networks, its power consumption and cost is also much lower.~\protect\cite{wang_comparison_2021}
     }\label{pic:wireless-protocols-comparison}
 \end{figure}
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
 
-Deployments in remote or particularly large areas may require long-range protocols.
-Likewise, sensors that are deployed in such areas may be hard to reach or placed apart by several hundred meters.
-This makes low-power sensors that run on batteries for several years a necessity, as battery replacement can be expensive or even impossible.
+Deployments in remote or particularly large areas may require long-range transmissions.
+As such, sensors that are deployed in such areas may be hard to reach or placed apart by several hundred meters.
+This makes low power sensors that can run on batteries for several months to years a necessity, as battery replacement can be expensive or even impossible.
 
-Wi-Fi is not suitable for battery-powered devices that are deployed in remote areas, as it requires relatively high power to operate and doesn't have much range.
-ZigBee is also not suitable for battery-powered devices, as it is not designed for long distances and thus has a short range.
-\ac{LTE} not suitable for battery-powered devices either as it requires a lot of power.
+For example, Wi-Fi is not suitable for battery powered devices used in remote areas because it requires relatively high power to operate and does not have a long range.
+ZigBee is also not suitable for battery powered devices because it is not designed for long distances and therefore has a short range.
+\ac{LTE} is also not suitable for battery powered devices either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
 \subsection{\acf{RSSI}}\label{sec:rssi}
 
-The \acl{RSSI} is a measure of the strength of a wireless signal received by a device.
-As far as this thesis is concerned, \ac{RSS} values are measured in dBm since \ac{TTN}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
+The \acf{RSSI} is a measure of the strength of a wireless signal received by a device.
+As far as this thesis is concerned, \ac{RSS} values are measured in dBm since the \ac{TTN} \ac{LNS}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
 Different devices can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
 Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \acl{LoS} between the sender and receiver.
-The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects.
+The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects --- a phenomenon known as \acf{MPP}~\cite{kucherov_investigation_2021}.
 
 \subsubsection{Correlation between \acs{RSS} values and distance --- \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
-Usually, the higher the \ac{RSSI} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
+Usually, the higher the \ac{RSS} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
 When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between the sender and receiver and the \ac{RSSI} value.
 
 The equation to calculate this so-called \acl{FSPL} in decibels can be seen in \cref{eq:fspl}~\cite[p. 1321]{whitaker_electronics_1996}.
@@ -52,25 +52,27 @@ $d$ is the distance between sender and receiver, while $\lambda$ is the waveleng
     \lambda = \frac{c}{f}
 \end{equation}
 
-To calculate the wavelength of a signal the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
+To calculate the wavelength of a signal, the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
 As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$.
 
 As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
 \subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
 
+In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
+\acl{MPP} causes the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
+
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
     \caption{
-        Example for different kinds of \acf{MPP} effects of \ac{RF} waves.
-        Notably, all of them make the signal travel time longer than direct \ac{LoS} would take.~\protect\cite{milosevic_key_2017}
+        Examples for different types of \acf{MPP} effects of \ac{RF} waves.
+        Notably, all of them make the signal's travel time longer than a direct \ac{LoS} path would take.
+        This longer travel time in turn also decreases the \ac{RSS} value measured by the receiver.~\protect\cite{milosevic_key_2017}
     }\label{pic:figure_multipath_propagation}
 \end{figure}
 
-In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
-\acl{MPP} causes the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
-This is because the signal can be reflected, diffracted, refracted and scattered and therefore take several paths (hence the term \ac{MPP}) as can be seen in \cref{pic:figure_multipath_propagation}.
+This is because the signal can be reflected, diffracted, refracted and scattered, taking multiple paths (hence the term \acl{MPP}) as shown in \cref{pic:figure_multipath_propagation}.
 
 \subsection{\acf{SNR}}\label{sec:background-snr}
 
