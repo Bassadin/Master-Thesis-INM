@@ -683,9 +683,9 @@ This does not result in a definite position of the device but rather a range of 
 The size of this estimated localization range depends on the accuracy of the distance measurements.
 
 The following sections will explain different methods of determining the distance between a device and a receiver.
-However, as was just mentioned, the accuracy of these measurements is crucial for the accuracy of the actual localization.
+As was mentioned just now, the accuracy of these distance measurements is crucial for the accuracy of the actual localization.
 
-\subsubsection{\acs{ToA}-based}\label{sec:toa-based-multilateration}
+\subsubsection{\acf{ToA} based multilateration}\label{sec:toa-based-multilateration}
 
 The \acf{ToA} based method uses the difference in the signal's time of arrival at the receiving stations.
 In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time difference can be used to calculate the distance between the receiving stations and the transmitting station~\cite{khalaf-allah_time_2015}.
@@ -693,7 +693,10 @@ In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time di
 \ac{ToA} is being used by radio location systems like \ac{GPS} to determine the position of a device by using Multilateration~\cite{department_of_defense_usa_gps_2020}.
 For GPS, usually four or more satellites are required to determine the position of a device accurately.
 
-\subsubsection{\acs{RSSI}-based}\label{sec:rssi-based-multilateration}
+\ac{ToA} based multilateration requires the reference stations to be time-synchronized with each other in order to produce good results.
+Since the speed of light is very high, small differences in time synchronization between the reference points can lead to large inaccuracies in the distance calculated between them.
+
+\subsubsection{\acf{RSSI} based multilateration}\label{sec:rssi-based-multilateration}
 
 This method uses the \acf{RSSI} values that were explained in \cref{sec:rssi} to determine the distance between sender and receiver.
 The distance between sender and receiver usually decreases in correlation with the measured \ac{RSSI} value.
