@@ -274,7 +274,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 A \ac{LoRa} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRa} devices) and forwards them to the \ac{LoRaWAN} server.
 
 \ac{LoRa} gateways are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the gateway's \ac{CPU} using a serial interface.
-The \ac{CPU} processes the incoming data and forwards the packets to the \ac{LoRaWAN} server.
+The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \ac{LoRaWAN} gateway.
 
 To achieve the connection to the \ac{LoRaWAN} server, the gateway needs to be connected to the internet.
 This connection is also called \emph{backhaul}.
