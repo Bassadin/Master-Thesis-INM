@@ -91,11 +91,10 @@ The \ac{SNR} can be impacted by several environmental factors, such as the tempe
 
 \section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
-\ac{LoRa} is a \ac{RF} communication modulation that offers a standard to send data packets over the air in a specific way.
-The term \ac{LoRa} stands for \textbf{Lo}ng \textbf{Ra}nge~\cite{semtech_corporation_lora_2023}.
+\acf{LoRa} is a \ac{RF} communication modulation that offers a standard to send data packets over the air in a specific way~\cite{semtech_corporation_lora_2023}.
 A rough explanation of its technical details will be given in \cref{sec:lora-modulation}.
 
-\ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer.
+\ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer to transmit data packets.
 It will be explained in more detail in \cref{sec:lorawan}.
 
 \section{\acf{LoRa} modulation}\label{sec:lora-modulation}
@@ -103,9 +102,16 @@ It will be explained in more detail in \cref{sec:lorawan}.
 The \ac{LoRa} modulation is also sometimes referred to as \ac{LoRa}\ PHY~\cite{chaudhari_understanding_2022}.
 It uses several techniques to achieve long-range communication with low power consumption.
 In the \ac{EU}, it uses the \SI{868}{\mega\hertz} frequency band to transmit data~\cite{lora_alliance_inc_lorawan_regional_2017}.
+This frequency band was also used exclusively in the experiments conducted for this thesis.
 
 This section will explain some of its concepts that are relevant to this thesis.
 However, it will not go into detail about all the technical details of the modulation.
+
+\subsection{\acf{CSS}}\label{sec:chirp-spread-spectrum}
+
+\ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction~\cite{reynders_chirp_2016}.
+\acs{CHIRP} stands for \acl{CHIRP}.
+It uses frequency hopping and different \aclp{SF} to encode signals in order to make them robust against interference, as will be explained in \cref{sec:spreading-factors}.
 
 \subsection{Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
 
@@ -114,28 +120,26 @@ However, it will not go into detail about all the technical details of the modul
     \includegraphics[width=.8\textwidth]{pictures/lora/duty-cycle-single-channel-off-air.png}
     \caption{
         Schematic example of duty cycle in \ac{LoRa}.
-        For this example, the duty cycle is 20\%.~\protect\cite{the_things_industries_bv_duty_nodate}
+        For this example, the duty cycle is \SI{20}{\percent}.~\protect\cite{the_things_industries_bv_duty_nodate}
     }\label{pic:lora-duty-cycle}
 \end{figure}
 
-In the \ac{EU} region, the duty cycle for transmissions in the \SI{868}{\mega\hertz} band is limited to 1\%~\cite[p. 29]{etsi_etsi_2012}.
-This means that a \ac{LoRa} device using a frequency band in this range may only transmit for 1\% of a given time slot.
-If, for example, a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
+In the \ac{EU} region, the duty cycle for transmissions in the \SI{868}{\mega\hertz} band is limited to \SI{1}{\percent}~\cite[p. 29]{etsi_etsi_2012}.
+This means that a \ac{LoRa} device using this frequency band may only transmit for \SI{1}{\percent} of a given time slot.
+For example, if a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
 It needs to stay silent for the rest of the time slot.
 
-An example of a \ac{LoRa} duty cycle can be seen in \cref{pic:lora-duty-cycle}.
-In this example, the duty cycle is 20\%.
+An example for duty cycle time frames can be seen in \cref{pic:lora-duty-cycle}.
+In this example, the duty cycle is \SI{20}{\percent}.
 The device that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
+To stay compliant with the \SI{20}{\percent} duty cycle, it may start a new transmission starting with the sixth time block.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
+Even when using \acs{SF}12, which is the slowest \acs{SF} available, the maximum packet size of \SI{51}{\byte} can be transmitted in  \SI{1232.9}{\milli\second}~\cite[p. 6]{the_things_network_lorawan_nodate}\cite[p. 10f]{lora_alliance_inc_lorawan_regional_2017}.
+This makes it possible to transmit data up to every few minutes even with the largest possible packet size and still stay compliant with the duty cycle of \SI{1}{\percent}.
 
 The \emph{ETSI} standard also defines the \acf{ERP} that can be emitted from a device's antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
-
-\subsection{\acf{CSS}}\label{sec:chirp-spread-spectrum}
-
-\ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction~\cite{reynders_chirp_2016}.
-\acs{CHIRP} stands for \acl{CHIRP}.
-It uses frequency hopping and different \aclp{SF} to encode signals in order to make them robust against interference, as will be explained in \cref{sec:spreading-factors}.
+``\ac{ERP} is the power radiated from the tip of the antenna'' after taking into account the antenna's gain and the cable loss~\cite[p. 23]{faruque_radio_2015}.
 
 \subsection{\acfp{SF}}\label{sec:spreading-factors}
 
@@ -162,7 +166,10 @@ This means that, for example, a transmission using \ac{SF}10 takes twice as long
 While a higher \acl{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
 Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \acl{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
 
-Different \aclp{SF} also are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
+Different \aclp{SF} are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
+
+The \ac{SF} also determines the maximum size of the payload that can be transmitted.
+Inthe \ac{EU} region, it ranges from \SI{222}{\byte} for \ac{SF}7 to \SI{51}{\byte} for \ac{SF}12~\cite[p. 10f]{lora_alliance_inc_lorawan_regional_2017}.
 
 \subsubsection{Correlation of \acs{SF} and \acs{SNR}}\label{sec:sf-snr-correlation}
 
