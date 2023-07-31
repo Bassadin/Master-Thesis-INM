@@ -522,6 +522,9 @@ This page displays an interactive world map with a heatmap overlay.
 It shows the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
 Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LoRaWAN} node and has its location accessible from \ac{TTN} is displayed on the map.
 
+Notably, blank spots on the map do not necessarily mean that there is no coverage in that area.
+It can also mean that there haven't been any \ac{GPS}-enabled \ac{LoRaWAN} nodes that send their data to \ac{TTNM} in that area yet.
+
 \subsection{Data access}
 
 As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} devices.
