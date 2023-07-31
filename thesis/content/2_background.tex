@@ -223,7 +223,7 @@ These factors make them more suitable for handling large amounts of sensors and 
 
 \Cref{pic:lpwan-diagram} shows the structure of a \ac{LPWAN} network.
 Multiple \ac{IoT} devices connect to gateways or base stations.
-Those gateways are in turn connected to the internet or a larger network via a backhaul connection.
+Those gateways are in turn connected to the internet or a larger network via a backhaul connection in order to enable communication between end devices.
 
 \section{\acf{LoRaWAN}}\label{sec:lorawan}
 
@@ -236,8 +236,8 @@ Those gateways are in turn connected to the internet or a larger network via a b
 \end{figure}
 
 \ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
-It defines a secure way to transfer packets from the end devices to the application server by enforcing \ac{E2EE}.
-This section will explain the structure of a \ac{LoRaWAN} network and its inner workings.
+It defines a secure way to transfer packets from the end devices to \acp{AS} by enforcing \ac{E2EE}.
+This section will explain the structure of a \ac{LoRaWAN} network and how it works.
 
 \subsection{\acs{LoRaWAN} network architecture}
 
@@ -252,7 +252,7 @@ This section will explain the structure of a \ac{LoRaWAN} network and its inner 
 The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
 
 \begin{itemize}
-    \item The end nodes (also called end devices),
+    \item The end nodes (called end devices during this thesis),
     \item the gateways (also called concentrators or base stations),
     \item the \acf{LNS}, and
     \item the \acfp{AS}.
@@ -271,7 +271,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
     }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
 
-A \ac{LoRa} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRa} nodes/end devices) and forwards them to the \ac{LoRaWAN} server.
+A \ac{LoRa} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRa} devices) and forwards them to the \ac{LoRaWAN} server.
 
 \ac{LoRa} gateways are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the gateway's \ac{CPU} using a serial interface.
 The \ac{CPU} processes the incoming data and forwards the packets to the \ac{LoRaWAN} server.
@@ -294,16 +294,16 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
 \end{figure}
 
 While such gateways usually have a built-in antenna, the range of these antennas is only sufficient to cover small to medium sized buildings or areas.
-However, it is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} nodes was the goal.
+However, it is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} devices was the goal.
 While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
 \subsection{Data Transmission}
 
-In LoRaWAN, data transmissions from the end nodes to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+In LoRaWAN, data transmissions from the end devices to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
-Uplinks are relayed to the \ac{LNS} by one or more gateways from the end node.
-Downlinks, on the other hand, are only sent from the \ac{LNS} to the end node using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+Uplinks are relayed to the \ac{LNS} by one or more gateways from the end device.
+Downlinks, on the other hand, are only sent from the \ac{LNS} to the end device using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsection{Device Classes}\label{sec:device-classes}
 
@@ -491,10 +491,10 @@ However, the project has since been expanded to map the coverages of almost all 
 
 \subsection{Data collection}\label{sec:ttm-data-collection}
 
-\acl{TTNM} works by using \ac{LoRaWAN} nodes with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
-Alongside the location information, those nodes' messages that are processed by \ac{TTN} also include information about which gateways received them.
+\acl{TTNM} works by using \ac{LoRaWAN} devices with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
+Alongside the location information, those devices' messages that are processed by \ac{TTN} also include information about which gateways received them.
 
-Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the nodes' \ac{GPS} modules.
+Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the devices' \ac{GPS} modules.
 This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
 
@@ -520,7 +520,7 @@ Additionally, any gateway that has received at least one message from a \ac{GPS}
 
 \subsection{Data access}
 
-As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} nodes.
+As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} devices.
 
 \ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
 Data can be requested based on the end device that sent the message or the gateway that received it.
@@ -584,7 +584,7 @@ For example, the Russian \acf{GLONASS} system, the European \acf{Galileo} system
 Most modern user devices such as smartphones support multiple \ac{GNSS} systems to improve the accuracy of the location determination.
 For example, one of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, \ac{GLONASS}, \ac{Galileo}, and \ac{BDS}~\cite{gsmarena_samsung_2023}.
 
-The \ac{LoRaWAN} nodes used in this thesis, as described in \cref{subsec:used-lora-nodes}, only use \ac{GPS} to determine their location.
+The \ac{LoRaWAN} devices used in this thesis, as described in \cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
 
 \subsection{\acf{HDOP}}
 

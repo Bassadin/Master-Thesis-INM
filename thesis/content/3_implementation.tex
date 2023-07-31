@@ -124,11 +124,11 @@ The exposed location of the clubhouse on a hillside between Gütenbach and Furtw
 In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
 This data was especially important for doing geolocation calculations via fingerprinting.
 
-This was done by using \ac{LoRaWAN} nodes that were equipped with \ac{GPS} modules and then moving them around the city of Furtwangen.
+This was done by using \ac{LoRaWAN} devices that were equipped with \ac{GPS} modules and then moving them around the city of Furtwangen.
 
-\subsection{Used \acs{LoRa} nodes}\label{subsec:used-lora-nodes}
+\subsection{Used \acs{LoRa} devices}\label{subsec:used-lora-devices}
 
-In this chapter, the \ac{LoRa} nodes used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
+In this chapter, the \ac{LoRa} devices used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 
 \subsubsection{ELV LW experimental platform}
 
@@ -202,7 +202,7 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/HTCC-AB02S.jpg}
     \caption{
-        One of the Heltec HTCC-AB02S \ac{LoRaWAN} nodes used during this thesis.
+        One of the Heltec HTCC-AB02S \ac{LoRaWAN} devices used during this thesis.
         The \ac{OLED} display as well as the \ac{GPS} module as well as the \ac{LoRaWAN} antenna on the top right can be seen.
     }\label{pic:heltec-htcc-ab02s}
 \end{figure}
@@ -293,7 +293,7 @@ It was used extensively during this thesis, both in programming and in the actua
 PlatformIO is a plugin that enables the development of embedded systems with \ac{VSC}~\cite{platformio_platformio_nodate}.
 It allows for a user to use \ac{VSC} instead of having to rely on the \emph{Arduino IDE}.
 
-PlatformIO was used in this thesis to develop code for some of the \ac{LoRaWAN} nodes used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \cref{subsubsec:heltec-htcc-ab02s}.
+PlatformIO was used in this thesis to develop code for some of the \ac{LoRaWAN} devices used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \cref{subsubsec:heltec-htcc-ab02s}.
 
 \subsection{GitHub Actions}
 
@@ -646,9 +646,9 @@ For example, \cref{lst:get-preceding-datapoint-sql} shows a \ac{SQL} snippet tha
 Duplicates were removed using a similar approach.
 Instead of calculating the distance between the two data points, their latitude, longitude, \ac{HDOP} and altitude values were compared.
 
-\section{Locating \acs{LoRaWAN} nodes with multiple techniques}
+\section{Locating \acs{LoRaWAN} devices with multiple techniques}
 
-This section will describe the different techniques used to locate \ac{LoRaWAN} nodes in this thesis.
+This section will describe the different techniques used to locate \ac{LoRaWAN} devices in this thesis.
 
 \subsection{\acs{RSSI}-based multilateration}\label{sec:rssi-based-multilateration-implementation}
 
@@ -813,7 +813,7 @@ Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be receive
 
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
 
-One of the seemingly most promising techniques for locating \ac{LoRaWAN} nodes is \ac{ToA}-based multilateration.
+One of the seemingly most promising techniques for locating \ac{LoRaWAN} devices is \ac{ToA}-based multilateration.
 As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the time of arrival of a \ac{LoRa} signal to multiple gateways to calculate the position of the device that sent the signal using the speed of light.
 
 Unfortunately, this technique did not work as expected in the scope of this thesis.

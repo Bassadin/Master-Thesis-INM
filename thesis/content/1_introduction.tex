@@ -14,9 +14,9 @@ In the first half of 2020, \ac{LoRa} was the second most used \ac{LPWAN} technol
 
 While \ac{LoRa} end devices can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
 This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
-Unlike \ac{GPS}, \ac{LoRa} nodes may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
+\ac{LoRa} devices may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
 
-The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} nodes without modifying them or the gateways used.
+The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} devices without modifying them or the gateways used.
 The goal is not to focus specifically on indoor or outdoor localization specifically but to provide a general overview of the topic.
 
 To achieve this goal, some \ac{LoRaWAN} gateways that were already registered in \acf{TTN} in Furtwangen were used as well as new gateways placed in the Furtwangen area.
@@ -66,7 +66,7 @@ Using the \ac{kNN} approach, they achieved an accuracy of \SIrange{273}{394}{\me
 
 Anjum et al.\ also evaluated \ac{RSSI} fingerprinting in 2019~\cite{anjum_analysis_2019}.
 In their research, they compared \ac{LoS} and \ac{NLoS} scenarios, analyzing the path loss exponent and the standard deviation of the shadowing \ac{MPP} parameter in each of these environments.
-They did not use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} nodes.
+They did not use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} devices.
 Placing nodes in different stories of a building, they measured a varying accuracy of \ac{RSSI} to distance mappings.
 
 Fernandes et al.\ used a hybrid approach to locate elderly care recipients indoors: \ac{UWB} technology for localization and \ac{LoRaWAN} to send data to their caregivers~\cite{fernandes_hybrid_2020}.
