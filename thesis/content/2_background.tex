@@ -53,7 +53,7 @@ $d$ is the distance between sender and receiver, while $\lambda$ is the waveleng
 \end{equation}
 
 To calculate the wavelength of a signal, the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
-As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$.
+As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$~\cite{lora_alliance_inc_lorawan_regional_2017}.
 
 As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
@@ -76,7 +76,7 @@ This is because the signal can be reflected, diffracted, refracted and scattered
 
 \subsection{\acf{SNR}}\label{sec:background-snr}
 
-Since the frequency band used for \ac{LoRa} is unlicensed, it is possible that other devices use the same frequency band.
+Since the \SI{868}{\mega\hertz} frequency band used for \ac{LoRa} in the \ac{EU} is unlicensed, it is possible that other devices use the same frequency band~\cite{etsi_etsi_2012}.
 This can result in a relatively high level of so-called radio noise~\cite[p. 6]{fujdiak_insights_2022}.
 
 The \acf{SNR} is a measure of the strength of the signal compared to the noise in the signal~\cite{johnson_signal--noise_2006}.
@@ -93,7 +93,7 @@ The \ac{SNR} can be impacted by several environmental factors, such as the tempe
 
 \ac{LoRa} is a \ac{RF} communication modulation that offers a standard to send data packets over the air in a specific way.
 The term \ac{LoRa} stands for \textbf{Lo}ng \textbf{Ra}nge~\cite{semtech_corporation_lora_2023}.
-A rough explanation of its technical details can be found in \cref{sec:lora-modulation}.
+A rough explanation of its technical details will be given in \cref{sec:lora-modulation}.
 
 \ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer.
 It will be explained in more detail in \cref{sec:lorawan}.
@@ -102,12 +102,10 @@ It will be explained in more detail in \cref{sec:lorawan}.
 
 The \ac{LoRa} modulation is also sometimes referred to as \ac{LoRa}\ PHY~\cite{chaudhari_understanding_2022}.
 It uses several techniques to achieve long-range communication with low power consumption.
-In the \ac{EU}, it uses the \SI{868}{\mega\hertz} frequency band.
+In the \ac{EU}, it uses the \SI{868}{\mega\hertz} frequency band to transmit data~\cite{lora_alliance_inc_lorawan_regional_2017}.
 
 This section will explain some of its concepts that are relevant to this thesis.
-However, it will not go into detail about the technical details of the modulation.
-
-\Cref{sec:sf-snr-correlation} will explain how different \acfp{SF} interact with signals that have different \ac{SNR} values.
+However, it will not go into detail about all the technical details of the modulation.
 
 \subsection{Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
 
