@@ -271,7 +271,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
     }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
 
-A \ac{LoRa} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRa} devices) and forwards them to the \ac{LoRaWAN} server.
+A \ac{LoRaWAN} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRaWAN} devices) and forwards them to \ac{LNS}.
 
 \ac{LoRa} gateways are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the gateway's \ac{CPU} using a serial interface.
 The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \ac{LoRaWAN} gateway.
@@ -281,7 +281,7 @@ This connection is also called \emph{backhaul}.
 The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections~\cite{the_things_industries_bv_lorawan_nodate}.
 
 One example of a gateway used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
-This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the student dorm \ac{GHB}.
+This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the \acf{GHB}.
 
 \begin{figure}[htbp]
     \centering
@@ -289,12 +289,12 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
     \caption{
         A MikroTik antenna installed on top of the \ac{HFU} C building.
         The exposed position of the roof in the valley where Furtwangen is located can be seen.
-        In the background, on the right, the two buildings of the \ac{GHB} dormitories are visible.
+        In the background, on the right, the two buildings of the \acf{GHB} are visible.
     }\label{pic:mikrotik-antenna-c-building}
 \end{figure}
 
-While such gateways usually have a built-in antenna, the range of these antennas is only sufficient to cover small to medium sized buildings or areas.
-However, it is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} devices was the goal.
+While such gateways sometimes have a built-in antenna, the range of these antennas is only sufficient to cover small to medium-sized buildings or areas.
+It is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \ac{LoRa} devices was the goal.
 While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
@@ -307,13 +307,13 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the end device 
 
 \subsection{Device Classes}\label{sec:device-classes}
 
-\ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
+\ac{LoRaWAN} defines three classes of devices that offer different trade-offs between power consumption and availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsubsection{Class A}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{pictures/device-classes/class-a.png}
+    \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-a.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class A device communication.
         The two receive windows (RX1 and RX2) are visible.~\protect\cite{the_things_industries_bv_device_nodate}
@@ -321,20 +321,20 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the end device 
 \end{figure}
 
 Class A is used for devices that need to consume as little power as possible.
-Every \ac{LoRaWAN} device must support the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
+Every \ac{LoRaWAN} device must support at least the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
 A communication in Class A is always initiated by the end device itself.
 
 Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
-This can be seen in \cref{pic:lorawan-device-class-a-schema}.
-This also makes it impossible for the \ac{LNS} to send data to the device at any other time.
+An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
 
 Class A consumes the least amount of power of the three classes, because the devices themselves may specify when and how often they want to communicate with the \ac{LNS}.
+However, this also makes it impossible for the \ac{LNS} to send data to the device at any other time.
 
 \subsubsection{Class B}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{pictures/device-classes/class-b.png}
+    \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-b.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class B device communication.
         The additional ping slots where the end device is reachable by gateways can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
@@ -351,7 +351,7 @@ These scheduled downlink windows result in a higher power consumption for Class 
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{pictures/device-classes/class-c.png}
+    \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-c.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class C device communication.
         The RX2 window is kept open between uplink transmissions to allow gateways to reach the end device at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
@@ -381,7 +381,8 @@ The security of the data sent is a major concern when talking about \ac{IoT} pro
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
 Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite[p. 24]{lora_alliance_inc_lorawan_specification_2017}.
 
-This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks, since a so-called \ac{MIC} is determined from the frame data, which in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown}, a number that is incremented with each packet sent and is also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
+This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks (where a malicious attacker captures sent packets and sends them again), since a so-called \ac{MIC} is determined from the frame data.
+This \ac{MIC} in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
 
 \section{\acf{TTN}}
 
@@ -400,7 +401,7 @@ Its users provide \ac{TTN} with gateways that other users can use, making it a d
 
 \subsection{Receiving packets from \acs{LoRaWAN} Gateways}
 
-Gateways can forward \ac{LoRaWAN} packets that they receive to the \ac{LNS} in two major ways.
+Gateways can forward \ac{LoRaWAN} packets that they receive to the \ac{LNS} in two commonly used ways.
 This section will explain both of them.
 
 \subsubsection{\acf{SUPF}}
@@ -431,15 +432,16 @@ Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended ov
 The two main components of \acl{LBS} are the \ac{LNS} connection itself as well as the \acf{CUPS}.
 The communication schema can be seen in \cref{pic:lora-basics-station-schema}.
 
-The \ac{LNS} uses \ac{WSS} for communication and is responsible for handling the \ac{LoRaWAN} packets whereas the \acl{CUPS} is responsible for handling the configuration of the gateways.
+The \ac{LNS} uses the \ac{WSS} protocol for communication and is responsible for handling the \ac{LoRaWAN} packets whereas the \acl{CUPS} is responsible for handling the configuration of the gateways.
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with token-based authentication.
-When a gateway is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it~\cite{the_things_industries_bv_lora_2022}.
+When a gateway is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it.
+\ac{CUPS} also allows for remote configuration of gateways as well as remote firmware updates~\cite{the_things_industries_bv_lora_2022}.
 
 \subsubsection{Which was used in this thesis?}
 
-Some of the gateways used in this thesis were unable to use the more modern \ac{LBS} protocol.
+Some of the gateways used in this thesis were unable to use the more modern \acl{LBS} protocol.
 This is especially true for the MikroTik LR8 wAP gateway, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
 It therefore uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
 
@@ -456,7 +458,7 @@ In this thesis, an application was used to group the \ac{LoRaWAN} \ac{GPS} track
 
 \subsection{Forwarding data from \acs{TTN} to \aclp{AS}}\label{sec:forwarding-data-from-ttn-to-as}
 
-To transmit data from \ac{TTN} to an \ac{AS}, \ac{TTN} provides \emph{integrations}~\cite{the_things_network_integrations_2021}.
+To transmit data from \ac{TTN} to an \ac{AS}, \ac{TTN} provides integrations~\cite{the_things_network_integrations_2021}.
 \ac{TTN} offers several integrations for different cloud \acp{AS} such as \ac{AWS} IoT Core and Microsoft Azure IoT Hub.
 It also provides a generic \ac{HTTP} webhook integration that can be used to forward data to any \ac{HTTP} or \ac{HTTPS} endpoint.
 
