@@ -188,7 +188,7 @@ A \ac{LoRa} node that transmits \SI{75}{\byte} of payload data every 2 hours can
 \emph{LoRa Energy Calculator} is another piece of software that can be used to calculate the battery life of a \ac{LoRa} device by entering data such as payload size, periodicity of the data transmission and the battery type used~\cite{dramco_research_group_lora_2023}.
 It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of 8 bytes, 1 hour of periodicity and a 2500 mAh AA type battery.
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
-Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged.
+Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \cref{sec:device-classes}).
 
 \section{\acf{WAN}}
 
@@ -305,7 +305,7 @@ In LoRaWAN, data transmissions from the end nodes to the server and vice versa a
 Uplinks are relayed to the \ac{LNS} by one or more gateways from the end node.
 Downlinks, on the other hand, are only sent from the \ac{LNS} to the end node using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
-\subsection{Device Classes}
+\subsection{Device Classes}\label{sec:device-classes}
 
 \ac{LoRaWAN} defines three classes of devices that offer different variations of the trade-off between power consumption and data rate/availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
 
