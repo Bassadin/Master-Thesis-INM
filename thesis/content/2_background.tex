@@ -527,7 +527,7 @@ It can also mean that there haven't been any \ac{GPS}-enabled \ac{LoRaWAN} nodes
 
 \subsection{Data access}
 
-As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and location data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} devices.
+As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} devices.
 
 \ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
 Data can be requested based on the end device that sent the message or the gateway that received it.
@@ -543,7 +543,7 @@ The data that is provided via the \ac{TTNM} \ac{REST} \ac{API} was the core of t
 The \ac{TTNL} application that will be described in \cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
 Such queries were not possible with the \ac{TTNM} \ac{API} alone, since it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the kind of data filtering that was needed for this thesis.
 
-Through building a database of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
+Through building a \ac{DB} of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
 This was one of the techniques used to locate devices in this thesis.
 
 \section{Multilateration}\label{sec:multilateration-basics}

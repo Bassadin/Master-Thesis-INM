@@ -321,7 +321,7 @@ However, since \ac{TTN} captures all of those values with each received data fra
 \subsubsection{Conclusion}
 
 In comparison to the multilateration approach, the fingerprinting approach is not very scalable.
-It requires considerable manual work to create a fingerprint database for a certain area.
+It requires considerable manual work to create a fingerprint \ac{DB} for a certain area.
 This makes it only feasible for smaller, contained areas and rather unusable for larger-scale geolocation such as in a whole city or state.
 
 \section{Comparison of findings with existing work}
@@ -465,7 +465,7 @@ This makes it unsuitable for widespread use on that particular network.
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
 
 For example, \ac{kNN} could be used to determine the location of a node based on the \ac{RSS} values of the surrounding gateways.
-\ac{kNN} also uses a database of fingerprints.
+\ac{kNN} also uses a \ac{DB} of fingerprints.
 However, it does not calculate the center of the matching data points but uses the ``k nearest neighbors'' to determine the location of a node~\cite{anagnostopoulos_reproducible_2019}.
 
 As was mentioned in \cref{sec:related-work}, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization where they used a deep learning approach.
