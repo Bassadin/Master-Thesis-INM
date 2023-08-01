@@ -60,7 +60,7 @@ The first antenna and gateway installed was a Dragino LG308 connected to a Mikro
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
 The roof of the C building is located in the center of the valley Furtwangen is situated in.
 Getting a backhaul connection there proved to be more difficult than anticipated, as the only available connection was a spare fiber optic cable.
-However, due to the generosity of the \ac{GHB} netadmins, it was possible to use this cable to connect the gateway to the \ac{HFU} network.
+However, due to the generosity of the \acl{GHB-NA}, it was possible to use this cable to connect the gateway to the \ac{HFU} network.
 
 A Dragino DLOS8N gateway with an antenna was placed on the roof of the B building because of the existing infrastructure.
 This roof was two stories higher than the C building roof, making it a good location for a gateway as well.
@@ -71,7 +71,7 @@ The Dragino DLOS8N was used because of its ability to easily be powered by \ac{P
 The \ac{GHB} is a popular student dormitory located on the Großhausberg mountainside in Furtwangen~\cite{ghb_netadmins_student_2023}.
 Its exposed location and the fact that it is among the highest buildings in the city makes it a good location for putting up a \ac{LoRaWAN} gateway.
 
-The network infrastructure of both the \ac{GHB} and the \ac{ASH} are managed by the ``\ac{GHB} NetAdmins'' who are students of \ac{HFU}.
+The network infrastructure of both the \ac{GHB} and the \ac{ASH} are managed by the \acl{GHB-NA} who are students of \ac{HFU}.
 With their help, it was possible to install antennas on the roofs of the \ac{GHB} and \ac{ASH}.
 
 \begin{figure}[htbp]
@@ -89,41 +89,42 @@ Again, \ac{PoE} was used to power the gateway since only one cable needed to be 
 
 \subsubsection{\acf{ASH}}
 
-The \ac{ASH} is a former student dormitory located in the Furtwangen city area which is currently used as housing for refugees from the ongoing war between Ukraine and Russia.
-It is located on a hillside in the city area and is thus a good location for a \ac{LoRaWAN} gateway.
-Its network infrastructure is also managed by the ``\ac{GHB} NetAdmins'', which made getting it connected to \ac{HFU} network infrastructure painless with their forthcoming support.
+The \ac{ASH} is a former student dormitory located in the city of Furtwangen, which is currently used as housing for refugees.
+It sits on a hillside in the city area and was therefore considered a good location for a \ac{LoRaWAN} gateway.
+Its network infrastructure is historically managed by the \acl{GHB-NA} and is actually directly connected to the \ac{GHB} building.
+This made getting it connected to \ac{HFU} network infrastructure possible even though there were some difficulties with the switches installed in the building as well as crimping the required Ethernet cables.
 
-\begin{figure}[htbp]
+\begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
+    \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
     \caption{
         Installed Dragino DLOS8N gateway with antenna on the roof of the \ac{ASH}.
         Once again, the \ac{LoS} area of the gateway can be seen in the background.
-        Also in the background, to the left and right of the gateway, are the two towers of the \ac{GHB}.
+        Also in the background, to the left and right of the gateway's antenna, are the two towers of the \ac{GHB}.
     }\label{pic:dragino-gateway-ash}
 \end{figure}
 
 \Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N gateway on the roof of the \ac{ASH}.
 This gateway is also powered by \ac{PoE}.
-The ``\ac{GHB} NetAdmins'' already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the gateway.
+The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the gateway.
 
 \subsubsection{\emph{DL0FIS} amateur radio club station (Neueck, Gütenbach)}
 
 The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
 With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \cref{pic:antenna-dl0fis-clubhouse}.
 
-\begin{figure}[htbp]
+\begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
+    \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
     \caption{
         Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
         The antenna has a gain of 8dBi and was connected to a Dragino LG308N gateway.
-        It was the largest antenna used in this thesis.
+        It was the most powerful antenna used in this thesis.
         The picture does not show the impressive location of the antenna on a hill between Gütenbach and Furtwangen.
     }\label{pic:antenna-dl0fis-clubhouse}
 \end{figure}
 
-The exposed location of the clubhouse on a hillside between Gütenbach and Furtwangen was thought to make a good location for a \ac{LoRaWAN} gateway.
+The exposed location of the clubhouse on a hillside between Gütenbach and Furtwangen was thought to be a good location for a \ac{LoRaWAN} gateway.
 
 \section{Collecting additional \acf{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
 
