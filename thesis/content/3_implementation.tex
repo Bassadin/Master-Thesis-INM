@@ -36,8 +36,9 @@ Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 \subsection{Locations}\label{sec:gateway-locations}
 
 Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
-Various factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
-Altitude was also a factor that was considered, as a placement on a higher altitude will usually allow for a larger range of the gateway, especially in urban areas such as the city of Furtwangen.
+Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the gateways.
+Only buildings that the \ac{HFU} has liberal access to were considered, since a long-term deployment of the hardware was desirable to avoid makeshift solutions.
+Altitude was also a factor that was considered, as a placement at a higher elevation usually allows for a greater range of the gateway, especially in urban areas such as the city of Furtwangen.
 
 \begin{figure}[htbp]
     \centering
@@ -48,8 +49,8 @@ Altitude was also a factor that was considered, as a placement on a higher altit
     }\label{pic:gateways-placement-map}
 \end{figure}
 
-\Cref{pic:gateways-placement-map} shows the locations of the gateways that were installed during this thesis and also some that were already present.
-In the following sections, these final chosen locations are described and evaluated.
+\Cref{pic:gateways-placement-map} shows the locations of the gateways that were installed during this thesis as well as some that were already present.
+The following sections describe and evaluate these final selected sites.
 
 \Cref{sec:gateway-locations-conclusions} will evaluate the chosen locations and give a conclusion on the placement of the gateways.
 
@@ -58,10 +59,12 @@ In the following sections, these final chosen locations are described and evalua
 The first antenna and gateway installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
 The roof of the C building is located in the center of the valley Furtwangen is situated in.
+Getting a backhaul connection there proved to be more difficult than anticipated, as the only available connection was a spare fiber optic cable.
+However, due to the generosity of the \ac{GHB} netadmins, it was possible to use this cable to connect the gateway to the \ac{HFU} network.
 
-Another gateway with antenna was deployed on top of the B building as there already was ample infrastructure available.
-Additionally, this roof was two stories higher than the C building roof, making it a good location for a gateway as well.
-A Dragino DLOS8N gateway was used here because of its ability to easily be powered by \ac{PoE}.
+A Dragino DLOS8N gateway with an antenna was placed on the roof of the B building because of the existing infrastructure.
+This roof was two stories higher than the C building roof, making it a good location for a gateway as well.
+The Dragino DLOS8N was used because of its ability to easily be powered by \ac{PoE} and its weatherproof housing.
 
 \subsubsection{\acf{GHB}}
 
