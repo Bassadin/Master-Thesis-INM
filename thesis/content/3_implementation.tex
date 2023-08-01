@@ -2,12 +2,13 @@
 
 \section{Installing gateways in Furtwangen}
 
-\ac{TTNM} already had a number of data points for existing \ac{LoRaWAN} gateways in the Furtwangen area.
+At the beginning of this thesis, \ac{TTNM} already showed one existing \ac{LoRaWAN} gateway in the Furtwangen area.
+It was located on top of the \ac{HFU} G building and was installed by a team of students of the Business Informatics (WING) faculty.
+
 However, to make a good geolocation through multilateration for a \ac{LoRaWAN} node, it is necessary to have at least three gateways in range of the node, as shown in \cref{sec:multilateration-basics}.
+Thus, the first step was to research and order additional gateways.
 
-Since, at the beginning of this thesis, there were only two gateways installed in the vicinity of Furtwangen, the first step was to research and order additional gateways.
-
-Afterwards, the gateways had to be installed at suitable locations.
+Next, the gateways had to be installed in suitable locations.
 This was made possible by the many helping hands that were involved in the installation process, as mentioned in \cref{sec:expression-of-thanks}.
 
 \subsection{Researching gateways}
@@ -17,23 +18,25 @@ Such was the case for the \emph{Dragino LG308 / LG308N} indoor gateways as well 
 
 Additionally, for development purposes, a \emph{Dragino PG1301} gateway was also used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
+This allows low-level access to the \ac{LoRa} module on the board, since it can be directly accessed by the Raspberry Pi's serial interface.
 
 Two MikroTik wAP LR8 kit gateways were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
 The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
+However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \cref{sec:lorawan-lbs}.
 A picture of this gateway can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna which can be seen in \cref{pic:mikrotik-antenna-c-building}.
 
 The other gateways that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor gateways.
 This gateway was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
-It was available at the time of the order, so it was chosen as a short-term replacement.
+It was readily available at the time of the order and was chosen as a short-term replacement.
 It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
-The DLOS8N also has a weatherproof case for outdoor use, making it similarly suitable to the LR8.
+Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 
 \subsection{Locations}\label{sec:gateway-locations}
 
 Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
-Multiple factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
+Various factors were considered when choosing these locations, such as availability of a stable backhaul internet connection as well as the positioning of the gateways.
 Altitude was also a factor that was considered, as a placement on a higher altitude will usually allow for a larger range of the gateway, especially in urban areas such as the city of Furtwangen.
 
 \begin{figure}[htbp]
