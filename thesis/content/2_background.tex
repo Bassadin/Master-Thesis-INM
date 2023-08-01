@@ -720,3 +720,9 @@ While \ac{ML} approaches can be used to improve fingerprinting, they were not us
 
 Fortunately, building a \ac{DB} of fingerprints for the use case explored in this thesis is fairly straightforward, since the \ac{TTNM} \ac{API} already provides the necessary raw data, as mentioned in \cref{sec:ttn-mapper-importance}.
 \Cref{sec:collecting-additional-ttnm-data} will explain the \ac{LoRaWAN} devices used to collect additional data for fingerprinting.
+
+\subsubsection{Using additional values for fingerprinting}\label{sec:fingerprinting-additional-values}
+
+In addition to the \ac{RSS} values, other values were used in this thesis in an attempt to improve the accuracy of fingerprinting.
+These values are the \ac{SNR} and the \ac{SF} of the received packets.
+They are recorded by \ac{TTN} in addition to the \ac{RSS} values for each gateway that received the packet, so it was simple to include them in the fingerprinting \ac{DB}.
