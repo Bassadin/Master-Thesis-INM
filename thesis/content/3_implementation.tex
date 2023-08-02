@@ -137,7 +137,7 @@ This was done by using \ac{LoRaWAN} devices that were equipped with \ac{GPS} mod
 
 In this chapter, the \ac{LoRa} devices used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 
-\subsubsection{ELV LW experimental platform}
+\subsubsection{ELV LW experimental platform}\label{subsubsec:elv-lw-experimental-platform}
 
 \begin{figure}[htbp]
     \centering
@@ -184,13 +184,14 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
 \end{figure}
 
 The ELV-LW-GPS1 is another \ac{LoRaWAN} node designed to be used as a \ac{GPS} tracker.
+Usability-wise, it was similar to the ELV LW experimental platform described in~\cref{subsubsec:elv-lw-experimental-platform}.
+
 It requires a power source that can range from 5 to 40 V, which makes it flexible in terms of power supply.
 For example, it can be used with a car battery, which usually has a voltage of 12V.
 
 Finding a power source to be able to use it for this thesis was a challenge.
 While it can be powered by a 9V battery, those usually have a low capacity and are not rechargeable.
-
-However, several such 9V batteries were used for data collection during this thesis.
+However, due to the lack of alternatives several such 9V batteries were used for data collection during this thesis.
 
 \Cref{subsec:gnss-power-usage} used this node to compare the power consumption of the \ac{GPS} module to the power consumption of a \ac{LoRa} transmission.
 
