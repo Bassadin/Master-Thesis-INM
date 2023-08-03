@@ -267,6 +267,7 @@ literate=
 % APPENDIX
 % ##################################################
 \usepackage[title,titletoc]{appendix}
+\usepackage{pdfpages}
 
 % appendix chapter
 \newcommand{\appendixchapter}[1]{
@@ -278,9 +279,8 @@ literate=
 
 % insert monthly report pdf as picture in order to keep page header
 \newcommand{\monthlyreport}[2]{
-    \section{#1}
-    \centering
-    \includegraphics[trim=55 35 55 35,clip,width=1\textwidth]{#2}
+    \includepdf[pages=1,pagecommand={\thispagestyle{empty}\section{#1}}, scale=0.97, offset=0 -20]{#2}
+    \includepdf[pages=2-, scale=1]{#2}
     \clearpage
 }
 
