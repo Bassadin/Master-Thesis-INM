@@ -94,15 +94,32 @@ It sits on a hillside in the city area and was therefore considered a good locat
 Its network infrastructure is historically managed by the \acl{GHB-NA} and is actually directly connected to the \ac{GHB} building.
 This made getting it connected to \ac{HFU} network infrastructure possible even though there were some difficulties with the switches installed in the building as well as crimping the required Ethernet cables.
 
-\begin{figure}
+
+\begin{figure*}
     \centering
-    \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
-    \caption{
-        Installed Dragino DLOS8N gateway with antenna on the roof of the \ac{ASH}.
-        Once again, the \ac{LoS} area of the gateway can be seen in the background.
-        Also in the background, to the left and right of the gateway's antenna, are the two towers of the \ac{GHB}.
-    }\label{pic:dragino-gateway-ash}
-\end{figure}
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
+        \caption{
+            Installed Dragino DLOS8N gateway with antenna on the roof of the \ac{ASH}.
+            Once again, the \ac{LoS} area of the gateway can be seen in the background.
+            Also in the background, to the left and right of the gateway's antenna, are the two towers of the \ac{GHB}.
+        }\label{pic:dragino-gateway-ash}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
+        \caption{
+            Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
+            The antenna has a gain of 8dBi and was connected to a Dragino LG308N gateway.
+            It was the most powerful antenna used in this thesis.
+            The picture does not show the impressive location of the antenna on a hill between Gütenbach and Furtwangen.
+        }\label{pic:antenna-dl0fis-clubhouse}
+    \end{subfigure}
+
+    \caption{Pictures of some installed \ac{LoRaWAN} gateways and antennas.}
+\end{figure*}
 
 \Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N gateway on the roof of the \ac{ASH}.
 This gateway is also powered by \ac{PoE}.
@@ -112,17 +129,6 @@ The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities install
 
 The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
 With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \cref{pic:antenna-dl0fis-clubhouse}.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
-    \caption{
-        Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
-        The antenna has a gain of 8dBi and was connected to a Dragino LG308N gateway.
-        It was the most powerful antenna used in this thesis.
-        The picture does not show the impressive location of the antenna on a hill between Gütenbach and Furtwangen.
-    }\label{pic:antenna-dl0fis-clubhouse}
-\end{figure}
 
 The exposed location of the clubhouse on a hillside between Gütenbach and Furtwangen was thought to be a good location for a \ac{LoRaWAN} gateway.
 
@@ -137,36 +143,43 @@ This was done by using \ac{LoRaWAN} devices that were equipped with \ac{GPS} mod
 
 In this chapter, the \ac{LoRa} devices used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 
-\subsubsection{ELV LW experimental platform}\label{subsubsec:elv-lw-experimental-platform}
-
-\begin{figure}[htbp]
+\begin{figure*}
     \centering
-    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
-    \caption{
-        ELV-AM-GPS module node mounted on the LoRIS \ac{LoRaWAN} base.
-        The brownish \ac{GPS} module can be seen on the right.
-        There are several other modules that can be stacked on top of the base, such as a CO\textsubscript{2} or temperature sensor.
-        Battery operation is possible by stacking a battery module on top of the base.
-        Unfortunately, the \ac{GPS} module consumes too much power to be used with the battery module.
-    }\label{pic:loris-node-bare}
-\end{figure}
+
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
+        \caption{
+            ELV-AM-GPS module end device mounted on the LoRIS \ac{LoRaWAN} base.
+            The brownish \ac{GPS} module can be seen on the right.
+        }\label{pic:loris-node-bare}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
+        \caption{
+            ELV-AM-GPS \ac{LoRaWAN} end device inside a quickly designed 3D printed case.
+            The case and the end device are held together by a few rubber bands.
+        }\label{pic:loris-node-with-case}
+    \end{subfigure}
+
+    \caption{Pictures of the ELV-AM-GPS end device.}
+\end{figure*}
+
+\subsubsection{ELV LW experimental platform}\label{subsubsec:elv-lw-experimental-platform}
 
 The ELV LW experimental platform was the \ac{LoRaWAN} node out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned.
 The ELV LW experimental platform consists of a base module called ELV-BM-TRX1 and a number of different sensor modules that can be stacked on top of it as seen in~\cref{pic:loris-node-bare}\cite{elv_elektronik_ag_elv-lw-base_2023}.
 It has a USB-C port, which made powering the tracker with an external power bank simple.
 
+There are several other modules that can be stacked on top of the base, such as a CO\textsubscript{2} or temperature sensor.
+Battery operation is possible by stacking a battery module on top of the base.
+Unfortunately, the \ac{GPS} module consumes too much power to be used with the battery module.
+
 Little had to be done in order to begin using the base with the additional \ac{GPS} module ELV-AM-GPS~\cite{elv_elektronik_ag_elv-track_2022}.
 Flashing the firmware using a tool provided by the manufacturer was the first step.
 Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS module had to be entered into \ac{TTN}.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
-    \caption{
-        ELV-AM-GPS \ac{LoRaWAN} node inside a quickly designed 3D printed case.
-        The case and the node are held together by a few rubber bands.
-    }\label{pic:loris-node-with-case}
-\end{figure}
 
 To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
 
@@ -206,27 +219,33 @@ The \ac{GPS} module was not able to get a reliable fix on its own, even after or
 This seemed to be a hardware problem, since other users could get fixes reliably with external \ac{GPS} antennas.
 Because of those problems, the Heltec HTCC-AB02S was not used for data collection during this thesis.
 
-\begin{figure}[htbp]
+\begin{figure*}
     \centering
-    \includegraphics[width=0.5\textwidth]{pictures/hardware/gps-nodes/HTCC-AB02S.jpg}
-    \caption{
-        One of the Heltec HTCC-AB02S \ac{LoRaWAN} devices used during this thesis.
-        The \ac{OLED} display as well as the \ac{GPS} module as well as the \ac{LoRaWAN} antenna on the top right can be seen.
-    }\label{pic:heltec-htcc-ab02s}
-\end{figure}
+
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/HTCC-AB02S.jpg}
+        \caption{
+            One of the Heltec HTCC-AB02S \ac{LoRaWAN} devices used during this thesis.
+            The \acs{OLED} display as well as the \ac{GPS} module as well as the \ac{LoRaWAN} antenna on the top right can be seen.
+        }\label{pic:heltec-htcc-ab02s}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
+        \caption{
+            The dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}.
+            The solar module for power harvesting is between the two white labels on the top of the device.
+        }\label{pic:dnt-lw-ats}
+    \end{subfigure}
+
+    \caption{Pictures of some more end devices.}
+\end{figure*}
 
 The combination of the \ac{LoRa} module, the \ac{GPS} module and an \ac{OLED} screen is interesting, though.
 
 \subsubsection{dnt-LW-ATS}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
-    \caption{
-        The dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}.
-        Between the two white labels on the top of the device, the solar module for power harvesting can be seen.
-    }\label{pic:dnt-lw-ats}
-\end{figure}
 
 At first glance, this was the most promising \ac{LoRa} node for the task at hand.
 It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
