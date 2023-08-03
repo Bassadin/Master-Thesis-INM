@@ -915,9 +915,9 @@ To calculate a position estimate, \ac{TTNL} takes the center of the matching dat
 This was improved later by fitting the radius of the estimated position circle to half of the matching datapoints.
 An explanation will be given in \cref{subsubsec:conclusion-rssi-linear-regression}.
 
-\subsubsection{Adding \acf{SNR} to fingerprinting}\label{sec:adding-snr-to-fingerprinting}
+\subsubsection{Adding \acf{SNR} and \acf{SF} to fingerprinting}\label{sec:adding-snr-to-fingerprinting}
 
 In an attempt to make fingerprinting results more accurate, the \ac{SNR} value of the \ac{TTNM} datapoints was added to the fingerprinting algorithm in addition to the raw \ac{RSSI} values.
 Since \ac{TTN} captures \ac{SNR} and \ac{SF} with each forwarded package anyway, this didn't affect the diffficulty of data collectionand only required adding an extra column to the \ac{DB} schema.
 
-\cref{subsec:conclusion-fingerprinting} will show the improvements that this approach brought.
+\cref{subsec:conclusion-fingerprinting} will show the improvements that each of those approaches brought.
