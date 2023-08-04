@@ -34,11 +34,15 @@ To achieve this goal, some \ac{LoRaWAN} gateways that were already registered in
 
 Some papers have already looked into the topic of geolocation of \ac{LoRa} devices and the geolocation of \ac{IoT} devices in general.
 
-In 2004, Elnahrawy et al.\ researched ``The Limits of Localization Using Signal Strength''~\cite{elnahrawy_limits_2004}.
+In 2004, Elnahrawy et al.\ researched the limits of localization using signal strength~\cite{elnahrawy_limits_2004}.
 While they used Wi-Fi instead of \ac{LoRa}, their findings are still relevant.
 During their research, they concluded that indoor, building-scale \ac{RSS}-based localization without any additional complex environmental models or additional localization infrastructure has a median localization error of \SI{3.04}{\meter} and a 97th percentile error of \SI{9.14}{\meter}.
 
-Magno et al.\ showed a promising approach to locate \ac{LoRa} devices in 2018~\cite{magno_poster_2018}.
+Whitehouse et al.\ researched the localization of sensor nodes in 2007~\cite{whitehouse_practical_2007}.
+They used \ac{RSS} values to determine the distances between nodes, and they achieved an error of \SI{4.1}{\meter} in their network consisting of 49 nodes.
+The scale of that network only covered around \SI{30}{\meter} by \SI{30}{\meter}.
+
+In 2018, Magno et al.\ showed a promising approach to locate \ac{LoRa} devices~\cite{magno_poster_2018}.
 They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
 \ac{RTK} is a technique that uses a fixed, time-synchronized base station with \ac{GPS} to improve the localization signal of a mobile device called Rover.
 
