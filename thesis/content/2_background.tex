@@ -619,13 +619,13 @@ In a sense, \ac{PDOP} is a measure of the quality of the current \ac{GNSS} const
 \ac{HDOP}, on the other hand, is a measure of the quality of a two-dimensional fix.
 \Cref{pic:hdop-example-diagram} shows three examples of different \ac{HDOP} scenarios.
 
-\ac{HDOP} is relevant for this thesis since the \ac{GPS} tracker values sent to \ac{TTN} included the \ac{HDOP} value.
-It was used to filter out values that were not considered accurate enough to be used in the evaluation.
+The \ac{HDOP} value is relevant to this thesis because it is included in the \ac{GPS} tracker \ac{LoRaWAN} packets sent to \ac{TTN}.
+Thus, it was used to filter out values that were not considered accurate enough to be used in the evaluation.
 As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes certain data points based on the \ac{HDOP} value.
 
 \subsection{Power usage}\label{subsec:gnss-power-usage}
 
-In order to show the relevance of using \ac{RSS} values over \ac{GNSS} systems to locate end devices, this chapter will give a brief comparison of power consumption between the two.
+In order to show the relevance of using \ac{RSS} values over \ac{GNSS} systems to locate end devices, this section will give a brief comparison of power consumption between the two.
 The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
 It will be evaluated in more detail in \cref{subsubsec:elv-gps-tracker-implementation}.
 
