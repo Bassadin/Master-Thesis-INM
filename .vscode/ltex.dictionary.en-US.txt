@@ -106,3 +106,4 @@ GDOP
 UERE
 blinkeding
 npm
+NOSQL

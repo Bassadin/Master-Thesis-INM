@@ -446,11 +446,14 @@ Additionally, routes for different parts of requested data can be defined and pu
 
 \subsubsection{\acf{PSQL} / PostGIS}
 
+A \ac{RDBMS} was used because of the structured nature of the data that is stored in the \ac{DB} and its relations to other data.
+This makes using a \ac{RDBMS} in this case more suitable than using a NOSQL \ac{DB} where data is stored in a less structured way.
+
 \acl{PSQL} (also sometimes simply called \emph{Postgres}) is an open source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
 It is among the most popular \ac{DB} management systems worldwide~\cite{db-engines_most_2023}.
 
-In this thesis, for \ac{TTNL}, \ac{PSQL} was used as the \ac{DB} management system because of its popularity, its possibility to be used with the \ac{ORM} Prisma as well as PostGIS.\
-PostGIS is an extension for \ac{PSQL} that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
+For the \ac{TTNL} application, \ac{PSQL} was used as the \ac{DB} management system because of its popularity and its ability to be used with the \ac{ORM} Prisma.\
+In addition, PostGIS is an extension available for \ac{PSQL} that adds support for geographic objects and allows for geographic queries~\cite{postgis_psc__osgeo_postgis_2023}.
 
 \begin{lstlisting}[
     language=SQL,
