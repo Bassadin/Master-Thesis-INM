@@ -4,7 +4,7 @@
 
 The global market for \ac{IoT} devices is expected to grow from USD 686.46 billion in 2023 to USD 3,352.97 billion in 2030~\cite{statista_industrial_2023}.
 More and more industries are adopting \ac{IoT} devices in order to optimize their workflows.
-Over short distances and with mains-powered devices or devices that don't require years of battery life, it is relatively easy to achieve connections to the internet wirelessly with established technologies such as ZigBee, Thread or Wi-Fi.
+Over short distances and with mains-powered devices or devices that don't require years of battery life, it is simple to achieve connections to the internet wirelessly with established technologies such as ZigBee, Thread or Wi-Fi.
 However, bridging long distances can become a challenge when devices also need to consume as little power as possible.
 
 The \ac{LoRa} wireless communication protocol promises to address this challenge by offering a long range and low power usage with the drawback of having little throughput.
@@ -16,10 +16,11 @@ While \ac{LoRa} end devices can feature \ac{GPS} receivers to geolocate them whe
 This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
 \ac{LoRa} devices may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
 
-The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} devices without modifying them or the gateways used.
+The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} devices without the need to modify those end devices or the gateways used.
+This is done so that scaling the solution to the entirety of an existing \ac{LoRaWAN} network is possible.
 The goal is not to focus specifically on indoor or outdoor localization specifically but to provide a general overview of the topic.
 
-To achieve this goal, some \ac{LoRaWAN} gateways that were already registered in \acf{TTN} in Furtwangen were used as well as new gateways placed in the Furtwangen area.
+To achieve this goal, some \ac{LoRaWAN} gateways that were already registered in \acf{TTN} in Furtwangen were used as well as new gateways placed in Furtwangen.
 
 \section{Research Questions}\label{sec:introduction-research-questions}
 
@@ -29,14 +30,14 @@ To achieve this goal, some \ac{LoRaWAN} gateways that were already registered in
       \item What factors can affect the accuracy of this type of geolocation?
 \end{enumerate}
 
-\section{Existing / Related Work}\label{sec:related-work}
+\section{Related Work}\label{sec:related-work}
 % NOTE: Zahoransky: Should be about 1-3 (PDF) pages
 
 Some papers have already looked into the topic of geolocation of \ac{LoRa} devices and the geolocation of \ac{IoT} devices in general.
 
 In 2004, Elnahrawy et al.\ researched the limits of localization using signal strength~\cite{elnahrawy_limits_2004}.
 While they used Wi-Fi instead of \ac{LoRa}, their findings are still relevant.
-During their research, they concluded that indoor, building-scale \ac{RSS}-based localization without any additional complex environmental models or additional localization infrastructure has a median localization error of \SI{3.04}{\meter} and a 97th percentile error of \SI{9.14}{\meter}.
+During their research, they concluded that indoor, building-scale \ac{RSS}-based localization without any additional complex environmental models has a median localization error of \SI{3.04}{\meter} and a 97th percentile error of \SI{9.14}{\meter}.
 
 Whitehouse et al.\ researched the localization of sensor nodes in 2007~\cite{whitehouse_practical_2007}.
 They used \ac{RSS} values to determine the distances between nodes, and they achieved an error of \SI{4.1}{\meter} in their network consisting of 49 nodes.
@@ -84,7 +85,7 @@ In January 2023, Perković et al.\ published a paper on the topic of \ac{LoRa}-b
 They used a machine learning approach in addition to \ac{RSSI} and \ac{SNR} values to improve the accuracy of their localization method~\cite{perkovic_machine_2023}.
 
 In conclusion, some papers have already researched the topic of \ac{LoRa}-based localization and adjacent topics.
-This thesis will build upon the findings of these papers and try to apply them to a real-world deployment scenario in the city area of Furtwangen.
+This thesis will build upon the findings of these papers and try to apply them to a real-world deployment scenario in Furtwangen.
 
 \section{Outline}
 
@@ -99,7 +100,7 @@ This thesis is structured as follows:
             The development of the \ac{TTNL} web application, which was built to perform calculations on the collected data as well as to visualize it, is also shown.
       \item \textbf{Conclusion}:
             This chapter concludes the thesis and gives an evaluation on the topics discussed in it.
-            The placement of gateways in the Furtwangen city area is evaluated and the accuracy of the geolocation methods is discussed.
+            The placement of gateways in Furtwangen is evaluated and the accuracy of the geolocation methods is discussed.
             Technology choices related to the \ac{TTNL} application are also evaluated.
             Some problems and challenges encountered and how they could be overcome in the future are also discussed.
 \end{enumerate}
