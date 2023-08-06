@@ -348,6 +348,9 @@ This is because it can take into account the \ac{SF} and \ac{SNR} values of the 
 In addition, performance inside building is also better than with the multilateration approach, since the fingerprinting approach does not assume \ac{LoS} between the end device and the gateways.
 Thus, it can also take into account the \ac{MPP} effects such as attenuation that occur inside buildings or behind walls.
 
+In the example pictures given in \cref{fig:fingerprinting-map-example-dynamic-radius}, \cref{fig:fingerprinting-map-example-with-snr} and \cref{fig:fingerprinting-map-example-with-snr-and-sf}, the error radii improved from around \SI{250}{\meter} with only \ac{RSS} values to \SI{159}{\meter} with \ac{SNR} values and around \SI{164}{\meter} with \ac{SNR} and \ac{SF} values.
+The worse performance with both \ac{SF} and \ac{SNR} values can be explained due to the fact that the amount of training data for the area did not include many \aclp{SF} other than \acs{SF}7.
+
 \section{Comparison of findings with existing work}
 
 Several of the approaches found in \cref{sec:related-work} have better success in locating endpoints than the work in this thesis.
