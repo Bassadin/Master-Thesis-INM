@@ -41,7 +41,10 @@ During their research, they concluded that indoor, building-scale \ac{RSS}-based
 
 Whitehouse et al.\ researched the localization of sensor nodes in 2007~\cite{whitehouse_practical_2007}.
 They used \ac{RSS} values to determine the distances between nodes, and they achieved an error of \SI{4.1}{\meter} in their network consisting of 49 nodes.
-The scale of that network only covered around \SI{30}{\meter} by \SI{30}{\meter}.
+The scale of that network only covered around \SI{30}{\meter} by \SI{30}{\meter}, making it difficult to apply their results to real-world scenarios.
+
+Fargas and Petersen describe and evaluate a \ac{ToA}-based multilateration geolocation method in 2017 in their paper ``\acs{GPS}-free geolocation using \acs{LoRa} in low-power \acsp{WAN}''~\cite{fargas_gps-free_2017}.
+However, they only deploy a small, 4-gateway \ac{LoRaWAN} network and do not evaluate the method in a larger network such as \ac{TTN}.
 
 In 2018, Magno et al.\ showed a promising approach to locate \ac{LoRa} devices~\cite{magno_poster_2018}.
 They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
