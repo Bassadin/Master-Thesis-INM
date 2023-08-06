@@ -471,7 +471,7 @@ SELECT ST_DistanceSphere(
 \end{lstlisting}
 
 \Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the Earth's surface~\cite{postgis_psc__osgeo_st_distancesphere_nodate}.
-It takes into account the curvature of the Earth and is therefore more accurate than using a simple Pythagorean Theorem calculation to determine the distance between two points.
+It considers the curvature of the Earth and is therefore more accurate than using a simple Pythagorean Theorem calculation to determine the distance between two points.
 
 PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
 
