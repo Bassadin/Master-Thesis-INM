@@ -456,13 +456,13 @@ This section will list some of these projects and describe how they could be imp
 \subsubsection{Measuring the water level of the Breg river}
 
 One of the \ac{LoRaWAN} devices ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
-As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate, it would be possible to use this sensor to measure the water level of the Breg river flowing through the vicinity of the \ac{HFU}.
-This would allow for a more accurate prediction of the water level of the Breg river, which might in turn allow for a more accurate prediction of the water level of the Danube river.
-Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg river would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
+As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
+This would allow for a more accurate prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River.
+Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
 
 \subsubsection{Measuring soil moisture and environmental conditions in the Furtwangen city park}
 
-The same semester, Samuel Kasper, a student of the \ac{DM} faculty of the \ac{HFU} wrote his bachelor thesis about measuring the humidity as well as the temperature of the soil to monitor plants and crop growth.
+Also during the current semester, Samuel Kasper, a student of the \ac{DM} faculty of the \ac{HFU} wrote his bachelor's thesis on measuring the humidity and temperature of the soil to monitor plants and crop growth.
 The installation of \ac{LoRaWAN} gateways in Furtwangen helped him in this regard, as he did not have to install his own gateways and instead could use the now existing infrastructure in the city.
 
 \subsubsection{Monitoring of Gateways}
@@ -535,12 +535,12 @@ Another interesting project would be to self-host an instance of a \ac{LNS} like
 This would give students the opportunity to learn more about the inner workings of a \ac{LNS} and would also give the \ac{HFU} the ability to exert more control over the data collected by the \ac{LNS}.
 Both of them are \ac{OSS} and can be self-hosted using Docker or Docker Compose.
 
-\subsubsection{Privacy concerns}
+\subsection{Privacy concerns}
 
 Since the work in this thesis has shown that it is possible, at least at a rough level, to locate \ac{LoRaWAN} devices even without a \ac{GPS} receiver, there are some privacy concerns that need to be addressed.
 
 \ac{LoRaWAN} devices are small and can be hidden easily (for example under the hood of a car) while having a long battery life.
-This means that such devices could be used to track people without their knowledge even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration of fingerprinting.
+This means that such devices could be used to track people without their knowledge over long periods of time even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration of fingerprinting.
 
 As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \ac{LoRaWAN} gateway with enough data collection and time.
 This could allow bad actors to physically attack gateways connected to the public \ac{TTN} network.
@@ -553,10 +553,10 @@ This thesis deployed a full-stack application using \ac{LoRaWAN} technology, cov
 From installing the \ac{LoRaWAN} gateways to collecting the data via end devices, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
 
 The viability of \ac{RSS}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
-While the accuracy of the methods shown is, especially outdoors, inferior to that of \ac{GNSS}, it is still good enough for many use cases.
+While the accuracy of the methods shown, especially outdoors, is inferior to that of \ac{GNSS}, it is still good enough for many use cases, such as geofencing and others.
 
-In general, while the fingerprinting approach showed more promising accuracy results, it requires lots of manual work to collect the data.
-In comparison, the multilateration approach is easiert to implement and use without requiring manual work but is also much more easily affected by environmental factors.
+In general, while the fingerprinting approach showed more promising accuracy results, it requires a lot of manual work to collect the data.
+In comparison, the multilateration approach is easier to implement and use without requiring manual work but is also much more easily affected by environmental factors.
 
 The influence of such environmental factors like \ac{MPP} has been shown to be significant in the preceding chapters.
 It affected all \ac{RSS}-based measurements and, to a lesser extent, also the \ac{GNSS} measurements.
