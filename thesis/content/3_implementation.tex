@@ -400,29 +400,18 @@ Assigning the wrong type to a variable or passing the wrong type to a function t
 
 Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{openjs_foundation_nodejs_nodate}.
 It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{google_llc_v8_nodate}.
-Its main benefit is being able to use a single language for both frontend and backend development --- \ac{JS}, or, in this case, \ac{TS}.
+Its main benefit is being able to use a single language for both frontend and backend development --- \ac{JS}, or, in the case of \ac{TTNL}, \ac{TS}.
 
 Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
 
 \subsubsection{Express.js}
 
 Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{openjs_foundation_express_nodate}.
-``Unopinionated'' means that it does not enforce any specific way of implementing a web application and instead focuses on the premise ``configuration over convention'', leaving the developer to decide how to implement the specifics of the application~\cite{mardan_pro_2014}.
+``Unopinionated'' means that it does not enforce any particular way of implementing a web application and instead focuses on the premise of ``configuration over convention'', leaving it up to the developer to decide how to implement the specifics of the application~\cite{mardan_pro_2014}.
 
 It was used in this thesis as a means to implement the backend part of the \ac{TTNL} web application.
 Express.js allows for the creation of \ac{REST} \ac{API} endpoints that can be used by the frontend or by other applications.
-
-\begin{lstlisting}[language=TypeScript, float, caption={Example of an Express.js \ac{API} endpoint}, label={lst:express-api-endpoint}]
-router.get('/', async (request: Request, response: Response) => {
-    const numberOfDeviceSubscriptions = await GetterFunctions.getAmountOfDeviceSubscriptions();
-    response.send({
-        message: `Hello from ttn-locator-backend!\nCurrent amount of Device subscriptions: ${numberOfDeviceSubscriptions}`,
-    });
-});
-\end{lstlisting}
-
-\Cref{lst:express-api-endpoint} is an example of an Express.js \ac{API} endpoint that returns a simple message along with the current amount of device subscriptions~\cite{openjs_foundation_express_routing}.
-Express also allows for the creation of more complex endpoints that can, for example, return data from a \ac{DB}.
+Those endpoints can, for example, return data from a \ac{DB}.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
 \subsubsection{\acf{PSQL} / PostGIS}
