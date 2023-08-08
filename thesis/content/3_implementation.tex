@@ -691,13 +691,14 @@ This correlation was explained in \cref{sec:background-free-space-path-loss}.
     \caption{
         An example of the theory behind mapping \ac{RSS} values to distances using three gateways, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
         The device (orange pin) is located at the intersection of the three circles originating from the gateways (green pins).
-        \ac{RSS} values that are received by the gateways are inversely proportional to the distance between the device and the gateway.
-        They are used to calculate the distance between the device and the gateway, making a multilateration possible.
         The map was generated using the \ac{OSM} based tool \emph{umap}~\cite{noauthor_umap_nodate}.
     }\label{fig:rssi-multilateration-theoretical-example}
 \end{figure}
 
 \Cref{fig:rssi-multilateration-theoretical-example} shows an example of how \ac{RSS} values can be used to determine the location of a device.
+\ac{RSS} values that are received by the gateways are inversely proportional to the distance between the device and the gateway.
+They are used to calculate the distance between the device and the gateway, making a multilateration possible.
+
 A fact to take note of is that the \ac{RSSI} values measured by \ac{TTN} are only integers and not floating point numbers.
 This lowers the accuracy of the calculated distances and therefore the accuracy of the calculated location of the device.
 
@@ -707,7 +708,7 @@ Based on these facts, several attempts were made to calculate the distance betwe
 
 The first idea for determining the distance between a device and a gateway was to use a fixed \ac{RSSI} to range scale.
 This means that for a given \ac{RSSI} value, a range is determined by inputting said \ac{RSSI} value into a function.
-The equation depicted in \cref{eq:fixed-rssi-to-range-scale} shows an example where a \ac{RSSI} value is inputted.
+\Cref{eq:fixed-rssi-to-range-scale} shows an example that takes a \ac{RSSI} value.
 The result is the distance $D_{gateway}$ to the gateway in meters.
 
 \begin{equation}\label{eq:fixed-rssi-to-range-scale}
@@ -718,11 +719,11 @@ For example, a \ac{RSSI} value of -80 would result in a distance of \SI{355}{\me
 A value of -110 would result in a distance of \SI{715}{\meter}.
 
 The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
-While those values work well for the \ac{RF} reception behavior of the gateway that was used to derive them, they are not necessarily applicable to other gateways.
+While those values work reasonably well for the \ac{LoS} reception behavior of the gateway that was used to generate the regression, they are not necessarily applicable to other gateways.
 Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
 Although rare, \ac{RSS} values that are larger than a certain threshold can also return negative range values.
-In the example above, this is the case with values $>= -50$.
+In the example given in \cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>= -50$.
 
 Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when end device, gateway, and the distance between them stay the same.
 This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no \ac{LoS} between them.

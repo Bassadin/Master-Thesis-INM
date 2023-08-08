@@ -136,7 +136,7 @@ This lead to a denser data coverage of \acl{TTNM} in the Furtwangen area.
 \end{figure}
 
 \Cref{pic:ttnm-heatmap-after-data-collection} shows a view of the \ac{TTNM} heatmap after the additional data collection that was done during this thesis.
-The much redder color of the map is visible, meaning that the signal strength in these areas is stronger than before.
+The much redder color of the map is visible, meaning that the signal strength in these areas is stronger than before, as visible in \cref{pic:ttn-mapper-heatmap-with-gateways}.
 
 While there are still some blank spots, these are mostly due to the fact that these areas were not visited by \ac{GPS} trackers during the data collection in this thesis.
 
@@ -238,7 +238,7 @@ However, it cannot consider \ac{MPP} effects as well as end device antenna gain.
 \end{figure}
 
 \Cref{pic:rssi-to-range-multilateration-example-with-linear-regression} shows an example of the same data point as in \cref{pic:bad-rssi-to-range-multilateration-example} but with such a linear regression model that determines a mapping of \ac{RSS} values to ranges for each gateway.
-The example shows that the resulting position estimation where the three annuli intersect is better than before.
+The example shows that the resulting position estimation where the three annuli intersect is better than in \cref{pic:bad-rssi-to-range-multilateration-example}.
 However, since the linear regression model cannot account for \ac{MPP} effects either, the results still typically deviate from the actual position by a few hundred meters.
 
 \paragraph{Conclusion}
@@ -360,7 +360,7 @@ Nevertheless, the work in this thesis was successful in terms of rough geolocati
 The hardware deployments in this thesis were less focused on getting good geolocation results and more focused on getting a large amount of data from a wide variety of devices and gateways.
 This variety is also the case in real-world \ac{IoT} deployments.
 As far as \ac{LoRaWAN} coverage in the Furtwangen is concerned, this can be considered a success.
-As was shown in \cref{sec:gateway-locations-conclusions}, \ac{TTNM} now looks a lot more complete than it did before the work during this thesis.
+As was shown in \cref{sec:gateway-locations-conclusions}, \ac{LoRaWAN} coverage in Furtwangen on \ac{TTNM} now looks a lot more complete than it did before the work during this thesis (\cref{pic:ttnm-before-data-collection}).
 
 \section{Outlook}
 
@@ -449,7 +449,7 @@ In doing so, GraphQL also ships its own type system that can be used to generate
 
 \subsection{Projects made possible due to better \acs{LoRaWAN} coverage in Furtwangen}
 
-As there are now several new \ac{LoRaWAN} gateways in Furtwangen, there are several projects that can be done in the future that would not have been possible before without installing such gateways by oneself.
+Now that there are now several new \ac{LoRaWAN} gateways in Furtwangen, there are several projects that can be done in the future that would not have been possible before without installing such gateways by oneself.
 
 This section will list some of these projects and describe how they could be implemented.
 
@@ -457,7 +457,7 @@ This section will list some of these projects and describe how they could be imp
 
 One of the \ac{LoRaWAN} devices ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
 As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
-This would allow for a more accurate prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River.
+This could allow for a prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River, for example.
 Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
 
 \subsubsection{Measuring soil moisture and environmental conditions in the Furtwangen city park}
