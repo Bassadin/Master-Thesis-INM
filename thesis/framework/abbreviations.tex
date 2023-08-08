@@ -1,36 +1,61 @@
 \chapter*{List of Abbreviations\markboth{List of Abbreviations}}
 \addcontentsline{toc}{chapter}{List of Abbreviations}
 
-\begin{acronym}[HSN-TTN]
-    % General
+\begin{acronym}[LoRaWAN]
+    \acro{ABP}{Activation by Personalization}
+    \acro{ADR}{Adaptive Data Rate}
     \acro{AES}{Advanced Encryption Standard}
+    \acro{API}{Application Programming Interface}
     \acro{AS}{Application Server}
     \acrodefplural{AS}{Application Servers}
     \acro{ASH}{Albert-Schweizer-Haus}
     \acro{AWS}{Amazon Web Services}
-    \acro{CI/CD}{Con\-tinu\-ous In\-te\-gra\-tion and Con\-tinu\-ous De\-li\-ve\-ry}
+    \acro{BDS}{BeiDou Navigation Satellite System}
+    \acro{CDMA}{Code Division Multiple Access}
+    \acro{CHIRP}{Continuous High Impulse Radio Pulse}
+    \acro{CI/CD}{Continuous Integration and Continuous Delivery}
     \acro{CPU}{Central Processing Unit}
+    \acro{CSV}{Comma Separated Values}
     \acro{CUPS}{Configuration and Update Server}
+    \acro{CSS}{CHIRP Spread Spectrum}
     \acro{DB}{Database}
+    \acro{DOP}{Dilution of Precision}
     \acro{DM}{Digital Media}
+    \acro{DOM}{Document Object Model}
     \acro{E2EE}{End-to-End Encryption}
+    \acro{ERP}{Effective Radiated Power}
     \acro{EU}{European Union}
+    \acro{FDM}{Frequency Division Multiplexing}
+    \acro{FSPL}{Free Space Path Loss}
     \acro{GHB}{Großhausberg Student Dormitory}
-    \acro{GHB-NA}{\ac{GHB} NetAdmins}
+    \acro{GHB-NA}{GHB NetAdmins}
+    \acro{GLONASS}{Globalnaya navigatsionnaya sputnikovaya sistema}
+    \acro{GPS}{Global Positioning System}
+    \acro{GNSS}{Global Navigation Satellite System}
+    \acro{HDOP}{Horizontal \ac{DOP}}
     \acro{HFU}{Hochschule Furtwangen University}
-    \acro{HSN-TTN}{Hochschwarzwald\-Smart\-Net-The\-Things\-Network}
+    \acro{HTML}{HyperText Markup Language}
+    \acro{HTTP}{HyperText Transfer Protocol}
+    \acro{HTTPS}{HTTP Secure}
+    \acro{IRNSS}{Indian Regional Navigation Satellite System}
     \acro{IoT}{Internet of Things}
+    \acro{JIT}{Just in Time}
+    \acro{JS}{JavaScript}
+    \acro{JSON}{JavaScript Object Notation}
     \acro{kNN}{k-Nearest Neighbors}
     \acro{LAN}{Local Area Network}
     \acrodefplural{LAN}{Local Area Networks}
-    \acro{LoS}{Line of Sight}
+    \acro{LBS}{LoRa Basics\texttrademark~Station}
+    \acro{LNS}{LoRaWAN Network Server}
+    \acro{LoRa}{Long Range}
+    \acro{LoRaWAN}{LoRa Wide Area Network}
+    \acro{LPWAN}{Low Power \ac{WAN}}
+    \acrodefplural{LPWAN}{Low Power \acp{WAN}}
     \acro{LTE}{Long Term Evolution}
     \acro{MAN}{Metropolitan Area Network}
     \acrodefplural{MAN}{Metropolitan Area Networks}
-    \acro{ML}{Machine Learning}
-    \acro{MIC}{Message Integrity Code}
     \acro{MPP}{Multipath Propagation}
-    \acro{NLoS}{Non \acl{LoS}}
+    \acro{NLoS}{Non Line of Sight}
     \acro{OLED}{Organic Light Emitting Diode}
     \acro{ORM}{Object Relational Mapper}
     \acrodefplural{ORM}{Object Relational Mappers}
@@ -38,90 +63,40 @@
     \acro{OSM}{OpenStreetMap}
     \acro{OSS}{Open Source Software}
     \acro{OTA}{Over the Air}
+    \acro{PDOP}{Position DOP}
     \acro{PoE}{Power over Ethernet}
+    \acro{PPS}{Precise Positioning Service}
     \acro{QoS}{Quality of Service}
     \acro{RDBMS}{Relational Database Management System}
     \acro{REST}{Representational State Transfer}
     \acro{RF}{Radio Frequency}
     \acro{RSS}{Received Signal Strength}
-    \acro{RSSI}{\acl{RSS} Indicator}
+    \acro{RSSI}{RSS Indicator}
     \acro{RTC}{Real Time Clock}
+    \acro{RTK}{Real Time Kinematic}
     \acro{SaaS}{Software as a Service}
+    \acro{SF}{Spreading Factor}
+    \acrodefplural{SF}{Spreading Factors}
     \acro{SNR}{Signal to Noise Ratio}
-    \acro{TDoA}{Time Difference of Arrival}
-    \acro{TLS}{Transport Layer Security}
+    \acro{SQL}{Structured Query Language}
+    \acro{SUPF}{Semtech \ac{UDP} Packet Forwarder}
+    \acro{TCP}{Transmission Control Protocol}
+    \acro{TDOP}{Time DOP}
     \acro{ToA}{Time of Arrival}
+    \acro{TS}{TypeScript}
+    \acro{TTFF}{Time to First Fix}
+    \acro{TTI}{The Things Industries}
+    \acro{TTN}{The Things Network}
+    \acro{TTNL}{\ac{TTN} Locator}
+    \acro{TTNM}{\ac{TTN} Mapper}
+    \acro{TTS}{The Things Stack}
+    \acro{UDP}{User Datagram Protocol}
     \acro{UI}{User Interface}
     \acro{URL}{Uniform Resource Locator}
     \acro{UWB}{Ultra Wideband}
-    \acro{TTFF}{Time to First Fix}
-    \acro{VM}{Virtual Machine}
     \acro{VSC}{Visual Studio Code}
     \acro{WAN}{Wide Area Network}
     \acrodefplural{WAN}{Wide Area Networks}
-
-    % GNSS specific
-    \acro{BDS}{BeiDou Navigation Satellite System}
-    \acro{DOP}{Dilution of Precision}
-    \acro{GDOP}{Geometric \acl{DOP}}
-    \acro{GPS}{Global Positioning System}
-    \acro{GNSS}{Global Navigation Satellite System}
-    % \acro{GLONASS}{Глоба́льная навигацио́нная спу́тниковая систе́ма}
-    \acro{GLONASS}{Globalnaya navigatsionnaya sputnikovaya sistema}
-    \acro{Galileo}{Galileo Positioning System}
-    \acro{HDOP}{Horizontal \acl{DOP}}
-    \acro{IRNSS}{Indian Regional Navigation Satellite System}
-    \acro{PDOP}{Position \acl{DOP}}
-    \acro{PPS}{Precise Positioning Service}
-    \acro{RTK}{Real Time Kinematic}
-    \acro{SPS}{Standard Positioning Service}
-    \acro{TDOP}{Time \acl{DOP}}
-    \acro{UERE}{User Equivalent Range Error}
-    \acro{VDOP}{Vertical \acl{DOP}}
-
-    % LoRa specific
-    \acro{ABP}{Activation by Personalization}
-    \acro{ADR}{Adaptive Data Rate}
-    \acro{CDMA}{Code Division Multiple Access}
-    \acro{CHIRP}{Continuous High Impulse Radio Pulse}
-    \acro{CSS}{\acs{CHIRP} Spread Spectrum}
-    \acro{CUPS}{Configuration and Update Server}
-    \acro{ERP}{Effective Radiated Power}
-    \acro{FDM}{Frequency Division Multiplexing}
-    \acro{FSPL}{Free Space Path Loss}
-    \acro{LBS}{LoRa Basics\texttrademark~Station}
-    \acro{LNS}{LoRaWAN Network Server}
-    \acro{LoRa}{Long Range}
-    \acro{LoRaWAN}{\acl{LoRa} \acl{WAN}}
-    \acro{LPWAN}{Low Power \acl{WAN}}
-    \acrodefplural{LPWAN}{Low Power \aclp{WAN}}
-    \acro{OTAA}{Over the Air Activation}
-    \acro{SF}{Spreading Factor}
-    \acrodefplural{SF}{Spreading Factors}
-    \acro{SUPF}{Semtech \acs{UDP} Packet Forwarder}
-    \acro{TP}{Transmission Power}
-    \acro{TTI}{The Things Industries}
-    \acro{TTN}{The Things Network}
-    \acro{TTNM}{\acs{TTN} Mapper}
-    \acro{TTNL}{\acs{TTN} Locator}
-    \acro{TTS}{The Things Stack}
-
-    % Programming specific
-    \acro{API}{Application Programming Interface}
-    \acro{CSV}{Comma Separated Values}
-    \acro{DOM}{Document Object Model}
-    \acro{ERD}{Entity Relationship Diagram}
-    \acro{HTML}{HyperText Markup Language}
-    \acro{HTTP}{HyperText Transfer Protocol}
-    \acro{HTTPS}{\acl{HTTP} Secure}
-    \acro{JIT}{Just in Time}
-    \acro{JS}{JavaScript}
-    \acro{JSON}{JavaScript Object Notation}
-    \acro{PSQL}{PostgreSQL}
-    \acro{SQL}{Structured Query Language}
-    \acro{TCP}{Transmission Control Protocol}
-    \acro{TS}{TypeScript}
-    \acro{UDP}{User Datagram Protocol}
     \acro{WSS}{WebSocket Secure}
 \end{acronym}
 
