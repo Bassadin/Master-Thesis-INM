@@ -396,24 +396,6 @@ However, it can also be used outside a browser, for example, to create server ap
 This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler.
 Assigning the wrong type to a variable or passing the wrong type to a function then triggers compile-time error instead of a runtime error.
 
-\begin{lstlisting}[
-    language=TypeScript,
-    float,
-    caption={Example of type checking in \ac{TS}},
-    label={lst:example-ts-type-checking}
-]
-const user = {
-    firstName: "Teysa",
-    lastName: "Karlov",
-    role: "Guildmaster",
-}
-    
-console.log(user.name)
-\end{lstlisting}
-
-\Cref{lst:example-ts-type-checking} shows an example of how \ac{TS} can help prevent runtime errors.
-The \ac{TS} compiler would show the message \lstinline|Property `name' does not exist on type { firstName: string; lastName: string; role: string; }| since \lstinline{name} is not a property of the \lstinline{user} object.
-
 \subsubsection{Node.js}\label{sec:nodejs}
 
 Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{openjs_foundation_nodejs_nodate}.
