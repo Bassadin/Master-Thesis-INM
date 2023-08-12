@@ -107,3 +107,6 @@ UERE
 blinkeding
 npm
 NOSQL
+FCntUp
+FCntDown
+downlinks
