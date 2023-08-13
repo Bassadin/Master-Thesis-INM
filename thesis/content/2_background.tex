@@ -621,8 +621,8 @@ In a sense, \ac{PDOP} is a measure of the quality of the current \ac{GNSS} const
 \ac{HDOP}, on the other hand, is a measure of the quality of a two-dimensional fix.
 \Cref{pic:hdop-example-diagram} shows three examples of different \ac{HDOP} scenarios.
 
-The \ac{HDOP} value is relevant to this thesis because it is included in the \ac{GPS} tracker \ac{LoRaWAN} packets sent to \ac{TTN}.
-Thus, it was used to filter out values that were not considered accurate enough to be used in the evaluation.
+The \ac{HDOP} value is relevant to this thesis because it was used to filter out values that were not considered accurate enough to be used in the evaluation.
+It is included in most \ac{LoRaWAN} packets from \ac{GPS} trackers sent to \ac{TTN}.
 As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes certain data points based on the \ac{HDOP} value.
 
 \subsection{Power usage}\label{subsec:gnss-power-usage}
