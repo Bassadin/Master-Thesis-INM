@@ -407,7 +407,8 @@ Node.js is available as a Docker image, which makes it easy to use in the Docker
 \subsubsection{Express.js}
 
 Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{openjs_foundation_express_nodate}.
-``Unopinionated'' means that it does not enforce any particular way of implementing a web application and instead focuses on the premise of ``configuration over convention'', leaving it up to the developer to decide how to implement the specifics of the application~\cite{mardan_pro_2014}.
+``Unopinionated'' means that it does not enforce any particular way of implementing a web application and instead focuses on the premise of ``configuration over convention''.
+It is up to the developer to decide how to implement the specifics of the application~\cite{mardan_pro_2014}.
 
 It was used in this thesis as a means to implement the backend part of the \ac{TTNL} web application.
 Express.js allows for the creation of \ac{REST} \ac{API} endpoints that can be used by the frontend or by other applications.
@@ -590,7 +591,7 @@ The data that was collected by \ac{TTNM} was not without errors and outliers.
 \ac{TTNM} filters out some of the data that is sent to it.
 For example, it does not accept data points that have a \ac{HDOP} value greater than a certain unspecified amount.
 As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values above 5 were recorded, so it is likely that this is the cutoff point.
-There were several problems that were noticed when trying to use the data for localization purposes:
+There were two problems that were noticed when trying to use the data for localization purposes:
 
 \begin{itemize}
     \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the device moved from one location to another one that was far away in a short amount of time.
