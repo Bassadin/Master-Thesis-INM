@@ -110,3 +110,5 @@ NOSQL
 FCntUp
 FCntDown
 downlinks
+Fargas
+Whitehouse
