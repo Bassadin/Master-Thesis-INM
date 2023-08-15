@@ -255,6 +255,8 @@ Even when using a linear regression model to generate a mapping of \ac{RSS} valu
 
 In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \cref{fig:toa-bad-data-example}, another factor has to be considered.
 \ac{TTN} captures timestamps for packets arriving at gateways in the following format: \lstinline|2000-01-01T12:00:00.123456Z|.
+These timestamps can be found in the \lstinline|uplink_message.rx_metadata[*].time| field of the \ac{JSON} payload that can be viewed in the \ac{TTN} console for each packet that arrives from a certain end device.
+It uses the \ac{ISO} 8601 \ac{UTC} standard for timestamps~\cite{newman_date_2002}.
 The six decimal places after the seconds mean that the timestamp is accurate to \SI{1}{\micro\second}.
 \Cref{eq:toa-accuracy-ttn-microseconds} shows that when using microseconds to calculate the distance to a \ac{LoRaWAN} gateway based on the speed of light, a maximum accuracy of \SI{300}{\meter} can be achieved.
 
