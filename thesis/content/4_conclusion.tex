@@ -338,6 +338,8 @@ That way, the \ac{SNR} values of the remaining data points are more comparable t
 \Cref{fig:fingerprinting-map-example-with-snr-and-sf} shows an example with \ac{SF} filtering turned on.
 The result is dependent on the amount of training data that was collected for the area, but for most cases, also filtering by \ac{SF} further improves the accuracy of the results.
 This is because it removes results with a \ac{SF} different from the one used by the end device, which could otherwise have \ac{SNR} values different from the actual end device packets.
+As most \ac{LoRaWAN} end devices used in this thesis were using \ac{SF}7, the example given in \cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \cref{fig:fingerprinting-map-example-with-snr}.
+However, if a larger dataset with more \ac{SF} values were used, the improvement would be more visible.
 
 \subsubsection{Conclusion}
 
