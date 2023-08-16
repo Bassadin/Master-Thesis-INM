@@ -409,7 +409,8 @@ This would enable the \ac{TTNL} software to function without \ac{TTNM} and would
 Because the frontend and backend were split up into two separate repositories, some \ac{TS} type definitions had to be duplicated.
 This resulted in some manual work when changing the type definitions, as changes had to be applied to both repositories.
 In the future, this could be improved in several ways.
-For example, the frontend and backend could be merged into a single repository.
+For example, the frontend and backend could be merged into a single repository, called a \emph{monorepo}~\cite{narwhal_technologies_inc_monorepo_2022}.
+
 The type definitions could also be moved to a separate repository that is used as a dependency in both the frontend and backend repositories.
 
 \subsubsection{Choice of technologies}
@@ -436,7 +437,7 @@ As a result, it would no longer be possible to deploy the \ac{TTNL} frontend and
 \paragraph{Prisma}
 
 While Prisma enables the developer to write type safe \ac{DB} queries using \ac{TS}, it does not support all possible queries (yet).
-Some advanced queries, such as the one shown in \cref{lst:sql-remove-outliers}, had to be written by hand using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
+Some advanced queries, such as the PostGIS one shown in \cref{lst:sql-remove-outliers}, had to be written by hand using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
 There were several such cases in this thesis, which is why it might have been more suitable to not use Prisma at all and instead use \ac{SQL} in a more direct way.
 
 However, the ability of Prisma to generate migrations from a schema and its type safety were still useful features that made it worth using.
@@ -458,7 +459,7 @@ This section will list some of these projects and describe how they could be imp
 \subsubsection{Measuring the water level of the Breg river}
 
 One of the \ac{LoRaWAN} devices ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
-As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
+As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate for most outdoor \ac{LoRaWAN} sensor deployments, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
 This could allow for a prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River, for example.
 Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
 
