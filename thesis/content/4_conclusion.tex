@@ -486,7 +486,7 @@ The latter problem could be solved by using \ac{GPS} receivers to synchronize th
 While some gateways have \ac{GPS} built-in receivers, most do not.
 For example, the \emph{Dragino DLOS8N} that was used twice during this thesis has a \ac{GPS} built-in receiver~\cite{dragino_technology_co_ltd_dlos8n_2023}, but none of the others do.
 
-In any case, using the \ac{ToA} method would require more specific hardware than what most of the \ac{TTN} community network currently uses.
+Ultimately, using the \ac{ToA} method would require more specific hardware than what most of the \ac{TTN} community network currently uses.
 This makes it unsuitable for widespread use on that particular network.
 
 \subsubsection{Using \acf{ML} to improve the fingerprinting method}
@@ -498,7 +498,7 @@ For example, \ac{kNN} could be used to determine the location of a node based on
 However, it does not calculate the center of the matching data points but uses the ``k nearest neighbors'' to determine the location of a node~\cite{anagnostopoulos_reproducible_2019}.
 
 As was mentioned in \cref{sec:related-work}, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization where they used a deep learning approach.
-They trained their network with \ac{RSS} values and position samples similar to the ones used in this thesis.
+They trained their network with \ac{RSS} values and position samples similar to the ones used in this thesis~\cite{perkovic_machine_2023}.
 
 A multi-dimensional regression could be performed to enable the multilateration approach by including \ac{SNR} and \ac{SF} values.
 This could improve the accuracy of the multilateration method while only requiring some training data per gateway to be collected.
