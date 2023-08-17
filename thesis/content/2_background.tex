@@ -185,7 +185,7 @@ Because of the correlation between \acl{SF} and \acl{SNR}, it is important to us
 
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
-A \ac{LoRa} node that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
+A \ac{LoRa} \acl{ED} that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 
 \emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering data such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
 It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of 8 bytes, 1 hour of periodicity and a 2500 mAh AA type battery.
@@ -501,7 +501,7 @@ This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TT
 Alongside the location information, those devices' messages that are processed by \ac{TTN} also include information about which gateways received them.
 
 Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the devices' \ac{GPS} modules.
-This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
+This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a \acl{LRWED} sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \aclp{LRWGW} in the \ac{TTN} network.
 
 \subsection{\acl{TTNM} frontend data views}
@@ -522,10 +522,10 @@ With this data, it can build a map displaying the coverage of \aclp{LRWGW} in th
 \Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
 This page displays an interactive world map with a heatmap overlay.
 It shows the coverage of \aclp{LRWGW} in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
-Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LoRaWAN} node and has its location accessible from \ac{TTN} is displayed on the map.
+Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LRWED} and has its location accessible from \ac{TTN} is displayed on the map.
 
 Notably, blank spots on the map do not necessarily mean that there is no coverage in that area.
-It can also mean that there haven't been any \ac{GPS}-enabled \ac{LoRaWAN} nodes that send their data to \ac{TTNM} in that area yet.
+It can also mean that there haven't been any \ac{GPS}-enabled \aclp{LRWED} that send their data to \ac{TTNM} in that area yet.
 
 \subsection{Accessing the data of \acl{TTNM}}
 

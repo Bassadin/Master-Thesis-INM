@@ -5,7 +5,7 @@
 At the beginning of this thesis, \ac{TTNM} already showed one existing \acl{LRWGW} in the Furtwangen area.
 It was located on top of the \ac{HFU} G building and was installed by a team of students of the Business Informatics (WING) faculty.
 
-However, to make a good geolocation through multilateration for a \ac{LoRaWAN} node, it is necessary to have at least three gateways in range of the node, as shown in \cref{sec:multilateration-basics}.
+However, to be able to get a good geolocation through multilateration for a \acl{LRWED}, it is necessary to have at least three gateways in its range, as shown in \cref{sec:multilateration-basics}.
 Thus, the first step was to research and order additional gateways.
 
 Next, the gateways had to be installed in suitable locations.
@@ -169,7 +169,7 @@ In this section, the \ac{LoRa} devices used for collecting \ac{GPS} data for \ac
 
 \subsubsection{ELV LW experimental platform}\label{subsubsec:elv-lw-experimental-platform}
 
-The ELV LW experimental platform was the \ac{LoRaWAN} node out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned.
+The ELV LW experimental platform was the \acl{LRWED} out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned.
 The ELV LW experimental platform consists of a base module called ELV-BM-TRX1 and a number of different sensor modules that can be stacked on top of it as seen in~\cref{pic:loris-node-bare}\cite{elv_elektronik_ag_elv-lw-base_2023}.
 It has a USB-C port, which made powering the tracker with an external power bank simple.
 
@@ -189,14 +189,14 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
     \caption{
-        ELV-LW-GPS1 \ac{LoRaWAN} node~\protect\cite{elv_elektronik_ag_elv_2023}.
+        ELV-LW-GPS1 \acl{LRWED}~\protect\cite{elv_elektronik_ag_elv_2023}.
         The brownish \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the left.
         It uses a similar \ac{LoRa} module as the ELV LW experimental platform.
         The header on the right is used to connect the 5 to 40V power supply as well as an optional physical contact to start a localization on demand.
     }
 \end{figure}
 
-The ELV-LW-GPS1 is another \ac{LoRaWAN} node designed to be used as a \ac{GPS} tracker.
+The ELV-LW-GPS1 is another \acl{LRWED} designed to be used as a \ac{GPS} tracker.
 Usability-wise, it was similar to the ELV LW experimental platform described in~\cref{subsubsec:elv-lw-experimental-platform}.
 
 It requires a power source that can range from 5 to 40 V, which makes it flexible in terms of power supply.
@@ -206,11 +206,11 @@ Finding a power source to be able to use it for this thesis was a challenge.
 While it can be powered by a 9V battery, those usually have a low capacity and are not rechargeable.
 However, due to the lack of alternatives several such 9V batteries were used for data collection during this thesis.
 
-\Cref{subsec:gnss-power-usage} used this node to compare the power consumption of the \ac{GPS} module to the power consumption of a \ac{LoRa} transmission.
+\Cref{subsec:gnss-power-usage} used this \acl{LRWED} to compare the power consumption of the \ac{GPS} module to the power consumption of a \ac{LoRa} transmission.
 
 \subsubsection{Heltec HTCC-AB02S}\label{subsubsec:heltec-htcc-ab02s}
 
-The \emph{Heltec HTCC-AB02S} is a \ac{LoRaWAN} node with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
+The \emph{Heltec HTCC-AB02S} is a \acl{LRWED} with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
 The package sounds very nice, but while the \ac{LoRa} module worked flawlessly, the same cannot be said for the \ac{GPS} module.
 \Cref{pic:heltec-htcc-ab02s} shows the \acl{ED}.
 Programming the \acl{ED} with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
@@ -235,7 +235,7 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
         \caption{
-            The dnt-LW-ATS \ac{LoRaWAN} node~\protect\cite{dnt_gmbh_dnt_nodate}.
+            The dnt-LW-ATS \acl{LRWED}~\protect\cite{dnt_gmbh_dnt_nodate}.
             The solar module for power harvesting is between the two white labels on the top of the \acl{ED}.
         }\label{pic:dnt-lw-ats}
     \end{subfigure}
@@ -247,12 +247,12 @@ The combination of the \ac{LoRa} module, the \ac{GPS} module and an \ac{OLED} sc
 
 \subsubsection{dnt-LW-ATS}
 
-At first glance, this was the most promising \ac{LoRa} node for the task at hand.
+At first glance, this was the most promising \acl{LRWED} for the task at hand.
 It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
 
-However, the node was challenging to set up and operate.
-The \acl{ED} offers a \emph{motion based cyclic} mode in which, during physical movement, the node sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
-This, however, did not work in practice and the node would only send its coordinates irregularly, if at all.
+However, it was challenging to set up and operate.
+The \acl{LRWED} offers a \emph{motion based cyclic} mode in which, during physical movement, it sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
+This, however, did not work in practice and the \acl{LRWED} would only send its coordinates irregularly, if at all.
 The documentation was not helpful with finding the root cause and the manufacturer could only offer to replace the hardware.
 
 \subsubsection{``blinkeding'' --- Arduino with Shield from Prof.\ Zahoransky}
@@ -404,7 +404,7 @@ Its main benefit is being able to use a single language for both frontend and ba
 
 Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
 
-\subsubsection{Express.js: A \acl{jS} Framework for \aclp{API}}
+\subsubsection{Express.js: A \acl{JS} Framework for \aclp{API}}
 
 Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{openjs_foundation_express_nodate}.
 ``Unopinionated'' means that it does not enforce any particular way of implementing a web application and instead focuses on the premise of ``configuration over convention''.

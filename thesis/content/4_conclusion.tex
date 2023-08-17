@@ -463,7 +463,7 @@ This section will list some of these projects and describe how they could be imp
 One of the \aclp{LRWED} ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
 As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate for most outdoor \ac{LoRaWAN} sensor deployments, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
 This could allow for a prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River, for example.
-Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
+Installing this \acl{LRWED} as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
 
 \subsubsection{Measuring soil moisture and environmental conditions in the Furtwangen city park}
 
@@ -496,9 +496,9 @@ This makes it unsuitable for widespread use on that particular network.
 
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
 
-For example, \ac{kNN} could be used to determine the location of a node based on the \ac{RSS} values of the surrounding gateways.
+For example, \ac{kNN} could be used to determine the location of a \acl{ED} based on the \ac{RSS} values of the surrounding gateways.
 \ac{kNN} also uses a \ac{DB} of fingerprints.
-However, it does not calculate the center of the matching data points but uses the ``k nearest neighbors'' to determine the location of a node~\cite{anagnostopoulos_reproducible_2019}.
+However, it does not calculate the center of the matching data points but uses the ``k nearest neighbors'' to determine the location of a \acl{ED}~\cite{anagnostopoulos_reproducible_2019}.
 
 As was mentioned in \cref{sec:related-work}, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization where they used a deep learning approach.
 They trained their network with \ac{RSS} values and position samples similar to the ones used in this thesis~\cite{perkovic_machine_2023}.
