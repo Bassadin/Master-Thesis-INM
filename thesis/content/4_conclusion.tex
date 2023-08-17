@@ -17,7 +17,7 @@ This doesn't come as a surprise, given its exposed location on top of a hill plu
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ghb_mikrotik_gw_range.png}
     \caption{
-        Screenshot of a \ac{TTNM} map showing some data points taken from the \ac{LoRaWAN} gateway deployed on top of the \ac{GHB}.
+        Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the \ac{GHB}.
         The data point on the lower left is the maximum range recorded for this gateway --- \SI{14.2}{\kilo\meter}.
         However, it can be considered an outlier, as the next highest range is \SI{5.3}{\kilo\meter} away from the gateway (on the far right)~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ghb_mikrotik_gw_range}
@@ -36,7 +36,7 @@ The ranges as a whole are slightly lower which stems from the fact that the \ac{
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/c_building_gw_range.png}
     \caption{
-        Screenshot of a \ac{TTNM} map showing some data points taken from the \ac{LoRaWAN} gateway deployed on top of the C building.
+        Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the C building.
         The slightly smaller range compared to \cref{pic:ghb_mikrotik_gw_range} is evident.
         The maximum range, however, is still \SI{4.3}{\kilo\meter} which is the rightmost blue point in the direction of Vöhrenbach~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:c_building_gw_range}
@@ -48,7 +48,7 @@ The maximum range recorded for this gateway is \SI{4.3}{\kilo\meter}, which is t
 
 Installing the gateway on the roof of the \ac{HFU} C building was rather easy since accessing the roof is not difficult.
 The cable of the antenna had to be pulled through a small conduit in the outer wall.
-Afterwards, it could be connected to the \ac{LoRaWAN} gateway located inside a small crawl space.
+Afterwards, it could be connected to the \acl{LRWGW} located inside a small crawl space.
 
 Getting the network backhaul up and running wasn't as straightforward, though.
 There were no spare Ethernet ports available in the crawl space.
@@ -57,7 +57,7 @@ Using two media converters, the fiber optic cable was converted to Ethernet and 
 
 \subsection{\acl{ASH}}
 
-Installing the \ac{LoRaWAN} gateway on the roof of the \ac{ASH} building was an arduous task, but it was worth it.
+Installing the \acl{LRWGW} on the roof of the \ac{ASH} building was an arduous task, but it was worth it.
 The roof is difficult to access, and the gateway had to be installed on top of an antenna mast.
 
 Getting a backhaul connection was rather easy, since a \ac{PoE} switch was available in the server room just beneath the roof.
@@ -69,7 +69,7 @@ It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} build
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ash_gw_range.jpg}
     \caption{
-        Screenshot of a \ac{TTNM} map showing some data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \ac{ASH} building.
+        Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on the roof of the \ac{ASH} building.
         It has a good range into most parts of the Furtwangen area~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ash_gw_range}
 \end{figure}
@@ -84,19 +84,19 @@ While the location of the \ac{LoRaWAN} on top of a hill between Furtwangen and G
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/dl0fis_gw_range.jpg}
     \caption{
-        Screenshot of a \ac{TTNM} map showing data points taken from the \ac{LoRaWAN} gateway deployed on the roof of the \emph{DL0FIS} clubhouse.
+        Screenshot of a \ac{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse.
         While the range is not consistent in every direction due to the hills and mountains in the area, the longest range of around \SI{8.8}{\kilo\meter} is still very good.
         Coverage of Furtwangen is almost nonexistent due to the hills in the way~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:dl0fis_gw_range}
 \end{figure}
 
-\Cref{pic:dl0fis_gw_range} shows the coverage of the \ac{LoRaWAN} gateway deployed on the roof of the \emph{DL0FIS} clubhouse.
+\Cref{pic:dl0fis_gw_range} shows the coverage of the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse.
 The longest range measured was one data point in the south with a distance of \SI{8.8}{\kilo\meter}.
 The gateway, up until now, wasn't of much use in the scope of this thesis though, since the hill between the Neueck clubhouse and Furtwangen blocks most of the signal.
 
 % TODO: put an image of the RF LOS calculator here
 
-Getting a backhaul connection to the \ac{LoRaWAN} gateway was easy since the clubhouse is equipped with a stable internet connection.
+Getting a backhaul connection to the \acl{LRWGW} was easy since the clubhouse is equipped with a stable internet connection.
 The gateway could thus be connected using Ethernet.
 
 \subsection{\acl{HFU} O building}\label{subsec:conclusion-hfu-o-building}
@@ -251,14 +251,14 @@ Even when using a linear regression model to generate a mapping of \ac{RSS} valu
 
 \subsubsection{\acl{ToA}}\label{subsec:conclusion-toa-tdoa}
 
-\Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \ac{LoRaWAN} gateway to determine the range to the end device is too inaccurate to be used for \ac{ToA}-based geolocation.
+\Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \acl{LRWGW} to determine the range to the end device is too inaccurate to be used for \ac{ToA}-based geolocation.
 
 In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \cref{fig:toa-bad-data-example}, another factor has to be considered.
 \ac{TTN} captures timestamps for packets arriving at gateways in the following format: \lstinline|2000-01-01T12:00:00.123456Z|.
 These timestamps can be found in the \lstinline|uplink_message.rx_metadata[*].time| field of the \ac{JSON} payload that can be viewed in the \ac{TTN} console for each packet that arrives from a certain end device~\cite{the_things_industries_bv_data_2023}.
 It uses the \ac{ISO} 8601 \ac{UTC} standard for timestamps~\cite{newman_date_2002}.
 The six decimal places after the seconds mean that the timestamp is accurate to \SI{1}{\micro\second}.
-\Cref{eq:toa-accuracy-ttn-microseconds} shows that when using microseconds to calculate the distance to a \ac{LoRaWAN} gateway based on the speed of light, a maximum accuracy of \SI{300}{\meter} can be achieved.
+\Cref{eq:toa-accuracy-ttn-microseconds} shows that when using microseconds to calculate the distance to a \acl{LRWGW} based on the speed of light, a maximum accuracy of \SI{300}{\meter} can be achieved.
 
 \begin{equation}\label{eq:toa-accuracy-ttn-microseconds}
     \text{ToA\,accuracy}_{\si{\micro\second}} = \frac{299792458 \frac{\si{\meter}}{\si{\second}}}{10^6} \approx 300 \si{\meter}
@@ -376,7 +376,7 @@ This section will mention some ideas on how to improve the \ac{TTNL} software.
 
 \subsubsection{Automatically detecting moved gateways}
 
-Although rare, it is possible for a \ac{LoRaWAN} gateway to be moved to a different location, or to have a different location set in the \ac{TTNL} console than it had before.
+Although rare, it is possible for a \acl{LRWGW} to be moved to a different location, or to have a different location set in the \ac{TTNL} console than it had before.
 Since the \ac{TTNL} software currently updates the gateway location after each \ac{TTNM} data collection run, it is possible for a gateway to be moved and not be detected by the \ac{TTNL} software.
 This can lead to problems when the gateway is moved to a different location, as the software will still use the old location for the gateway and assumes that its previous data points were captured at the same location.
 
@@ -508,11 +508,11 @@ This could improve the accuracy of the multilateration method while only requiri
 
 \subsubsection{Gateway on the roof of the \acl{HFU} O building}
 
-As was mentioned in \cref{subsec:conclusion-hfu-o-building}, the roof of the O building would make another good location for a \ac{LoRaWAN} gateway.
+As was mentioned in \cref{subsec:conclusion-hfu-o-building}, the roof of the O building would make another good location for a \acl{LRWGW}.
 The permission by the building's owner was granted.
 The problem that would need to be solved is getting a network connection as well as power to the roof of the building.
 
-Another option that would only require getting power to the roof is to use a \ac{LoRaWAN} gateway that has a \ac{LTE} backhaul connection.
+Another option that would only require getting power to the roof is to use a \acl{LRWGW} that has a \ac{LTE} backhaul connection.
 However, getting a \ac{PoE} connection to the roof of the building would still be preferable due to its stability.
 
 \subsubsection{Meshing / repeating of \acs{LoRaWAN} gateways}
@@ -547,7 +547,7 @@ Since the work in this thesis has shown that it is possible, at least at a rough
 \ac{LoRaWAN} devices are small and can be hidden easily (for example under the hood of a car) while having a long battery life.
 This means that such devices could be used to track people without their knowledge over long periods of time even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration of fingerprinting.
 
-As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \ac{LoRaWAN} gateway with enough data collection and time.
+As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \acl{LRWGW} with enough data collection and time.
 This could allow bad actors to physically attack gateways connected to the public \ac{TTN} network.
 
 \section{Conclusion}

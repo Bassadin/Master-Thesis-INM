@@ -273,10 +273,10 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
     }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
 
-A \ac{LoRaWAN} gateway is a device that receives \ac{LoRa} packets (usually from \ac{LoRaWAN} devices) and forwards them to \ac{LNS}.
+A \acl{LRWGW} is a device that receives \ac{LoRa} packets (usually from \ac{LoRaWAN} devices) and forwards them to \ac{LNS}.
 
 \ac{LoRa} gateways are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the gateway's \ac{CPU} using a serial interface.
-The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \ac{LoRaWAN} gateway.
+The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \acl{LRWGW}.
 
 To achieve the connection to the \ac{LoRaWAN} server, the gateway needs to be connected to the internet.
 This connection is also called \emph{backhaul}.
@@ -490,7 +490,7 @@ Contrary to \ac{TTN}, it is not a \ac{SaaS} and does not offer a public communit
 \section{\acl{TTNM} — Plotting \acs{LoRaWAN} reception on a map}
 
 \acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
-He first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway.
+He first created it as a personal project to map the range of his own \acl{LRWGW}.
 However, the project has since been expanded to map the coverage of all public gateways registered in the public \ac{TTN} network instance~\cite{the_things_network_jp_2018}.
 At the time of writing, this includes over 11,000 gateways.
 This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TTNM} uses to display gateway data.
