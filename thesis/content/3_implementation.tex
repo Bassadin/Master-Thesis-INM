@@ -1,6 +1,6 @@
 \chapter{Implementation}
 
-\section{Installing gateways in Furtwangen}
+\section{Installing \acs{LoRaWAN} gateways in Furtwangen}
 
 At the beginning of this thesis, \ac{TTNM} already showed one existing \ac{LoRaWAN} gateway in the Furtwangen area.
 It was located on top of the \ac{HFU} G building and was installed by a team of students of the Business Informatics (WING) faculty.
@@ -33,7 +33,7 @@ It was readily available at the time of the order and was chosen as a short-term
 It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
 Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 
-\subsection{Locations}\label{sec:gateway-locations}
+\subsection{Possible Locations for \acs{LoRaWAN} gateways}\label{sec:gateway-locations}
 
 Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
 Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the gateways.
@@ -54,7 +54,7 @@ The following sections describe and evaluate these final selected sites.
 
 \Cref{sec:gateway-locations-conclusions} will evaluate the chosen locations and give a conclusion on the placement of the gateways.
 
-\subsubsection{\ac{HFU} B and C building}
+\subsubsection{\acl{HFU} B and C building}
 
 The first antenna and gateway installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
@@ -66,7 +66,7 @@ A Dragino DLOS8N gateway with an antenna was placed on the roof of the B buildin
 This roof was two stories higher than the C building roof, making it a good location for a gateway as well.
 The Dragino DLOS8N was used because of its ability to easily be powered by \ac{PoE} and its weatherproof housing.
 
-\subsubsection{\acf{GHB}}
+\subsubsection{\acl{GHB}}
 
 The \ac{GHB} is a popular student dormitory located on the Großhausberg mountainside in Furtwangen~\cite{ghb_netadmins_student_2023}.
 Its exposed location and the fact that it is among the highest buildings in the city makes it a good location for putting up a \ac{LoRaWAN} gateway.
@@ -87,7 +87,7 @@ With their help, it was possible to install antennas on the roofs of the \ac{GHB
 \Cref{pic:mikrotik-gateway-ghb-installation} shows the installed MikroTik wAP LR8 kit gateway on the roof of the \ac{GHB}.
 Again, \ac{PoE} was used to power the gateway since only one cable needed to be put through the existing cable duct.
 
-\subsubsection{\acf{ASH}}
+\subsubsection{\acl{ASH}}
 
 The \ac{ASH} is a former student dormitory located in Furtwangen, which is currently used as housing for refugees.
 It sits on a hillside in Furtwangen and was therefore considered a good location for a \ac{LoRaWAN} gateway.
@@ -125,21 +125,21 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
 This gateway is also powered by \ac{PoE}.
 The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the gateway.
 
-\subsubsection{\emph{DL0FIS} amateur radio club station (Neueck, Gütenbach)}
+\subsubsection{\emph{DL0FIS} amateur radio club station atop Neueck, Gütenbach}
 
 The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
 With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \cref{pic:antenna-dl0fis-clubhouse}.
 
 The exposed location of the clubhouse on a hillside between Gütenbach and Furtwangen was thought to be a good location for a \ac{LoRaWAN} gateway.
 
-\section{Collecting additional \acf{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
+\section{Collecting additional \acl{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
 
 In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
 This data was especially important for doing geolocation calculations via fingerprinting.
 
 This was done by using \ac{LoRaWAN} devices that were equipped with \ac{GPS} modules and then moving them around Furtwangen.
 
-\subsection{Used \acs{LoRa} devices}\label{subsec:used-lora-devices}
+\subsection{Used \acs{LoRa} end devices}\label{subsec:used-lora-devices}
 
 In this section, the \ac{LoRa} devices used for collecting \ac{GPS} data for \ac{TTNM} are described are briefly evaluated.
 
@@ -279,7 +279,7 @@ As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data need
 
 This section will give an overview over some noteworthy development tools used for the \ac{TTNL} application.
 
-\subsection{Docker and Docker Compose}
+\subsection{Docker and Docker Compose for containerization and easier consistent deployments}
 
 To simplify deployment and development, \emph{Docker}~\cite{docker_inc_docker_2022} and \emph{Docker Compose}~\cite{docker_inc_docker_2023} were used extensively.
 Docker allows for applications to be run in lightweight containers that are isolated from the rest of the system.
@@ -322,7 +322,7 @@ Docker Compose was then used to assemble the different parts of the application:
 
 % PlatformIO was used in this thesis to develop code for some of the \ac{LoRaWAN} devices used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \cref{subsubsec:heltec-htcc-ab02s}.
 
-\subsection{GitHub Actions}
+\subsection{GitHub Actions for \acl{CI/CD}}
 
 \emph{GitHub Actions} is a feature of the \emph{GitHub} platform that allows for automated \ac{CI/CD} workflows to be run on the platform~\cite{github_inc_features_2023}.
 These automated workflows can be triggered by various events, such as a new commit being pushed to the repository or a new pull request being opened.
@@ -331,11 +331,11 @@ In this thesis, \emph{GitHub Actions} was used to automatically test the \ac{TTN
 These docker images are then pushed to the \emph{GitHub} container registry and can be pulled from there to be deployed.
 This allows for the built images to be used in \emph{Docker compose} files on the deployment server without having to build them there.
 
-\section{Program structure: \acf{TTNL}}\label{section:ttnl}
+\section{Program structure: \acl{TTNL}}\label{section:ttnl}
 
 The programmatic implementation of this thesis was called \acf{TTNL} and split into two parts: the backend and the frontend.
 
-\subsection{Overview}
+\subsection{Overview of the structure of \acl{TTNL}}
 
 This section aims to give an overview over the program structure of the \ac{TTNL} application.
 It also includes the \ac{LoRaWAN} gateways, devices and other parts such as the \ac{TTN} \ac{LNS} in the explanation of the data flow.
@@ -365,7 +365,7 @@ The \ac{TTNL} frontend can retrieve data from the backend using a \ac{REST} \ac{
 The following sections will explain each part of the \ac{TTNL} application in detail and show how they were implemented.
 The tools and technologies used for the implementation are also explained.
 
-\subsection{Data structure}
+\subsection{Data structure of the \acl{TTNL} \acl{DB}}
 
 \begin{figure}[htbp]
     \centering
@@ -381,13 +381,13 @@ It splits up the data received from \ac{TTNM} into four main tables: Device, Gat
 
 \Cref{sec:consolidating-ttnm-data-into-ttnl-db} will describe how the data from \ac{TTNM} was structured to be able to be stored in the \ac{TTNL} \ac{DB} to be able to perform more advanced queries on it.
 
-\subsection{Used technologies --- Backend}
+\subsection{Technologies used in the \acl{TTNL} Backend}
 
 This section describes the technologies used in the backend part of the \ac{TTNL} web application.
 The chosen stack uses Express.js with \ac{TS} as the programming language, PostGIS as the \ac{DB} system as well as the Prisma \ac{ORM} to connect to the \ac{DB}.
 These services are designed to be running in Docker containers and are orchestrated using Docker Compose.
 
-\subsubsection{\acf{JS} / \acf{TS}}
+\subsubsection{Programming languages: \acl{JS} / \acl{TS}}
 
 \ac{JS} is an interpreted, \ac{JIT} compiled programming language that was designed for and is mostly used in web browsers to add interactivity to websites~\cite{mdn_javascript_2023}.
 However, it can also be used outside a browser, for example, to create server applications as is explained in \cref{sec:nodejs}.
@@ -396,7 +396,7 @@ However, it can also be used outside a browser, for example, to create server ap
 This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler.
 Assigning the wrong type to a variable or passing the wrong type to a function then triggers compile-time error instead of a runtime error.
 
-\subsubsection{Node.js}\label{sec:nodejs}
+\subsubsection{Node.js for server-side \acl{JS} code execution}\label{sec:nodejs}
 
 Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{openjs_foundation_nodejs_nodate}.
 It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{google_llc_v8_nodate}.
@@ -404,7 +404,7 @@ Its main benefit is being able to use a single language for both frontend and ba
 
 Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
 
-\subsubsection{Express.js}
+\subsubsection{Express.js: A \acl{jS} Framework for \aclp{API}}
 
 Express.js is a ``fast, unopinionated, minimalist web framework for Node.js''~\cite{openjs_foundation_express_nodate}.
 ``Unopinionated'' means that it does not enforce any particular way of implementing a web application and instead focuses on the premise of ``configuration over convention''.
@@ -415,7 +415,7 @@ Express.js allows for the creation of \ac{REST} \ac{API} endpoints that can be u
 Those endpoints can, for example, return data from a \ac{DB}.
 Additionally, routes for different parts of requested data can be defined and put into separate files, making the code more navigable.
 
-\subsubsection{\acf{PSQL} / PostGIS}
+\subsubsection{\acl{DB}: \acl{PSQL} with PostGIS}
 
 A \ac{RDBMS} was used because of the structured nature of the data that is stored in the \ac{DB} and its relations to other data.
 This makes using a \ac{RDBMS} in this case more suitable than using a NOSQL \ac{DB} where data is stored in a less structured way.
@@ -446,7 +446,7 @@ It considers the curvature of the Earth and is therefore more accurate than usin
 
 PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
 
-\subsubsection{Prisma}
+\subsubsection{Prisma: \acl{ORM} for \acl{TS}}
 
 Prisma is an \ac{ORM} that can be used with a variety of \ac{DB} management systems, including \ac{PSQL}~\cite{prisma_data_inc_prisma_2023}.
 \acp{ORM} allow for the creation of \ac{DB} queries using the programming language of the application instead of using the \ac{DB}'s query language, which would be \ac{SQL} in the case of \ac{PSQL}.\
@@ -477,15 +477,15 @@ model Post {
 
 \Cref{pic:prisma-erd} shows a diagram rendered from the Prisma schema that was used in this thesis.
 
-\subsubsection{Vitest}
+\subsubsection{Vitest for unit and \acl{E2E} tests}
 
 Vitest is a testing framework for \ac{JS} and \ac{TS}~\cite{vitest_team_vitest-features_2023}.
 It was used in this thesis to write unit as well as integration tests for the backend part of the \ac{TTNL} web application.
 Vitest uses a syntax that is similar to Chai/Jest, which is a popular syntax for writing tests in \ac{JS} and \ac{TS}~\cite{vitest_team_vitest-features_2023}.
 
-\subsection{Used technologies --- Frontend}
+\subsection{Technologies used in the \acl{TTNL} Frontend}
 
-\subsubsection{Vue.js}
+\subsubsection{Vue.js for reactive \acl{HTML} templates}
 
 Vue.js is a \ac{JS} framework for building reactive user interfaces~\cite{evan_you_vuejs_2023}.
 Reactive in this context means the ability for the frontend to automatically react to changes in the \ac{JS}/\ac{TS} state.
@@ -495,7 +495,7 @@ Vue can also use \ac{TS} as a programming language, which was used in this thesi
 Vue.js was chosen because of the author's previous experience with it and because of its ease of use and quick development time.
 It also offers many plugins and libraries that can be used to extend its functionality as well as a large community that can be consulted for help.
 
-\subsubsection{Vuetify}
+\subsubsection{Vuetify: Design Framework with pre-defined Vue.js components}
 
 Vuetify is a \ac{UI} framework for Vue.js that provides Vue components that are based on Google's Material Design guidelines~\cite{vuetify_vuetify_2023}~\cite{google_llc_material_nodate}.
 In this thesis, Vuetify was used as a modern looking \ac{UI} framework for the frontend of the \ac{TTNL} web application.
@@ -513,13 +513,13 @@ Its usage as import-able predefined Vue components also allowed for a quick and 
 \Cref{fig:vuetify-form-example} shows an example of a form created using Vuetify components in the \ac{TTNL} frontend.
 It uses several of Vuetify's components to enable the user to enter \ac{RSS} values for several gateways for localization purposes.
 
-\subsubsection{\acf{OSM}}\label{sec:osm}
+\subsubsection{Open-source maps for the \acl{TTNL} frontend: \acf{OSM}}\label{sec:osm}
 
 \ac{OSM} is a free and open geographic \ac{DB} that relies on a community of volunteers who contribute and update its data through open collaboration~\cite{openstreetmap_contributors_openstreetmap_2023}.
 Its use only requires attribution to the \ac{OSM} project and its contributors, which is usually done by placing a small attribution text in a corner of the displayed map.
 It was used in this thesis to be able to display a map in the frontend of the \ac{TTNL} application.
 
-\subsubsection{GeoJSON}\label{sec:geojson}
+\subsubsection{GeoJSON: Format for representing geographic data and structures}\label{sec:geojson}
 
 GeoJSON is a format used for representing geographic data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
 This format was used in this thesis as a means to standardize the data format used to represent geographic data as well as its communication between client and server.
@@ -550,7 +550,7 @@ This format was used in this thesis as a means to standardize the data format us
 
 \Cref{lst:geojson-example} shows an example of a GeoJSON object.
 
-\subsubsection{Leaflet}\label{sec:leaflet}
+\subsubsection{Leaflet: Easy \acl{OSM} usage in Vue.js}\label{sec:leaflet}
 
 Leaflet is a \ac{JS} library for displaying interactive maps in the browser~\cite{volodymyr_agafonkin_leaflet_2023}.
 It currently has around 800,000 weekly downloads on the npm package repository~\cite{npm_leaflet_2023}.

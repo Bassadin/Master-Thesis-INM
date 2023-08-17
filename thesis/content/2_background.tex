@@ -26,7 +26,7 @@ ZigBee is also not suitable for battery powered devices because it is not design
 \ac{LTE} is also not suitable for battery powered devices either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
-\subsection{\acf{RSSI}}\label{sec:rssi}
+\subsection{Comparing signal strengths — \acl{RSSI}}\label{sec:rssi}
 
 The \acf{RSSI} is a measure of the strength of a wireless signal received by a device.
 As far as this thesis is concerned, \ac{RSS} values are measured in dBm since the \ac{TTN} \ac{LNS}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
@@ -35,7 +35,7 @@ Different devices can have different \ac{RSS} values for the same distance becau
 Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \acl{LoS} between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects --- a phenomenon known as \acf{MPP}~\cite{kucherov_investigation_2021}.
 
-\subsubsection{Correlation between \acs{RSS} values and distance --- \acf{FSPL}}\label{sec:background-free-space-path-loss}
+\subsubsection{Correlation between \acs{RSS} values and distance — \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
 Usually, the higher the \ac{RSS} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
 When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between the sender and receiver and the \ac{RSSI} value.
@@ -57,7 +57,7 @@ As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, it
 
 As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
-\subsubsection{\acf{MPP}}\label{sec:multipath-propagation}
+\subsubsection{Influences of external factors on \acs{RSS} — \acl{MPP}}\label{sec:multipath-propagation}
 
 In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
 \acl{MPP} causes the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
@@ -74,7 +74,7 @@ In addition to a signal reaching its destination directly, a \ac{RF} transmissio
 
 This is because the signal can be reflected, diffracted, refracted and scattered, taking multiple paths (hence the term \acl{MPP}) as shown in \cref{pic:figure_multipath_propagation}.
 
-\subsection{\acf{SNR}}\label{sec:background-snr}
+\subsection{Describing influences of noise on the signal — \acf{SNR}}\label{sec:background-snr}
 
 Since the \SI{868}{\mega\hertz} frequency band used for \ac{LoRa} in the \ac{EU} is unlicensed, it is possible that other devices use the same frequency band~\cite{etsi_etsi_2012}.
 This can result in a relatively high level of so-called radio noise~\cite[p. 6]{fujdiak_insights_2022}.
@@ -99,7 +99,7 @@ A rough explanation of its technical details will be given in \cref{sec:lora-mod
 \ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer to transmit data packets.
 It will be explained in more detail in \cref{sec:lorawan}.
 
-\section{\acf{LoRa} modulation}\label{sec:lora-modulation}
+\section{The \acs{LoRa} modulation}\label{sec:lora-modulation}
 
 The \ac{LoRa} modulation is also sometimes referred to as \ac{LoRa}\ PHY~\cite{chaudhari_understanding_2022}.
 It uses several techniques to achieve long-range communication with low power consumption.
@@ -109,13 +109,13 @@ This frequency band was also used exclusively in the experiments conducted for t
 This section will explain some of its concepts that are relevant to this thesis.
 However, it will not go into detail about all the technical details of the modulation.
 
-\subsection{\acf{CSS}}\label{sec:chirp-spread-spectrum}
+\subsection{Transmitting \acs{LoRa} signals with resilience to interference using \acf{CSS}}\label{sec:chirp-spread-spectrum}
 
 \ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction~\cite{reynders_chirp_2016}.
 \acs{CHIRP} stands for \acl{CHIRP}.
 It uses frequency hopping and different \aclp{SF} to encode signals in order to make them robust against interference, as will be explained in \cref{sec:spreading-factors}.
 
-\subsection{Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
+\subsection{\acs{LoRa} Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
 
 \begin{figure}[htbp]
     \centering
@@ -143,7 +143,7 @@ This makes it possible to transmit data up to every few minutes even with the la
 The \emph{ETSI} standard also defines the \acf{ERP} that can be emitted from a device's antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
 ``\ac{ERP} is the power radiated from the tip of the antenna'' after taking into account the antenna's gain and the cable loss~\cite[p. 23]{faruque_radio_2015}.
 
-\subsection{\acfp{SF}}\label{sec:spreading-factors}
+\subsection{\acl{SF}: a trade-off between transmission time and interference resistance}\label{sec:spreading-factors}
 
 The \ac{LoRa} modulation uses different \aclp{SF} to transmit data~\cite{the_things_network_spreading_2023}.
 The \acl{SF} determines the \ac{CHIRP} rate and thereby the data rate and range of the transmission.
@@ -181,7 +181,7 @@ Higher \ac{SF} values allow for lower \ac{SNR} values (more noise, less signal) 
 \ac{SNR} was a value that was considered to be used in the fingerprinting approach.
 Because of the correlation between \acl{SF} and \acl{SNR}, it is important to use both in conjunction.
 
-\subsection{Why use \acs{LoRa}?}
+\subsection{Why use \acs{LoRa} over other technologies?}
 
 As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
@@ -192,7 +192,7 @@ It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for 
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
 Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \cref{sec:device-classes}).
 
-\section{\acf{WAN}}
+\section{Connecting smaller networks to each other with \aclp{WAN}}
 
 A \ac{WAN}, compared to a \acf{LAN} or \acf{MAN}, is a network that usually is not limited to one certain place, but connects multiple locations, across countries and continents~\cite[p. 2]{sadiku_fundamentals_2022}.
 A well-known example of a \ac{WAN} is the Internet.
@@ -201,15 +201,15 @@ A well-known example of a \ac{WAN} is the Internet.
     \centering
     \includegraphics[width=.6\textwidth]{pictures/lorawan-structure/wan_diagram.png}
     \caption{
-        An example connection between multiple \acfp{LAN} and \acfp{MAN} using a \acf{WAN} as a diagram.\protect\cite{sadiku_fundamentals_2022}
+        An example connection between multiple \acp{LAN} and \acp{MAN} using a \acf{WAN} as a diagram.\protect\cite{sadiku_fundamentals_2022}
     }\label{pic:wan-diagram}
 \end{figure}
 
-\Cref{pic:wan-diagram} shows the connections between \acfp{LAN}, \acfp{MAN} and \acfp{WAN}.
+\Cref{pic:wan-diagram} shows the connections between \acp{LAN}, \acp{MAN} and \acp{WAN}.
 \acp{WAN} consist of various \acp{MAN}.
 \acp{MAN}, in turn, consist of various \acp{LAN}.
 
-\subsection{\acf{LPWAN}}
+\subsection{Less power, longer latencies, low data rates — \aclp{LPWAN}}
 
 While most \acp{WAN}, such as the Internet, typically have a high bandwidth and low latency, \acp{LPWAN}, on the other hand are designed to have ``low duty cycles, very low data rates, relatively longer latencies, low power consumption, and coverage over several kilometers''~\cite[p. 289]{kumar_connecting_2023}.
 These factors make them more suitable for handling large amounts of sensors and actors that only need to transmit small amounts of data infrequently over long distances.
@@ -227,7 +227,7 @@ These factors make them more suitable for handling large amounts of sensors and 
 Multiple \ac{IoT} devices connect to gateways or base stations.
 Those gateways are in turn connected to the internet or a larger network via a backhaul connection in order to enable communication between end devices.
 
-\section{\acf{LoRaWAN}}\label{sec:lorawan}
+\section{\acl{LoRaWAN} — connecting \acl{IoT} devices over long ranges}\label{sec:lorawan}
 
 \begin{figure}[htbp]
     \centering
@@ -241,7 +241,7 @@ Those gateways are in turn connected to the internet or a larger network via a b
 It defines a secure way to transfer packets from the end devices to \acp{AS} by enforcing \ac{E2EE}.
 This section will explain the structure of a \ac{LoRaWAN} network and how it works.
 
-\subsection{\acs{LoRaWAN} network architecture}
+\subsection{\acs{LoRaWAN} network architecture — connecting \aclp{AS}, gateways and end devices}
 
 \begin{figure}[htbp]
     \centering
@@ -262,7 +262,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 
 \ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}.
 
-\subsection{Gateways}\label{sec:gateways}
+\subsection{Connecting end devices to the internet: \acs{LoRaWAN} Gateways}\label{sec:gateways}
 
 \begin{figure}[htbp]
     \centering
@@ -300,18 +300,18 @@ It is also possible to use external antennas if it is necessary to cover a much 
 While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
-\subsection{Data Transmission}
+\subsection{Data Transmission between end devices and \aclp{AS}}
 
 In LoRaWAN, data transmissions from the end devices to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 Uplinks are relayed to the \ac{LNS} by one or more gateways from the end device.
 Downlinks, on the other hand, are only sent from the \ac{LNS} to the end device using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
-\subsection{Device Classes}\label{sec:device-classes}
+\subsection{Device Classes of \acs{LoRaWAN} end devices}\label{sec:device-classes}
 
 \ac{LoRaWAN} defines three classes of devices that offer different trade-offs between power consumption and availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
 
-\subsubsection{Class A}
+\subsubsection{Lowest power communication: Class A}
 
 \begin{figure}[htbp]
     \centering
@@ -332,7 +332,7 @@ An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
 Class A consumes the least amount of power of the three classes, because the devices themselves may specify when and how often they want to communicate with the \ac{LNS}.
 However, this also makes it impossible for the \ac{LNS} to send data to the device at any other time.
 
-\subsubsection{Class B}
+\subsubsection{Additional uplink windows: Class B}
 
 \begin{figure}[htbp]
     \centering
@@ -349,7 +349,7 @@ The communication schema for Class B devices can be seen in \cref{pic:lorawan-de
 
 These scheduled downlink windows result in a higher power consumption for Class B devices, since those need to be awake during these windows.
 
-\subsubsection{Class C}
+\subsubsection{Listening continuously: Class C}
 
 \begin{figure}[htbp]
     \centering
@@ -366,7 +366,7 @@ In essence, they keep the downlink windows as specified in Class B open all the 
 As a result, Class C devices consume the most power because they are always listening for downlink messages.
 The fact that they are always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or reliable downlink accessibility.
 
-\subsubsection{Conclusion}
+\subsubsection{Conclusion: Which device class was used?}
 
 As far as this thesis was concerned, only Class A devices were used.
 This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered devices.
@@ -377,7 +377,7 @@ As mobile devices that have the need to be located are usually battery-powered, 
 The geolocation methods evaluated in this thesis work with any \ac{LoRaWAN} device Class.
 While using Class C would mean that devices could actually be asked directly for their location, using Class A devices is usually the better choice due to the lower power consumption.
 
-\subsection{Data security}
+\subsection{Data security in \ac{LoRaWAN} transmissions}
 
 The security of the data sent is a major concern when talking about \ac{IoT} protocols.
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
@@ -386,7 +386,7 @@ Each end device usually has a unique 128-bit \ac{AES} key that is used to encryp
 This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks (where a malicious attacker captures sent packets and sends them again), since a so-called \ac{MIC} is determined from the frame data.
 This \ac{MIC} in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
 
-\section{\acf{TTN}}
+\section{\acl{TTN}: A community-based \ac{LoRaWAN} \acl{AS}}
 
 \ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that has a global community of people building \ac{LoRaWAN} applications.
 Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023}.
@@ -406,7 +406,7 @@ Its users provide \ac{TTN} with gateways that other users can use, making it a d
 Gateways can forward \ac{LoRaWAN} packets that they receive to the \ac{LNS} in two commonly used ways.
 This section will explain both of them.
 
-\subsubsection{\acf{SUPF}}
+\subsubsection{The older, simple way: \acl{SUPF}}
 
 The \ac{SUPF} is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 The \ac{SUPF} forwards \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
@@ -416,7 +416,7 @@ It can be configured using JSON files such as \lstinline{global_conf.json} and \
 \ac{TTN} marked the \acl{SUPF} as deprecated, since it ``has many security and scalability drawbacks``.
 It is recommended to use the \ac{LBS} protocol instead~\cite{the_things_industries_bv_semtech_2022}.
 
-\subsubsection{\acf{LBS}}\label{sec:lorawan-lbs}
+\subsubsection{The modern way: \acl{LBS}}\label{sec:lorawan-lbs}
 
 Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended over the \ac{SUPF} to connect gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 
@@ -441,7 +441,7 @@ It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with 
 When a gateway is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it.
 \ac{CUPS} also allows for remote configuration of gateways as well as remote firmware updates~\cite{the_things_industries_bv_lora_2022}.
 
-\subsubsection{Conclusion}
+\subsubsection{Conclusion: Which one was used?}
 
 Some gateways used in this thesis were unable to use the more modern \acl{LBS} protocol.
 This is especially true for the MikroTik LR8 wAP gateway, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
@@ -449,7 +449,7 @@ It therefore uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
 
 Most of the other gateways deployed during this thesis, especially the ones from \emph{Dragino}, were able to use \ac{LBS} and therefore used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \cref{sec:lorawan-lbs}.
 
-\subsection{\acs{TTN} Console --- Device/Gateway Management}\label{sec:web-interface-and-device-gateway-management}
+\subsection{\acl{TTN} Console — End Device and Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
 \ac{TTN} provides a web interface for managing devices and gateways that are registered to the network by the logged-in user.
 It also provides a \ac{REST} \ac{API} for managing devices and gateways programmatically.
@@ -458,7 +458,7 @@ End devices are grouped into \emph{applications} that can be used to manage \ac{
 
 In this thesis, an application was used to group the \ac{LoRaWAN} \ac{GPS} trackers that were used for data collection.
 
-\subsection{Forwarding data from \acs{TTN} to \aclp{AS}}\label{sec:forwarding-data-from-ttn-to-as}
+\subsection{Forwarding data from \acl{TTN} to \aclp{AS}}\label{sec:forwarding-data-from-ttn-to-as}
 
 To transmit data from \ac{TTN} to an \ac{AS}, \ac{TTN} provides integrations~\cite{the_things_network_integrations_2021}.
 \ac{TTN} offers several integrations for different cloud \acp{AS} such as \ac{AWS} IoT Core and Microsoft Azure IoT Hub.
@@ -474,7 +474,7 @@ This is explained in more detail in \cref{sec:ttm-data-collection}.
 Integrations are usually managed on a per-application basis.
 This means that different integrations can be used for different applications.
 
-\subsection{Alternatives to \acf{TTN}}
+\subsection{Alternatives to \acl{TTN}}
 
 While anyone can use the public \ac{SaaS} version of \ac{TTN} for free, it is not the only \ac{LNS} available.
 \ac{TTN} can also be self-hosted, for example using Docker, using the open source \ac{LNS} \emph{The Things Stack}~\cite{the_things_network_host_2023}.
@@ -487,7 +487,7 @@ It is, contrary to \ac{TTN}, not open source.
 Another popular \ac{LNS} is \emph{ChirpStack}, which is open source and can be self-hosted~\cite{chirpstack_chirpstack_2023}.
 Contrary to \ac{TTN}, it is not a \ac{SaaS} and does not offer a public community instance.
 
-\section{\acf{TTNM}}
+\section{\acl{TTNM} — Plotting \acs{LoRaWAN} reception on a map}
 
 \acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
 He first created it as a personal project to map the range of his own \ac{LoRaWAN} gateway.
@@ -495,7 +495,7 @@ However, the project has since been expanded to map the coverage of all public g
 At the time of writing, this includes over 11,000 gateways.
 This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TTNM} uses to display gateway data.
 
-\subsection{Data collection}\label{sec:ttm-data-collection}
+\subsection{Data collection in \acl{TTNM}}\label{sec:ttm-data-collection}
 
 \acl{TTNM} works by using \ac{LoRaWAN} devices with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
 Alongside the location information, those devices' messages that are processed by \ac{TTN} also include information about which gateways received them.
@@ -504,7 +504,7 @@ Hence, \acl{TTNM} can use the information about which gateways received the mess
 This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
 
-\subsection{Frontend data views}
+\subsection{\acl{TTNM} frontend data views}
 
 \begin{figure}[htbp]
     \centering
@@ -527,7 +527,7 @@ Additionally, any gateway that has received at least one message from a \ac{GPS}
 Notably, blank spots on the map do not necessarily mean that there is no coverage in that area.
 It can also mean that there haven't been any \ac{GPS}-enabled \ac{LoRaWAN} nodes that send their data to \ac{TTNM} in that area yet.
 
-\subsection{Data access}
+\subsection{Accessing the data of \acl{TTNM}}
 
 As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} devices.
 
@@ -539,7 +539,7 @@ The data is provided in graphical (map-based) form as well as in \ac{CSV} files.
 There is an additional non-documented part of the \ac{API} that can be used to access the data in \ac{JSON} form.
 This was the part of the \ac{API} that was used most for this thesis.
 
-\subsection{Importance for this thesis}\label{sec:ttn-mapper-importance}
+\subsection{Importance of \acl{TTNM} for this thesis}\label{sec:ttn-mapper-importance}
 
 The data that is provided via the \ac{TTNM} \ac{REST} \ac{API} was the core of this thesis.
 The \ac{TTNL} application that will be described in \cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
@@ -548,7 +548,7 @@ Such queries were not possible with the \ac{TTNM} \ac{API} alone, since it doesn
 Through building a \ac{DB} of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
 This was one of the techniques used to locate devices in this thesis.
 
-\section{Multilateration}\label{sec:multilateration-basics}
+\section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
 
 In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a device based on the distance to multiple other devices.
 However, triangulation uses the angles between the end device and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
@@ -567,7 +567,7 @@ The correct term to use when using distances between an end device and multiple 
 An example of this in \ac{GNSS} is shown in \cref{pic:multilateration-gps-2d-3d-example}.
 A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
 
-\section{\acf{GNSS}}
+\section{Locate devices accurately with the \acl{GNSS}}
 
 \ac{GNSS} is a generic term for systems that use satellites orbiting the Earth to determine the location of a device.
 In everyday language, the term \ac{GPS} is often used as a synonym for \ac{GNSS}.
@@ -577,7 +577,7 @@ However, \ac{GPS} is only one of the several \ac{GNSS} systems that are currentl
 To determine the distance from the end device to the satellites, the time it takes for a signal to travel from the satellite to the end device is measured.
 This approach is called \acf{ToA}.
 
-\subsection{\acf{GPS}}
+\subsection{The most well-known \acl{GNSS} — The \acl{GPS}}
 
 \ac{GPS} is the \ac{GNSS} system that is operated by the United States of America and is correctly named \emph{NAVSTAR \ac{GPS}}~\cite{department_of_defense_usa_gps_2020}.
 The version of GPS the public has access to is called \acf{SPS}.
@@ -585,7 +585,7 @@ Additionally, there is the \acf{PPS} that is only available to the military and 
 
 Using an iPhone 6, Merry and Bettinger measured the accuracy of \ac{GPS} to be between 7 and 13 meters in an urban environment~\cite{merry_smartphone_2019}.
 
-\subsection{Other \acs{GNSS} systems}
+\subsection{Other established \aclp{GNSS}}
 
 There are several other \ac{GNSS} systems in use or in development by different countries.
 For example, the Russian \emph{GLONASS}, the European Galileo, the Chinese \acf{BDS}, and the Indian \acf{IRNSS}.
@@ -595,7 +595,7 @@ For example, one of Samsung's most recent devices as of writing this thesis, the
 
 The \ac{LoRaWAN} devices used in this thesis, as described in \cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
 
-\subsection{\acf{HDOP}}
+\subsection{A measure of \acl{GNSS} localization accuracy: \acl{HDOP}}
 
 When talking about how accurate a certain data point of a \ac{GNSS} system is, the term \ac{HDOP} is used regularly.
 In fact, there are multiple different terms that can be used to describe such accuracies: \ac{HDOP}, \ac{PDOP}, \ac{VDOP}, \ac{TDOP}, and \ac{GDOP}~\cite{langley_dilution_1999}.
@@ -625,7 +625,7 @@ The \ac{HDOP} value is relevant to this thesis because it was used to filter out
 It is included in most \ac{LoRaWAN} packets from \ac{GPS} trackers sent to \ac{TTN}.
 As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes certain data points based on the \ac{HDOP} value.
 
-\subsection{Power usage}\label{subsec:gnss-power-usage}
+\subsection{Power usage of localization via \acl{GPS} vs. \acs{LoRaWAN} metadata}\label{subsec:gnss-power-usage}
 
 In order to show the relevance of using \ac{RSS} values over \ac{GNSS} systems to locate end devices, this section will give a brief comparison of power consumption between the two.
 The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
@@ -663,7 +663,7 @@ However, it still shows the dimensions of the difference in power consumption be
 
 This section will explain several concepts relating to geolocation in conjunction with \ac{LoRaWAN} using different variables.
 
-\subsection{Multilateration}\label{sec:lorawan-multilateration}
+\subsection{Multilateration using various mappings}\label{sec:lorawan-multilateration}
 
 As explained in \cref{sec:multilateration-basics}, multilateration uses the distance between a device and multiple receivers to determine the location of the end device.
 However, while the theoretical concept of multilateration, as shown in \cref{pic:multilateration-gps-2d-3d-example} is simple, there are several challenges when applying it to real-world scenarios.
@@ -687,7 +687,7 @@ The size of this estimated localization range depends on the accuracy of the dis
 The following sections will explain different methods of determining the distance between a device and a receiver.
 As was mentioned just now, the accuracy of these distance measurements is crucial for the accuracy of the actual localization.
 
-\subsubsection{\acf{ToA} based multilateration}\label{sec:toa-based-multilateration}
+\subsubsection{Using \acl{ToA} to determine distances}\label{sec:toa-based-multilateration}
 
 The \acf{ToA} based method uses the difference in the signal's time of arrival at the receiving stations.
 In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time difference can be used to calculate the distance between the receiving stations and the transmitting station~\cite{khalaf-allah_time_2015}.
@@ -698,7 +698,7 @@ For GPS, usually four or more satellites are required to determine the position 
 \ac{ToA} based multilateration requires the reference stations to be time-synchronized with each other in order to produce good results.
 Since the speed of light is very high, small differences in time synchronization between the reference points can lead to large inaccuracies in the distance calculated between them.
 
-\subsubsection{\acf{RSSI} based multilateration}\label{sec:rssi-based-multilateration}
+\subsubsection{Using the \acl{RSSI} to determine distances}\label{sec:rssi-based-multilateration}
 
 This method uses the \acf{RSSI} values that were explained in \cref{sec:rssi} to determine the distance between sender and receiver.
 The distance between sender and receiver usually decreases in correlation with the measured \ac{RSSI} value.
@@ -707,7 +707,7 @@ However, as was mentioned in \cref{sec:multipath-propagation}, the \ac{RSSI} val
 These facts make \ac{RSSI}-based localization only work accurately in environments with little to no obstacles and thus a low amount of multipath propagation.
 \Cref{sec:rssi-based-multilateration-implementation} will describe how this method was implemented in two different forms in this thesis.
 
-\subsection{\acs{RSSI} Fingerprinting}\label{sec:rssi-fingerprinting}
+\subsection{Fingerprinting with \acl{RSS} values}\label{sec:rssi-fingerprinting}
 
 Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
 It uses a set of known device locations with their corresponding \ac{RSS} values to locate devices based on the \ac{RSS} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
@@ -723,7 +723,7 @@ While \ac{ML} approaches can be used to improve fingerprinting, they were not us
 Fortunately, building a \ac{DB} of fingerprints for the use case explored in this thesis is fairly straightforward, since the \ac{TTNM} \ac{API} already provides the necessary raw data, as mentioned in \cref{sec:ttn-mapper-importance}.
 \Cref{sec:collecting-additional-ttnm-data} will explain the \ac{LoRaWAN} devices used to collect additional data for fingerprinting.
 
-\subsubsection{Using additional values for fingerprinting}\label{sec:fingerprinting-additional-values}
+\subsubsection{Using additional values for the fingerprinting approach}\label{sec:fingerprinting-additional-values}
 
 In addition to the \ac{RSS} values, other values were used in this thesis in an attempt to improve the accuracy of fingerprinting.
 These values are the \ac{SNR} and the \ac{SF} of the received packets.

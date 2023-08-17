@@ -8,7 +8,7 @@ This section will evaluate the chosen gateway locations as described in \cref{se
 The maps used to show range data were taken from the \emph{Advanced Maps} feature of \ac{TTNM}.
 Thus, as explained in \cref{subsec:cleaning-collected-data}, they may contain some inaccuracies and outliers.
 
-\subsection{\acf{GHB}}\label{subsec:ghb-student-dormitory-range-results}
+\subsection{\acl{GHB}}\label{subsec:ghb-student-dormitory-range-results}
 
 The MikroTik gateway deployed on top of the \ac{GHB} student dormitory is the gateway with the highest range in Furtwangen among those deployed during this thesis.
 This doesn't come as a surprise, given its exposed location on top of a hill plus the height of the building itself.
@@ -26,7 +26,7 @@ This doesn't come as a surprise, given its exposed location on top of a hill plu
 The maximum range recorded for this gateway is \SI{14.2}{\kilo\meter}, which is the blue point in the lower left-hand corner of \cref{pic:ghb_mikrotik_gw_range}.
 While that data point may be considered an error or outlier, a more realistic one is the blue point on the rightmost side of the image which is \SI{5.3}{\kilo\meter} away from the gateway.
 
-\subsection{\acs{HFU} C building}
+\subsection{\acl{HFU} C building}
 
 When viewed alongside the results from the \ac{GHB} gateway shown in \cref{subsec:ghb-student-dormitory-range-results}, the results from the \ac{HFU} C building gateway are exactly as one would expect.
 Since the Antenna was the same MikroTik one as the one used with the \ac{GHB} gateway, the coverage behavior is similar.
@@ -55,7 +55,7 @@ There were no spare Ethernet ports available in the crawl space.
 However, there was a spare fiber optic cable run that was not in use at the moment.
 Using two media converters, the fiber optic cable was converted to Ethernet and connected to the \ac{HFU} network one story below the roof.
 
-\subsection{\acf{ASH}}
+\subsection{\acl{ASH}}
 
 Installing the \ac{LoRaWAN} gateway on the roof of the \ac{ASH} building was an arduous task, but it was worth it.
 The roof is difficult to access, and the gateway had to be installed on top of an antenna mast.
@@ -99,7 +99,7 @@ The gateway, up until now, wasn't of much use in the scope of this thesis though
 Getting a backhaul connection to the \ac{LoRaWAN} gateway was easy since the clubhouse is equipped with a stable internet connection.
 The gateway could thus be connected using Ethernet.
 
-\subsection{\acs{HFU} O building}\label{subsec:conclusion-hfu-o-building}
+\subsection{\acl{HFU} O building}\label{subsec:conclusion-hfu-o-building}
 
 Another possible location that was not mentioned in \cref{sec:gateway-locations} was the \ac{HFU} O building.
 Located in the northern part of Furtwangen, it is a multi-story building that used to be a hospital.
@@ -144,9 +144,9 @@ While there are still some blank spots, these are mostly due to the fact that th
 
 This section will compare the different geolocation methods that were used in this thesis.
 
-\subsection{Multilateration}\label{subsec:conclusion-multilateration}
+\subsection{Methods using the multilateration approach}\label{subsec:conclusion-multilateration}
 
-\subsubsection{\acf{RSSI}}
+\subsubsection{\acl{RSSI}}
 
 \Cref{lst:sql-calculate-correlation-coefficient} shows a \ac{SQL} query that was used to calculate the correlation coefficient between \ac{RSS} values and their associated distances for a single gateway.
 Its purpose is to show how much the \ac{RSS} values correlate with the distance from the end device to the gateway.
@@ -201,7 +201,7 @@ Other gateways show similar results.
 This means that, in general, \ac{RSS} values alone are not a good indicator for measuring distances.
 Still, this section will provide an overview over the techniques used during this thesis to estimate the position of a device based on \ac{RSS} values in two different ways.
 
-\paragraph{Accuracy of \acs{RSSI}-based multilateration with a fixed \acs{RSS} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
+\paragraph{Accuracy of multilateration based on \aclp{RSS} with a fixed \acl{RSS} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
 
 As shown in \cref{sec:fixed-rssi-to-range-scale-impl}, a fixed \ac{RSS} to range mapping was implemented in the frontend first.
 In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was poor.
@@ -220,7 +220,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
 
 \Cref{pic:bad-rssi-to-range-multilateration-example} shows an example of a multilateration with a fixed \ac{RSSI} to range mapping where the result is not at all accurate.
 
-\paragraph{Accuracy of \acs{RSSI}-based multilateration with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
+\paragraph{Accuracy of multilateration based on \aclp{RSS} with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
 
 As mentioned in \cref{subsubsec:per-gateway-rssi-to-range-scale}, another idea was to use linear regression to map \ac{RSS} values to ranges for each gateway.
 This approach considers gateway-specific parameters such as position and gateway antenna gain.
@@ -241,7 +241,7 @@ However, it cannot consider \ac{MPP} effects as well as end device antenna gain.
 The example shows that the resulting position estimation where the three annuli intersect is better than in \cref{pic:bad-rssi-to-range-multilateration-example}.
 However, since the linear regression model cannot account for \ac{MPP} effects either, the results still typically deviate from the actual position by a few hundred meters.
 
-\paragraph{Conclusion}
+\paragraph{Conclusion: \acl{RSS} approaches}
 
 As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSS} values to fluctuate heavily.
 In addition, as explained in \cref{sec:rssi}, different antennas on gateways and end devices can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
@@ -249,7 +249,7 @@ In addition, as explained in \cref{sec:rssi}, different antennas on gateways and
 This makes multilateration with \ac{RSS} values as the only input data inaccurate.
 Even when using a linear regression model to generate a mapping of \ac{RSS} values to ranges for each gateway, the results were often inaccurate.
 
-\subsubsection{\acf{ToA}}\label{subsec:conclusion-toa-tdoa}
+\subsubsection{\acl{ToA}}\label{subsec:conclusion-toa-tdoa}
 
 \Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \ac{LoRaWAN} gateway to determine the range to the end device is too inaccurate to be used for \ac{ToA}-based geolocation.
 
@@ -278,7 +278,7 @@ If every gateway in the network would be accurately time-synchronized, \ac{ToA} 
 
 This section evaluates the fingerprinting approach as described in \cref{sec:fingerprinting-implementation}.
 
-\subsubsection{\acf{RSS} only}
+\subsubsection{\acl{RSS} only}
 
 \Cref{fig:fingerprinting-map-example-only-center} already showed an example where the center of matching filtered data points was taken as the estimated position, along with an arbitrary radius to show the associated uncertainty.
 
@@ -296,7 +296,7 @@ This section evaluates the fingerprinting approach as described in \cref{sec:fin
 On the other hand, \cref{fig:fingerprinting-map-example-dynamic-radius} shows an approach where the error radius is not arbitrary, but is calculated based on fitting half the matched points inside the circle.
 This usually results in a larger error radius (low precision), but a higher rate of actually containing the actual position (high accuracy).
 
-\subsubsection{Adding \acf{SNR}}
+\subsubsection{Adding \acl{SNR}}
 
 
 As mentioned in \cref{sec:adding-snr-to-fingerprinting}, \ac{SNR} values were also used in the fingerprinting approach in addition to \ac{RSSI}.
@@ -317,7 +317,7 @@ However, since \ac{SNR} values also depend on the \ac{SF} used, both of those sh
 A disadvantage of this approach would be that it would require more data to be collected, since the number of possible variables per captured gateway would increase from 1 (\ac{RSSI}) to 2 or even 3 (\ac{RSSI}, \ac{SF}, \ac{SNR}).
 However, since \ac{TTN} captures all of those values with each received data frame, this would not be a problem other than the increased amount of data that would need to be stored.
 
-\subsubsection{Adding \acf{SF}}
+\subsubsection{Adding \acl{SF}}
 
 As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the end device has an influence on the \ac{SNR} values at which a signal can still be detected.
 This means that the \ac{SF} value also plays a role in a more accurately location estimation of the end device.
@@ -370,7 +370,7 @@ As was shown in \cref{sec:gateway-locations-conclusions}, \ac{LoRaWAN} coverage 
 
 This section will provide an outlook on possible future work that could be done in relation to this thesis.
 
-\subsection{Improving the \acf{TTNL} software}
+\subsection{Improving the \acl{TTNL} software}
 
 This section will mention some ideas on how to improve the \ac{TTNL} software.
 
@@ -478,7 +478,7 @@ Alerting specific users if a gateway goes offline could also be implemented with
 
 \subsection{Further research}
 
-\subsubsection{Improving timestamp accuracy for \acf{ToA} geolocation method}
+\subsubsection{Improving timestamp accuracy for \acl{ToA} geolocation method}
 
 As mentioned in \cref{subsec:conclusion-toa-tdoa}, the accuracy of the \ac{ToA} method could be greatly improved if nanosecond level timestamps were available.
 Unfortunately, \ac{TTN} does not provide nanosecond level timestamps for the packets received by the \ac{LoRaWAN} gateways.
@@ -492,7 +492,7 @@ For example, the \emph{Dragino DLOS8N} that was used twice during this thesis ha
 Ultimately, using the \ac{ToA} method would require more specific hardware than what most of the \ac{TTN} community network currently uses.
 This makes it unsuitable for widespread use on that particular network.
 
-\subsubsection{Using \acf{ML} to improve the fingerprinting method}
+\subsubsection{Using \acl{ML} to improve the fingerprinting method}
 
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
 
@@ -506,7 +506,7 @@ They trained their network with \ac{RSS} values and position samples similar to 
 A multi-dimensional regression could be performed to enable the multilateration approach by including \ac{SNR} and \ac{SF} values.
 This could improve the accuracy of the multilateration method while only requiring some training data per gateway to be collected.
 
-\subsubsection{Gateway on the roof of the \acs{HFU} O building}
+\subsubsection{Gateway on the roof of the \acl{HFU} O building}
 
 As was mentioned in \cref{subsec:conclusion-hfu-o-building}, the roof of the O building would make another good location for a \ac{LoRaWAN} gateway.
 The permission by the building's owner was granted.
@@ -534,7 +534,7 @@ It is used to detect wildfires early using a network of \ac{LoRa} sensors that c
 Anton Petrov is going to write his master thesis about this topic in the coming winter semester of 2023/2024.
 His thesis will also be supervised by Prof. Dr. Richard Zahoransky.
 
-\subsubsection{Self-hosting of \acs{TTS} or \emph{ChirpStack}}
+\subsubsection{Self-hosting of \acl{TTS} or \emph{ChirpStack}}
 
 Another interesting project would be to self-host an instance of a \ac{LNS} like \ac{TTS} or \emph{ChirpStack} on \ac{HFU} infrastructure.
 This would give students the opportunity to learn more about the inner workings of a \ac{LNS} and would also give the \ac{HFU} the ability to exert more control over the data collected by the \ac{LNS}.
