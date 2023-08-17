@@ -8,19 +8,19 @@ Over short distances and with mains-powered devices or devices that don't requir
 However, bridging long distances can become a challenge when devices also need to consume as little power as possible.
 
 The \ac{LoRa} wireless communication protocol promises to address this challenge by offering a long range and low power usage with the drawback of having little throughput.
-The longest transmission range of a \ac{LoRa} device, under ideal conditions, has been measured at 832 km~\cite{the_things_network_global_team_lora_nodate}.
-While, realistically, \ac{LoRa} devices usually reach much shorter distances, they can still be used to connect devices over long distances of multiple kilometers while consuming little power.
+The longest transmission range of a \acl{LRED}, under ideal conditions, has been measured at 832 km~\cite{the_things_network_global_team_lora_nodate}.
+While, realistically, \acl{LRED} usually reach much shorter distances, they can still be used to transmit data over long distances of multiple kilometers while consuming little power.
 In the first half of 2020, \ac{LoRa} was the second most used \ac{LPWAN} technology worldwide, scoring 41\% and ranking just behind NB-IoT with 44\%~\cite{iot_analytics_lpwa_2020}.
 
-While \ac{LoRa} \aclp{ED} can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
+While \aclp{LRED} can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
 This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
 \ac{LoRa} devices may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
 
-The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} devices without the need to modify those \aclp{ED} or the gateways used.
+The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \aclp{LRWED} without the need to modify those \aclp{ED} or the gateways used.
 This is done so that scaling the solution to the entirety of an existing \ac{LoRaWAN} network is possible.
 The goal is not to focus specifically on indoor or outdoor localization specifically but to provide a general overview of the topic.
 
-To achieve this goal, some \ac{LoRaWAN} gateways that were already registered in \acf{TTN} in Furtwangen were used as well as new gateways placed in Furtwangen.
+To achieve this goal, some \aclp{LRWGW} that were already registered in \acf{TTN} in Furtwangen were used as well as new gateways placed in Furtwangen.
 
 \section{Research Questions}\label{sec:introduction-research-questions}
 
@@ -74,7 +74,7 @@ Using the \ac{kNN} approach, they achieved an accuracy of \SIrange{273}{394}{\me
 
 Anjum et al.\ also evaluated \ac{RSSI} fingerprinting in 2019~\cite{anjum_analysis_2019}.
 In their research, they compared \ac{LoS} and \ac{NLoS} scenarios, analyzing the path loss exponent and the standard deviation of the shadowing \ac{MPP} parameter in each of these environments.
-They did not use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} \aclp{ED}.
+They did not use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \aclp{LRED}.
 Placing nodes in different stories of a building, they measured a varying accuracy of \ac{RSSI} to distance mappings.
 
 Fernandes et al.\ used a hybrid approach to locate elderly care recipients indoors: \ac{UWB} technology for localization and \ac{LoRaWAN} to send data to their caregivers~\cite{fernandes_hybrid_2020}.
@@ -120,17 +120,17 @@ He also helped me to get in touch with Mr.\ Odin Jäger, who allowed me to insta
 
 The EGT GmbH from Triberg, for giving me some insight into their own efforts with \ac{LoRaWAN} technology.
 
-The \acl{GHB-NA} team, who spent many hours helping me install \ac{LoRaWAN} gateways within the buildings they manage as well as configuring the external network access needed to control and configure it.
+The \acl{GHB-NA} team, who spent many hours helping me install \aclp{LRWGW} within the buildings they manage as well as configuring the external network access needed to control and configure it.
 Its members include, but are not limited to: Kai-Luka Lüthje, Simon Blaßdörfer, Valentin Weber, Florian Brunen, and Fabian Hurst.
 
 Mr.\ Ralf Schellhammer, for providing me with the necessary hardware to perform the experiments.
-His motivation in explaining technical intricacies of radio transmission and his willingness to help me with installing some \ac{LoRaWAN} gateways was invaluable.
-He also helped with the installation of new \ac{LoRaWAN} gateways in the vicinity of Furtwangen on several occasions.
+His motivation in explaining technical intricacies of radio transmission and his willingness to help me with installing some \aclp{LRWGW} was invaluable.
+He also helped with the installation of new \aclp{LRWGW} in the vicinity of Furtwangen on several occasions.
 
 The Amateur Radio Club of Furtwangen, \emph{DL0FIS}, for allowing me to install a \acl{LRWGW} on their mast near Furtwangen.
 Mr.\ Ralf Schellhammer helped me to get in contact with them.
 
-Mr.\ Martin Kramer, for configuring the \ac{HFU} network infrastructure I used for some \ac{LoRaWAN} gateways.
+Mr.\ Martin Kramer, for configuring the \ac{HFU} network infrastructure I used for some \aclp{LRWGW}.
 
 Mr.\ Michael Lavalle, member of the \ac{HSN-TTN} project, who helped me to collect more data in the Furtwangen area.
 He also provided some valuable feedback on which gateways to buy.

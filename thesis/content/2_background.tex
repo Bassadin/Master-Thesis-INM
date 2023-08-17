@@ -127,20 +127,20 @@ It uses frequency hopping and different \aclp{SF} to encode signals in order to 
 \end{figure}
 
 In the \ac{EU} region, the duty cycle for transmissions in the \SI{868}{\mega\hertz} band is limited to \SI{1}{\percent}~\cite[p. 29]{etsi_etsi_2012}.
-This means that a \ac{LoRa} device using this frequency band may only transmit for \SI{1}{\percent} of a given time slot.
-For example, if a device transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
+This means that a \acl{LRED} using this frequency band may only transmit for \SI{1}{\percent} of a given time slot.
+For example, if a \acl{ED} transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
 It needs to stay silent for the rest of the time slot.
 
 An example for duty cycle time frames can be seen in \cref{pic:lora-duty-cycle}.
 In this example, the duty cycle is \SI{20}{\percent}.
-The device that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
+The \acl{ED} that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
 To stay compliant with the \SI{20}{\percent} duty cycle, it may start a new transmission starting with the sixth time block.
 
 Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
 Even when using \acs{SF}12, which is the slowest \acs{SF} available, the maximum packet size of \SI{51}{\byte} can be transmitted in  \SI{1232.9}{\milli\second}~\cite[p. 6]{the_things_network_lorawan_nodate}\cite[p. 10f]{lora_alliance_inc_lorawan_regional_2017}.
 This makes it possible to transmit data up to every few minutes even with the largest possible packet size and still stay compliant with the duty cycle of \SI{1}{\percent}.
 
-The \emph{ETSI} standard also defines the \acf{ERP} that can be emitted from a device's antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
+The \emph{ETSI} standard also defines the \acf{ERP} that can be emitted from a \acl{ED}'s antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
 ``\ac{ERP} is the power radiated from the tip of the antenna'' after taking into account the antenna's gain and the cable loss~\cite[p. 23]{faruque_radio_2015}.
 
 \subsection{\acl{SF}: a trade-off between transmission time and interference resistance}\label{sec:spreading-factors}
@@ -187,7 +187,7 @@ As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good 
 
 A \ac{LoRa} node that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 
-\emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \ac{LoRa} device by entering data such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
+\emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering data such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
 It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of 8 bytes, 1 hour of periodicity and a 2500 mAh AA type battery.
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
 Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \cref{sec:device-classes}).
@@ -238,7 +238,7 @@ Those gateways are in turn connected to the internet or a larger network via a b
 \end{figure}
 
 \ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
-It defines a secure way to transfer packets from the \aclp{ED} to \acp{AS} by enforcing \ac{E2EE}.
+It defines a secure way to transfer packets from the \acl{ED} to \acp{AS} by enforcing \ac{E2EE}.
 This section will explain the structure of a \ac{LoRaWAN} network and how it works.
 
 \subsection{\acs{LoRaWAN} network architecture — connecting \aclp{AS}, gateways and \aclp{ED}}
@@ -268,12 +268,12 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateways/mikrotik-lr8-kit.png}
     \caption{
-        A MikroTik wAP LR8 kit \ac{LoRaWAN} Gateway.
+        A MikroTik wAP LR8 kit \acl{LRWGW}.
         This was one of the gateways used during this thesis.~\protect\cite{the_things_industries_bv_lorawan_nodate}
     }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
 
-A \acl{LRWGW} is a device that receives \ac{LoRa} packets (usually from \ac{LoRaWAN} devices) and forwards them to \ac{LNS}.
+A \acl{LRWGW} is a device that receives \ac{LoRa} packets (usually from \aclp{LRWED}) and forwards them to \ac{LNS}.
 
 \ac{LoRa} gateways are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the gateway's \ac{CPU} using a serial interface.
 The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \acl{LRWGW}.
@@ -302,7 +302,7 @@ The deployment of this antenna on top of the \ac{HFU} C building is shown in \cr
 
 \subsection{Data Transmission between \aclp{ED} and \aclp{AS}}
 
-In LoRaWAN, data transmissions from the \aclp{ED} to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+In LoRaWAN, data transmissions from the \acl{ED} to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 Uplinks are relayed to the \ac{LNS} by one or more gateways from the \acl{ED}.
 Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
@@ -317,20 +317,20 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} us
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-a.png}
     \caption{
-        A schema of a \ac{LoRaWAN} Class A device communication.
+        A schema of a \ac{LoRaWAN} Class A \acl{ED} communication.
         The two receive windows (RX1 and RX2) are visible.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-a-schema}
 \end{figure}
 
 Class A is used for devices that need to consume as little power as possible.
-Every \ac{LoRaWAN} device must support at least the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
+Every \acl{LRWED} must support at least the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
 A communication in Class A is always initiated by the \acl{ED} itself.
 
-Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
+Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the \acl{ED}~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
 An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
 
 Class A consumes the least amount of power of the three classes, because the devices themselves may specify when and how often they want to communicate with the \ac{LNS}.
-However, this also makes it impossible for the \ac{LNS} to send data to the device at any other time.
+However, this also makes it impossible for the \ac{LNS} to send data to the \acl{ED} at any other time.
 
 \subsubsection{Additional uplink windows: Class B}
 
@@ -338,7 +338,7 @@ However, this also makes it impossible for the \ac{LNS} to send data to the devi
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-b.png}
     \caption{
-        A schema of a \ac{LoRaWAN} Class B device communication.
+        A schema of a \ac{LoRaWAN} Class B \acl{ED} communication.
         The additional ping slots where the \acl{ED} is reachable by gateways can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-b-schema}
 \end{figure}
@@ -355,7 +355,7 @@ These scheduled downlink windows result in a higher power consumption for Class 
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-c.png}
     \caption{
-        A schema of a \ac{LoRaWAN} Class C device communication.
+        A schema of a \ac{LoRaWAN} Class C \acl{ED} communication.
         The RX2 window is kept open between uplink transmissions to allow gateways to reach the \acl{ED} at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-c-schema}
 \end{figure}
@@ -371,10 +371,10 @@ The fact that they are always reachable by the \ac{LNS} also makes them the most
 As far as this thesis was concerned, only Class A devices were used.
 This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered \aclp{ED}.
 
-In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
+In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a \acl{ED} in Class C would need a battery around 19 times larger than a Class A \acl{ED} to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
 As mobile devices that have the need to be located are usually battery-powered, Class A is the most viable option for them.
 
-The geolocation methods evaluated in this thesis work with any \ac{LoRaWAN} device Class.
+The geolocation methods evaluated in this thesis work with any \acl{LRWED} Class.
 While using Class C would mean that devices could actually be asked directly for their location, using Class A devices is usually the better choice due to the lower power consumption.
 
 \subsection{Data security in \ac{LoRaWAN} transmissions}
@@ -454,7 +454,7 @@ Most of the other gateways deployed during this thesis, especially the ones from
 \ac{TTN} provides a web interface for managing devices and gateways that are registered to the network by the logged-in user.
 It also provides a \ac{REST} \ac{API} for managing devices and gateways programmatically.
 
-End devices are grouped into \emph{applications} that can be used to manage \ac{LoRaWAN} \aclp{ED} that belong to a bigger project or device group.
+\aclp{LRWED} are grouped into \emph{applications} that can be used to manage \aclp{LRWED} that belong to a bigger project or \acl{ED} group.
 
 In this thesis, an application was used to group the \ac{LoRaWAN} \ac{GPS} trackers that were used for data collection.
 
@@ -468,7 +468,7 @@ Additionally, \ac{TTN} provides a MQTT integration, which can send data to an MQ
 MQTT is a widely used lightweight publish-subscribe messaging protocol that is often used in \ac{IoT} applications~\cite{mqtt_mqtt_2022}.
 The MQTT protocol is not used in this thesis, so it will not be discussed further.
 
-\ac{TTNM}, the service that was used to collect geolocation data from \ac{LoRaWAN} devices in this thesis, uses a webhook integration to collect data from \ac{TTN}.
+\ac{TTNM}, the service that was used to collect geolocation data from \aclp{LRWED} in this thesis, uses a webhook integration to collect data from \ac{TTN}.
 This is explained in more detail in \cref{sec:ttm-data-collection}.
 
 Integrations are usually managed on a per-application basis.
@@ -497,12 +497,12 @@ This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TT
 
 \subsection{Data collection in \acl{TTNM}}\label{sec:ttm-data-collection}
 
-\acl{TTNM} works by using \ac{LoRaWAN} devices with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
+\acl{TTNM} works by using \aclp{LRWED} with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
 Alongside the location information, those devices' messages that are processed by \ac{TTN} also include information about which gateways received them.
 
 Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the devices' \ac{GPS} modules.
 This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a node sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
-With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network.
+With this data, it can build a map displaying the coverage of \aclp{LRWGW} in the \ac{TTN} network.
 
 \subsection{\acl{TTNM} frontend data views}
 
@@ -511,7 +511,7 @@ With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gatew
     \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
     \caption{
         A screenshot of \ac{TTNM}'s \emph{heatmap} view of the Furtwangen area.
-        The heatmap shows places where strong signals where received by \ac{LoRaWAN} gateways in reddish colors.
+        The heatmap shows places where strong signals where received by \aclp{LRWGW} in reddish colors.
         Weaker signals are shown in blueish colors.
         Some gateways are visible as small blue and white circles.
         This screenshot was taken at a time when considerable data collection had already taken place.
@@ -521,7 +521,7 @@ With this data, it can build a map displaying the coverage of \ac{LoRaWAN} gatew
 
 \Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
 This page displays an interactive world map with a heatmap overlay.
-It shows the coverage of \ac{LoRaWAN} gateways in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
+It shows the coverage of \aclp{LRWGW} in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
 Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LoRaWAN} node and has its location accessible from \ac{TTN} is displayed on the map.
 
 Notably, blank spots on the map do not necessarily mean that there is no coverage in that area.
@@ -529,7 +529,7 @@ It can also mean that there haven't been any \ac{GPS}-enabled \ac{LoRaWAN} nodes
 
 \subsection{Accessing the data of \acl{TTNM}}
 
-As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} \aclp{ED}.
+As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \aclp{LRWED}.
 
 \ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
 Data can be requested based on the \acl{ED} that sent the message or the gateway that received it.
@@ -550,8 +550,8 @@ This was one of the techniques used to locate devices in this thesis.
 
 \section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
 
-In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a device based on the distance to multiple other \aclp{ED}.
-However, triangulation uses the angles between the \acl{ED} and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
+In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a \acl{ED} based on the distance to multiple other \aclp{ED}.
+However, triangulation uses the angles between devices and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
 This process requires the \acl{ED} to be able to determine the angles to the reference points, which is needs specific hardware.
 
 \begin{figure}[htbp]
@@ -593,7 +593,7 @@ For example, the Russian \emph{GLONASS}, the European Galileo, the Chinese \acf{
 Most modern user devices such as smartphones support multiple \ac{GNSS} systems to improve the accuracy of the location determination.
 For example, one of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, \emph{GLONASS}, Galileo, and \ac{BDS}~\cite{gsmarena_samsung_2023}.
 
-The \ac{LoRaWAN} devices used in this thesis, as described in \cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
+The \aclp{LRWED} used in this thesis, as described in \cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
 
 \subsection{A measure of \acl{GNSS} localization accuracy: \acl{HDOP}}
 
@@ -710,7 +710,7 @@ These facts make \ac{RSSI}-based localization only work accurately in environmen
 \subsection{Fingerprinting with \acl{RSS} values}\label{sec:rssi-fingerprinting}
 
 Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
-It uses a set of known device locations with their corresponding \ac{RSS} values to locate devices based on the \ac{RSS} values it receives from the surrounding receivers --- \ac{LoRaWAN} gateways, in this case.
+It uses a set of known device locations with their corresponding \ac{RSS} values to locate devices based on the \ac{RSS} values it receives from the surrounding receivers --- \aclp{LRWGW}, in this case.
 The combination of an \ac{RSSI} value and the corresponding location is called a fingerprint.
 
 When a new set of \ac{RSS} values is recorded by a device, its \ac{RSS} values are compared to the known \ac{DB} of known fingerprints.
@@ -721,7 +721,7 @@ This thesis will explore the use of \ac{RSSI} fingerprinting for \ac{LoRaWAN} lo
 While \ac{ML} approaches can be used to improve fingerprinting, they were not used in this work, only simpler similarity calculations.
 
 Fortunately, building a \ac{DB} of fingerprints for the use case explored in this thesis is fairly straightforward, since the \ac{TTNM} \ac{API} already provides the necessary raw data, as mentioned in \cref{sec:ttn-mapper-importance}.
-\Cref{sec:collecting-additional-ttnm-data} will explain the \ac{LoRaWAN} devices used to collect additional data for fingerprinting.
+\Cref{sec:collecting-additional-ttnm-data} will explain the \aclp{LRWED} used to collect additional data for fingerprinting.
 
 \subsubsection{Using additional values for the fingerprinting approach}\label{sec:fingerprinting-additional-values}
 

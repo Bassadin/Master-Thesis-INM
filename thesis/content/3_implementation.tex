@@ -35,7 +35,7 @@ Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 
 \subsection{Possible Locations for \acs{LoRaWAN} gateways}\label{sec:gateway-locations}
 
-Multiple locations proved themselves to be worth considering when it came to installing new \ac{LoRaWAN} gateways in Furtwangen.
+Multiple locations proved themselves to be worth considering when it came to installing new \aclp{LRWGW} in Furtwangen.
 Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the gateways.
 Only buildings that the \ac{HFU} has liberal access to were considered, since a long-term deployment of the hardware was desirable to avoid makeshift solutions.
 Altitude was also a factor that was considered, as a placement at a higher elevation usually allows for a greater range of the gateway, especially in urban areas such as Furtwangen.
@@ -44,7 +44,7 @@ Altitude was also a factor that was considered, as a placement at a higher eleva
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
     \caption{
-        Overview map of \ac{LoRaWAN} gateways situated in the Furtwangen area.
+        Overview map of \aclp{LRWGW} situated in the Furtwangen area.
         This map shows gateways that were placed during this thesis as well as already existing ones~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:gateways-placement-map}
 \end{figure}
@@ -118,7 +118,7 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
         }\label{pic:antenna-dl0fis-clubhouse}
     \end{subfigure}
 
-    \caption{Pictures of some installed \ac{LoRaWAN} gateways and antennas.}
+    \caption{Pictures of some installed \aclp{LRWGW} and antennas.}
 \end{figure*}
 
 \Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N gateway on the roof of the \ac{ASH}.
@@ -137,7 +137,7 @@ The exposed location of the clubhouse on a hillside between Gütenbach and Furtw
 In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
 This data was especially important for doing geolocation calculations via fingerprinting.
 
-This was done by using \ac{LoRaWAN} devices that were equipped with \ac{GPS} modules and then moving them around Furtwangen.
+This was done by using \aclp{LRWED} that were equipped with \ac{GPS} modules and then moving them around Furtwangen.
 
 \subsection{Used \acs{LoRa} \aclp{ED}}\label{subsec:used-lora-devices}
 
@@ -213,7 +213,7 @@ However, due to the lack of alternatives several such 9V batteries were used for
 The \emph{Heltec HTCC-AB02S} is a \ac{LoRaWAN} node with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
 The package sounds very nice, but while the \ac{LoRa} module worked flawlessly, the same cannot be said for the \ac{GPS} module.
 \Cref{pic:heltec-htcc-ab02s} shows the \acl{ED}.
-Programming the device with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
+Programming the \acl{ED} with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
 
 The \ac{GPS} module was not able to get a reliable fix on its own, even after ordering and using an external GPS antenna.
 This seemed to be a hardware problem, since other users could get fixes reliably with external \ac{GPS} antennas.
@@ -226,7 +226,7 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/HTCC-AB02S.jpg}
         \caption{
-            One of the Heltec HTCC-AB02S \ac{LoRaWAN} devices used during this thesis.
+            One of the Heltec HTCC-AB02S \aclp{LRWED} used during this thesis.
             The \acs{OLED} display as well as the \ac{GPS} module as well as the \ac{LoRaWAN} antenna on the top right can be seen.
         }\label{pic:heltec-htcc-ab02s}
     \end{subfigure}%
@@ -251,7 +251,7 @@ At first glance, this was the most promising \ac{LoRa} node for the task at hand
 It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
 
 However, the node was challenging to set up and operate.
-The device offers a \emph{motion based cyclic} mode in which, during physical movement, the node sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
+The \acl{ED} offers a \emph{motion based cyclic} mode in which, during physical movement, the node sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
 This, however, did not work in practice and the node would only send its coordinates irregularly, if at all.
 The documentation was not helpful with finding the root cause and the manufacturer could only offer to replace the hardware.
 
@@ -320,7 +320,7 @@ Docker Compose was then used to assemble the different parts of the application:
 % PlatformIO is a plugin that enables the development of embedded systems with \ac{VSC}~\cite{platformio_platformio_nodate}.
 % It allows for a user to use \ac{VSC} instead of having to rely on the \emph{Arduino IDE}.
 
-% PlatformIO was used in this thesis to develop code for some of the \ac{LoRaWAN} devices used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \cref{subsubsec:heltec-htcc-ab02s}.
+% PlatformIO was used in this thesis to develop code for some of the \aclp{LRWED} used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \cref{subsubsec:heltec-htcc-ab02s}.
 
 \subsection{GitHub Actions for \acl{CI/CD}}
 
@@ -338,7 +338,7 @@ The programmatic implementation of this thesis was called \acf{TTNL} and split i
 \subsection{Overview of the structure of \acl{TTNL}}
 
 This section aims to give an overview over the program structure of the \ac{TTNL} application.
-It also includes the \ac{LoRaWAN} gateways, devices and other parts such as the \ac{TTN} \ac{LNS} in the explanation of the data flow.
+It also includes the \aclp{LRWGW}, devices and other parts such as the \ac{TTN} \ac{LNS} in the explanation of the data flow.
 
 \begin{figure}[htbp]
     \centering
@@ -353,7 +353,7 @@ It also includes the \ac{LoRaWAN} gateways, devices and other parts such as the 
 \Cref{pic:program-structure} shows the program structure and data flow of the \ac{TTNL} application as a flowchart.
 The part that was implemented during this thesis is highlighted in yellow.
 
-The data flow starts with the \ac{LoRaWAN} \aclp{ED} on the right that collect \ac{GPS} data and send it to the \ac{LoRaWAN} gateways using the \ac{LoRaWAN} protocol.
+The data flow starts with the \acl{LRWED} on the right that collect \ac{GPS} data and send it to the \aclp{LRWGW} using the \ac{LoRaWAN} protocol.
 The gateways then forward the packets to the \ac{TTN} \ac{LNS}.
 In the Applications section of the \ac{TTN} \ac{LNS}, the \ac{TTNL} application is configured to receive the packets and transform their byte data into a \ac{JSON} format that can be processed by \ac{TTNM}.
 Using the \ac{TTNM} integration, \ac{TTN} then sends the data to \ac{TTNM}.
@@ -570,11 +570,11 @@ This was used in this thesis to display some data on the map of the \ac{TTNL} fr
 To be able to perform more advanced queries on the data, some of it has to be transferred into the \ac{TTNL} \acl{DB}.
 Since, for the scope of this thesis, only devices that collected data near the Furtwangen area were of interest, only data from those devices was transferred.
 This is because fingerprinting on a larger or even global scale would likely result in the need for a much bigger, maybe even distributed \ac{RDBMS}.
-However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the \ac{DB}, as long as that device has been captured by \ac{TTNM} at some point in time.
+However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the \ac{DB}, as long as that \acl{ED} has been captured by \ac{TTNM} at some point in time.
 New devices can be added to the \ac{TTNL} \ac{DB} by using a specific backend \ac{API} route.
 
-To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given device in a given time frame.
-For example, to get data for a \ac{LoRaWAN} device with the id \emph{blinkeding} from the first week of April 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
+To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given \acl{ED} in a given time frame.
+For example, to get data for a \acl{LRWED} with the id \emph{blinkeding} from the first week of April 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
 This \ac{TTNM} \ac{API} route returns data in a \ac{JSON} format.
 This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} \ac{DB}.
 
@@ -583,7 +583,7 @@ Cron allows for tasks to be executed at specific times or intervals.
 It uses a specific syntax to define these intervals, for example \emph{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
 
 The cronjob for importing new data only does this for devices that are marked as ``subscribed'' in the \ac{DB} to avoid flooding the \ac{DB} with irrelevant data.
-This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the device specific data from the \ac{TTNM} \ac{DB}.
+This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the \acl{ED} specific data from the \ac{TTNM} \ac{DB}.
 
 \subsection{Cleaning collected data}\label{subsec:cleaning-collected-data}
 
@@ -594,7 +594,7 @@ As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values abov
 There were two problems that were noticed when trying to use the data for localization purposes:
 
 \begin{itemize}
-    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the device moved from one location to another one that was far away in a short amount of time.
+    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the \acl{ED} moved from one location to another one that was far away in a short amount of time.
     \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate data points.
 \end{itemize}
 
@@ -648,13 +648,13 @@ Instead of calculating the distance between the two data points, their latitude,
 
 \section{Locating \acs{LoRaWAN} devices}
 
-This section will describe the different approaches that were taken to locate \ac{LoRaWAN} devices in this thesis.
+This section will describe the different approaches that were taken to locate \aclp{LRWED} in this thesis.
 
 \subsection{\acs{RSSI}-based multilateration}\label{sec:rssi-based-multilateration-implementation}
 
 The general idea behind using \ac{RSS} values to determine the distance to a gateway is simple.
-The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the device and the gateway.
-The further away a device is from a gateway, the lower (or more negative) the \ac{RSSI} value will be.
+The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the \acl{ED} and the gateway.
+The further away a \acl{ED} is from a gateway, the lower (or more negative) the \ac{RSSI} value will be.
 This correlation was explained in \cref{sec:background-free-space-path-loss}.
 
 \begin{figure}[htbp]
@@ -662,23 +662,23 @@ This correlation was explained in \cref{sec:background-free-space-path-loss}.
     \includegraphics[width=1\textwidth]{pictures/multilateration/rssi-multilateration-example.png}
     \caption{
         An example of the theory behind mapping \ac{RSS} values to distances using three gateways, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
-        The device (orange pin) is located at the intersection of the three circles originating from the gateways (green pins).
+        The \acl{ED} (orange pin) is located at the intersection of the three circles originating from the gateways (green pins).
         The map was generated using the \ac{OSM} based tool \emph{umap}~\cite{noauthor_umap_nodate}.
     }\label{fig:rssi-multilateration-theoretical-example}
 \end{figure}
 
 \Cref{fig:rssi-multilateration-theoretical-example} shows an example of how \ac{RSS} values can be used to determine the location of a \acl{ED}.
-\ac{RSS} values that are received by the gateways are inversely proportional to the distance between the device and the gateway.
-They are used to calculate the distance between the device and the gateway, making a multilateration possible.
+\ac{RSS} values that are received by the gateways are inversely proportional to the distance between the \acl{ED} and the gateway.
+They are used to calculate the distance between the \acl{ED} and the gateway, making a multilateration possible.
 
 A fact to take note of is that the \ac{RSSI} values measured by \ac{TTN} are only integers and not floating point numbers.
 This lowers the accuracy of the calculated distances and therefore the accuracy of the calculated location of the \acl{ED}.
 
-Based on these facts, several attempts were made to calculate the distance between a device and a gateway.
+Based on these facts, several attempts were made to calculate the distance between a \acl{ED} and a gateway.
 
 \subsubsection{First idea: Fixed \acs{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}\label{sec:fixed-rssi-to-range-scale-impl}
 
-The first idea for determining the distance between a device and a gateway was to use a fixed \ac{RSSI} to range scale.
+The first idea for determining the distance between a \acl{ED} and a gateway was to use a fixed \ac{RSSI} to range scale.
 This means that for a given \ac{RSSI} value, a range is determined by inputting said \ac{RSSI} value into a function.
 \Cref{eq:fixed-rssi-to-range-scale} shows an example that takes a \ac{RSSI} value.
 The result is the distance $D_{gateway}$ to the gateway in meters.
@@ -690,7 +690,7 @@ The result is the distance $D_{gateway}$ to the gateway in meters.
 For example, a \ac{RSSI} value of -80 would result in a distance of \SI{355}{\meter}.
 A value of -110 would result in a distance of \SI{715}{\meter}.
 
-The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the device-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
+The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the \acl{ED}-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
 While those values work reasonably well for the \ac{LoS} reception behavior of the gateway that was used to generate the regression, they are not necessarily applicable to other gateways.
 Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
@@ -698,12 +698,12 @@ Although rare, \ac{RSS} values that are larger than a certain threshold can also
 In the example given in \cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>= -50$.
 
 Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when \acl{ED}, gateway, and the distance between them stay the same.
-This makes RSSI values in general a rather unreliable metric for determining the distance between a device and a gateway as long as there is no \ac{LoS} between them.
+This makes RSSI values in general a rather unreliable metric for determining the distance between a \acl{ED} and a gateway as long as there is no \ac{LoS} between them.
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}\label{sec:plotting-rssi-to-range-from-existing-data}
 
 \Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-It uses the \ac{RSS} values of the device-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
+It uses the \ac{RSS} values of the \acl{ED}-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
 This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
 Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
 The example in \cref{fig:rssi-range-graph-positive-example} works quite well for this.
@@ -814,8 +814,8 @@ Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be receive
 
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
 
-One of the seemingly most promising techniques for locating \ac{LoRaWAN} devices is \ac{ToA}-based multilateration.
-As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the time of arrival of a \ac{LoRa} signal to multiple gateways to calculate the position of the device that sent the signal using the speed of light.
+One of the seemingly most promising techniques for locating \aclp{LRWED} is \ac{ToA}-based multilateration.
+As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the time of arrival of a \ac{LoRa} signal to multiple gateways to calculate the position of the \acl{ED} that sent the signal using the speed of light.
 
 Unfortunately, this technique did not work as expected in the scope of this thesis.
 This was because the timestamps of signal arrival in the gateways that were used for this thesis were not accurate enough.

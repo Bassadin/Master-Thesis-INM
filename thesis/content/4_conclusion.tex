@@ -131,7 +131,7 @@ This lead to a denser data coverage of \acl{TTNM} in the Furtwangen area.
     \caption{
         Screenshot of the \ac{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023.
         Compared to \cref{pic:ttnm-before-data-collection}, the coverage has improved significantly.
-        Several \ac{LoRaWAN} gateways were deployed as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers~\cite{ttn_mapper_ttn_2023}.
+        Several \aclp{LRWGW} were deployed as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ttnm-heatmap-after-data-collection}
 \end{figure}
 
@@ -199,7 +199,7 @@ The result for a data set of about \num{10000} collected ttnMapperDatapoints fro
 Other gateways show similar results.
 
 This means that, in general, \ac{RSS} values alone are not a good indicator for measuring distances.
-Still, this section will provide an overview over the techniques used during this thesis to estimate the position of a device based on \ac{RSS} values in two different ways.
+Still, this section will provide an overview over the techniques used during this thesis to estimate the position of a \acl{ED} based on \ac{RSS} values in two different ways.
 
 \paragraph{Accuracy of multilateration based on \aclp{RSS} with a fixed \acl{RSS} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
 
@@ -338,7 +338,7 @@ That way, the \ac{SNR} values of the remaining data points are more comparable t
 \Cref{fig:fingerprinting-map-example-with-snr-and-sf} shows an example with \ac{SF} filtering turned on.
 The result is dependent on the amount of training data that was collected for the area, but for most cases, also filtering by \ac{SF} further improves the accuracy of the results.
 This is because it removes results with a \ac{SF} different from the one used by the \acl{ED}, which could otherwise have \ac{SNR} values different from the actual \acl{ED} packets.
-As most \ac{LoRaWAN} \aclp{ED} used in this thesis were using \ac{SF}7, the example given in \cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \cref{fig:fingerprinting-map-example-with-snr}.
+As most \aclp{LRWED} used in this thesis were using \ac{SF}7, the example given in \cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \cref{fig:fingerprinting-map-example-with-snr}.
 However, if a larger dataset with more \ac{SF} values were used, the improvement would be more visible.
 
 \subsubsection{Conclusion}
@@ -454,13 +454,13 @@ In doing so, GraphQL also ships its own type system that can be used to generate
 
 \subsection{Projects made possible due to better \acs{LoRaWAN} coverage in Furtwangen}
 
-Now that there are now several new \ac{LoRaWAN} gateways in Furtwangen, there are several projects that can be done in the future that would not have been possible before without installing such gateways by oneself.
+Now that there are now several new \aclp{LRWGW} in Furtwangen, there are several projects that can be done in the future that would not have been possible before without installing such gateways by oneself.
 
 This section will list some of these projects and describe how they could be implemented.
 
 \subsubsection{Measuring the water level of the Breg river}
 
-One of the \ac{LoRaWAN} devices ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
+One of the \aclp{LRWED} ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
 As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate for most outdoor \ac{LoRaWAN} sensor deployments, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
 This could allow for a prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River, for example.
 Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
@@ -468,7 +468,7 @@ Installing this \ac{LoRaWAN} node as well as connecting it to \ac{TTN} and addin
 \subsubsection{Measuring soil moisture and environmental conditions in the Furtwangen city park}
 
 Also during the current semester, Samuel Kasper, a student of the \ac{DM} faculty of the \ac{HFU} wrote his bachelor's thesis on measuring the humidity and temperature of the soil to monitor plants and crop growth.
-The installation of \ac{LoRaWAN} gateways in Furtwangen helped him in this regard, as he did not have to install his own gateways and instead could use the now existing infrastructure in the city.
+The installation of \aclp{LRWGW} in Furtwangen helped him in this regard, as he did not have to install his own gateways and instead could use the now existing infrastructure in the city.
 
 \subsubsection{Monitoring of Gateways}
 
@@ -481,10 +481,10 @@ Alerting specific users if a gateway goes offline could also be implemented with
 \subsubsection{Improving timestamp accuracy for \acl{ToA} geolocation method}
 
 As mentioned in \cref{subsec:conclusion-toa-tdoa}, the accuracy of the \ac{ToA} method could be greatly improved if nanosecond level timestamps were available.
-Unfortunately, \ac{TTN} does not provide nanosecond level timestamps for the packets received by the \ac{LoRaWAN} gateways.
+Unfortunately, \ac{TTN} does not provide nanosecond level timestamps for the packets received by the \aclp{LRWGW}.
 To solve this problem, a \ac{LNS} would need to be set up that has the ability to do that.
 
-In addition, \ac{LoRaWAN} gateways would need to be time synchronized to achieve the best possible accuracy.
+In addition, \aclp{LRWGW} would need to be time synchronized to achieve the best possible accuracy.
 The latter problem could be solved by using \ac{GPS} receivers to synchronize the gateways.
 While some gateways have \ac{GPS} built-in receivers, most do not.
 For example, the \emph{Dragino DLOS8N} that was used twice during this thesis has a \ac{GPS} built-in receiver~\cite{dragino_technology_co_ltd_dlos8n_2023}, but none of the others do.
@@ -521,12 +521,12 @@ While \ac{LoRa} allows for communication between any sort of \ac{LoRa} device, b
 Theoretically, a gateway to gateway communcation in pure \ac{LoRa} is possible~\cite{dwijaksara_multihop_2019}.
 However, this behavior is not implemented in the \ac{LoRaWAN} protocol.
 
-If this functionality could be implemented in the \ac{LoRaWAN} protocol, it would allow for a sort of meshed network of \ac{LoRaWAN} gateways.
+If this functionality could be implemented in the \ac{LoRaWAN} protocol, it would allow for a sort of meshed network of \aclp{LRWGW}.
 Gateways acting as repeaters in such a network could forward \ac{LoRaWAN} packets without the need for a backhaul connection as mentioned in \cref{sec:gateways}.
 Since the \ac{LoRaWAN} protocol doesn't provide this functionality yet, it would need to be tested with a custom implementation of gateway firmware first.
 
 A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing between devices is \emph{Meshtastic}~\cite{meshtastic_llc_meshtastic_2023}.
-It uses hardware similar to the \ac{LoRaWAN} devices used in this thesis to create a meshed network of devices that can communicate without the need for Internet access.
+It uses hardware similar to the \aclp{LRWED} used in this thesis to create a meshed network of devices that can communicate without the need for Internet access.
 
 The German company \emph{Dryad Networks GmbH} uses meshed \ac{LoRa} gateways to build a network that can be used with their products~\cite{dryad_networks_gmbh_silvanet_2023}.
 It is used to detect wildfires early using a network of \ac{LoRa} sensors that can send their data over meshed gateways to avoid the need for a backhaul connection for each gateway placed over large areas of forest.
@@ -542,9 +542,9 @@ Both of them are \ac{OSS} and can be self-hosted using Docker or Docker Compose.
 
 \subsection{Privacy concerns}
 
-Since the work in this thesis has shown that it is possible, at least at a rough level, to locate \ac{LoRaWAN} devices even without a \ac{GPS} receiver, there are some privacy concerns that need to be addressed.
+Since the work in this thesis has shown that it is possible, at least at a rough level, to locate \aclp{LRWED} even without a \ac{GPS} receiver, there are some privacy concerns that need to be addressed.
 
-\ac{LoRaWAN} devices are small and can be hidden easily (for example under the hood of a car) while having a long battery life.
+\aclp{LRWED} are small and can be hidden easily (for example under the hood of a car) while having a long battery life.
 This means that such devices could be used to track people without their knowledge over long periods of time even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration of fingerprinting.
 
 As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \acl{LRWGW} with enough data collection and time.
@@ -555,7 +555,7 @@ This could allow bad actors to physically attack gateways connected to the publi
 This section will summarize the results of the work in this thesis and aims to answer the research questions posed in \cref{sec:introduction-research-questions}.
 
 This thesis deployed a full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
-From installing the \ac{LoRaWAN} gateways to collecting the data via \aclp{ED}, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
+From installing the \aclp{LRWGW} to collecting the data via \aclp{ED}, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
 
 The viability of \ac{RSS}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
 While the accuracy of the methods shown, especially outdoors, is inferior to that of \ac{GNSS}, it is still good enough for many use cases, such as geofencing and others.
