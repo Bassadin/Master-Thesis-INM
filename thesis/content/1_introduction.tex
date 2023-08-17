@@ -12,11 +12,11 @@ The longest transmission range of a \ac{LoRa} device, under ideal conditions, ha
 While, realistically, \ac{LoRa} devices usually reach much shorter distances, they can still be used to connect devices over long distances of multiple kilometers while consuming little power.
 In the first half of 2020, \ac{LoRa} was the second most used \ac{LPWAN} technology worldwide, scoring 41\% and ranking just behind NB-IoT with 44\%~\cite{iot_analytics_lpwa_2020}.
 
-While \ac{LoRa} end devices can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
+While \ac{LoRa} \aclp{ED} can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
 This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
 \ac{LoRa} devices may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
 
-The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} devices without the need to modify those end devices or the gateways used.
+The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \ac{LoRaWAN} devices without the need to modify those \aclp{ED} or the gateways used.
 This is done so that scaling the solution to the entirety of an existing \ac{LoRaWAN} network is possible.
 The goal is not to focus specifically on indoor or outdoor localization specifically but to provide a general overview of the topic.
 
@@ -74,7 +74,7 @@ Using the \ac{kNN} approach, they achieved an accuracy of \SIrange{273}{394}{\me
 
 Anjum et al.\ also evaluated \ac{RSSI} fingerprinting in 2019~\cite{anjum_analysis_2019}.
 In their research, they compared \ac{LoS} and \ac{NLoS} scenarios, analyzing the path loss exponent and the standard deviation of the shadowing \ac{MPP} parameter in each of these environments.
-They did not use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} devices.
+They did not use the \ac{LoRaWAN} protocol but instead used a small test setup of their own \ac{LoRa} \aclp{ED}.
 Placing nodes in different stories of a building, they measured a varying accuracy of \ac{RSSI} to distance mappings.
 
 Fernandes et al.\ used a hybrid approach to locate elderly care recipients indoors: \ac{UWB} technology for localization and \ac{LoRaWAN} to send data to their caregivers~\cite{fernandes_hybrid_2020}.

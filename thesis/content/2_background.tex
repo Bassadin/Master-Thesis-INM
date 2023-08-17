@@ -28,7 +28,7 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 
 \subsection{Comparing signal strengths — \acl{RSSI}}\label{sec:rssi}
 
-The \acf{RSSI} is a measure of the strength of a wireless signal received by a device.
+The \acf{RSSI} is a measure of the strength of a wireless signal received by a \acl{ED}.
 As far as this thesis is concerned, \ac{RSS} values are measured in dBm since the \ac{TTN} \ac{LNS}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
 Different devices can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
@@ -225,7 +225,7 @@ These factors make them more suitable for handling large amounts of sensors and 
 
 \Cref{pic:lpwan-diagram} shows the structure of a \ac{LPWAN} network.
 Multiple \ac{IoT} devices connect to gateways or base stations.
-Those gateways are in turn connected to the internet or a larger network via a backhaul connection in order to enable communication between end devices.
+Those gateways are in turn connected to the internet or a larger network via a backhaul connection in order to enable communication between \aclp{ED}.
 
 \section{\acl{LoRaWAN} — connecting \acl{IoT} devices over long ranges}\label{sec:lorawan}
 
@@ -238,10 +238,10 @@ Those gateways are in turn connected to the internet or a larger network via a b
 \end{figure}
 
 \ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
-It defines a secure way to transfer packets from the end devices to \acp{AS} by enforcing \ac{E2EE}.
+It defines a secure way to transfer packets from the \aclp{ED} to \acp{AS} by enforcing \ac{E2EE}.
 This section will explain the structure of a \ac{LoRaWAN} network and how it works.
 
-\subsection{\acs{LoRaWAN} network architecture — connecting \aclp{AS}, gateways and end devices}
+\subsection{\acs{LoRaWAN} network architecture — connecting \aclp{AS}, gateways and \aclp{ED}}
 
 \begin{figure}[htbp]
     \centering
@@ -254,7 +254,7 @@ This section will explain the structure of a \ac{LoRaWAN} network and how it wor
 The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
 
 \begin{itemize}
-    \item The end nodes (called end devices during this thesis),
+    \item The end nodes (called \aclp{ED} during this thesis),
     \item the gateways (also called concentrators or base stations),
     \item the \acf{LNS}, and
     \item the \acfp{AS}.
@@ -262,7 +262,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 
 \ac{LoRaWAN} data rates typically range from 0.3 kbps to 50 kbps, depending on the region and the \ac{LoRa} modulation used~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}.
 
-\subsection{Connecting end devices to the internet: \acs{LoRaWAN} Gateways}\label{sec:gateways}
+\subsection{Connecting \aclp{ED} to the internet: \acs{LoRaWAN} Gateways}\label{sec:gateways}
 
 \begin{figure}[htbp]
     \centering
@@ -300,14 +300,14 @@ It is also possible to use external antennas if it is necessary to cover a much 
 While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
-\subsection{Data Transmission between end devices and \aclp{AS}}
+\subsection{Data Transmission between \aclp{ED} and \aclp{AS}}
 
-In LoRaWAN, data transmissions from the end devices to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+In LoRaWAN, data transmissions from the \aclp{ED} to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
-Uplinks are relayed to the \ac{LNS} by one or more gateways from the end device.
-Downlinks, on the other hand, are only sent from the \ac{LNS} to the end device using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+Uplinks are relayed to the \ac{LNS} by one or more gateways from the \acl{ED}.
+Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
-\subsection{Device Classes of \acs{LoRaWAN} end devices}\label{sec:device-classes}
+\subsection{Device Classes of \acs{LoRaWAN} \aclp{ED}}\label{sec:device-classes}
 
 \ac{LoRaWAN} defines three classes of devices that offer different trade-offs between power consumption and availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
 
@@ -324,7 +324,7 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the end device 
 
 Class A is used for devices that need to consume as little power as possible.
 Every \ac{LoRaWAN} device must support at least the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
-A communication in Class A is always initiated by the end device itself.
+A communication in Class A is always initiated by the \acl{ED} itself.
 
 Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the device~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
 An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
@@ -339,7 +339,7 @@ However, this also makes it impossible for the \ac{LNS} to send data to the devi
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-b.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class B device communication.
-        The additional ping slots where the end device is reachable by gateways can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
+        The additional ping slots where the \acl{ED} is reachable by gateways can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-b-schema}
 \end{figure}
 
@@ -356,7 +356,7 @@ These scheduled downlink windows result in a higher power consumption for Class 
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-c.png}
     \caption{
         A schema of a \ac{LoRaWAN} Class C device communication.
-        The RX2 window is kept open between uplink transmissions to allow gateways to reach the end device at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
+        The RX2 window is kept open between uplink transmissions to allow gateways to reach the \acl{ED} at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-c-schema}
 \end{figure}
 
@@ -369,7 +369,7 @@ The fact that they are always reachable by the \ac{LNS} also makes them the most
 \subsubsection{Conclusion: Which device class was used?}
 
 As far as this thesis was concerned, only Class A devices were used.
-This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered devices.
+This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered \aclp{ED}.
 
 In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a device in Class C would need a battery around 19 times larger than a Class A device to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
 As mobile devices that have the need to be located are usually battery-powered, Class A is the most viable option for them.
@@ -381,7 +381,7 @@ While using Class C would mean that devices could actually be asked directly for
 
 The security of the data sent is a major concern when talking about \ac{IoT} protocols.
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
-Each end device usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite[p. 24]{lora_alliance_inc_lorawan_specification_2017}.
+Each \acl{ED} usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite[p. 24]{lora_alliance_inc_lorawan_specification_2017}.
 
 This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks (where a malicious attacker captures sent packets and sends them again), since a so-called \ac{MIC} is determined from the frame data.
 This \ac{MIC} in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
@@ -454,7 +454,7 @@ Most of the other gateways deployed during this thesis, especially the ones from
 \ac{TTN} provides a web interface for managing devices and gateways that are registered to the network by the logged-in user.
 It also provides a \ac{REST} \ac{API} for managing devices and gateways programmatically.
 
-End devices are grouped into \emph{applications} that can be used to manage \ac{LoRaWAN} end devices that belong to a bigger project or device group.
+End devices are grouped into \emph{applications} that can be used to manage \ac{LoRaWAN} \aclp{ED} that belong to a bigger project or device group.
 
 In this thesis, an application was used to group the \ac{LoRaWAN} \ac{GPS} trackers that were used for data collection.
 
@@ -529,10 +529,10 @@ It can also mean that there haven't been any \ac{GPS}-enabled \ac{LoRaWAN} nodes
 
 \subsection{Accessing the data of \acl{TTNM}}
 
-As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} devices.
+As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \ac{LoRaWAN} \aclp{ED}.
 
 \ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
-Data can be requested based on the end device that sent the message or the gateway that received it.
+Data can be requested based on the \acl{ED} that sent the message or the gateway that received it.
 In addition, the data can be filtered by the time that it was recorded on.
 The data is provided in graphical (map-based) form as well as in \ac{CSV} files.
 
@@ -550,9 +550,9 @@ This was one of the techniques used to locate devices in this thesis.
 
 \section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
 
-In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a device based on the distance to multiple other devices.
-However, triangulation uses the angles between the end device and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
-This process requires the end device to be able to determine the angles to the reference points, which is needs specific hardware.
+In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a device based on the distance to multiple other \aclp{ED}.
+However, triangulation uses the angles between the \acl{ED} and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
+This process requires the \acl{ED} to be able to determine the angles to the reference points, which is needs specific hardware.
 
 \begin{figure}[htbp]
     \centering
@@ -563,18 +563,18 @@ This process requires the end device to be able to determine the angles to the r
     }\label{pic:multilateration-gps-2d-3d-example}
 \end{figure}
 
-The correct term to use when using distances between an end device and multiple receivers to achieve a localization of the end device is \emph{multilateration}.
+The correct term to use when using distances between an \acl{ED} and multiple receivers to achieve a localization of the \acl{ED} is \emph{multilateration}.
 An example of this in \ac{GNSS} is shown in \cref{pic:multilateration-gps-2d-3d-example}.
 A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
 
 \section{Locate devices accurately with the \acl{GNSS}}
 
-\ac{GNSS} is a generic term for systems that use satellites orbiting the Earth to determine the location of a device.
+\ac{GNSS} is a generic term for systems that use satellites orbiting the Earth to determine the location of a \acl{ED}.
 In everyday language, the term \ac{GPS} is often used as a synonym for \ac{GNSS}.
 However, \ac{GPS} is only one of the several \ac{GNSS} systems that are currently in use.
-\ac{GNSS} systems use multilateration to determine the location of end devices as explained in \cref{sec:multilateration-basics}.
+\ac{GNSS} systems use multilateration to determine the location of \aclp{ED} as explained in \cref{sec:multilateration-basics}.
 \Cref{pic:multilateration-gps-2d-3d-example} shows an example of how this works with \ac{GNSS} satellites in 2D and 3D.
-To determine the distance from the end device to the satellites, the time it takes for a signal to travel from the satellite to the end device is measured.
+To determine the distance from the \acl{ED} to the satellites, the time it takes for a signal to travel from the satellite to the \acl{ED} is measured.
 This approach is called \acf{ToA}.
 
 \subsection{The most well-known \acl{GNSS} — The \acl{GPS}}
@@ -601,7 +601,7 @@ When talking about how accurate a certain data point of a \ac{GNSS} system is, t
 In fact, there are multiple different terms that can be used to describe such accuracies: \ac{HDOP}, \ac{PDOP}, \ac{VDOP}, \ac{TDOP}, and \ac{GDOP}~\cite{langley_dilution_1999}.
 As far as two-dimensional positioning is concerned, \ac{PDOP} and \ac{HDOP} are relevant.
 
-\ac{PDOP} is calculated by using the position of satellites as well as the position of the end device.
+\ac{PDOP} is calculated by using the position of satellites as well as the position of the \acl{ED}.
 For example, ``on a 24-satellite constellation […], a 5-degree satellite elevation mask angle with no obstructions, and at least four satellites in view [results in a] \acf{PDOP} of six or lower''~\cite{langley_dilution_1999}.
 In a sense, \ac{PDOP} is a measure of the quality of the current \ac{GNSS} constellation for a user.
 
@@ -627,7 +627,7 @@ As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes c
 
 \subsection{Power usage of localization via \acl{GPS} vs. \acs{LoRaWAN} metadata}\label{subsec:gnss-power-usage}
 
-In order to show the relevance of using \ac{RSS} values over \ac{GNSS} systems to locate end devices, this section will give a brief comparison of power consumption between the two.
+In order to show the relevance of using \ac{RSS} values over \ac{GNSS} systems to locate \aclp{ED}, this section will give a brief comparison of power consumption between the two.
 The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
 It will be evaluated in more detail in \cref{subsubsec:elv-gps-tracker-implementation}.
 
@@ -665,7 +665,7 @@ This section will explain several concepts relating to geolocation in conjunctio
 
 \subsection{Multilateration using various mappings}\label{sec:lorawan-multilateration}
 
-As explained in \cref{sec:multilateration-basics}, multilateration uses the distance between a device and multiple receivers to determine the location of the end device.
+As explained in \cref{sec:multilateration-basics}, multilateration uses the distance between a device and multiple receivers to determine the location of the \acl{ED}.
 However, while the theoretical concept of multilateration, as shown in \cref{pic:multilateration-gps-2d-3d-example} is simple, there are several challenges when applying it to real-world scenarios.
 Distances measured between devices are often not accurate enough to determine the location of a device accurately.
 

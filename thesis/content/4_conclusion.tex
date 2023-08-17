@@ -149,7 +149,7 @@ This section will compare the different geolocation methods that were used in th
 \subsubsection{\acl{RSSI}}
 
 \Cref{lst:sql-calculate-correlation-coefficient} shows a \ac{SQL} query that was used to calculate the correlation coefficient between \ac{RSS} values and their associated distances for a single gateway.
-Its purpose is to show how much the \ac{RSS} values correlate with the distance from the end device to the gateway.
+Its purpose is to show how much the \ac{RSS} values correlate with the distance from the \acl{ED} to the gateway.
 
 \begin{lstlisting}[
     language=SQL,
@@ -211,7 +211,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
     \caption{
         Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three gateways using a fixed \ac{RSSI} to range mapping.
-        It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the device.
+        It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the \acl{ED}.
         The width of the annuli is an arbitrary value of \SI{100}{\meter} in this case.
         The value can be changed in the frontend to test various error margins.
         The annuli are drawn using Leaflet's ability to render GeoJSON.
@@ -224,7 +224,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
 
 As mentioned in \cref{subsubsec:per-gateway-rssi-to-range-scale}, another idea was to use linear regression to map \ac{RSS} values to ranges for each gateway.
 This approach considers gateway-specific parameters such as position and gateway antenna gain.
-However, it cannot consider \ac{MPP} effects as well as end device antenna gain.
+However, it cannot consider \ac{MPP} effects as well as \acl{ED} antenna gain.
 
 \begin{figure}[htbp]
     \centering
@@ -244,18 +244,18 @@ However, since the linear regression model cannot account for \ac{MPP} effects e
 \paragraph{Conclusion: \acl{RSS} approaches}
 
 As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSS} values to fluctuate heavily.
-In addition, as explained in \cref{sec:rssi}, different antennas on gateways and end devices can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
+In addition, as explained in \cref{sec:rssi}, different antennas on gateways and \aclp{ED} can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
 
 This makes multilateration with \ac{RSS} values as the only input data inaccurate.
 Even when using a linear regression model to generate a mapping of \ac{RSS} values to ranges for each gateway, the results were often inaccurate.
 
 \subsubsection{\acl{ToA}}\label{subsec:conclusion-toa-tdoa}
 
-\Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \acl{LRWGW} to determine the range to the end device is too inaccurate to be used for \ac{ToA}-based geolocation.
+\Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \acl{LRWGW} to determine the range to the \acl{ED} is too inaccurate to be used for \ac{ToA}-based geolocation.
 
 In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \cref{fig:toa-bad-data-example}, another factor has to be considered.
 \ac{TTN} captures timestamps for packets arriving at gateways in the following format: \lstinline|2000-01-01T12:00:00.123456Z|.
-These timestamps can be found in the \lstinline|uplink_message.rx_metadata[*].time| field of the \ac{JSON} payload that can be viewed in the \ac{TTN} console for each packet that arrives from a certain end device~\cite{the_things_industries_bv_data_2023}.
+These timestamps can be found in the \lstinline|uplink_message.rx_metadata[*].time| field of the \ac{JSON} payload that can be viewed in the \ac{TTN} console for each packet that arrives from a certain \acl{ED}~\cite{the_things_industries_bv_data_2023}.
 It uses the \ac{ISO} 8601 \ac{UTC} standard for timestamps~\cite{newman_date_2002}.
 The six decimal places after the seconds mean that the timestamp is accurate to \SI{1}{\micro\second}.
 \Cref{eq:toa-accuracy-ttn-microseconds} shows that when using microseconds to calculate the distance to a \acl{LRWGW} based on the speed of light, a maximum accuracy of \SI{300}{\meter} can be achieved.
@@ -287,7 +287,7 @@ This section evaluates the fingerprinting approach as described in \cref{sec:fin
     \includegraphics[width=0.6\textwidth]{pictures/ttn-locator/frontend/fingerprinting/rssi_similarity_map_example_dynamic_radius.png}
     \caption{
         Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
-        The blue pin shows the actual position of the device.
+        The blue pin shows the actual position of the \acl{ED}.
         The yellow circle shows the estimated position that \ac{TTNL} calculated out of the center of the matching data points.
         The radius is determined by having half of the matched points fit inside it.
     }\label{fig:fingerprinting-map-example-dynamic-radius}
@@ -319,12 +319,12 @@ However, since \ac{TTN} captures all of those values with each received data fra
 
 \subsubsection{Adding \acl{SF}}
 
-As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the end device has an influence on the \ac{SNR} values at which a signal can still be detected.
-This means that the \ac{SF} value also plays a role in a more accurately location estimation of the end device.
+As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the \acl{ED} has an influence on the \ac{SNR} values at which a signal can still be detected.
+This means that the \ac{SF} value also plays a role in a more accurately location estimation of the \acl{ED}.
 
 The \ac{TTNL} frontend includes a checkbox that enables the addition of \ac{SF} values to the fingerprinting filter.
-This prevents data points from \acp{SF} different from the one used by the end device from being included in the filter and.
-That way, the \ac{SNR} values of the remaining data points are more comparable to the actual \ac{SNR} values of the end device.
+This prevents data points from \acp{SF} different from the one used by the \acl{ED} from being included in the filter and.
+That way, the \ac{SNR} values of the remaining data points are more comparable to the actual \ac{SNR} values of the \acl{ED}.
 
 \begin{figure}[htbp]
     \centering
@@ -337,8 +337,8 @@ That way, the \ac{SNR} values of the remaining data points are more comparable t
 
 \Cref{fig:fingerprinting-map-example-with-snr-and-sf} shows an example with \ac{SF} filtering turned on.
 The result is dependent on the amount of training data that was collected for the area, but for most cases, also filtering by \ac{SF} further improves the accuracy of the results.
-This is because it removes results with a \ac{SF} different from the one used by the end device, which could otherwise have \ac{SNR} values different from the actual end device packets.
-As most \ac{LoRaWAN} end devices used in this thesis were using \ac{SF}7, the example given in \cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \cref{fig:fingerprinting-map-example-with-snr}.
+This is because it removes results with a \ac{SF} different from the one used by the \acl{ED}, which could otherwise have \ac{SNR} values different from the actual \acl{ED} packets.
+As most \ac{LoRaWAN} \aclp{ED} used in this thesis were using \ac{SF}7, the example given in \cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \cref{fig:fingerprinting-map-example-with-snr}.
 However, if a larger dataset with more \ac{SF} values were used, the improvement would be more visible.
 
 \subsubsection{Conclusion}
@@ -348,8 +348,8 @@ It requires considerable manual work to create a fingerprint \ac{DB} for a certa
 This makes it only feasible for smaller, contained areas and rather unusable for larger-scale geolocation such as in a whole city or state.
 
 However, the results of the fingerprinting approach are, in general more accurate than the results of the multilateration approach.
-This is because it can take into account the \ac{SF} and \ac{SNR} values of the end device, which are not available in the multilateration approach.
-In addition, performance inside building is also better than with the multilateration approach, since the fingerprinting approach does not assume \ac{LoS} between the end device and the gateways.
+This is because it can take into account the \ac{SF} and \ac{SNR} values of the \acl{ED}, which are not available in the multilateration approach.
+In addition, performance inside building is also better than with the multilateration approach, since the fingerprinting approach does not assume \ac{LoS} between the \acl{ED} and the gateways.
 Thus, it can also take into account the \ac{MPP} effects such as attenuation that occur inside buildings or behind walls.
 
 In the example pictures given in \cref{fig:fingerprinting-map-example-dynamic-radius}, \cref{fig:fingerprinting-map-example-with-snr} and \cref{fig:fingerprinting-map-example-with-snr-and-sf}, the error radii improved from around \SI{250}{\meter} with only \ac{RSS} values to \SI{159}{\meter} with \ac{SNR} values and around \SI{164}{\meter} with \ac{SNR} and \ac{SF} values.
@@ -358,7 +358,7 @@ The worse performance with both \ac{SF} and \ac{SNR} values can be explained due
 \section{Comparison of findings with existing work}
 
 Several of the approaches found in \cref{sec:related-work} have better success in locating endpoints than the work in this thesis.
-This could be due to the fact that these approaches use more tightly controlled environments, such as having \ac{LoS} between the end device and the gateways.
+This could be due to the fact that these approaches use more tightly controlled environments, such as having \ac{LoS} between the \acl{ED} and the gateways.
 Nevertheless, the work in this thesis was successful in terms of rough geolocation.
 
 The hardware deployments in this thesis were less focused on getting good geolocation results and more focused on getting a large amount of data from a wide variety of devices and gateways.
@@ -517,7 +517,7 @@ However, getting a \ac{PoE} connection to the roof of the building would still b
 
 \subsubsection{Meshing / repeating of \acs{LoRaWAN} gateways}
 
-While \ac{LoRa} allows for communication between any sort of \ac{LoRa} device, be it end device or gateway, \ac{LoRaWAN} does not.
+While \ac{LoRa} allows for communication between any sort of \ac{LoRa} device, be it \acl{ED} or gateway, \ac{LoRaWAN} does not.
 Theoretically, a gateway to gateway communcation in pure \ac{LoRa} is possible~\cite{dwijaksara_multihop_2019}.
 However, this behavior is not implemented in the \ac{LoRaWAN} protocol.
 
@@ -555,7 +555,7 @@ This could allow bad actors to physically attack gateways connected to the publi
 This section will summarize the results of the work in this thesis and aims to answer the research questions posed in \cref{sec:introduction-research-questions}.
 
 This thesis deployed a full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
-From installing the \ac{LoRaWAN} gateways to collecting the data via end devices, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
+From installing the \ac{LoRaWAN} gateways to collecting the data via \aclp{ED}, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
 
 The viability of \ac{RSS}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
 While the accuracy of the methods shown, especially outdoors, is inferior to that of \ac{GNSS}, it is still good enough for many use cases, such as geofencing and others.
