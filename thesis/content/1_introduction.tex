@@ -14,7 +14,7 @@ In the first half of 2020, \ac{LoRa} was the second most used \ac{LPWAN} technol
 
 While \aclp{LRED} can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
 This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
-\ac{LoRa} devices may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
+\aclp{LRED} may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \ac{LoRa} gateways in the network.
 
 The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \aclp{LRWED} without the need to modify those \aclp{ED} or the gateways used.
 This is done so that scaling the solution to the entirety of an existing \ac{LoRaWAN} network is possible.
@@ -25,7 +25,7 @@ To achieve this goal, some \aclp{LRWGW} that were already registered in \acf{TTN
 \section{Research Questions}\label{sec:introduction-research-questions}
 
 \begin{enumerate}
-      \item Is it possible for \ac{LoRa} devices to be geolocated without the need for a \ac{GPS} receiver?
+      \item Is it possible for \aclp{LRED} to be geolocated without the need for a \ac{GPS} receiver?
       \item How do methods for such \ac{GPS}-less geolocation compare?
       \item What factors can affect the accuracy of this type of geolocation?
 \end{enumerate}
@@ -33,7 +33,7 @@ To achieve this goal, some \aclp{LRWGW} that were already registered in \acf{TTN
 \section{Related Work}\label{sec:related-work}
 % NOTE: Zahoransky: Should be about 1-3 (PDF) pages
 
-Some papers have already looked into the topic of geolocation of \ac{LoRa} devices and the geolocation of \ac{IoT} devices in general.
+Some papers have already looked into the topic of geolocation of \aclp{LRED} and the geolocation of \ac{IoT} devices in general.
 
 In 2004, Elnahrawy et al.\ researched the limits of localization using signal strength~\cite{elnahrawy_limits_2004}.
 While they used Wi-Fi instead of \ac{LoRa}, their findings are still relevant.
@@ -46,7 +46,7 @@ The scale of that network only covered around \SI{30}{\meter} by \SI{30}{\meter}
 Fargas and Petersen describe and evaluate a \ac{ToA}-based multilateration geolocation method in 2017 in their paper ``\acs{GPS}-free geolocation using \acs{LoRa} in low-power \acsp{WAN}''~\cite{fargas_gps-free_2017}.
 However, they only deploy a small, 4-gateway \ac{LoRaWAN} network and do not evaluate the method in a larger network such as \ac{TTN}.
 
-In 2018, Magno et al.\ showed a promising approach to locate \ac{LoRa} devices~\cite{magno_poster_2018}.
+In 2018, Magno et al.\ showed a promising approach to locate \aclp{LRED}~\cite{magno_poster_2018}.
 They combined the \acf{RTK} technique with \ac{LoRa} to achieve an accuracy of \SI{20}{\centi\meter} in some experimental results.
 \ac{RTK} is a technique that uses a fixed, time-synchronized base station with \ac{GPS} to improve the localization signal of a mobile device called Rover.
 
@@ -59,12 +59,12 @@ They compared the accuracy of fingerprinting localization for \ac{LoRaWAN} and \
 It uses a different modulation technique to transmit the physical signal.
 In urban environments, the accuracy was \SI{688.97}{\meter} for their \emph{SIGFOX} dataset and \SI{398.40}{\meter} for their LoRaWAN dataset.
 
-In another example, Lam et al.~proposed a method to geolocate \ac{LoRa} devices using a new kind of algorithm that is also based on \ac{RSS} values~\cite{lam_new_2018}.
+In another example, Lam et al.~proposed a method to geolocate \aclp{LRED} using a new kind of algorithm that is also based on \ac{RSS} values~\cite{lam_new_2018}.
 They focused specifically on noise affecting \aclp{LRED} and \aclp{LRGW} in their research.
-As a result, they proposed an algorithm called \emph{Localization Linear Model with Density-based Clustering} which can select non-noisy \aclp{LRED} to geolocate \ac{LoRa} devices.
+As a result, they proposed an algorithm called \emph{Localization Linear Model with Density-based Clustering} which can select non-noisy \aclp{LRED} to geolocate \aclp{LRED}.
 Using this algorithm, they achieve an accuracy of \SI{7.51}{\meter}.
 
-Mackey et al.~used \ac{LoRa} gateways over relatively short distances to geolocate \ac{LoRa} devices by using their \ac{RSS} values~\cite{mackey_lora-based_2019}.
+Mackey et al.~used \ac{LoRa} gateways over relatively short distances to geolocate \aclp{LRED} by using their \ac{RSS} values~\cite{mackey_lora-based_2019}.
 They used a soccer field as their test environment and achieved an accuracy of \SIrange{9}{20}{\meter}.
 Notably, \ac{LoS} was a given in their test environment.
 
