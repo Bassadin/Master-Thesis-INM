@@ -568,10 +568,10 @@ This was used in this thesis to display some data on the map of the \ac{TTNL} fr
 \subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
 
 To be able to perform more advanced queries on the data, some of it has to be transferred into the \ac{TTNL} \acl{DB}.
-Since, for the scope of this thesis, only devices that collected data near the Furtwangen area were of interest, only data from those devices was transferred.
+Since, for the scope of this thesis, only \aclp{LRWED} that collected data near the Furtwangen area were of interest, only data from those devices was transferred.
 This is because fingerprinting on a larger or even global scale would likely result in the need for a much bigger, maybe even distributed \ac{RDBMS}.
 However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the \ac{DB}, as long as that \acl{ED} has been captured by \ac{TTNM} at some point in time.
-New devices can be added to the \ac{TTNL} \ac{DB} by using a specific backend \ac{API} route.
+New \aclp{LRWED} to track can be added to the \ac{TTNL} \ac{DB} by using a specific backend \ac{API} route.
 
 To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given \acl{ED} in a given time frame.
 For example, to get data for a \acl{LRWED} with the id \emph{blinkeding} from the first week of April 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
@@ -582,7 +582,7 @@ To avoid having to do this importing of data regularly, the \ac{TTNL} backend in
 Cron allows for tasks to be executed at specific times or intervals.
 It uses a specific syntax to define these intervals, for example \emph{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
 
-The cronjob for importing new data only does this for devices that are marked as ``subscribed'' in the \ac{DB} to avoid flooding the \ac{DB} with irrelevant data.
+The cronjob for importing new data only does this for \aclp{LRWED} that are marked as ``subscribed'' in the \ac{DB} to avoid flooding the \ac{DB} with irrelevant data.
 This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the \acl{ED} specific data from the \ac{TTNM} \ac{DB}.
 
 \subsection{Cleaning collected data}\label{subsec:cleaning-collected-data}
@@ -595,7 +595,7 @@ There were two problems that were noticed when trying to use the data for locali
 
 \begin{itemize}
     \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the \acl{ED} moved from one location to another one that was far away in a short amount of time.
-    \item \textbf{Duplicates:} Some devices were prone to producing/sending duplicate data points.
+    \item \textbf{Duplicates:} Some \aclp{LRWED} were prone to producing/sending duplicate data points.
 \end{itemize}
 
 To counteract these problems, another cronjob in the \ac{TTNL} backend was created.
@@ -646,7 +646,7 @@ For example, \cref{lst:get-preceding-datapoint-sql} shows a \ac{SQL} snippet tha
 Duplicates were removed using a similar approach.
 Instead of calculating the distance between the two data points, their latitude, longitude, \ac{HDOP} and altitude values were compared.
 
-\section{Locating \acs{LoRaWAN} devices}
+\section{Locating \aclp{LRWED}}
 
 This section will describe the different approaches that were taken to locate \aclp{LRWED} in this thesis.
 

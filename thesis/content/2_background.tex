@@ -21,9 +21,9 @@ Deployments in remote or particularly large areas may require long-range transmi
 As such, sensors that are deployed in such areas may be hard to reach or placed apart by several hundred meters.
 This makes low power sensors that can run on batteries for several months to years a necessity, as battery replacement can be expensive or even impossible.
 
-For example, Wi-Fi is not suitable for battery powered devices used in remote areas because it requires relatively high power to operate and does not have a long range.
-ZigBee is also not suitable for battery powered devices because it is not designed for long distances and therefore has a short range.
-\ac{LTE} is also not suitable for battery powered devices either as it requires a lot of power.
+For example, Wi-Fi is not suitable for battery powered \aclp{ED} used in remote areas because it requires relatively high power to operate and does not have a long range.
+ZigBee is also not suitable for battery powered \aclp{ED} because it is not designed for long distances and therefore has a short range.
+\ac{LTE} is also not suitable for battery powered \aclp{ED} either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
 \subsection{Comparing signal strengths — \acl{RSSI}}\label{sec:rssi}
@@ -31,7 +31,7 @@ A rough comparison between selected wireless protocols can be seen in \cref{pic:
 The \acf{RSSI} is a measure of the strength of a wireless signal received by a \acl{ED}.
 As far as this thesis is concerned, \ac{RSS} values are measured in dBm since the \ac{TTN} \ac{LNS}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
-Different devices can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
+Different \aclp{ED} can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
 Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \acl{LoS} between the sender and receiver.
 The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects --- a phenomenon known as \acf{MPP}~\cite{kucherov_investigation_2021}.
 
@@ -183,7 +183,7 @@ Because of the correlation between \acl{SF} and \acl{SNR}, it is important to us
 
 \subsection{Why use \acs{LoRa} over other technologies?}
 
-As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for devices that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
+As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for \aclp{ED} that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
 A \ac{LoRa} \acl{ED} that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 
@@ -237,7 +237,7 @@ Those gateways are in turn connected to the internet or a larger network via a b
     }
 \end{figure}
 
-\ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple devices can communicate with each other over long distances.
+\ac{LoRaWAN} uses the \ac{LoRa} wireless communication protocol to create a \ac{LPWAN} where multiple \aclp{LRWED} can communicate with each other over long distances.
 It defines a secure way to transfer packets from the \acl{ED} to \acp{AS} by enforcing \ac{E2EE}.
 This section will explain the structure of a \ac{LoRaWAN} network and how it works.
 
@@ -309,7 +309,7 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} us
 
 \subsection{Device Classes of \acs{LoRaWAN} \aclp{ED}}\label{sec:device-classes}
 
-\ac{LoRaWAN} defines three classes of devices that offer different trade-offs between power consumption and availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
+\ac{LoRaWAN} defines three device classes that offer different trade-offs between power consumption and availability~\cite[p. 10]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsubsection{Lowest power communication: Class A}
 
@@ -322,14 +322,14 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} us
     }\label{pic:lorawan-device-class-a-schema}
 \end{figure}
 
-Class A is used for devices that need to consume as little power as possible.
+Class A is used for \aclp{LRWED} that need to consume as little power as possible.
 Every \acl{LRWED} must support at least the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
-A communication in Class A is always initiated by the \acl{ED} itself.
+A communication in Class A is always initiated by the \acl{LRWED} itself.
 
 Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the \acl{ED}~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
 An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
 
-Class A consumes the least amount of power of the three classes, because the devices themselves may specify when and how often they want to communicate with the \ac{LNS}.
+Class A consumes the least amount of power of the three classes, because \aclp{LRWED} in this class specify when and how often they want to communicate with the \ac{LNS}.
 However, this also makes it impossible for the \ac{LNS} to send data to the \acl{ED} at any other time.
 
 \subsubsection{Additional uplink windows: Class B}
@@ -343,11 +343,11 @@ However, this also makes it impossible for the \ac{LNS} to send data to the \acl
     }\label{pic:lorawan-device-class-b-schema}
 \end{figure}
 
-In addition to Class A, Class B devices are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows~\cite[p. 67]{lora_alliance_inc_lorawan_specification_2017}.
-In order to realize this without the need for a per-device \ac{RTC}, Class B devices receive time synchronized beacons from the gateways.
-The communication schema for Class B devices can be seen in \cref{pic:lorawan-device-class-b-schema}.
+In addition to the functionality provided by Class A, Class B \aclp{LRWED} are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows~\cite[p. 67]{lora_alliance_inc_lorawan_specification_2017}.
+In order to realize this without the need for a per-device \ac{RTC}, such \aclp{ED} receive time synchronized beacons from the gateways.
+The communication schema for Class B \aclp{LRWED} can be seen in \cref{pic:lorawan-device-class-b-schema}.
 
-These scheduled downlink windows result in a higher power consumption for Class B devices, since those need to be awake during these windows.
+These scheduled downlink windows result in a higher power consumption for Class B \aclp{LRWED}, since those need to be awake during these windows.
 
 \subsubsection{Listening continuously: Class C}
 
@@ -360,24 +360,24 @@ These scheduled downlink windows result in a higher power consumption for Class 
     }\label{pic:lorawan-device-class-c-schema}
 \end{figure}
 
-Class C devices, when not currently transmitting an uplink message, are always listening for downlink messages from the \ac{LNS}~\cite[p. 86]{lora_alliance_inc_lorawan_specification_2017}.
+Class C \aclp{LRWED} are always listening for downlink messages from the \ac{LNS} when not currently transmitting an uplink message~\cite[p. 86]{lora_alliance_inc_lorawan_specification_2017}.
 In essence, they keep the downlink windows as specified in Class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
 
-As a result, Class C devices consume the most power because they are always listening for downlink messages.
+As a result, \aclp{LRWED} in Class C consume the most power because they are always listening for downlink messages.
 The fact that they are always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or reliable downlink accessibility.
 
 \subsubsection{Conclusion: Which device class was used?}
 
-As far as this thesis was concerned, only Class A devices were used.
+As far as this thesis was concerned, only Class A was used.
 This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered \aclp{ED}.
 
 In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a \acl{ED} in Class C would need a battery around 19 times larger than a Class A \acl{ED} to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
-As mobile devices that have the need to be located are usually battery-powered, Class A is the most viable option for them.
+As mobile \aclp{LRWED} that have the need to be located are usually battery-powered, Class A is the most viable option for them.
 
 The geolocation methods evaluated in this thesis work with any \acl{LRWED} Class.
-While using Class C would mean that devices could actually be asked directly for their location, using Class A devices is usually the better choice due to the lower power consumption.
+While using Class C would mean that \aclp{LRWED} could actually be asked directly for their location at any time, using Class A is usually the better choice due to the lower power consumption.
 
-\subsection{Data security in \ac{LoRaWAN} transmissions}
+\subsection{Data security in \acs{LoRaWAN} transmissions}
 
 The security of the data sent is a major concern when talking about \ac{IoT} protocols.
 \ac{LoRaWAN} uses \ac{AES} based \acf{E2EE}.
@@ -386,7 +386,7 @@ Each \acl{ED} usually has a unique 128-bit \ac{AES} key that is used to encrypt 
 This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks (where a malicious attacker captures sent packets and sends them again), since a so-called \ac{MIC} is determined from the frame data.
 This \ac{MIC} in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
 
-\section{\acl{TTN}: A community-based \ac{LoRaWAN} \acl{AS}}
+\section{\acl{TTN}: A community-based \acs{LoRaWAN} \acl{AS}}
 
 \ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that has a global community of people building \ac{LoRaWAN} applications.
 Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023}.
@@ -451,8 +451,8 @@ Most of the other gateways deployed during this thesis, especially the ones from
 
 \subsection{\acl{TTN} Console — End Device and Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
-\ac{TTN} provides a web interface for managing devices and gateways that are registered to the network by the logged-in user.
-It also provides a \ac{REST} \ac{API} for managing devices and gateways programmatically.
+\ac{TTN} provides a web interface for managing \aclp{LRWED} and \aclp{LRWGW} that are registered to the network by the logged-in user.
+It also provides a \ac{REST} \ac{API} for managing \aclp{LRWED} and \aclp{LRWGW} programmatically.
 
 \aclp{LRWED} are grouped into \emph{applications} that can be used to manage \aclp{LRWED} that belong to a bigger project or \acl{ED} group.
 
@@ -498,9 +498,9 @@ This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TT
 \subsection{Data collection in \acl{TTNM}}\label{sec:ttm-data-collection}
 
 \acl{TTNM} works by using \aclp{LRWED} with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
-Alongside the location information, those devices' messages that are processed by \ac{TTN} also include information about which gateways received them.
+Alongside the location information, packets from those \aclp{LRWED} that are processed by \ac{TTN} also include information about which gateways received them.
 
-Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the devices' \ac{GPS} modules.
+Hence, \acl{TTNM} can use the information about which gateways received the message and the location information of the \ac{GPS} modules of those \aclp{LRWED}.
 This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a \acl{LRWED} sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \aclp{LRWGW} in the \ac{TTN} network.
 
@@ -546,7 +546,7 @@ The \ac{TTNL} application that will be described in \cref{section:ttnl} was crea
 Such queries were not possible with the \ac{TTNM} \ac{API} alone, since it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the kind of data filtering that was needed for this thesis.
 
 Through building a \ac{DB} of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
-This was one of the techniques used to locate devices in this thesis.
+This was one of the techniques used to locate \aclp{LRWED} in this thesis.
 
 \section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
 
@@ -567,7 +567,7 @@ The correct term to use when using distances between an \acl{ED} and multiple re
 An example of this in \ac{GNSS} is shown in \cref{pic:multilateration-gps-2d-3d-example}.
 A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
 
-\section{Locate devices accurately with the \acl{GNSS}}
+\section{Locating devices accurately outdoors with the \acl{GNSS}}
 
 \ac{GNSS} is a generic term for systems that use satellites orbiting the Earth to determine the location of a \acl{ED}.
 In everyday language, the term \ac{GPS} is often used as a synonym for \ac{GNSS}.
@@ -590,7 +590,7 @@ Using an iPhone 6, Merry and Bettinger measured the accuracy of \ac{GPS} to be b
 There are several other \ac{GNSS} systems in use or in development by different countries.
 For example, the Russian \emph{GLONASS}, the European Galileo, the Chinese \acf{BDS}, and the Indian \acf{IRNSS}.
 
-Most modern user devices such as smartphones support multiple \ac{GNSS} systems to improve the accuracy of the location determination.
+Most modern smartphones support multiple \ac{GNSS} systems to improve the accuracy of the location determination.
 For example, one of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, \emph{GLONASS}, Galileo, and \ac{BDS}~\cite{gsmarena_samsung_2023}.
 
 The \aclp{LRWED} used in this thesis, as described in \cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
@@ -709,8 +709,8 @@ These facts make \ac{RSSI}-based localization only work accurately in environmen
 
 \subsection{Fingerprinting with \acl{RSS} values}\label{sec:rssi-fingerprinting}
 
-Another method to locate devices is called fingerprinting~\cite{xia_indoor_2017}.
-It uses a set of known device locations with their corresponding \ac{RSS} values to locate devices based on the \ac{RSS} values it receives from the surrounding receivers --- \aclp{LRWGW}, in this case.
+Another method to locate \aclp{ED} is called fingerprinting~\cite{xia_indoor_2017}.
+It uses a set of known device locations with their corresponding \ac{RSS} values to locate \aclp{ED} based on the \ac{RSS} values it receives from the surrounding receivers --- \aclp{LRWGW}, in this case.
 The combination of an \ac{RSSI} value and the corresponding location is called a fingerprint.
 
 When a new set of \ac{RSS} values is recorded by a device, its \ac{RSS} values are compared to the known \ac{DB} of known fingerprints.

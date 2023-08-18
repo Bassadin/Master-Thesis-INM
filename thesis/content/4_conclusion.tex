@@ -361,7 +361,7 @@ Several of the approaches found in \cref{sec:related-work} have better success i
 This could be due to the fact that these approaches use more tightly controlled environments, such as having \ac{LoS} between the \acl{ED} and the gateways.
 Nevertheless, the work in this thesis was successful in terms of rough geolocation.
 
-The hardware deployments in this thesis were less focused on getting good geolocation results and more focused on getting a large amount of data from a wide variety of devices and gateways.
+The hardware deployments in this thesis were less focused on getting good geolocation results and more focused on getting a large amount of data from a wide variety of \aclp{ED} and \aclp{GW}.
 This variety is also the case in real-world \ac{IoT} deployments.
 As far as \ac{LoRaWAN} coverage in the Furtwangen is concerned, this can be considered a success.
 As was shown in \cref{sec:gateway-locations-conclusions}, \ac{LoRaWAN} coverage in Furtwangen on \ac{TTNM} now looks a lot more complete than it did before the work during this thesis (\cref{pic:ttnm-before-data-collection}).
@@ -470,7 +470,7 @@ Installing this \acl{LRWED} as well as connecting it to \ac{TTN} and adding an \
 Also during the current semester, Samuel Kasper, a student of the \ac{DM} faculty of the \ac{HFU} wrote his bachelor's thesis on measuring the humidity and temperature of the soil to monitor plants and crop growth.
 The installation of \aclp{LRWGW} in Furtwangen helped him in this regard, as he did not have to install his own gateways and instead could use the now existing infrastructure in the city.
 
-\subsubsection{Monitoring of Gateways}
+\subsubsection{Monitoring of \acl{LRWGW}}
 
 Another possible project would be an application that monitors the gateways and checks if they are still online.
 Such a project could be realized with software like \emph{Node-RED}~\cite{openjs_foundation_node-red_nodate}.
@@ -525,8 +525,8 @@ If this functionality could be implemented in the \ac{LoRaWAN} protocol, it woul
 Gateways acting as repeaters in such a network could forward \ac{LoRaWAN} packets without the need for a backhaul connection as mentioned in \cref{sec:gateways}.
 Since the \ac{LoRaWAN} protocol doesn't provide this functionality yet, it would need to be tested with a custom implementation of gateway firmware first.
 
-A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing between devices is \emph{Meshtastic}~\cite{meshtastic_llc_meshtastic_2023}.
-It uses hardware similar to the \aclp{LRWED} used in this thesis to create a meshed network of devices that can communicate without the need for Internet access.
+A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing between \aclp{LRED} is \emph{Meshtastic}~\cite{meshtastic_llc_meshtastic_2023}.
+It uses hardware similar to the \aclp{LRWED} used in this thesis to create a meshed network of \aclp{LRED} that can communicate without the need for Internet access.
 
 The German company \emph{Dryad Networks GmbH} uses meshed \ac{LoRa} gateways to build a network that can be used with their products~\cite{dryad_networks_gmbh_silvanet_2023}.
 It is used to detect wildfires early using a network of \ac{LoRa} sensors that can send their data over meshed gateways to avoid the need for a backhaul connection for each gateway placed over large areas of forest.
