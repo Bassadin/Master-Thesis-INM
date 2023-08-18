@@ -16,11 +16,11 @@ While \aclp{LRED} can feature \ac{GPS} receivers to geolocate them when deployed
 This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
 \aclp{LRED} may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \aclp{LRGW} in the network.
 
-The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \aclp{LRWED} without the need to modify those \aclp{ED} or the gateways used.
+The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \aclp{LRWED} without the need to modify those \aclp{ED} or the \aclp{LRWGW} used.
 This is done so that scaling the solution to the entirety of an existing \ac{LoRaWAN} network is possible.
 The goal is not to focus specifically on indoor or outdoor localization specifically but to provide a general overview of the topic.
 
-To achieve this goal, some \aclp{LRWGW} that were already registered in \acf{TTN} in Furtwangen were used as well as new gateways placed in Furtwangen.
+To achieve this goal, some \aclp{LRWGW} that were already registered in \acf{TTN} in Furtwangen were used as well as new \aclp{GW} placed in Furtwangen.
 
 \section{Research Questions}\label{sec:introduction-research-questions}
 
@@ -99,11 +99,11 @@ This thesis is structured as follows:
             This chapter provides background information on topics that are necessary to understand the main part of the thesis, such as some basics of \ac{RF} technology, \ac{LoRa}, \ac{LoRaWAN} and \ac{GPS} as well as geolocation techniques such as multilateration and fingerprinting.
       \item \textbf{Implementation}:
             The topic of this chapter is how the geolocation was implemented in practice.
-            It also describes what hardware was used and where new gateways were deployed.
+            It also describes what hardware was used and where new \aclp{LRWGW} were deployed.
             The development of the \ac{TTNL} web application, which was built to perform calculations on the collected data as well as to visualize it, is also shown.
       \item \textbf{Conclusion}:
             This chapter concludes the thesis and gives an evaluation on the topics discussed in it.
-            The placement of gateways in Furtwangen is evaluated and the accuracy of the geolocation methods is discussed.
+            The placement of \aclp{LRWGW} in Furtwangen is evaluated and the accuracy of the geolocation methods is discussed.
             Technology choices related to the \ac{TTNL} application are also evaluated.
             Some problems and challenges encountered and how they could be overcome in the future are also discussed.
 \end{enumerate}
@@ -133,5 +133,5 @@ Mr.\ Ralf Schellhammer helped me to get in contact with them.
 Mr.\ Martin Kramer, for configuring the \ac{HFU} network infrastructure I used for some \aclp{LRWGW}.
 
 Mr.\ Michael Lavalle, member of the \ac{HSN-TTN} project, who helped me to collect more data in the Furtwangen area.
-He also provided some valuable feedback on which gateways to buy.
+He also provided some valuable feedback on which \aclp{LRWGW} to buy.
 

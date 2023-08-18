@@ -218,7 +218,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
     \caption{
-        Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three gateways using a fixed \ac{RSSI} to range mapping.
+        Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three \aclp{LRWGW} using a fixed \ac{RSSI} to range mapping.
         It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the \acl{ED}.
         The width of the annuli is an arbitrary value of \SI{100}{\meter} in this case.
         The value can be changed in the frontend to test various error margins.
@@ -238,7 +238,7 @@ However, it cannot consider \ac{MPP} effects as well as \acl{ED} antenna gain.
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_regression_example.png}
     \caption{
-        Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three gateways using a linear regression based \ac{RSSI} to range mapping per gateway.
+        Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three \aclp{LRWGW} using a linear regression based \ac{RSSI} to range mapping per gateway.
         It uses the same base data point as seen in \cref{pic:bad-rssi-to-range-multilateration-example}.
         The estimated position, where the three green annuli intersect, is more accurate compared to the fixed range mapping.
         The width of the annuli is, again, an arbitrary value of \SI{100}{\meter}.
@@ -252,7 +252,7 @@ However, since the linear regression model cannot account for \ac{MPP} effects e
 \paragraph{Conclusion: \acl{RSS} approaches}
 
 As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSS} values to fluctuate heavily.
-In addition, as explained in \cref{sec:rssi}, different antennas on gateways and \aclp{ED} can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
+In addition, as explained in \cref{sec:rssi}, different antennas on \aclp{LRWGW} and \aclp{LRWED} can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
 
 This makes multilateration with \ac{RSS} values as the only input data inaccurate.
 Even when using a linear regression model to generate a mapping of \ac{RSS} values to ranges for each gateway, the results were often inaccurate.
@@ -262,7 +262,7 @@ Even when using a linear regression model to generate a mapping of \ac{RSS} valu
 \Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from a \acl{LRWGW} to determine the range to the \acl{ED} is too inaccurate to be used for \ac{ToA}-based geolocation.
 
 In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \cref{fig:toa-bad-data-example}, another factor has to be considered.
-\ac{TTN} captures timestamps for packets arriving at gateways in the following format: \lstinline|2000-01-01T12:00:00.123456Z|.
+\ac{TTN} captures timestamps for packets arriving at \aclp{LRWGW} in the following format: \lstinline|2000-01-01T12:00:00.123456Z|.
 These timestamps can be found in the \lstinline|uplink_message.rx_metadata[*].time| field of the \ac{JSON} payload that can be viewed in the \ac{TTN} console for each packet that arrives from a certain \acl{ED}~\cite{the_things_industries_bv_data_2023}.
 It uses the \ac{ISO} 8601 \ac{UTC} standard for timestamps~\cite{newman_date_2002}.
 The six decimal places after the seconds mean that the timestamp is accurate to \SI{1}{\micro\second}.
@@ -278,7 +278,7 @@ The six decimal places after the seconds mean that the timestamp is accurate to 
     \text{ToA\,accuracy}_{\si{\nano\second}} = \frac{299792458 \frac{\si{\meter}}{\si{\second}}}{10^9} \approx 0.3 \si{\meter}
 \end{equation}
 
-Solving this problem on the scope of the entire \ac{TTN} \ac{LoRaWAN} network is not feasible because it would require synchronizing the clocks of all gateways in the network with \ac{GPS} receivers.
+Solving this problem on the scope of the entire \ac{TTN} network is not feasible because it would require synchronizing the clocks of all \aclp{LRWGW} in the network with \ac{GPS} receivers or in another way.
 However, if one were to deploy a \ac{LoRaWAN} network in a smaller area where control over every reachable gateway is realistic, this would be a possible solution.
 If every gateway in the network would be accurately time-synchronized, \ac{ToA} could be used for geolocation.
 
@@ -357,7 +357,7 @@ This makes it only feasible for smaller, contained areas and rather unusable for
 
 However, the results of the fingerprinting approach are, in general more accurate than the results of the multilateration approach.
 This is because it can take into account the \ac{SF} and \ac{SNR} values of the \acl{ED}, which are not available in the multilateration approach.
-In addition, performance inside building is also better than with the multilateration approach, since the fingerprinting approach does not assume \ac{LoS} between the \acl{ED} and the gateways.
+In addition, performance inside buildings is also better than with the multilateration approach, since the fingerprinting approach does not assume \ac{LoS} between the \acl{LRWED} and the \aclp{LRWGW}.
 Thus, it can also take into account the \ac{MPP} effects such as attenuation that occur inside buildings or behind walls.
 
 In the example pictures given in \cref{fig:fingerprinting-map-example-dynamic-radius}, \cref{fig:fingerprinting-map-example-with-snr} and \cref{fig:fingerprinting-map-example-with-snr-and-sf}, the error radii improved from around \SI{250}{\meter} with only \ac{RSS} values to \SI{159}{\meter} with \ac{SNR} values and around \SI{164}{\meter} with \ac{SNR} and \ac{SF} values.
@@ -366,7 +366,7 @@ The worse performance with both \ac{SF} and \ac{SNR} values can be explained due
 \section{Comparison of findings with existing work}
 
 Several of the approaches found in \cref{sec:related-work} have better success in locating endpoints than the work in this thesis.
-This could be due to the fact that these approaches use more tightly controlled environments, such as having \ac{LoS} between the \acl{ED} and the gateways.
+This could be due to the fact that these approaches use more tightly controlled environments, such as having \ac{LoS} between the \acl{LRWED} and the \aclp{LRWGW}.
 Nevertheless, the work in this thesis was successful in terms of rough geolocation.
 
 The hardware deployments in this thesis were less focused on getting good geolocation results and more focused on getting a large amount of data from a wide variety of \aclp{ED} and \aclp{GW}.
@@ -382,7 +382,7 @@ This section will provide an outlook on possible future work that could be done 
 
 This section will mention some ideas on how to improve the \ac{TTNL} software.
 
-\subsubsection{Automatically detecting moved gateways}
+\subsubsection{Automatically detecting \aclp{LRWGW} that have been moved}
 
 Although rare, it is possible for a \acl{LRWGW} to be moved to a different location, or to have a different location set in the \ac{TTNL} console than it had before.
 Since the \ac{TTNL} software currently updates the gateway location after each \ac{TTNM} data collection run, it is possible for a gateway to be moved and not be detected by the \ac{TTNL} software.
@@ -471,12 +471,12 @@ This section will list some of these projects and describe how they could be imp
 One of the \aclp{LRWED} ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
 As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate for most outdoor \ac{LoRaWAN} sensor deployments, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
 This could allow for a prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River, for example.
-Installing this \acl{LRWED} as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the gateways placed during this thesis.
+Installing this \acl{LRWED} as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the \aclp{LRWGW} placed during this thesis.
 
 \subsubsection{Measuring soil moisture and environmental conditions in the Furtwangen city park}
 
 Also during the current semester, Samuel Kasper, a student of the \ac{DM} faculty of the \ac{HFU} wrote his bachelor's thesis on measuring the humidity and temperature of the soil to monitor plants and crop growth.
-The installation of \aclp{LRWGW} in Furtwangen helped him in this regard, as he did not have to install his own gateways and instead could use the now existing infrastructure in the city.
+The installation of \aclp{LRWGW} in Furtwangen helped him in this regard, as he did not have to install his own \aclp{LRWGW} and instead could use the now existing infrastructure in the city.
 
 \subsubsection{Monitoring of \acl{LRWGW}}
 
@@ -493,8 +493,8 @@ Unfortunately, \ac{TTN} does not provide nanosecond level timestamps for the pac
 To solve this problem, a \ac{LNS} would need to be set up that has the ability to do that.
 
 In addition, \aclp{LRWGW} would need to be time synchronized to achieve the best possible accuracy.
-The latter problem could be solved by using \ac{GPS} receivers to synchronize the gateways.
-While some gateways have \ac{GPS} built-in receivers, most do not.
+The latter problem could be solved by using \ac{GPS} receivers to time-synchronize the \aclp{LRWGW}.
+While some \aclp{LRWGW} have built-in \ac{GPS} receivers, most do not.
 For example, the \emph{Dragino DLOS8N} that was used twice during this thesis has a \ac{GPS} built-in receiver~\cite{dragino_technology_co_ltd_dlos8n_2023}, but none of the others do.
 
 Ultimately, using the \ac{ToA} method would require more specific hardware than what most of the \ac{TTN} community network currently uses.
@@ -504,7 +504,7 @@ This makes it unsuitable for widespread use on that particular network.
 
 There are several \ac{ML} methods that could be used to improve the fingerprinting method.
 
-For example, \ac{kNN} could be used to determine the location of a \acl{ED} based on the \ac{RSS} values of the surrounding gateways.
+For example, \ac{kNN} could be used to determine the location of a \acl{ED} based on the \ac{RSS} values of the surrounding \aclp{LRWGW}.
 \ac{kNN} also uses a \ac{DB} of fingerprints.
 However, it does not calculate the center of the matching data points but uses the ``k nearest neighbors'' to determine the location of a \acl{ED}~\cite{anagnostopoulos_reproducible_2019}.
 
@@ -523,7 +523,7 @@ The problem that would need to be solved is getting a network connection as well
 Another option that would only require getting power to the roof is to use a \acl{LRWGW} that has a \ac{LTE} backhaul connection.
 However, getting a \ac{PoE} connection to the roof of the building would still be preferable due to its stability.
 
-\subsubsection{Meshing / repeating of \acs{LoRaWAN} gateways}
+\subsubsection{Meshing / repeating of \aclp{LRWGW}}
 
 While \ac{LoRa} allows for communication between any sort of \ac{LoRa} device, be it \acl{ED} or gateway, \ac{LoRaWAN} does not.
 Theoretically, a gateway to gateway communcation in pure \ac{LoRa} is possible~\cite{dwijaksara_multihop_2019}.
@@ -537,7 +537,7 @@ A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing betwe
 It uses hardware similar to the \aclp{LRWED} used in this thesis to create a meshed network of \aclp{LRED} that can communicate without the need for Internet access.
 
 The German company \emph{Dryad Networks GmbH} uses meshed \aclp{LRGW} to build a network that can be used with their products~\cite{dryad_networks_gmbh_silvanet_2023}.
-It is used to detect wildfires early using a network of \ac{LoRa} sensors that can send their data over meshed gateways to avoid the need for a backhaul connection for each gateway placed over large areas of forest.
+It is used to detect wildfires early using a network of \ac{LoRa} sensors that can send their data over meshed \aclp{LRWGW} to avoid the need for a backhaul connection for each gateway placed over large areas of forest.
 
 Anton Petrov is going to write his master thesis about this topic in the coming winter semester of 2023/2024.
 His thesis will also be supervised by Prof. Dr. Richard Zahoransky.
@@ -553,10 +553,10 @@ Both of them are \ac{OSS} and can be self-hosted using Docker or Docker Compose.
 Since the work in this thesis has shown that it is possible, at least at a rough level, to locate \aclp{LRWED} even without a \ac{GPS} receiver, there are some privacy concerns that need to be addressed.
 
 \aclp{LRWED} are small and can be hidden easily while having a long battery life and long range.
-This means that such devices could be used to track people without their knowledge over long periods of time even when not having access to \ac{GNSS} at all as long as there are enough gateways around to perform a rough multilateration or fingerprinting.
+This means that such devices could be used to track people without their knowledge over long periods of time even when not having access to \ac{GNSS} at all as long as there are enough \aclp{LRWGW} around to perform a rough multilateration or fingerprinting.
 
 As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \acl{LRWGW} with enough data collection and time.
-This could allow bad actors to physically attack gateways connected to the public \ac{TTN} network.
+This could allow bad actors to physically attack \aclp{LRWGW} connected to the public \ac{TTN} network.
 
 \section{Conclusion}
 

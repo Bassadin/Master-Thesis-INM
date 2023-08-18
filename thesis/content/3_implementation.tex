@@ -1,42 +1,42 @@
 \chapter{Implementation}
 
-\section{Installing \acs{LoRaWAN} gateways in Furtwangen}
+\section{Installing \aclp{LRWGW} in Furtwangen}
 
 At the beginning of this thesis, \ac{TTNM} already showed one existing \acl{LRWGW} in the Furtwangen area.
 It was located on top of the \ac{HFU} G building and was installed by a team of students of the Business Informatics (WING) faculty.
 
-However, to be able to get a good geolocation through multilateration for a \acl{LRWED}, it is necessary to have at least three gateways in its range, as shown in \cref{sec:multilateration-basics}.
-Thus, the first step was to research and order additional gateways.
+However, to be able to get a good geolocation through multilateration for a \acl{LRWED}, it is necessary to have at least three \aclp{LRWGW} in its range, as shown in \cref{sec:multilateration-basics}.
+Thus, the first step was to research and order additional \aclp{LRWGW}.
 
-Next, the gateways had to be installed in suitable locations.
+Next, the \aclp{LRWGW} had to be installed in suitable locations.
 This was made possible by the many helping hands that were involved in the installation process, as mentioned in \cref{sec:expression-of-thanks}.
 
-\subsection{Researching gateways}
+\subsection{Researching \aclp{LRWGW}}
 
 Some gateways that were used in this thesis were ones that were already in the possession of the \ac{HFU}.
-Such was the case for the \emph{Dragino LG308 / LG308N} indoor gateways as well as a \emph{RAK7258} indoor \acl{GW}.
+Such was the case for the \emph{Dragino LG308 / LG308N} indoor \aclp{GW} as well as a \emph{RAK7258} indoor \acl{GW}.
 
 Additionally, for development purposes, a \emph{Dragino PG1301} \acl{LRWGW} was also used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
 This allows low-level access to the \ac{LoRa} module on the board, since it can be directly accessed by the Raspberry Pi's serial interface.
 
-Two MikroTik wAP LR8 kit gateways were purchased for the thesis.
+Two MikroTik wAP LR8 kit \aclp{LRWGW} were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
 The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
 However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \cref{sec:lorawan-lbs}.
 A picture of this \acl{LRWGW} can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna which can be seen in \cref{pic:mikrotik-antenna-c-building}.
 
-The other gateways that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor gateways.
+The other \aclp{LRWGW} that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor \aclp{GW}.
 This \acl{LRWGW} was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
 It was readily available at the time of the order and was chosen as a short-term replacement.
 It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 \acl{LRWGW} which made it easy to set up.
 Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 
-\subsection{Possible Locations for \acs{LoRaWAN} gateways}\label{sec:gateway-locations}
+\subsection{Possible Locations for \aclp{LRWGW}}\label{sec:gateway-locations}
 
 Multiple locations proved themselves to be worth considering when it came to installing new \aclp{LRWGW} in Furtwangen.
-Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the gateways.
+Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the \aclp{LRWGW}.
 Only buildings that the \ac{HFU} has liberal access to were considered, since a long-term deployment of the hardware was desirable to avoid makeshift solutions.
 Altitude was also a factor that was considered, as a placement at a higher elevation usually allows for a greater range of the \acl{LRWGW}, especially in urban areas such as Furtwangen.
 
@@ -45,14 +45,14 @@ Altitude was also a factor that was considered, as a placement at a higher eleva
     \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
     \caption{
         Overview map of \aclp{LRWGW} situated in the Furtwangen area.
-        This map shows gateways that were placed during this thesis as well as already existing ones~\cite{ttn_mapper_ttn_2023}.
+        This map shows \aclp{LRWGW} that were placed during this thesis as well as already existing ones~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:gateways-placement-map}
 \end{figure}
 
-\Cref{pic:gateways-placement-map} shows the locations of the gateways that were installed during this thesis as well as some that were already present.
+\Cref{pic:gateways-placement-map} shows the locations of the \aclp{LRWGW} that were installed during this thesis as well as some that were already present.
 The following sections describe and evaluate these final selected sites.
 
-\Cref{sec:gateway-locations-conclusions} will evaluate the chosen locations and give a conclusion on the placement of the gateways.
+\Cref{sec:gateway-locations-conclusions} will evaluate the chosen locations and give a conclusion on the placement of the \aclp{LRWGW}.
 
 \subsubsection{\acl{HFU} B and C building}
 
@@ -354,7 +354,7 @@ It also includes the \aclp{LRWGW}, \aclp{LRWED} and other parts such as the \ac{
 The part that was implemented during this thesis is highlighted in yellow.
 
 The data flow starts with the \acl{LRWED} on the right that collect \ac{GPS} data and send it to the \aclp{LRWGW} using the \ac{LoRaWAN} protocol.
-The gateways then forward the packets to the \ac{TTN} \ac{LNS}.
+The \aclp{LRWGW} then forward the packets to the \ac{TTN} \ac{LNS}.
 In the Applications section of the \ac{TTN} \ac{LNS}, the \ac{TTNL} application is configured to receive the packets and transform their byte data into a \ac{JSON} format that can be processed by \ac{TTNM}.
 Using the \ac{TTNM} integration, \ac{TTN} then sends the data to \ac{TTNM}.
 
@@ -511,7 +511,7 @@ Its usage as import-able predefined Vue components also allowed for a quick and 
 \end{figure}
 
 \Cref{fig:vuetify-form-example} shows an example of a form created using Vuetify components in the \ac{TTNL} frontend.
-It uses several of Vuetify's components to enable the user to enter \ac{RSS} values for several gateways for localization purposes.
+It uses several of Vuetify's components to enable the user to enter \ac{RSS} values for several \aclp{LRWGW} for localization purposes.
 
 \subsubsection{Open-source maps for the \acl{TTNL} frontend: \acf{OSM}}\label{sec:osm}
 
@@ -661,14 +661,14 @@ This correlation was explained in \cref{sec:background-free-space-path-loss}.
     \centering
     \includegraphics[width=1\textwidth]{pictures/multilateration/rssi-multilateration-example.png}
     \caption{
-        An example of the theory behind mapping \ac{RSS} values to distances using three gateways, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
-        The \acl{ED} (orange pin) is located at the intersection of the three circles originating from the gateways (green pins).
+        An example of the theory behind mapping \ac{RSS} values to distances using three \aclp{LRWGW}, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
+        The \acl{ED} (orange pin) is located at the intersection of the three circles originating from the \aclp{LRWGW} (green pins).
         The map was generated using the \ac{OSM} based tool \emph{umap}~\cite{noauthor_umap_nodate}.
     }\label{fig:rssi-multilateration-theoretical-example}
 \end{figure}
 
 \Cref{fig:rssi-multilateration-theoretical-example} shows an example of how \ac{RSS} values can be used to determine the location of a \acl{ED}.
-As stated, \ac{RSS} values that are received by the gateways are inversely proportional to the distance between the \acl{LRWED} and the \acl{LRWGW}.
+As stated, \ac{RSS} values that are received by the \aclp{LRWGW} are inversely proportional to the distance between the \acl{LRWED} and the \acl{LRWGW}.
 They are used to calculate the distance between the \acl{LRWED} and the \acl{LRWGW}, making a multilateration possible.
 
 A fact to take note of is that the \ac{RSSI} values measured by \ac{TTN} are only integers and not floating point numbers.
@@ -741,17 +741,17 @@ Using a similar linear regression approach as described in \cref{sec:plotting-rs
 As was mentioned in that chapter, this allows for parameters specific to each \acl{LRWGW} such as positioning and antenna type to be taken into account.
 
 The Gateway table in the \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
-This was only done for gateways with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \cref{fig:rssi-range-graph-negative-example}.
+This was only done for \aclp{LRWGW} with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \cref{fig:rssi-range-graph-negative-example}.
 While the approach in \cref{sec:plotting-rssi-to-range-from-existing-data} calculated the regression client-side, this approach calculates the regression server-side and stores the results in the \ac{DB} for more efficient access.
 \Cref{lst:sql-calculate-linear-regression} shows the \ac{SQL} query that was used to calculate those linear regression values.
-Again, a cron-like job was used since recalculating those linear regression values for all gateways each time a new data point was received would be too resource intensive.
+Again, a cron-like job was used since recalculating those linear regression values for all \aclp{LRWGW} each time a new data point was received would be too resource intensive.
 
 \begin{lstlisting}[
     language=SQL,
     float,
     caption={
         \ac{SQL} query that was used to calculate the linear regression values for each \acl{LRWGW}.
-        Using the \texttt{UPDATE} and \texttt{SET} statements, the results of the subquery are written into the \texttt{linear\-Re\-gres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} columns of the Gateway table for the corresponding gateways.
+        Using the \texttt{UPDATE} and \texttt{SET} statements, the results of the subquery are written into the \texttt{linear\-Re\-gres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} columns of the Gateway table for the corresponding \aclp{LRWGW}.
         This caption was once more generated by Bing AI and adapted for better readability.
     },
     label={lst:sql-calculate-linear-regression}
@@ -815,11 +815,11 @@ Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be receive
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
 
 One of the seemingly most promising techniques for locating \aclp{LRWED} is \ac{ToA}-based multilateration.
-As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the time of arrival of a \ac{LoRa} signal to multiple gateways to calculate the position of the \acl{ED} that sent the signal using the speed of light.
+As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the \acl{ToA} of a \ac{LoRa} signal at multiple \aclp{LRWGW} to calculate the position of the \acl{ED} that sent the signal using the speed of light.
 
 Unfortunately, this technique did not work as expected in the scope of this thesis.
-This was because the timestamps of signal arrival in the gateways that were used for this thesis were not accurate enough.
-Differences of up to 1 second between the timestamps of the same signal in different gateways were not uncommon, making distance calculations using these values utterly unusable.
+This was because the timestamps of signal arrival at the \aclp{LRWGW} that were used for this thesis were not accurate enough.
+Differences of up to 1 second between the timestamps of the same signal in different \aclp{LRWGW} were not uncommon, making distance calculations using these values utterly unusable.
 
 \begin{figure}[htbp]
     \centering
@@ -840,13 +840,13 @@ This is a distance that is way too big to be useful for performing any sort of m
 \subsection{Fingerprinting with \acs{RSSI} and other values}\label{sec:fingerprinting-implementation}
 
 The implementation of the fingerprinting approach was done in the backend part of \ac{TTNL}.
-A \ac{REST} endpoint was added to the backend that accepts a list of \acl{LRWGW} IDs along with maximum and minimum \ac{RSS} values for those particular gateways.
+A \ac{REST} endpoint was added to the backend that accepts a list of \acl{LRWGW} IDs along with maximum and minimum \ac{RSS} values for those particular \aclp{LRWGW}.
 
 \begin{lstlisting}[
     language=TypeScript,
     float,
     caption={
-        Part of the Prisma query that filters the fingerprint data points by their similarity to the \ac{RSS} values of gateways provided by the frontend.
+        Part of the Prisma query that filters the fingerprint data points by their similarity to the \ac{RSS} values of \aclp{LRWGW} provided by the frontend.
     },
     label={lst:prisma-rssi-fingerprinting-query}
 ]
