@@ -92,8 +92,16 @@ While the location of the \ac{LoRaWAN} on top of a hill between Furtwangen and G
 
 \Cref{pic:dl0fis_gw_range} shows the coverage of the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse.
 The longest range measured was one data point in the south with a distance of \SI{8.8}{\kilo\meter}.
-The gateway, up until now, wasn't of much use in the scope of this thesis though, since the hill between the Neueck clubhouse and Furtwangen blocks most of the signal.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.6\textwidth]{pictures/hardware/gateway-deployment/line-of-sight-dl0fis.png}
+    \caption{
+        Screenshot of the \emph{Ubiquiti UISP Design Center} tool.
+        It displays the line of sight between two points with customizable antenna elevation and can show any terrain elevation between them.
+        The multiple hills blocking the signal from the \emph{DL0FIS} clubhouse to the Furtwangen city center are visible~\cite{ubiquiti_inc_uisp_2023}.
+    }\label{pic:dl0fis_gw_los}
+\end{figure}
 % TODO: put an image of the RF LOS calculator here
 
 Getting a backhaul connection to the \acl{LRWGW} was easy since the clubhouse is equipped with a stable internet connection.
