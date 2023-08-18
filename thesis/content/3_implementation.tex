@@ -687,15 +687,15 @@ The result is the distance $D_{gateway}$ to the gateway in meters.
     D_{gateway} = -12 * rssi - 605
 \end{equation}
 
-For example, a \ac{RSSI} value of -80 would result in a distance of \SI{355}{\meter}.
-A value of -110 would result in a distance of \SI{715}{\meter}.
+For example, a \ac{RSSI} value of \SI{-80}{\dBm} would result in a distance of \SI{355}{\meter}.
+A value of \SI{-110}{\dBm} would result in a distance of \SI{715}{\meter}.
 
 The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the \acl{ED}-based GPS data points from the MikroTik LR8 \acl{LRWGW} deployed on top of the \ac{GHB} 2 building.
 While those values work reasonably well for the \ac{LoS} reception behavior of the \acl{LRWGW} that was used to generate the regression, they are not necessarily applicable to other gateways.
 Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
 Although rare, \ac{RSS} values that are larger than a certain threshold can also return negative range values.
-In the example given in \cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>= -50$.
+In the example given in \cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>=\SI{-50}{\dBm}$.
 
 Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when the \acl{LRWED}, the \acl{LRWGW}, and the distance between them stay the same.
 This makes RSSI values in general a rather unreliable metric for determining the distance between a \acl{LRWED} and a \acl{LRWGW} as long as there is no \ac{LoS} between them.
