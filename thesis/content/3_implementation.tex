@@ -580,7 +580,7 @@ This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQ
 
 To avoid having to do this importing of data regularly, the \ac{TTNL} backend includes a cronjob task that automatically imports data from \ac{TTNM} every 24 hours.
 Cron allows for tasks to be executed at specific times or intervals.
-It uses a specific syntax to define these intervals, for example \emph{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
+It uses a specific syntax to define these intervals, for example \texttt{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
 
 The cronjob for importing new data only does this for \aclp{LRWED} that are marked as ``subscribed'' in the \ac{DB} to avoid flooding the \ac{DB} with irrelevant data.
 This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the \acl{ED} specific data from the \ac{TTNM} \ac{DB}.
@@ -627,7 +627,7 @@ END AS speed
 \end{lstlisting}
 
 \Cref{lst:sql-remove-outliers} shows the \ac{SQL} code that was used to determine the speed between subsequent data points of the same \acl{ED}.
-The PostGIS function \lstinline|ST_DistanceSphere| is used to calculate the distance between the current and the previous data point.
+The PostGIS function \lstinline|ST_DistanceSphere| was used to calculate the distance between the current and the previous data point.
 
 \begin{lstlisting}[
     language=SQL,
