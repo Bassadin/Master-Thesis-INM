@@ -275,15 +275,15 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 
 A \acl{LRWGW} is a device that receives \ac{LoRa} packets (usually from \aclp{LRWED}) and forwards them to \ac{LNS}.
 
-\ac{LoRa} gateways are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the gateway's \ac{CPU} using a serial interface.
+\aclp{LRGW} are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the \acl{GW}'s \ac{CPU} using a serial interface.
 The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \acl{LRWGW}.
 
-To achieve the connection to the \ac{LoRaWAN} server, the gateway needs to be connected to the internet.
+To achieve the connection to the \ac{LoRaWAN} server, the \acl{LRWGW} needs to be connected to the internet.
 This connection is also called \emph{backhaul}.
 The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections~\cite{the_things_industries_bv_lorawan_nodate}.
 
-One example of a gateway used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
-This gateway is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the \acf{GHB}.
+One example of a \acl{GW} used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
+This \acl{LRWGW} is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the \acf{GHB}.
 
 \begin{figure}[htbp]
     \centering
@@ -297,7 +297,7 @@ This gateway is specified as suitable for outdoor usage, making it a good choice
 
 While such gateways sometimes have a built-in antenna, the range of these antennas is only sufficient to cover small to medium-sized buildings or areas.
 It is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \aclp{LRED} was the goal.
-While there are many options for external antennas, in the case of the MikroTik gateway, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik gateway and thus should be a good match.
+While there are many options for external antennas, in the case of the MikroTik \acl{LRWGW}, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik \acl{LRWGW} and thus should be a good match.
 The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
 \subsection{Data Transmission between \aclp{ED} and \aclp{AS}}
@@ -305,7 +305,7 @@ The deployment of this antenna on top of the \ac{HFU} C building is shown in \cr
 In LoRaWAN, data transmissions from the \acl{ED} to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 Uplinks are relayed to the \ac{LNS} by one or more gateways from the \acl{ED}.
-Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} using a single gateway~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{ED} using a single \acl{LRWGW}~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 \subsection{Device Classes of \acs{LoRaWAN} \aclp{ED}}\label{sec:device-classes}
 
@@ -408,7 +408,7 @@ This section will explain both of them.
 
 \subsubsection{The older, simple way: \acl{SUPF}}
 
-The \ac{SUPF} is a piece of software used to connect \ac{LoRa} gateways to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
+The \ac{SUPF} is a piece of software used to connect \aclp{LRGW} to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 The \ac{SUPF} forwards \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
 
 It can be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
@@ -424,7 +424,7 @@ Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended ov
     \centering
     \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
     \caption{
-        A schema of communications from a gateway and a \ac{LNS} using \acf{LBS}.
+        A schema of communications from a \acl{LRGW} and a \ac{LNS} using \acf{LBS}.
         The \ac{CUPS} service can be seen in the top right.~\protect\cite{semtech_lora_developer_portal_lora_2022}
     }\label{pic:lora-basics-station-schema}
 \end{figure}
@@ -438,13 +438,13 @@ The \ac{LNS} uses the \ac{WSS} protocol for communication and is responsible for
 
 While \ac{CUPS} is not strictly necessary for sending actual \ac{LoRaWAN} packets, it simplifies the management of gateways and their configuration.
 It communicates using \ac{TLS}-encrypted \ac{TCP} (\ac{HTTPS}) connections with token-based authentication.
-When a gateway is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it.
+When a \acl{LRWGW} is configured with \ac{CUPS}, it automatically receives its configuration from the \ac{LNS} and is authenticated to work with it.
 As opposed to \ac{SUPF}, \ac{CUPS} also allows for remote configuration of gateways as well as remote firmware updates~\cite{the_things_industries_bv_lora_2022}.
 
 \subsubsection{Conclusion: Which one was used?}
 
 Some gateways used in this thesis were unable to use the more modern \acl{LBS} protocol.
-This is especially true for the MikroTik LR8 wAP gateway, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
+This is especially true for the MikroTik LR8 wAP \acl{LRWGW}, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
 It therefore uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
 
 Most of the other gateways deployed during this thesis, especially the ones from \emph{Dragino}, were able to use \ac{LBS} and therefore used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \cref{sec:lorawan-lbs}.
@@ -493,7 +493,7 @@ Contrary to \ac{TTN}, it is not a \ac{SaaS} and does not offer a public communit
 He first created it as a personal project to map the range of his own \acl{LRWGW}.
 However, the project has since been expanded to map the coverage of all public gateways registered in the public \ac{TTN} network instance~\cite{the_things_network_jp_2018}.
 At the time of writing, this includes over 11,000 gateways.
-This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TTNM} uses to display gateway data.
+This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TTNM} uses to display \acl{LRWGW} data.
 
 \subsection{Data collection in \acl{TTNM}}\label{sec:ttm-data-collection}
 
@@ -522,7 +522,7 @@ With this data, it can build a map displaying the coverage of \aclp{LRWGW} in th
 \Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
 This page displays an interactive world map with a heatmap overlay.
 It shows the coverage of \aclp{LRWGW} in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
-Additionally, any gateway that has received at least one message from a \ac{GPS}-enabled \ac{LRWED} and has its location accessible from \ac{TTN} is displayed on the map.
+Additionally, any \acl{LRWGW} that has received at least one message from a \ac{GPS}-enabled \ac{LRWED} and has its location accessible from \ac{TTN} is displayed on the map.
 
 Notably, blank spots on the map do not necessarily mean that there is no coverage in that area.
 It can also mean that there haven't been any \ac{GPS}-enabled \aclp{LRWED} that send their data to \ac{TTNM} in that area yet.
@@ -532,7 +532,7 @@ It can also mean that there haven't been any \ac{GPS}-enabled \aclp{LRWED} that 
 As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \aclp{LRWED}.
 
 \ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
-Data can be requested based on the \acl{ED} that sent the message or the gateway that received it.
+Data can be requested based on the \acl{LRWED} that sent the message or the \acl{LRWGW} that received it.
 In addition, the data can be filtered by the time that it was recorded on.
 The data is provided in graphical (map-based) form as well as in \ac{CSV} files.
 
@@ -727,5 +727,5 @@ Fortunately, building a \ac{DB} of fingerprints for the use case explored in thi
 
 In addition to the \ac{RSS} values, other values were used in this thesis in an attempt to improve the accuracy of fingerprinting.
 These values are the \ac{SNR} and the \ac{SF} of the received packets.
-They are recorded by \ac{TTN} in addition to the \ac{RSS} values for each gateway that received the packet, so it was simple to include them in the fingerprinting \ac{DB}.
+They are recorded by \ac{TTN} in addition to the \ac{RSS} values for each \acl{LRWGW} that received the packet, so it was simple to include them in the fingerprinting \ac{DB}.
 Furthermore, \ac{TTNM} also has those additional parameters in its \ac{DB} that is accessible via the \ac{TTNM} \ac{API}.

@@ -14,9 +14,9 @@ This was made possible by the many helping hands that were involved in the insta
 \subsection{Researching gateways}
 
 Some gateways that were used in this thesis were ones that were already in the possession of the \ac{HFU}.
-Such was the case for the \emph{Dragino LG308 / LG308N} indoor gateways as well as a \emph{RAK7258} indoor gateway.
+Such was the case for the \emph{Dragino LG308 / LG308N} indoor gateways as well as a \emph{RAK7258} indoor \acl{GW}.
 
-Additionally, for development purposes, a \emph{Dragino PG1301} gateway was also used.
+Additionally, for development purposes, a \emph{Dragino PG1301} \acl{LRWGW} was also used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
 This allows low-level access to the \ac{LoRa} module on the board, since it can be directly accessed by the Raspberry Pi's serial interface.
 
@@ -24,13 +24,13 @@ Two MikroTik wAP LR8 kit gateways were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
 The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
 However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \cref{sec:lorawan-lbs}.
-A picture of this gateway can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
+A picture of this \acl{LRWGW} can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
 The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna which can be seen in \cref{pic:mikrotik-antenna-c-building}.
 
 The other gateways that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor gateways.
-This gateway was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
+This \acl{LRWGW} was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
 It was readily available at the time of the order and was chosen as a short-term replacement.
-It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 gateway which made it easy to set up.
+It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 \acl{LRWGW} which made it easy to set up.
 Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 
 \subsection{Possible Locations for \acs{LoRaWAN} gateways}\label{sec:gateway-locations}
@@ -38,7 +38,7 @@ Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 Multiple locations proved themselves to be worth considering when it came to installing new \aclp{LRWGW} in Furtwangen.
 Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the gateways.
 Only buildings that the \ac{HFU} has liberal access to were considered, since a long-term deployment of the hardware was desirable to avoid makeshift solutions.
-Altitude was also a factor that was considered, as a placement at a higher elevation usually allows for a greater range of the gateway, especially in urban areas such as Furtwangen.
+Altitude was also a factor that was considered, as a placement at a higher elevation usually allows for a greater range of the \acl{LRWGW}, especially in urban areas such as Furtwangen.
 
 \begin{figure}[htbp]
     \centering
@@ -56,14 +56,14 @@ The following sections describe and evaluate these final selected sites.
 
 \subsubsection{\acl{HFU} B and C building}
 
-The first antenna and gateway installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
+The first antenna and \acl{LRWGW} installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
 The roof of the C building is located in the center of the valley Furtwangen is situated in.
 Getting a backhaul connection there proved to be more difficult than anticipated, as the only available connection was a spare fiber optic cable.
-However, due to the generosity of the \acl{GHB-NA}, it was possible to use this cable to connect the gateway to the \ac{HFU} network.
+However, due to the generosity of the \acl{GHB-NA}, it was possible to use this cable to connect the \acl{LRWGW} to the \ac{HFU} network.
 
-A Dragino DLOS8N gateway with an antenna was placed on the roof of the B building because of the existing infrastructure.
-This roof was two stories higher than the C building roof, making it a good location for a gateway as well.
+A Dragino DLOS8N \acl{LRWGW} with an antenna was placed on the roof of the B building because of the existing infrastructure.
+This roof was two stories higher than the C building roof, making it a good location for a \acl{LRWGW} as well.
 The Dragino DLOS8N was used because of its ability to easily be powered by \ac{PoE} and its weatherproof housing.
 
 \subsubsection{\acl{GHB}}
@@ -78,14 +78,14 @@ With their help, it was possible to install antennas on the roofs of the \ac{GHB
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/lr8_ghb_installation.jpg}
     \caption{
-        The MikroTik LR8 wAP gateway and its antenna installed on the roof of the \ac{GHB}.
-        The impressive \ac{LoS} range of the gateway can be seen in the background.
+        The MikroTik LR8 wAP \acl{LRWGW} and its antenna installed on the roof of the \ac{GHB}.
+        The impressive \ac{LoS} range of the \acl{GW} can be seen in the background.
         It can reach most of the valley in which Furtwangen is located.
     }\label{pic:mikrotik-gateway-ghb-installation}
 \end{figure}
 
-\Cref{pic:mikrotik-gateway-ghb-installation} shows the installed MikroTik wAP LR8 kit gateway on the roof of the \ac{GHB}.
-Again, \ac{PoE} was used to power the gateway since only one cable needed to be put through the existing cable duct.
+\Cref{pic:mikrotik-gateway-ghb-installation} shows the installed MikroTik wAP LR8 kit \acl{LRWGW} on the roof of the \ac{GHB}.
+Again, \ac{PoE} was used to power the \acl{GW} since only one cable needed to be put through the existing cable duct.
 
 \subsubsection{\acl{ASH}}
 
@@ -101,9 +101,9 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
         \caption{
-            Installed Dragino DLOS8N gateway with antenna on the roof of the \ac{ASH}.
-            Once again, the \ac{LoS} area of the gateway can be seen in the background.
-            Also in the background, to the left and right of the gateway's antenna, are the two towers of the \ac{GHB}.
+            Installed Dragino DLOS8N \acl{LRWGW} with antenna on the roof of the \ac{ASH}.
+            Once again, the \ac{LoS} area of the \acl{GW} can be seen in the background.
+            Also in the background, to the left and right of the \acl{LRWGW}'s antenna, are the two towers of the \ac{GHB}.
         }\label{pic:dragino-gateway-ash}
     \end{subfigure}%
     ~
@@ -112,7 +112,7 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
         \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
         \caption{
             Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
-            The antenna has a gain of 8dBi and was connected to a Dragino LG308N gateway.
+            The antenna has a gain of 8dBi and was connected to a Dragino LG308N \acl{LRWGW}.
             It was the most powerful antenna used in this thesis.
             The picture does not show the impressive location of the antenna on a hill between Gütenbach and Furtwangen.
         }\label{pic:antenna-dl0fis-clubhouse}
@@ -121,9 +121,9 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
     \caption{Pictures of some installed \aclp{LRWGW} and antennas.}
 \end{figure*}
 
-\Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N gateway on the roof of the \ac{ASH}.
-This gateway is also powered by \ac{PoE}.
-The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the gateway.
+\Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N \acl{LRWGW} on the roof of the \ac{ASH}.
+This \acl{GW} is also powered by \ac{PoE}.
+The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the \acl{LRWGW}.
 
 \subsubsection{\emph{DL0FIS} amateur radio club station atop Neueck, Gütenbach}
 
@@ -652,9 +652,9 @@ This section will describe the different approaches that were taken to locate \a
 
 \subsection{\acs{RSSI}-based multilateration}\label{sec:rssi-based-multilateration-implementation}
 
-The general idea behind using \ac{RSS} values to determine the distance to a gateway is simple.
-The \ac{RSSI} value measured by a gateway is inversely proportional to the distance between the \acl{ED} and the gateway.
-The further away a \acl{ED} is from a gateway, the lower (or more negative) the \ac{RSSI} value will be.
+The general idea behind using \ac{RSS} values to determine the distance to a \acl{LRWGW} is simple.
+The \ac{RSSI} value measured by a \acl{LRWGW} is inversely proportional to the distance between the \acl{ED} and the \acl{GW}.
+The further away a \acl{LRWED} is from a \acl{LRWGW}, the lower the \ac{RSSI} value will be.
 This correlation was explained in \cref{sec:background-free-space-path-loss}.
 
 \begin{figure}[htbp]
@@ -668,17 +668,17 @@ This correlation was explained in \cref{sec:background-free-space-path-loss}.
 \end{figure}
 
 \Cref{fig:rssi-multilateration-theoretical-example} shows an example of how \ac{RSS} values can be used to determine the location of a \acl{ED}.
-\ac{RSS} values that are received by the gateways are inversely proportional to the distance between the \acl{ED} and the gateway.
-They are used to calculate the distance between the \acl{ED} and the gateway, making a multilateration possible.
+As stated, \ac{RSS} values that are received by the gateways are inversely proportional to the distance between the \acl{LRWED} and the \acl{LRWGW}.
+They are used to calculate the distance between the \acl{LRWED} and the \acl{LRWGW}, making a multilateration possible.
 
 A fact to take note of is that the \ac{RSSI} values measured by \ac{TTN} are only integers and not floating point numbers.
 This lowers the accuracy of the calculated distances and therefore the accuracy of the calculated location of the \acl{ED}.
 
-Based on these facts, several attempts were made to calculate the distance between a \acl{ED} and a gateway.
+Based on these facts, several attempts were made to calculate the distance between a \acl{LRWED} and a \acl{LRWGW}.
 
 \subsubsection{First idea: Fixed \acs{RSSI} to range scale}\label{sec:fixed-rssi-to-range-scale}\label{sec:fixed-rssi-to-range-scale-impl}
 
-The first idea for determining the distance between a \acl{ED} and a gateway was to use a fixed \ac{RSSI} to range scale.
+The first idea for determining the distance between a \acl{LRWED} and a \acl{LRWGW} was to use a fixed \ac{RSSI} to range scale.
 This means that for a given \ac{RSSI} value, a range is determined by inputting said \ac{RSSI} value into a function.
 \Cref{eq:fixed-rssi-to-range-scale} shows an example that takes a \ac{RSSI} value.
 The result is the distance $D_{gateway}$ to the gateway in meters.
@@ -690,22 +690,22 @@ The result is the distance $D_{gateway}$ to the gateway in meters.
 For example, a \ac{RSSI} value of -80 would result in a distance of \SI{355}{\meter}.
 A value of -110 would result in a distance of \SI{715}{\meter}.
 
-The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the \acl{ED}-based GPS data points from the MikroTik LR8 gateway deployed on top of the \ac{GHB} 2 building.
-While those values work reasonably well for the \ac{LoS} reception behavior of the gateway that was used to generate the regression, they are not necessarily applicable to other gateways.
+The values for this equation were derived by performing a linear regression on the \ac{RSS} values of the \acl{ED}-based GPS data points from the MikroTik LR8 \acl{LRWGW} deployed on top of the \ac{GHB} 2 building.
+While those values work reasonably well for the \ac{LoS} reception behavior of the \acl{LRWGW} that was used to generate the regression, they are not necessarily applicable to other gateways.
 Hence, one single fixed \ac{RSSI} to range scale function is not suitable to be used for all gateways as their position (indoor/outdoor) as well as their antennas might be different from one another.
 
 Although rare, \ac{RSS} values that are larger than a certain threshold can also return negative range values.
 In the example given in \cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>= -50$.
 
-Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when \acl{ED}, gateway, and the distance between them stay the same.
-This makes RSSI values in general a rather unreliable metric for determining the distance between a \acl{ED} and a gateway as long as there is no \ac{LoS} between them.
+Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when the \acl{LRWED}, the \acl{LRWGW}, and the distance between them stay the same.
+This makes RSSI values in general a rather unreliable metric for determining the distance between a \acl{LRWED} and a \acl{LRWGW} as long as there is no \ac{LoS} between them.
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}\label{sec:plotting-rssi-to-range-from-existing-data}
 
 \Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-It uses the \ac{RSS} values of the \acl{ED}-based data points from a single gateway to generate the graph by calculating the distance to said gateway.
-This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a gateway from a given \ac{RSSI} value.
-Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each gateway's behavior individually.
+It uses the \ac{RSS} values of the \acl{LRWED} data points from a single \acl{LRWGW} to generate the graph by calculating the distance to said \acl{LRWGW}.
+This makes it possible to determine the values of a linear regression function that can be used to calculate the distance to a \acl{LRWGW} from a given \ac{RSSI} value.
+Compared to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}, this approach has the advantage that it can be used to generate a more accurate \ac{RSSI} to range scale by considering each \acl{LRWGW}'s behavior individually.
 The example in \cref{fig:rssi-range-graph-positive-example} works quite well for this.
 
 \begin{figure}[htbp]
@@ -737,8 +737,8 @@ This could have several reasons, such as not enough data points being available 
 
 \subsubsection{Using existing data to build a per-gateway \acs{RSSI} to range scale}\label{subsubsec:per-gateway-rssi-to-range-scale}
 
-Using a similar linear regression approach as described in \cref{sec:plotting-rssi-to-range-from-existing-data}, a per-gateway \ac{RSSI} to range scale was realized.
-As was mentioned in that chapter, this allows for gateway-specific parameters such as positioning and antenna type to be taken into account.
+Using a similar linear regression approach as described in \cref{sec:plotting-rssi-to-range-from-existing-data}, a \ac{RSSI} to range scale for each \acl{LRWGW} was realized.
+As was mentioned in that chapter, this allows for parameters specific to each \acl{LRWGW} such as positioning and antenna type to be taken into account.
 
 The Gateway table in the \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
 This was only done for gateways with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \cref{fig:rssi-range-graph-negative-example}.
@@ -750,7 +750,7 @@ Again, a cron-like job was used since recalculating those linear regression valu
     language=SQL,
     float,
     caption={
-        \ac{SQL} query that was used to calculate the linear regression values for each gateway.
+        \ac{SQL} query that was used to calculate the linear regression values for each \acl{LRWGW}.
         Using the \texttt{UPDATE} and \texttt{SET} statements, the results of the subquery are written into the \texttt{linear\-Re\-gres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} columns of the Gateway table for the corresponding gateways.
         This caption was once more generated by Bing AI and adapted for better readability.
     },
@@ -783,9 +783,9 @@ FROM (
 WHERE "Gateway"."gatewayId" = subquery."gatewayId";
 \end{lstlisting}
 
-When requesting gateway data from the backend, it answers with the linear regression values for each gateway.
-The frontend then uses these values to display annuli around each gateway on the map according to specific \ac{RSSI} values.
-If a gateway does not have linear regression values set in the \ac{DB} (possibly due to not having enough ttnMapperDatapoints yet), the frontend will fall back to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}.
+When requesting \acl{LRWGW} data from the \ac{TTNL} backend, it answers with the linear regression values for each \acl{GW}.
+The frontend then uses these values to display annuli around each \acl{LRWGW} on the map according to specific \ac{RSSI} values.
+If a \acl{LRWGW} does not have linear regression values set in the \ac{DB} (possibly due to not having enough ttnMapperDatapoints yet), the frontend will fall back to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}.
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will show the results of using this technique and the accuracy improvements in more detail.
 
@@ -803,7 +803,7 @@ Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was 
     }\label{fig:snr-range-graph-example}
 \end{figure}
 
-\Cref{fig:snr-range-graph-example} shows an example of this, using data from the \ac{GHB} gateway.
+\Cref{fig:snr-range-graph-example} shows an example of this, using data from the \ac{GHB} \acl{LRWGW}.
 Compared to \cref{fig:rssi-range-graph-positive-example}, the graph also shows a rather weak correlation between \ac{SNR} and distance similar to that between \ac{RSSI} and distance.
 
 However, mapping \ac{SNR} values to distance on their own seemed very unreliable.
@@ -840,7 +840,7 @@ This is a distance that is way too big to be useful for performing any sort of m
 \subsection{Fingerprinting with \acs{RSSI} and other values}\label{sec:fingerprinting-implementation}
 
 The implementation of the fingerprinting approach was done in the backend part of \ac{TTNL}.
-A \ac{REST} endpoint was added to the backend that accepts a list of gateway IDs along with maximum and minimum \ac{RSS} values for those particular gateways.
+A \ac{REST} endpoint was added to the backend that accepts a list of \acl{LRWGW} IDs along with maximum and minimum \ac{RSS} values for those particular gateways.
 
 \begin{lstlisting}[
     language=TypeScript,
@@ -874,22 +874,22 @@ return prisma.deviceGPSDatapoint.findMany({ where: prismaFilterQuery });
 \end{lstlisting}
 
 \Cref{lst:prisma-rssi-fingerprinting-query} shows part of that code from the \ac{TTNL} backend.
-By iterating over the \lstinline|similarityFilter| array provided by the frontend, the backend can add a \lstinline|AND| clause to the Prisma query for each gateway data entry that was provided by the frontend.
+By iterating over the \lstinline|similarityFilter| array provided by the frontend, the backend can add a \lstinline|AND| clause to the Prisma query for each \acl{LRWGW} data entry that was provided by the frontend.
 These \lstinline|AND| clauses are then put into a Prisma \lstinline|findMany| query with a where clause that is executed against the \ac{DB}.
-The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that match the gateway ID and \ac{RSSI} range provided by the frontend.
+The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that match the \acl{LRWGW} ID and \ac{RSSI} range provided by the frontend.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/frontend/rssi_similarity_form.png}
     \caption{
-        Screenshot of the \ac{TTNL} frontend showing the form for entering gateway fingerprinting values.
+        Screenshot of the \ac{TTNL} frontend showing the form for entering \acl{LRWGW} fingerprinting values.
         The top of the form shows the possibility of entering \ac{TTNM} datapoint IDs to load their respective similarity values from the \ac{DB}.
         A ``RSSI'' checking range of 3 has been set, meaning that the entered \ac{RSS} values will be checked against the \ac{RSS} values of the \ac{TTNM} datapoints with a tolerance of 3.
-        For example, since the first gateway selected has an \ac{RSSI} value of -113, all \ac{TTNM} datapoints with an \ac{RSSI} value between -116 and -110 of that gateway will be matched.
+        For example, since the first \acl{LRWGW} selected has an \ac{RSSI} value of -113, all \ac{TTNM} datapoints with an \ac{RSSI} value between -116 and -110 of that \acl{LRWGW} will be matched.
     }\label{fig:rssi-similarity-form-frontend}
 \end{figure}
 
-\Cref{fig:rssi-similarity-form-frontend} shows the frontend form for entering gateway fingerprinting values to be sent to the backend.
+\Cref{fig:rssi-similarity-form-frontend} shows the frontend form for entering \acl{LRWGW} fingerprinting values to be sent to the backend.
 
 \begin{figure}[htbp]
     \centering
