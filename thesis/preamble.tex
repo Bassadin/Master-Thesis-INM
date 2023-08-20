@@ -279,10 +279,16 @@ literate=
     \chapter{#1}
 }
 
-% insert monthly report pdf as picture in order to keep page header
+% insert monthly report pdf
 \newcommand{\monthlyreport}[2]{
     \includepdf[pages=1,pagecommand={\thispagestyle{empty}\section{#1}}, scale=0.97, offset=0 -20]{#2}
     \includepdf[pages=2-, scale=1]{#2}
+    \clearpage
+}
+
+% insert singlepage report month pdf
+\newcommand{\monthlyreportSinglePage}[2]{
+    \includepdf[pages=1,pagecommand={\thispagestyle{empty}\section{#1}}, scale=0.97, offset=0 -20]{#2}
     \clearpage
 }
 
