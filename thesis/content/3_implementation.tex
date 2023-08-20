@@ -383,9 +383,9 @@ It splits up the data received from \ac{TTNM} into four main tables: Device, Gat
 
 \subsection{Technologies used in the \acl{TTNL} Backend}
 
-This section describes the technologies used in the backend part of the \ac{TTNL} web application.
-The chosen stack uses Express.js with \ac{TS} as the programming language, PostGIS as the \ac{DB} system as well as the Prisma \ac{ORM} to connect to the \ac{DB}.
-These services are designed to be running in Docker containers and are orchestrated using Docker Compose.
+This section explains the technologies utilized in the backend of the \ac{TTNL} web app.
+The selected stack includes Express.js utilizing \ac{TS} as the programming language, PostGIS as the \ac{DB} system, and the Prisma \ac{ORM} for connecting to the \ac{DB}.
+These services are designed to operate inside Docker containers and are orchestrated via Docker Compose.
 
 \subsubsection{Programming languages: \acl{JS} / \acl{TS}}
 
@@ -393,8 +393,8 @@ These services are designed to be running in Docker containers and are orchestra
 However, it can also be used outside a browser, for example, to create server applications as is explained in \cref{sec:nodejs}.
 
 \ac{TS}, on the other hand, is a superset of \ac{JS} that adds static type checking to the language~\cite{microsoft_javascript_nodate}.
-This means that the developer has to specify the types of variables and function parameters, which are then checked by the compiler.
-Assigning the wrong type to a variable or passing the wrong type to a function then triggers compile-time error instead of a runtime error.
+Developers are required to declare variable and function parameter types, which the compiler then verifies.
+If an incorrect variable type or function parameter is passed, a compile-time error is generated instead of a runtime error.
 
 \subsubsection{Node.js for server-side \acl{JS} code execution}\label{sec:nodejs}
 
@@ -730,8 +730,7 @@ While there are outliers in the data, the graph still shows a logical average li
 \end{figure}
 
 \Cref{fig:rssi-range-graph-negative-example} shows another example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-In this example, the \ac{RSS} values do not decrease as the distance increases.
-This could have several reasons, such as not enough data points being available (the negative example has only 131 vs.\ almost 3,000 for the positive example).
+In this example, the \ac{RSS} values do not decrease as the distance increases, which might be due to various possible reasons, for instance, not enough available data points, as the negative example has only 131 data points, whereas the positive example has almost 3,000.
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will discuss the results of using this technique and the resulting accuracy in more detail.
 
