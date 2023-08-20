@@ -2,32 +2,33 @@
 
 \section{Motivation}
 
-The global market for \ac{IoT} devices is expected to grow from USD 686.46 billion in 2023 to USD 3,352.97 billion in 2030~\cite{statista_industrial_2023}.
-More and more industries are adopting \ac{IoT} devices in order to optimize their workflows.
-Over short distances and with mains-powered devices or devices that don't require years of battery life, it is simple to achieve connections to the internet wirelessly with established technologies such as ZigBee, Thread or Wi-Fi.
-However, bridging long distances can become a challenge when devices also need to consume as little power as possible.
+The worldwide market for \ac{IoT} devices is expected to increase from USD 686.46 billion in 2023 to USD 3,352.97 billion in 2030~\cite{statista_industrial_2023}.
+An increasing number of industries are utilizing \ac{IoT} devices to streamline workflows.
+Established technologies, such as Zigbee, Thread, or Wi-Fi, can be used to wirelessly connect to the internet over short ranges for mains-powered devices, or devices that do not require long-lasting battery life.
+However, bridging long distances can pose a challenge when devices must also consume minimal power.
 
-The \ac{LoRa} wireless communication protocol promises to address this challenge by offering a long range and low power usage with the drawback of having little throughput.
-The longest transmission range of a \acl{LRED}, under ideal conditions, has been measured at 832 km~\cite{the_things_network_global_team_lora_nodate}.
-While, realistically, \acl{LRED} usually reach much shorter distances, they can still be used to transmit data over long distances of multiple kilometers while consuming little power.
-In the first half of 2020, \ac{LoRa} was the second most used \ac{LPWAN} technology worldwide, scoring 41\% and ranking just behind NB-IoT with 44\%~\cite{iot_analytics_lpwa_2020}.
+The \ac{LoRa} wireless communication protocol addresses this challenge by providing a long-range and low-power usage solution, despite having limited throughput.
+Under ideal conditions, the longest transmission range of a \acl{LRED} has been measured at 832 km~\cite{the_things_network_global_team_lora_nodate}.
+Although \acl{LRED} usually reach much shorter distances in reality, they can still effectively transmit data over multiple kilometers while consuming little power.
+In the first half of 2020, \ac{LoRa} was the world's second most popular \ac{LPWAN} technology, with a usage rate of 41\%.
+It ranked just behind NB-IoT with 44\%~\cite{iot_analytics_lpwa_2020}.
 
-While \aclp{LRED} can feature \ac{GPS} receivers to geolocate them when deployed, they consume considerable amounts of power, especially when trying to obtain a location fix.
-This is particularly problematic for battery-powered devices that are deployed in remote areas and are expected to last several years on a single battery.
-\aclp{LRED} may also be geolocated without a \ac{GPS} receiver by using the signals they send to the \aclp{LRGW} in the network.
+Although \aclp{LRED} can include \ac{GPS} receivers for geolocation purposes, they consume a significant amount of power, particularly during location acquisition.
+Battery-powered devices deployed in remote areas are expected to operate for several years on a single battery; therefore, it is especially problematic in this scenario.
+Geolocation of \aclp{LRWED} is also possible without the use of \ac{GPS} receiver by utilizing the signals they send to the \aclp{LRWGW} in the network.
 
-The goal of this thesis is to analyze and compare \ac{GPS}-less methods for geolocating standard \aclp{LRWED} without the need to modify those \aclp{ED} or the \aclp{LRWGW} used.
-This is done so that scaling the solution to the entirety of an existing \ac{LoRaWAN} network is possible.
-The goal is not to focus specifically on indoor or outdoor localization specifically but to provide a general overview of the topic.
+This thesis aims to evaluate and compare \ac{GPS}-less methods for the geolocation of unaltered \aclp{LRWED} and \aclp{LRWGW}.
+The goal is to assess techniques that allow scaling up the solution to an entire \ac{LoRaWAN} network.
+This thesis does not concentrate on indoor or outdoor localization exclusively, but it aims to provide a general overview of the topic.
 
-To achieve this goal, some \aclp{LRWGW} that were already registered in \acf{TTN} in Furtwangen were used as well as new \aclp{GW} placed in Furtwangen.
+To achieve this objective, some \aclp{LRWGW} already registered in \acf{TTN} in Furtwangen were used, along with new \aclp{GW} installed in Furtwangen.
 
 \section{Research Questions}\label{sec:introduction-research-questions}
 
 \begin{enumerate}
-      \item Is it possible for \aclp{LRED} to be geolocated without the need for a \ac{GPS} receiver?
-      \item How do methods for such \ac{GPS}-less geolocation compare?
-      \item What factors can affect the accuracy of this type of geolocation?
+      \item Can \aclp{LRWED} be geolocated without a \ac{GNSS} receiver?
+      \item How do methods for such \ac{GNSS}-less geolocation compare?
+      \item Which factors can impact the accuracy of this type of geolocation?
 \end{enumerate}
 
 \section{Related Work}\label{sec:related-work}
@@ -87,8 +88,8 @@ Snowing also led to fluctuations in \ac{RSS} and \ac{SNR} values.
 In January 2023, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization.
 They used a machine learning approach in addition to \ac{RSSI} and \ac{SNR} values to improve the accuracy of their localization method~\cite{perkovic_machine_2023}.
 
-In conclusion, some papers have already researched the topic of \ac{LoRa}-based localization and adjacent topics.
-This thesis will build upon the findings of these papers and try to apply them to a real-world deployment scenario in Furtwangen.
+In conclusion, several papers have already examined the topic of \ac{LoRa}-based localization and related areas.
+This thesis will utilize the conclusions of these papers as the basis for applying them to a practical deployment scenario in Furtwangen.
 
 \section{Outline}
 
