@@ -46,7 +46,7 @@ The maximum range recorded for this \acl{LRWGW} is \SI{4.3}{\kilo\meter}, which 
 
 Installing the \acl{LRWGW} on the roof of the \ac{HFU} C building was rather easy since accessing the roof is not difficult.
 The cable of the antenna had to be pulled through a small conduit in the outer wall.
-Afterwards, it could be connected to the \acl{LRWGW} located inside a small crawl space.
+Afterward, it could be connected to the \acl{LRWGW} located inside a small crawl space.
 
 Getting the network backhaul up and running wasn't as straightforward, though.
 There were no spare Ethernet ports available in the crawl space.
@@ -563,13 +563,14 @@ This could allow bad actors to physically attack \aclp{LRWGW} connected to the p
 This section will summarize the results of the work in this thesis and aims to answer the research questions posed in \cref{sec:introduction-research-questions}.
 
 This thesis deployed a full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
-From installing the \aclp{LRWGW} to collecting the data via \aclp{ED}, as well as sending it to \ac{TTN} and \ac{TTNM}, to visualizing it on a website that was deployed in a containerized environment along with a backend service and a \ac{DB}.
+The procedure involved the installation of \aclp{LRWGW}, collecting data using \aclp{LRWED} and transmitting the data packets to \acl{TTNM} through the \ac{TTN} \acl{LNS}.
+Following that, the data is displayed on a website deployed within a containerized environment, including a backend \ac{API} service and a \acl{DB}.
 
 The viability of \ac{RSS}-based localization methods has been evaluated, and it has been shown that they can be used with some degree of accuracy.
-While the accuracy of the methods shown, especially outdoors, is inferior to that of \ac{GNSS}, it is still good enough for many use cases, such as geofencing and others.
+Although the accuracy of these methods, particularly outdoors, is lower than that of \ac{GNSS}, it is still sufficient for various uses, such as geofencing and others.
 
-In general, while the fingerprinting approach showed more promising accuracy results, it requires a lot of manual work to collect the data.
-In comparison, the multilateration approach is easier to implement and use without requiring manual work but is also much more easily affected by environmental factors.
+Overall, the fingerprinting approach displayed superior accuracy results, but its downside is that it necessitates a significant amount of manual data collection work.
+In contrast, the multilateration approach is simpler to implement and use without requiring any manual work; however, its performance is highly susceptible to environmental factors.
 
-The influence of such environmental factors like \ac{MPP} has been shown to be significant in the preceding chapters.
-It affected all \ac{RSS}-based measurements and, to a lesser extent, also the \ac{GNSS} measurements.
+The impact of environmental factors such as \ac{MPP} has proven to be significant.
+It impacted all \ac{RSS}-based measurements, and somewhat affected the \ac{GNSS} measurements, as well.
