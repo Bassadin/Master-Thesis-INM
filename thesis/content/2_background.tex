@@ -497,10 +497,10 @@ This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TT
 
 \subsection{Data collection in \acl{TTNM}}\label{sec:ttm-data-collection}
 
-\acl{TTNM} works by using \aclp{LRWED} with \ac{GPS} modules that send their location to the \ac{TTN} network via uplink messages.
+\acl{TTNM} works by using \aclp{LRWED} with \ac{GNSS} modules that send their location to the \ac{TTN} network via uplink messages.
 Alongside the location information, packets from those \aclp{LRWED} that are processed by \ac{TTN} also include information about which \aclp{LRWGW} received them.
 
-Hence, \acl{TTNM} can use the information about which \aclp{LRWGW} received the message and the location information of the \ac{GPS} modules of those \aclp{LRWED}.
+Hence, \acl{TTNM} can use the information about which \aclp{LRWGW} received the message and the location information of the \ac{GNSS} modules of those \aclp{LRWED}.
 This is done by means of a \emph{webhook} that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a \acl{LRWED} sends a message to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \aclp{LRWGW} in the \ac{TTN} network.
 
@@ -522,14 +522,14 @@ With this data, it can build a map displaying the coverage of \aclp{LRWGW} in th
 \Cref{pic:ttn-mapper-heatmap-with-gateways} shows a screenshot of \acl{TTNM}'s heatmap view.
 This page displays an interactive world map with a heatmap overlay.
 It shows the coverage of \aclp{LRWGW} in the \ac{TTN} network by using and aggregating data that has been collected over the lifetime of the service.
-Additionally, any \acl{LRWGW} that has received at least one message from a \ac{GPS}-enabled \ac{LRWED} and has its location accessible from \ac{TTN} is displayed on the map.
+Additionally, any \acl{LRWGW} that has received at least one message from a \ac{GNSS}-enabled \ac{LRWED} and has its location accessible from \ac{TTN} is displayed on the map.
 
 Notably, blank spots on the map do not necessarily mean that there is no coverage in that area.
-It can also mean that there haven't been any \ac{GPS}-enabled \aclp{LRWED} that send their data to \ac{TTNM} in that area yet.
+It can also mean that there haven't been any \ac{GNSS}-enabled \aclp{LRWED} that send their data to \ac{TTNM} in that area yet.
 
 \subsection{Accessing the data of \acl{TTNM}}
 
-As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GPS}-enabled \aclp{LRWED}.
+As far as this thesis is concerned, \acl{TTNM} provides a way to access \ac{RSSI} and geolocation data points for measurements done by \ac{GNSS}-enabled \aclp{LRWED}.
 
 \ac{TTNM} provides a (partially) open \ac{REST} \ac{API} that can be used to access the data that has been collected by it.
 Data can be requested based on the \acl{LRWED} that sent the message or the \acl{LRWGW} that received it.
