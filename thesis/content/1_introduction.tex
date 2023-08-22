@@ -5,20 +5,20 @@
 The worldwide market for \ac{IoT} devices is expected to increase from USD 686.46 billion in 2023 to USD 3,352.97 billion in 2030~\cite{statista_industrial_2023}.
 An increasing number of industries are utilizing \ac{IoT} devices to streamline workflows.
 Established technologies, such as Zigbee, Thread, or Wi-Fi, can be used to wirelessly connect to the internet over short ranges for mains-powered devices, or devices that do not require long-lasting battery life.
-However, bridging long distances can pose a challenge when devices must also consume minimal power.
+While \ac{LTE} can be used to bridge long distances, it is unsuitable for devices that need to conserve power.
 
-The \ac{LoRa} wireless communication protocol addresses this challenge by providing a long-range and low-power usage solution, despite having limited throughput.
+The \ac{LoRa} wireless communication protocol addresses this challenge by providing a long-range and low-power usage solution, despite having limited throughput capabilities.
 Under ideal conditions, the longest transmission range of a \acl{LRED} has been measured at 832 km~\cite{the_things_network_global_team_lora_nodate}.
-Although \acl{LRED} usually reach much shorter distances in reality, they can still effectively transmit data over multiple kilometers while consuming little power.
+While \aclp{LRED} usually reach much shorter distances in reality, they can still effectively transmit data over multiple kilometers while consuming little power.
 In the first half of 2020, \ac{LoRa} was the world's second most popular \ac{LPWAN} technology, with a usage rate of 41\%.
 It ranked just behind NB-IoT with 44\%~\cite{iot_analytics_lpwa_2020}.
 
 Although \aclp{LRED} can include \ac{GNSS} receivers for geolocation purposes, they consume a significant amount of power, particularly during location acquisition.
-Battery-powered devices deployed in remote areas are expected to operate for several years on a single battery; therefore, it is especially problematic in this scenario.
-Geolocation of \aclp{LRWED} is also possible without the use of \ac{GNSS} receiver by utilizing the signals they send to the \aclp{LRWGW} in the network.
+Battery-powered devices deployed in remote areas are expected to operate for several years on a single battery; therefore, this is especially problematic in this scenario.
+Geolocation of \aclp{LRWED} is also possible without the use of a \ac{GNSS} receiver by utilizing the signals they send to the \aclp{LRWGW} in the network.
 
 This thesis aims to evaluate and compare \ac{GNSS}-less methods for the geolocation of unaltered \aclp{LRWED} and \aclp{LRWGW}.
-The goal is to assess techniques that allow scaling up the solution to an entire \ac{LoRaWAN} network.
+The aim is to evaluate methods that can be expanded to an entire \ac{LoRaWAN} network.
 This thesis does not concentrate on indoor or outdoor localization exclusively, but it aims to provide a general overview of the topic.
 
 To achieve this objective, some \aclp{LRWGW} already registered in \acf{TTN} in Furtwangen were used, along with new \aclp{GW} installed in Furtwangen.
