@@ -17,23 +17,24 @@ This section aims to provide a general overview of relevant wireless communicati
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
 
-Deployments in remote or particularly large areas may require long-range transmissions.
-As such, sensors that are deployed in such areas may be hard to reach or placed apart by several hundred meters.
+Sensors deployed in remote or large areas may be inaccessible or separated by several hundred meters, necessitating the use of
+long-range links for deployments in these regions.
 This makes low power sensors that can run on batteries for several months to years a necessity, as battery replacement can be expensive or even impossible.
 
-For example, Wi-Fi is not suitable for battery powered \aclp{ED} used in remote areas because it requires relatively high power to operate and does not have a long range.
-ZigBee is also not suitable for battery powered \aclp{ED} because it is not designed for long distances and therefore has a short range.
-\ac{LTE} is also not suitable for battery powered \aclp{ED} either as it requires a lot of power.
+For instance, Wi-Fi is unsuitable for battery-powered \aclp{ED} in remote areas, both because it requires relatively high power to operate and has a limited range.
+Similarly, ZigBee's limited range makes it unsuitable for remote locations.
+While \ac{LTE} has a rather large range, is also unsuitable for battery powered \aclp{ED} either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
 \subsection{Comparing signal strengths — \acl{RSSI}}\label{sec:rssi}
 
-The \acf{RSSI} is a measure of the strength of a wireless signal received by a \acl{ED}.
+The \acf{RSSI} is a measure of the strength of the wireless signal strength as received by a receiver.
 As far as this thesis is concerned, \ac{RSS} values are measured in dBm since the \ac{TTN} \ac{LNS}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
 
 Different \aclp{ED} can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
-Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \acl{LoS} between the sender and receiver.
-The \ac{RF} signal can be blocked and thereby attenuated by walls, trees, or other objects --- a phenomenon known as \acf{MPP}~\cite{kucherov_investigation_2021}.
+Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \ac{LoS} between the sender and receiver.
+The \ac{RF} signal may be obstructed and weakened by structures, trees, or other physical barriers.
+This is due to a phenomenon known as \acf{MPP} which will later be explained in \cref{sec:multipath-propagation}~\cite{kucherov_investigation_2021}.
 
 \subsubsection{Correlation between \acs{RSS} values and distance — \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
@@ -60,7 +61,7 @@ As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\me
 \subsubsection{Influences of external factors on \acs{RSS} — \acl{MPP}}\label{sec:multipath-propagation}
 
 In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
-\acl{MPP} causes the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
+\acl{MPP} can cause the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
 
 \begin{figure}[htbp]
     \centering
@@ -93,7 +94,7 @@ While the \ac{SNR} can also be expressed in \si{\decibel}, in this thesis it is 
 
 \section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
-\acf{LoRa} is a \ac{RF} communication modulation that offers a standard to send data packets over the air in a specific way~\cite{semtech_corporation_lora_2023}.
+\acf{LoRa} is a \ac{RF} communication modulation that offers a standardized way to send data packets over the air in a specific way~\cite{semtech_corporation_lora_2023}.
 A rough explanation of its technical details will be given in \cref{sec:lora-modulation}.
 
 \ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer to transmit data packets.
@@ -101,21 +102,20 @@ It will be explained in more detail in \cref{sec:lorawan}.
 
 \section{The \acs{LoRa} modulation}\label{sec:lora-modulation}
 
-The \ac{LoRa} modulation is also sometimes referred to as \ac{LoRa}\ PHY~\cite{chaudhari_understanding_2022}.
-It uses several techniques to achieve long-range communication with low power consumption.
-In the \ac{EU}, it uses the \SI{868}{\mega\hertz} frequency band to transmit data~\cite{lora_alliance_inc_lorawan_regional_2017}.
-This frequency band was also used exclusively in the experiments conducted for this thesis.
+The \ac{LoRa} modulation, also known as ``\ac{LoRa}\ PHY'', enables long-range communication with low power consumption.~\cite{chaudhari_understanding_2022}.
+In the \ac{EU}, it operates mostly on the \SI{868}{\mega\hertz} frequency band to transmit data~\cite{lora_alliance_inc_lorawan_regional_2017}.
+This frequency spectrum was utilized exclusively for the experiments conducted in this thesis.
 
 This section will explain some of its concepts that are relevant to this thesis.
-However, it will not go into detail about all the technical details of the modulation.
+However, it will not go into detail about all technical details of the modulation.
 
-\subsection{Transmitting \acs{LoRa} signals with resilience to interference using \acf{CSS}}\label{sec:chirp-spread-spectrum}
+\subsection{Transmitting \acs{LoRa} signals with resilience to interference with \acf{CSS}}\label{sec:chirp-spread-spectrum}
 
 \ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction~\cite{reynders_chirp_2016}.
 \acs{CHIRP} stands for \acl{CHIRP}.
 It uses frequency hopping and different \aclp{SF} to encode signals in order to make them robust against interference, as will be explained in \cref{sec:spreading-factors}.
 
-\subsection{\acs{LoRa} Duty Cycle (in the \acs{EU} region)}\label{sec:duty-cycle}
+\subsection{Regio-specific parameters for the \acs{LoRa} modulation in the \acs{EU} region}\label{sec:duty-cycle}
 
 \begin{figure}[htbp]
     \centering
@@ -128,15 +128,14 @@ It uses frequency hopping and different \aclp{SF} to encode signals in order to 
 
 In the \ac{EU} region, the duty cycle for transmissions in the \SI{868}{\mega\hertz} band is limited to \SI{1}{\percent}~\cite[p. 29]{etsi_etsi_2012}.
 This means that a \acl{LRED} using this frequency band may only transmit for \SI{1}{\percent} of a given time slot.
-For example, if a \acl{ED} transmits data for 36 seconds, it must stay silent for the following 3,564 seconds, which is almost an hour.
-It needs to stay silent for the rest of the time slot.
+For example, if a \acl{ED} transmits data for \SI{1}{\milli\second}, it must stay silent for the following \SI{99}{\milli\second}.
 
 An example for duty cycle time frames can be seen in \cref{pic:lora-duty-cycle}.
 In this example, the duty cycle is \SI{20}{\percent}.
 The \acl{ED} that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
 To stay compliant with the \SI{20}{\percent} duty cycle, it may start a new transmission starting with the sixth time block.
 
-Luckily, LoRa packets are usually only a few bytes small and can thus be transmitted in a short amount of time, usually in a few milliseconds.
+LoRa packets are typically small, consisting of only a few bytes, allowing for transmission in a short duration, typically in a matter of milliseconds.
 Even when using \acs{SF}12, which is the slowest \acs{SF} available, the maximum packet size of \SI{51}{\byte} can be transmitted in  \SI{1232.9}{\milli\second}~\cite[p. 6]{the_things_network_lorawan_nodate}\cite[p. 10f]{lora_alliance_inc_lorawan_regional_2017}.
 This makes it possible to transmit data up to every few minutes even with the largest possible packet size and still stay compliant with the duty cycle of \SI{1}{\percent}.
 
@@ -168,7 +167,8 @@ This means that, for example, a transmission using \ac{SF}10 takes twice as long
 While a higher \acl{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
 Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \acl{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
 
-Different \aclp{SF} are orthogonal to each other, so they can be used at the same time without interfering with each other~\cite{the_things_network_spreading_2023}.
+Different \aclp{SF} are orthogonal to each other as far as \ac{RF} transmission through the air is concerned.
+This means they can be used simultaneously without causing any interference with one another~\cite{the_things_network_spreading_2023}.
 
 The \ac{SF} also determines the maximum size of the payload that can be transmitted.
 In the \ac{EU} region, it ranges from \SI{222}{\byte} for \ac{SF}7 to \SI{51}{\byte} for \ac{SF}12~\cite[p. 10f]{lora_alliance_inc_lorawan_regional_2017}.
@@ -178,8 +178,7 @@ In the \ac{EU} region, it ranges from \SI{222}{\byte} for \ac{SF}7 to \SI{51}{\b
 \aclp{SF} are important for this thesis because they interact with the \ac{SNR} values of a transmission.
 Higher \ac{SF} values allow for lower \ac{SNR} values (more noise, less signal) to still be decodable, since the wider spread of the signal makes it more resilient to noise.
 
-\ac{SNR} was a value that was considered to be used in the fingerprinting approach.
-Because of the correlation between \acl{SF} and \acl{SNR}, it is important to use both in conjunction.
+Because of this correlation between \acl{SF} and \acl{SNR}, it is essential to take both factors into account when performing similarity checks, such as fingerprinting as described in \cref{sec:fingerprinting-additional-values}.
 
 \subsection{Why use \acs{LoRa} over other technologies?}
 
@@ -187,8 +186,8 @@ As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good 
 
 A \ac{LoRa} \acl{ED} that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 
-\emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering data such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
-It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of 8 bytes, 1 hour of periodicity and a 2500 mAh AA type battery.
+\emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering parameters such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
+It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of \SI{8}{\byte}, 1 hour of periodicity and a 2500 mAh AA type battery.
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
 Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \cref{sec:device-classes}).
 
@@ -212,7 +211,7 @@ A well-known example of a \ac{WAN} is the Internet.
 \subsection{Less power, longer latencies, low data rates — \aclp{LPWAN}}
 
 While most \acp{WAN}, such as the Internet, typically have a high bandwidth and low latency, \acp{LPWAN}, on the other hand are designed to have ``low duty cycles, very low data rates, relatively longer latencies, low power consumption, and coverage over several kilometers''~\cite[p. 289]{kumar_connecting_2023}.
-These factors make them more suitable for handling large amounts of sensors and actors that only need to transmit small amounts of data infrequently over long distances.
+These factors make them more suitable for handling large amounts of \aclp{ED} that only need to transmit small amounts of data infrequently over long distances.
 
 \begin{figure}[htbp]
     \centering
@@ -225,7 +224,7 @@ These factors make them more suitable for handling large amounts of sensors and 
 
 \Cref{pic:lpwan-diagram} shows the structure of a \ac{LPWAN} network.
 Multiple \ac{IoT} devices connect to \aclp{GW} or base stations.
-Those \aclp{GW} are in turn connected to the internet or a larger network via a backhaul connection in order to enable communication between \aclp{ED}.
+Those \aclp{GW} are in turn connected to the network, enabling them to forward packets from \aclp{ED} to the network.
 
 \section{\acl{LoRaWAN} — connecting \acl{IoT} devices over long ranges}\label{sec:lorawan}
 
@@ -274,33 +273,21 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 \end{figure}
 
 A \acl{LRWGW} is a device that receives \ac{LoRa} packets (usually from \aclp{LRWED}) and forwards them to \ac{LNS}.
+It can also receive packets from the \ac{LNS} and forward them to \aclp{LRWED}.
 
 \aclp{LRGW} are usually based on a \ac{LoRa} concentrator, which is a \ac{RF} module that receives \ac{LoRa} packets and forwards them to the \acl{GW}'s \ac{CPU} using a serial interface.
-The \ac{CPU} processes the incoming data and, if desired forwards the packets to a \ac{LNS}, making the device a \acl{LRWGW}.
+The \ac{CPU} processes the incoming data and, if desired, forwards the packets to a \ac{LNS}.
 
-To achieve the connection to the \ac{LoRaWAN} server, the \acl{LRWGW} needs to be connected to the internet.
+To achieve the connection to the \ac{LNS}, the \acl{LRWGW} needs to be connected to the internet.
 This connection is also called \emph{backhaul}.
 The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections~\cite{the_things_industries_bv_lorawan_nodate}.
 
 One example of a \acl{GW} used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
-This \acl{LRWGW} is specified as suitable for outdoor usage, making it a good choice for the deployment in Furtwangen on top of (among others) the roof of the \acf{GHB}.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.6\textwidth]{pictures/hardware/gateway-deployment/mikrotik-antenna-c-building.jpg}
-    \caption{
-        A MikroTik antenna installed on top of the \ac{HFU} C building.
-        The exposed position of the roof in the valley where Furtwangen is located can be seen.
-        In the background, on the right, the two buildings of the \acf{GHB} are visible.
-    }\label{pic:mikrotik-antenna-c-building}
-\end{figure}
-
-While such \aclp{LRWGW} sometimes have a built-in antenna, the range of these antennas is only sufficient to cover small to medium-sized buildings or areas.
+While some \aclp{LRWGW} may come equipped with an integrated antenna, their range is generally limited to small to medium-sized spaces or buildings.
 It is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \aclp{LRED} was the goal.
-While there are many options for external antennas, in the case of the MikroTik \acl{LRWGW}, the decision was made to also use the external \ac{LoRa} antenna supplied by MikroTik, as it is specifically designed for the MikroTik \acl{LRWGW} and thus should be a good match.
-The deployment of this antenna on top of the \ac{HFU} C building is shown in \cref{pic:mikrotik-antenna-c-building}.
 
-\subsection{Data Transmission between \aclp{ED} and \aclp{AS}}
+\subsection{Data Transmission between \aclp{LRWED} and \aclp{AS}}
 
 In LoRaWAN, data transmissions from the \acl{ED} to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
@@ -326,7 +313,7 @@ Class A is used for \aclp{LRWED} that need to consume as little power as possibl
 Every \acl{LRWED} must support at least the Class A mode~\cite[p. 11]{lora_alliance_inc_lorawan_specification_2017}.
 A communication in Class A is always initiated by the \acl{LRWED} itself.
 
-Bidirectional communication is possible in Class A through the use of two downlink receive windows during which it is possible for the \ac{LNS} to send data to the \acl{ED}~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
+Bidirectional communication is possible in Class A by means of two downlink receive windows, during which the \ac{LNS} can transmit data to the \acl{ED}~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
 An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
 
 Class A consumes the least amount of power of the three classes, because \aclp{LRWED} in this class specify when and how often they want to communicate with the \ac{LNS}.
@@ -347,7 +334,7 @@ In addition to the functionality provided by Class A, Class B \aclp{LRWED} are a
 In order to realize this without the need for a per-device \ac{RTC}, such \aclp{ED} receive time synchronized beacons from the \aclp{LRWGW}.
 The communication schema for Class B \aclp{LRWED} can be seen in \cref{pic:lorawan-device-class-b-schema}.
 
-These scheduled downlink windows result in a higher power consumption for Class B \aclp{LRWED}, since those need to be awake during these windows.
+These scheduled downlink windows result in a higher power consumption for Class B \aclp{LRWED}, because they need to be awake during these periods.
 
 \subsubsection{Listening continuously: Class C}
 
@@ -369,13 +356,13 @@ The fact that they are always reachable by the \ac{LNS} also makes them the most
 \subsubsection{Conclusion: Which device class was used?}
 
 As far as this thesis was concerned, only Class A was used.
-This is because Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered \aclp{ED}.
+Class B and C use significantly more power than Class A because they keep their radio on for extended periods of time, which drains power quickly for battery-powered \aclp{ED}.
 
-In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a \acl{ED} in Class C would need a battery around 19 times larger than a Class A \acl{ED} to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
-As mobile \aclp{LRWED} that have the need to be located are usually battery-powered, Class A is the most viable option for them.
+In their paper ``Comparison of LoRaWAN Classes and their Power Consumption'', Cheong et al.\ show that a \acl{LRWED} in Class C would need a battery approximately 19 times larger than a Class A \ac{ED} to achieve the same battery life with a packet size of 115 bytes and a transmission interval of 1 hour~\cite{cheong_comparison_2017}.
+As mobile \aclp{LRWED} that need to be located are usually battery-powered, Class A is the most viable option for them.
 
-The geolocation methods evaluated in this thesis work with any \acl{LRWED} Class.
-While using Class C would mean that \aclp{LRWED} could actually be asked directly for their location at any time, using Class A is usually the better choice due to the lower power consumption.
+The geolocation methods assessed in this thesis function with any \acl{LRWED} Class.
+Although opting for Class C would enable direct location inquiries from the \aclp{LRWED} at any given time, selecting Class A is usually the preferred option due to its lower power consumption.
 
 \subsection{Data security in \acs{LoRaWAN} transmissions}
 
@@ -384,12 +371,12 @@ The security of the data sent is a major concern when talking about \ac{IoT} pro
 Each \acl{ED} usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite[p. 24]{lora_alliance_inc_lorawan_specification_2017}.
 
 This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks (where a malicious attacker captures sent packets and sends them again), since a so-called \ac{MIC} is determined from the frame data.
-This \ac{MIC} in turn contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
+This \ac{MIC} contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
 
 \section{\acl{TTN}: A community-based \acs{LoRaWAN} \acl{AS}}
 
 \ac{TTN} provides a free to use \ac{SaaS} \ac{LNS} that has a global community of people building \ac{LoRaWAN} applications.
-Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023}.
+Its source code is also available on GitHub under the Apache 2.0 license~\cite{the_things_network_thethingsnetworklorawan-stack_2023}.
 
 \begin{figure}[htbp]
     \centering
@@ -399,19 +386,17 @@ Its source code, named \ac{TTS}, is also available on GitHub under the Apache 2.
 
 
 While it is officially called \emph{\acl{TTS} Community Edition} since 2021, it is still commonly referred to as \acf{TTN} by the community itself~\cite{the_things_industries_bv_what_2022}.
-Its users provide \ac{TTN} with \aclp{LRWGW} that other users can use, making it a decentralized and crowdsourced \ac{LoRaWAN} network.
+Its users provide \ac{TTN} with \aclp{LRWGW} that other users can use, making it a crowdsourced \ac{LoRaWAN} network.
 
-\subsection{Receiving packets from \acs{LoRaWAN} Gateways}
+\subsection{Receiving packets from \aclp{LRWGW}}
 
-Gateways can forward \ac{LoRaWAN} packets that they receive to the \ac{LNS} in two commonly used ways.
+\aclp{LRWGW} can forward \ac{LoRaWAN} packets that they receive to the \ac{LNS} in two commonly used ways.
 This section will explain both of them.
 
 \subsubsection{The older, simple way: \acl{SUPF}}
 
 The \ac{SUPF} is a piece of software used to connect \aclp{LRGW} to the \ac{LNS}~\cite{the_things_industries_bv_semtech_2022}.
 The \ac{SUPF} forwards \ac{LoRaWAN} packets that it receives from its connected \ac{LoRa} concentrator to the \ac{LNS} using the \ac{UDP} protocol.
-
-It can be configured using JSON files such as \lstinline{global_conf.json} and \lstinline{local_conf.json}.
 
 \ac{TTN} marked the \acl{SUPF} as deprecated, since it ``has many security and scalability drawbacks``.
 It is recommended to use the \ac{LBS} protocol instead~\cite{the_things_industries_bv_semtech_2022}.
