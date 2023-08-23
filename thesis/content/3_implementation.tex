@@ -7,50 +7,48 @@ It was located on top of the \ac{HFU} G building and was installed by a team of 
 
 However, to be able to get a good geolocation through multilateration for a \acl{LRWED}, it is necessary to have at least three \aclp{LRWGW} in its range, as shown in \cref{sec:multilateration-basics}.
 Thus, the first step was to research and order additional \aclp{LRWGW}.
-
-Next, the \aclp{LRWGW} had to be installed in suitable locations.
-This was made possible by the many helping hands that were involved in the installation process, as mentioned in \cref{sec:expression-of-thanks}.
+Finally, the \aclp{LRWGW} had to be installed in suitable locations.
 
 \subsection{Researching \aclp{LRWGW}}
 
 Some gateways that were used in this thesis were ones that were already in the possession of the \ac{HFU}.
 Such was the case for the \emph{Dragino LG308 / LG308N} indoor \aclp{GW} as well as a \emph{RAK7258} indoor \acl{GW}.
 
-Additionally, for development purposes, a \emph{Dragino PG1301} \acl{LRWGW} was also used.
+Additionally, for development purposes, a \emph{Dragino PG1301} \acl{LRWGW} was used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
 This allows low-level access to the \ac{LoRa} module on the board, since it can be directly accessed by the Raspberry Pi's serial interface.
 
 Two MikroTik wAP LR8 kit \aclp{LRWGW} were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
-The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established GUI for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
+The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established \ac{GUI} for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
 However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \cref{sec:lorawan-lbs}.
 A picture of this \acl{LRWGW} can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
-The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna which can be seen in \cref{pic:mikrotik-antenna-c-building}.
+The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna as shown in \cref{pic:mikrotik-antenna-c-building}.
 
 The other \aclp{LRWGW} that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor \aclp{GW}.
 This \acl{LRWGW} was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
-It was readily available at the time of the order and was chosen as a short-term replacement.
+They were readily available at the time of the order and were chosen as a short-term replacement.
 It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 \acl{LRWGW} which made it easy to set up.
 Similar to the LR8, the DLOS8N also has a weatherproof housing for outdoor use.
 
 \subsection{Possible Locations for \aclp{LRWGW}}\label{sec:gateway-locations}
 
 Multiple locations proved themselves to be worth considering when it came to installing new \aclp{LRWGW} in Furtwangen.
-Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection as well as the positioning of the \aclp{LRWGW}.
-Only buildings that the \ac{HFU} has liberal access to were considered, since a long-term deployment of the hardware was desirable to avoid makeshift solutions.
+Various factors were considered when choosing these locations, such as availability of a stable (preferably wired) backhaul internet connection.
+Only buildings that the \ac{HFU} has unrestricted access to were considered, since long-term deployments of the hardware were desirable.
 Altitude was also a factor that was considered, as a placement at a higher elevation usually allows for a greater range of the \acl{LRWGW}, especially in urban areas such as Furtwangen.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
     \caption{
-        Overview map of \aclp{LRWGW} situated in the Furtwangen area.
+        Overview map of \aclp{LRWGW} located in Furtwangen.
         This map shows \aclp{LRWGW} that were placed during this thesis as well as already existing ones~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:gateways-placement-map}
 \end{figure}
 
 \Cref{pic:gateways-placement-map} shows the locations of the \aclp{LRWGW} that were installed during this thesis as well as some that were already present.
-The following sections describe and evaluate these final selected sites.
+The final selected sites will be described in the following sections along with the reasons for their selection.
 
 \Cref{sec:gateway-locations-conclusions} will evaluate the chosen locations and give a conclusion on the placement of the \aclp{LRWGW}.
 
@@ -80,10 +78,10 @@ The Dragino DLOS8N was used because of its ability to easily be powered by \ac{P
 \subsubsection{\acl{GHB}}
 
 The \ac{GHB} is a popular student dormitory located on the Großhausberg mountainside in Furtwangen~\cite{ghb_netadmins_student_2023}.
-Its exposed location and the fact that it is among the highest buildings in the city makes it a good location for putting up a \acl{LRWGW}.
+Its exposed location and the fact that it is among the highest buildings in the city makes it a good location for a \acl{LRWGW}.
 
 The network infrastructure of both the \ac{GHB} and the \ac{ASH} are managed by the \acl{GHB-NA} who are students of \ac{HFU}.
-With their help, it was possible to install antennas on the roofs of the \ac{GHB} and \ac{ASH}.
+With their help, it was possible to install \aclp{LRWGW} on the roofs of the \ac{GHB} and \ac{ASH}.
 
 \begin{figure}[htbp]
     \centering
@@ -96,13 +94,13 @@ With their help, it was possible to install antennas on the roofs of the \ac{GHB
 \end{figure}
 
 \Cref{pic:mikrotik-gateway-ghb-installation} shows the installed MikroTik wAP LR8 kit \acl{LRWGW} on the roof of the \ac{GHB}.
-Again, \ac{PoE} was used to power the \acl{GW} since only one cable needed to be put through the existing cable duct.
+Again, \ac{PoE} was used to power the \acl{GW} since it meant that only one cable needed to be put through the existing cable duct.
 
 \subsubsection{\acl{ASH}}
 
 The \ac{ASH} is a former student dormitory located in Furtwangen, which is currently used as housing for refugees.
 It sits on a hillside in Furtwangen and was therefore considered a good location for a \acl{LRWGW}.
-Its network infrastructure is historically managed by the \acl{GHB-NA} and is actually directly connected to the \ac{GHB} building.
+Its network infrastructure is historically managed by the \acl{GHB-NA} and is directly connected to the \ac{GHB} building through a point-to-point bridge.
 This made getting it connected to \ac{HFU} network infrastructure possible even though there were some difficulties with the switches installed in the building as well as crimping the required Ethernet cables.
 
 
@@ -125,7 +123,6 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
             Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
             The antenna has a gain of 8dBi and was connected to a Dragino LG308N \acl{LRWGW}.
             It was the most powerful antenna used in this thesis.
-            The picture does not show the impressive location of the antenna on a hill between Gütenbach and Furtwangen.
         }\label{pic:antenna-dl0fis-clubhouse}
     \end{subfigure}
 
@@ -134,7 +131,7 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
 
 \Cref{pic:dragino-gateway-ash} shows the installed Dragino DLOS8N \acl{LRWGW} on the roof of the \ac{ASH}.
 This \acl{GW} is also powered by \ac{PoE}.
-The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it easy to power the \acl{LRWGW}.
+The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it possible to power the \acl{LRWGW}.
 
 \subsubsection{\emph{DL0FIS} amateur radio club station atop Neueck, Gütenbach}
 
@@ -145,7 +142,7 @@ The exposed location of the clubhouse on a hillside between Gütenbach and Furtw
 
 \section{Collecting additional \acl{TTNM} data in the Furtwangen area}\label{sec:collecting-additional-ttnm-data}
 
-In order to have more data to work with as far as geolocation calculations are concerned, there was a need to collect more \ac{LoRaWAN}, \ac{RSSI} and \ac{GPS} data that could be synthesized.
+In order to have more data to work with as far as geolocation calculations are concerned, it was necessary to collect additional \ac{LoRaWAN} packet and \ac{GPS} data that could be synthesized.
 This data was especially important for doing geolocation calculations via fingerprinting.
 
 This was done by using \aclp{LRWED} that were equipped with \ac{GPS} modules and then moving them around Furtwangen.
@@ -178,7 +175,7 @@ In this section, the \aclp{LRED} used for collecting \ac{GPS} data for \ac{TTNM}
     \caption{Pictures of the ELV-AM-GPS \acl{ED}.}
 \end{figure*}
 
-\subsubsection{ELV LW experimental platform}\label{subsubsec:elv-lw-experimental-platform}
+\subsubsection{ELV LW experimental platform: modular and flexible}\label{subsubsec:elv-lw-experimental-platform}
 
 The ELV LW experimental platform was the \acl{LRWED} out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned.
 The ELV LW experimental platform consists of a base module called ELV-BM-TRX1 and a number of different sensor modules that can be stacked on top of it as seen in~\cref{pic:loris-node-bare}\cite{elv_elektronik_ag_elv-lw-base_2023}.
@@ -190,18 +187,18 @@ Unfortunately, the \ac{GPS} module consumes too much power to be used with the b
 
 Little had to be done in order to begin using the base with the additional \ac{GPS} module ELV-AM-GPS~\cite{elv_elektronik_ag_elv-track_2022}.
 Flashing the firmware using a tool provided by the manufacturer was the first step.
-Additionally, the \ac{OTAA} credentials provided in the box of the base LoRIS module had to be entered into \ac{TTN}.
+Additionally, the \ac{OTAA} credentials provided with the base LoRIS module had to be entered into \ac{TTN} in order to register the device.
 
 To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
 
-\subsubsection{ELV \acs{GPS} Tracker}\label{subsubsec:elv-gps-tracker-implementation}
+\subsubsection{ELV \acs{GPS} Tracker: various power supply possibilities}\label{subsubsec:elv-gps-tracker-implementation}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
     \caption{
         ELV-LW-GPS1 \acl{LRWED}~\protect\cite{elv_elektronik_ag_elv_2023}.
-        The brownish \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the left.
+        The brownish Quectel \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the left.
         It uses a similar \ac{LoRa} module as the ELV LW experimental platform.
         The header on the right is used to connect the 5 to 40V power supply as well as an optional physical contact to start a localization on demand.
     }
@@ -219,14 +216,14 @@ However, due to the lack of alternatives several such 9V batteries were used for
 
 \Cref{subsec:gnss-power-usage} used this \acl{LRWED} to compare the power consumption of the \ac{GPS} module to the power consumption of a \ac{LoRa} transmission.
 
-\subsubsection{Heltec HTCC-AB02S}\label{subsubsec:heltec-htcc-ab02s}
+\subsubsection{Heltec HTCC-AB02S: node with \acs{OLED} screen and \acs{GPS}}\label{subsubsec:heltec-htcc-ab02s}
 
 The \emph{Heltec HTCC-AB02S} is a \acl{LRWED} with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
 The package sounds very nice, but while the \ac{LoRa} module worked flawlessly, the same cannot be said for the \ac{GPS} module.
 \Cref{pic:heltec-htcc-ab02s} shows the \acl{ED}.
 Programming the \acl{ED} with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
 
-The \ac{GPS} module was not able to get a reliable fix on its own, even after ordering and using an external GPS antenna.
+The \ac{GPS} module was not able to get a reliable fix on its own, even after ordering and using an external \ac{GPS} antenna.
 This seemed to be a hardware problem, since other users could get fixes reliably with external \ac{GPS} antennas.
 Because of those problems, the Heltec HTCC-AB02S was not used for data collection during this thesis.
 
@@ -247,7 +244,7 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
         \caption{
             The dnt-LW-ATS \acl{LRWED}~\protect\cite{dnt_gmbh_dnt_nodate}.
-            The solar module for power harvesting is between the two white labels on the top of the \acl{ED}.
+            The solar module for power harvesting is between the two labels on the top of the \acl{ED}.
         }\label{pic:dnt-lw-ats}
     \end{subfigure}
 
@@ -256,21 +253,21 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
 
 The combination of the \ac{LoRa} module, the \ac{GPS} module and an \ac{OLED} screen is interesting, though.
 
-\subsubsection{dnt-LW-ATS}
+\subsubsection{dnt-LW-ATS:\@ self-sufficient through a solar panel}
 
-At first glance, this was the most promising \acl{LRWED} for the task at hand.
+At first glance, the dnt-LW-ATS was the most promising \acl{LRWED} for the task at hand.
 It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
 
 However, it was challenging to set up and operate.
 The \acl{LRWED} offers a \emph{motion based cyclic} mode in which, during physical movement, it sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
-This, however, did not work in practice and the \acl{LRWED} would only send its coordinates irregularly, if at all.
+This did not work in practice and the \acl{LRWED} would only start to obtain a fix irregularly, if at all.
 The documentation was not helpful with finding the root cause and the manufacturer could only offer to replace the hardware.
 
-\subsubsection{``blinkeding'' --- Arduino with Shield from Prof.\ Zahoransky}
+\subsubsection{``blinkeding'': Arduino with Shield from Prof.\ Dr.\ Zahoransky}
 
-Prof.\ Zahoransky provided an Arduino with a \ac{LoRa} shield that was also used as a \ac{GPS} tracker for this thesis.
+Prof.\ Dr.\ Zahoransky provided an Arduino with a \ac{LoRa} shield that was also used as a \ac{GPS} tracker for this thesis.
 Its main advantage is that, being an Arduino, it is easy to program and use.
-The frequency of the \ac{GPS} fixes was only several seconds, and it could therefore produce a lot of data in a short amount of time.
+The frequency of the \ac{GPS} fixes was only several seconds after a short startup time, and it could therefore produce a lot of data in a short amount of time.
 
 \subsection{\acl{TTNM} heatmap view before additional data collection}
 
@@ -297,7 +294,7 @@ Docker allows for applications to be run in lightweight containers that are isol
 This allows for easy deployment of applications without having to worry about the underlying system.
 
 In this thesis, Docker was used to containerize the \ac{TTNL} application.
-The backend and frontend each have their own \emph{Dockerfiles} that state how these applications should be built.
+The backend and frontend each have their own \emph{Dockerfiles}, which outline how to build these applications.
 
 \begin{figure}[htbp]
     \centering
@@ -339,7 +336,7 @@ Docker Compose was then used to assemble the different parts of the application:
 These automated workflows can be triggered by various events, such as a new commit being pushed to the repository or a new pull request being opened.
 
 In this thesis, \emph{GitHub Actions} was used to automatically test the \ac{TTNL} frontend and backend as well as build their respective \emph{Docker} images.
-These docker images are then pushed to the \emph{GitHub} container registry and can be pulled from there to be deployed.
+These docker images are then pushed to the \emph{GitHub} container registry and can be pulled from there to be deployed later.
 This allows for the built images to be used in \emph{Docker compose} files on the deployment server without having to build them there.
 
 \section{Program structure: \acl{TTNL}}\label{section:ttnl}
@@ -366,12 +363,12 @@ The part that was implemented during this thesis is highlighted in yellow.
 
 The data flow starts with the \acl{LRWED} on the right that collect \ac{GPS} data and send it to the \aclp{LRWGW} using the \ac{LoRaWAN} protocol.
 The \aclp{LRWGW} then forward the packets to the \ac{TTN} \ac{LNS}.
-In the Applications section of the \ac{TTN} \ac{LNS}, the \ac{TTNL} application is configured to receive the packets and transform their byte data into a \ac{JSON} format that can be processed by \ac{TTNM}.
+In the Applications section of \ac{TTN}, the \ac{TTNL} application is configured to receive the packets and transform their byte data into a \ac{JSON} format that can be processed by \ac{TTNM}.
 Using the \ac{TTNM} integration, \ac{TTN} then sends the data to \ac{TTNM}.
 
 The left side of the diagram shows the \ac{TTNL} application.
 The backend periodically fetches the data from \ac{TTNM} via its \ac{REST} \ac{API} and stores it in a \ac{PSQL} \ac{DB}.
-The \ac{TTNL} frontend can retrieve data from the backend using a \ac{REST} \ac{API} and present it to the user in various ways.
+The \ac{TTNL} frontend can also retrieve data from the backend using a \ac{REST} \ac{API} and present it to the user in various ways.
 
 The following sections will explain each part of the \ac{TTNL} application in detail and show how they were implemented.
 The tools and technologies used for the implementation are also explained.
@@ -401,7 +398,7 @@ These services are designed to operate inside Docker containers and are orchestr
 \subsubsection{Programming languages: \acl{JS} / \acl{TS}}
 
 \ac{JS} is an interpreted, \ac{JIT} compiled programming language that was designed for and is mostly used in web browsers to add interactivity to websites~\cite{mdn_javascript_2023}.
-However, it can also be used outside a browser, for example, to create server applications as is explained in \cref{sec:nodejs}.
+However, it can also be used outside a browser to create server applications as is explained in \cref{sec:nodejs}.
 
 \ac{TS}, on the other hand, is a superset of \ac{JS} that adds static type checking to the language~\cite{microsoft_javascript_nodate}.
 Developers are required to declare variable and function parameter types, which the compiler then verifies.
@@ -453,7 +450,7 @@ SELECT ST_DistanceSphere(
 \end{lstlisting}
 
 \Cref{lst:postgis-example-distance} shows an example of a PostGIS query that calculates the distance in meters between two points on the Earth's surface~\cite{postgis_psc__osgeo_st_distancesphere_nodate}.
-It considers the curvature of the Earth and is therefore more accurate than using a simple Pythagorean Theorem calculation to determine the distance between two points.
+It considers the curvature of the Earth and is therefore more accurate than using a simple Pythagorean Theorem calculation to determine the distance between two 2D points.
 
 PostGIS is also available as a Docker image, making it easy to deploy in the given docker compose setup~\cite{docker_inc_postgispostgis_2023}.
 
@@ -503,14 +500,14 @@ Reactive in this context means the ability for the frontend to automatically rea
 It was used in this thesis as a means to implement the frontend of the \ac{TTNL} web application.
 Vue can also use \ac{TS} as a programming language, which was used in this thesis for making the code more robust and easier to maintain due to its type safety.
 
-Vue.js was chosen because of the author's previous experience with it and because of its ease of use and quick development time.
+Vue.js was chosen because of the author's previous experience with it and because of its ease of use.
 It also offers many plugins and libraries that can be used to extend its functionality as well as a large community that can be consulted for help.
 
 \subsubsection{Vuetify: Design Framework with pre-defined Vue.js components}
 
-Vuetify is a \ac{UI} framework for Vue.js that provides Vue components that are based on Google's Material Design guidelines~\cite{vuetify_vuetify_2023}~\cite{google_llc_material_nodate}.
+Vuetify is a \ac{UI} framework for Vue.js that provides Vue.js components that are based on Google's Material Design guidelines~\cite{vuetify_vuetify_2023}~\cite{google_llc_material_nodate}.
 In this thesis, Vuetify was used as a modern looking \ac{UI} framework for the frontend of the \ac{TTNL} web application.
-Its usage as import-able predefined Vue components also allowed for a quick and easy implementation of the frontend.
+Its usage as import-able predefined Vue.js components also allowed for a quick and easy implementation of the frontend.
 
 \begin{figure}[htbp]
     \centering
@@ -528,14 +525,21 @@ It uses several of Vuetify's components to enable the user to enter \ac{RSS} val
 
 \ac{OSM} is a free and open geographic \ac{DB} that relies on a community of volunteers who contribute and update its data through open collaboration~\cite{openstreetmap_contributors_openstreetmap_2023}.
 Its use only requires attribution to the \ac{OSM} project and its contributors, which is usually done by placing a small attribution text in a corner of the displayed map.
-It was used in this thesis to be able to display a map in the frontend of the \ac{TTNL} application.
+It was used in this thesis to display a map showing geolocation data in the frontend of the \ac{TTNL} application.
 
 \subsubsection{GeoJSON: Format for representing geographic data and structures}\label{sec:geojson}
 
 GeoJSON is a format used for representing geographic data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
 This format was used in this thesis as a means to standardize the data format used to represent geographic data as well as its communication between client and server.
 
-\begin{lstlisting}[language=JSON, float, caption={Example of a GeoJSON that represents a rectangle above the furtwangen city center}, label={lst:geojson-example}]
+\begin{lstlisting}[
+    language=JSON,
+    float,
+    caption={
+        Example of a GeoJSON representation of a rectangle above the Furtwangen city center.
+    },
+    label={lst:geojson-example}
+]
 {
     "type": "FeatureCollection",
     "features": [
@@ -574,12 +578,12 @@ It wraps Leaflet's functionality into Vue components and provides reactive bindi
 In most cases, a \ac{OSM} map was used to display the data.
 
 Leaflet is able to render GeoJSON objects, as seen in \cref{sec:geojson}.
-This was used in this thesis to display some data on the map of the \ac{TTNL} frontend, e.g.,\ the multilateration annuli.
+This was used in this thesis to display some of the geolocation data on the map of the \ac{TTNL} frontend, e.g.,\ the multilateration annuli.
 
 \subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
 
-To be able to perform more advanced queries on the data, some of it has to be transferred into the \ac{TTNL} \acl{DB}.
-Since, for the scope of this thesis, only \aclp{LRWED} that collected data near the Furtwangen area were of interest, only data from those devices was transferred.
+To be able to perform more advanced queries on the data, some of it had to be transferred into the \ac{TTNL} \acl{DB}.
+Since, for the scope of this thesis, only \aclp{LRWED} that collected data near the Furtwangen area were of interest, only data from those devices was used.
 This is because fingerprinting on a larger or even global scale would likely result in the need for a much bigger, maybe even distributed \ac{RDBMS}.
 However, the \ac{TTNL} application theoretically also allows for any other data to be transferred into the \ac{DB}, as long as that \acl{ED} has been captured by \ac{TTNM} at some point in time.
 New \aclp{LRWED} to track can be added to the \ac{TTNL} \ac{DB} by using a specific backend \ac{API} route.
@@ -589,12 +593,12 @@ For example, to get data for a \acl{LRWED} with the id \emph{blinkeding} from th
 This \ac{TTNM} \ac{API} route returns data in a \ac{JSON} format.
 This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} \ac{DB}.
 
-To avoid having to do this importing of data regularly, the \ac{TTNL} backend includes a cronjob task that automatically imports data from \ac{TTNM} every 24 hours.
+To avoid having to do this importing of data manually, the \ac{TTNL} backend includes a cronjob task that automatically imports data from \ac{TTNM} every 24 hours.
 Cron allows for tasks to be executed at specific times or intervals.
 It uses a specific syntax to define these intervals, for example \texttt{* */4 * * *} would execute a task every 4 hours~\cite{drake_how_2020}.
 
 The cronjob for importing new data only does this for \aclp{LRWED} that are marked as ``subscribed'' in the \ac{DB} to avoid flooding the \ac{DB} with irrelevant data.
-This ensures that the \ac{TTNL} \ac{DB} is always up-to-date with the \acl{ED} specific data from the \ac{TTNM} \ac{DB}.
+This ensures that the \ac{TTNL} \ac{DB} is regularly kept up-to-date with the \acl{ED} specific data from the \ac{TTNM} \ac{DB}.
 
 \subsection{Cleaning collected data}\label{subsec:cleaning-collected-data}
 
@@ -605,7 +609,7 @@ As far as the data collected by \ac{TTNL} is concerned, no \ac{HDOP} values abov
 There were two problems that were noticed when trying to use the data for localization purposes:
 
 \begin{itemize}
-    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the \acl{ED} moved from one location to another one that was far away in a short amount of time.
+    \item \textbf{Outliers:} Some data points were clearly outliers, i.e.,\ the \acl{ED} seemed to have moved from one location to another that was far away in a short amount of time.
     \item \textbf{Duplicates:} Some \aclp{LRWED} were prone to producing/sending duplicate data points.
 \end{itemize}
 
@@ -713,10 +717,10 @@ This makes RSSI values in general a rather unreliable metric for determining the
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}\label{sec:plotting-rssi-to-range-from-existing-data}
 
-\Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-The graph is generated by calculating the distance to a given \acl{LRWGW} using \ac{RSS} values from the \acl{LRWED} data points of that particular \acl{LRWGW}.
-As a result, the linear regression function can determine the distance to a \acl{LRWGW} when provided a \ac{RSSI} value.
-This approach is superior to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale} because considering the behavior of each \acl{LRWGW} individually generates a more precise range to each \acl{GW}.
+\Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph in the frontend of \ac{TTNL}.
+The graph is generated by plotting the distance from the \acl{LRWED} to a given \acl{LRWGW} against the \ac{RSS} values for each of those distances.
+Afterwards, a linear regression function can be claculated to get an estimated distance to a \acl{LRWGW} when provided a new \ac{RSSI} value.
+This approach is superior to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale} because considering the behavior of each \acl{LRWGW} individually usually results in a more precise estimated range to each \acl{GW}.
 This is demonstrated effectively by the example provided in \cref{fig:rssi-range-graph-positive-example}.
 
 \begin{figure}[htbp]
@@ -728,7 +732,7 @@ This is demonstrated effectively by the example provided in \cref{fig:rssi-range
     }\label{fig:rssi-range-graph-positive-example}
 \end{figure}
 
-While there are outliers in the data, the graph still shows a logical average linear correlation between the \ac{RSS} values and their distance where the \ac{RSS} values decrease as the distance increases.
+While there are outliers in the data, the graph still shows an average linear correlation between the \ac{RSS} values and their distance where the \ac{RSS} values decrease as the distance increases.
 
 \begin{figure}[htbp]
     \centering
@@ -741,16 +745,17 @@ While there are outliers in the data, the graph still shows a logical average li
 \end{figure}
 
 \Cref{fig:rssi-range-graph-negative-example} shows another example of a \ac{RSSI} to distance graph that the frontend of \ac{TTNL} generated.
-In this example, the \ac{RSS} values do not decrease as the distance increases, which might be due to various possible reasons, for instance, not enough available data points, as the negative example has only 131 data points, whereas the positive example has almost 3,000.
+In this example, the \ac{RSS} values do not decrease as the distance increases, which might be due to various possible reasons.
+For instance, this might result from a lack of available data points, as the negative example has only 131 data points, whereas the positive example contains nearly 3,000.
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will discuss the results of using this technique and the resulting accuracy in more detail.
 
 \subsubsection{Using existing data to build a per-gateway \acs{RSSI} to range scale}\label{subsubsec:per-gateway-rssi-to-range-scale}
 
-Using a similar linear regression approach as described in \cref{sec:plotting-rssi-to-range-from-existing-data}, a \ac{RSSI} to range scale for each \acl{LRWGW} was realized.
+Using a linear regression approach as described in \cref{sec:plotting-rssi-to-range-from-existing-data}, a \ac{RSSI} to range scale for each \acl{LRWGW} was realized.
 As was mentioned in that chapter, this allows for parameters specific to each \acl{LRWGW} such as positioning and antenna type to be taken into account.
 
-The Gateway table in the \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
+The Gateway table in the \ac{PSQL} \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
 This was only done for \aclp{LRWGW} with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \cref{fig:rssi-range-graph-negative-example}.
 While the approach in \cref{sec:plotting-rssi-to-range-from-existing-data} calculated the regression client-side, this approach calculates the regression server-side and stores the results in the \ac{DB} for more efficient access.
 \Cref{lst:sql-calculate-linear-regression} shows the \ac{SQL} query that was used to calculate those linear regression values.
@@ -762,7 +767,7 @@ Again, a cron-like job was used since recalculating those linear regression valu
     caption={
         \ac{SQL} query that was used to calculate the linear regression values for each \acl{LRWGW}.
         Using the \texttt{UPDATE} and \texttt{SET} statements, the results of the subquery are written into the \texttt{linear\-Re\-gres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} columns of the Gateway table for the corresponding \aclp{LRWGW}.
-        This caption was once more generated by Bing AI and adapted for better readability.
+        This query was once more generated by Bing AI and adapted for better readability.
     },
     label={lst:sql-calculate-linear-regression}
 ]
@@ -808,7 +813,7 @@ Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was 
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_snr_range_graph.jpg}
     \caption{
         Screenshot from the \ac{TTNL} frontend showing an example of a \acf{SNR} to distance graph.
-        While the graph shows an attempt at fitting a linear regression function to the data, it is not accurate, since there is no strong linear correlation between \ac{SNR} and distance either.
+        While the graph shows an attempt at fitting a linear regression function to the data, it is not accurate, since there is no strong linear correlation between \ac{SNR} and distance, either.
         Many outliers can be seen, making this approach unreliable as well.
     }\label{fig:snr-range-graph-example}
 \end{figure}
@@ -816,8 +821,8 @@ Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was 
 \Cref{fig:snr-range-graph-example} shows an example of this, using data from the \ac{GHB} \acl{LRWGW}.
 Compared to \cref{fig:rssi-range-graph-positive-example}, the graph also shows a rather weak correlation between \ac{SNR} and distance similar to that between \ac{RSSI} and distance.
 
-However, mapping \ac{SNR} values to distance on their own seemed very unreliable.
-This is to be expected, since, as was explained in \cref{sec:background-snr}, the \ac{SNR} value can be influences by many things, such as external factors and the environment even more so than the \ac{RSS} value.
+Mapping \ac{SNR} values to distance on their own was very unreliable.
+This is to be expected, since, as was explained in \cref{sec:background-snr}, the \ac{SNR} value can be influenced by many things, such as external factors and the environment even more so than the \ac{RSS} value.
 
 To plot the graphs, data points with varying \acp{SF} were used.
 Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be received, as explained in \cref{sec:sf-snr-correlation}, this could have also influenced the results.
@@ -829,7 +834,7 @@ As has been explained in \cref{sec:toa-based-multilateration}, this technique us
 
 Unfortunately, this technique did not work as expected in the scope of this thesis.
 This was because the timestamps of signal arrival at the \aclp{LRWGW} that were used for this thesis were not accurate enough.
-Differences of up to 1 second between the timestamps of the same signal in different \aclp{LRWGW} were not uncommon, making distance calculations using these values utterly unusable.
+Differences of up to 1 second between the timestamps of the same signal in different \aclp{LRWGW} were not uncommon, making distance calculations using these values unusable.
 
 \begin{figure}[htbp]
     \centering
@@ -921,6 +926,6 @@ An explanation will be given in \cref{subsubsec:conclusion-rssi-linear-regressio
 \subsubsection{Adding \acf{SNR} and \acf{SF} to fingerprinting}\label{sec:adding-snr-to-fingerprinting}
 
 In an attempt to make fingerprinting results more accurate, the \ac{SNR} value of the \ac{TTNM} datapoints was added to the fingerprinting algorithm in addition to the raw \ac{RSSI} values.
-Since \ac{TTN} captures \ac{SNR} and \ac{SF} with each forwarded package anyway, this didn't affect the diffficulty of data collectionand only required adding an extra column to the \ac{DB} schema.
+Since \ac{TTN} captures \ac{SNR} and \ac{SF} with each forwarded package anyway, this didn't affect the diffficulty of data collection and only required adding an extra column to the \ac{DB} schema.
 
 \cref{subsec:conclusion-fingerprinting} will show the improvements that each of those approaches brought.
