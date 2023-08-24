@@ -9,10 +9,11 @@ This section aims to provide a general overview of relevant wireless communicati
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/lora/comparison-wireless-protocols.png}
-    \caption{
-        Comparison of data rate, power consumption and range between different wireless communication protocols.
-        While \ac{LoRaWAN} has significantly lower data rates compared to cellular networks, its power consumption and cost is also much lower.~\protect\cite{wang_comparison_2021}
-    }\label{pic:wireless-protocols-comparison}
+    \caption[Comparison of data rate, power consumption and range between different wireless communication protocols.]
+        {
+            Comparison of data rate, power consumption and range between different wireless communication protocols.
+            While \ac{LoRaWAN} has significantly lower data rates compared to cellular networks, its power consumption and cost is also much lower.~\protect\cite{wang_comparison_2021}
+        }\label{pic:wireless-protocols-comparison}
 \end{figure}
 
 While there are sensors that can be connected to the internet using Wi-Fi, ZigBee, \ac{LTE} and other, these technologies are not suitable for all use cases.
@@ -66,7 +67,7 @@ In addition to a signal reaching its destination directly, a \ac{RF} transmissio
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/diagrams_figures/multipath_propagation.jpg}
-    \caption{
+    \caption[Examples for different types of \acl{MPP} effects of \acl{RF} waves.]{
         Examples for different types of \acf{MPP} effects of \ac{RF} waves.
         Notably, all of them make the signal's travel time longer than a direct \ac{LoS} path would take.
         This longer travel time in turn also decreases the \ac{RSS} value measured by the receiver.~\protect\cite{milosevic_key_2017}
@@ -120,7 +121,7 @@ It uses frequency hopping and different \aclp{SF} to encode signals in order to 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{pictures/lora/duty-cycle-single-channel-off-air.png}
-    \caption{
+    \caption[Schematic example of duty cycle in \acs{LoRa}.]{
         Schematic example of duty cycle in \ac{LoRa}.
         For this example, the duty cycle is \SI{20}{\percent}.~\protect\cite{the_things_industries_bv_duty_nodate}
     }\label{pic:lora-duty-cycle}
@@ -153,8 +154,8 @@ There are six different \aclp{SF} available in the \ac{EU} region, ranging from 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
-    \caption{
-        Comparison of \aclp{SF} \ac{SF}7 to \ac{SF} 12 in the time and frequency dimensions.
+    \caption[Comparison of \aclp{SF} 7 to 12 in the time and frequency dimensions.]{
+        Comparison of \aclp{SF} \ac{SF}7 to \ac{SF}12 in the time and frequency dimensions.
         The doubling of the transmission time between increasing \aclp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
     }\label{pic:lora-sf-comparison}
 \end{figure}
@@ -199,7 +200,7 @@ A well-known example of a \ac{WAN} is the Internet.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.6\textwidth]{pictures/lorawan-structure/wan_diagram.png}
-    \caption{
+    \caption[An example connection between multiple \aclp{LAN} and \aclp{MAN}.]{
         An example connection between multiple \acp{LAN} and \acp{MAN} using a \acf{WAN} as a diagram.\protect\cite{sadiku_fundamentals_2022}
     }\label{pic:wan-diagram}
 \end{figure}
@@ -216,8 +217,8 @@ These factors make them more suitable for handling large amounts of \aclp{ED} th
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.5\textwidth]{pictures/lorawan-structure/lpwan_network_structure.jpg}
-    \caption{
-        A simple diagram of a \ac{LPWAN} network structure.
+    \caption[A diagram of \acl{LPWAN} network structure]{
+        A diagram of \ac{LPWAN} network structure.
         The connections between the entities can be seen.\protect\cite{fernandez_assessing_2020}
     }\label{pic:lpwan-diagram}
 \end{figure}
@@ -266,8 +267,8 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateways/mikrotik-lr8-kit.png}
-    \caption{
-        A MikroTik wAP LR8 kit \acl{LRWGW}.
+    \caption[Picture of a \acl{LRWGW}]{
+        Picture of a \acl{LRWGW}, the MikroTik wAP LR8.
         This was one of the \aclp{LRWGW} used during this thesis.~\protect\cite{the_things_industries_bv_lorawan_nodate}
     }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
@@ -303,7 +304,7 @@ Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{LRWED}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-a.png}
-    \caption{
+    \caption[Schema of a \ac{LoRaWAN} Class A \acl{ED} communication]{
         A schema of a \ac{LoRaWAN} Class A \acl{ED} communication.
         The two receive windows (RX1 and RX2) are visible.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-a-schema}
@@ -324,7 +325,7 @@ However, this also makes it impossible for the \ac{LNS} to send data to the \acl
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-b.png}
-    \caption{
+    \caption[Schema of a \ac{LoRaWAN} Class B \acl{ED} communication]{
         A schema of a Class B \acl{LRWED} communication.
         The additional ping slots where the \acl{ED} is reachable by \aclp{LRWGW} can be seen.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-b-schema}
@@ -341,7 +342,7 @@ These scheduled downlink windows result in a higher power consumption for Class 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/device-classes/class-c.png}
-    \caption{
+    \caption[Schema of a \ac{LoRaWAN} Class C \acl{ED} communication]{
         A schema of a \ac{LoRaWAN} Class C \acl{ED} communication.
         The RX2 window is kept open between uplink transmissions to allow \aclp{LRWGW} to reach the \acl{ED} at any time while no uplinks are occurring.~\protect\cite{the_things_industries_bv_device_nodate}
     }\label{pic:lorawan-device-class-c-schema}
@@ -408,7 +409,7 @@ Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended ov
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/lorawan-structure/lora-basics-station-structure.png}
-    \caption{
+    \caption[Schema of communications from a \acl{LRGW} and a \acl{LNS} using \acl{LBS}]{
         A schema of communications from a \acl{LRGW} and a \ac{LNS} using \acf{LBS}.
         The \ac{CUPS} service can be seen in the top right.~\protect\cite{semtech_lora_developer_portal_lora_2022}
     }\label{pic:lora-basics-station-schema}
@@ -494,7 +495,7 @@ With this data, it can build a map displaying the coverage of \aclp{LRWGW} in th
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
-    \caption{
+    \caption[Screenshot of \acl{TTNM}'s heatmap view of the Furtwangen area.]{
         A screenshot of \ac{TTNM}'s \emph{heatmap} view of the Furtwangen area.
         The heatmap shows places where strong signals where received by \aclp{LRWGW} in reddish colors.
         Weaker signals are shown in blueish colors.
@@ -540,7 +541,7 @@ This process requires the \acl{ED} to be able to determine the angles to the ref
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/multilateration/gps_multilateration.png}
-    \caption{
+    \caption[Example of how multilateration works in the \acl{GNSS} in 2D and 3D]{
         An example of how multilateration works in \ac{GNSS} in 2D and 3D~\protect\cite{gisgeography_how_2018}.
         It can be seen that 4 Satellites are needed to get a three-dimensional fix while only 3 are needed for a two-dimensional fix.
     }\label{pic:multilateration-gps-2d-3d-example}
@@ -593,7 +594,7 @@ Therefore, \ac{PDOP} is a measure of the quality of the current \ac{GNSS} conste
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{pictures/multilateration/Geometric_Dilution_Of_Precision.eps}
-    \caption{
+    \caption[Examples for different kinds of \acl{HDOP} values]{
         Examples for different kinds of \ac{HDOP} values.
         A shows a (unrealistic) perfect example where there are no error margins --- a theoretical \ac{HDOP} of 0.
         B shows an example with error margins but a low \ac{HDOP}.
@@ -657,7 +658,7 @@ Distances measured between devices are often not accurate enough to determine th
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/multilateration/multilateration_error_ranges.png}
-    \caption{
+    \caption[Example of multilateration in 2D with error ranges]{
         An example of multilateration in 2D with error ranges.
         In contrast to the example shown in \cref{pic:multilateration-gps-2d-3d-example}, the margins of error can be seen as well as the non-definite margin of error around the estimated device position~\protect\cite{kapoor_novel_2016}.
     }\label{pic:multilateration-with-error-ranges-example}

@@ -41,7 +41,7 @@ Altitude was also a factor that was considered, as a placement at a higher eleva
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/hardware/gateway-deployment/gateway_deployment_map.png}
-    \caption{
+    \caption[Overview map of \aclp{LRWGW} located in Furtwangen]{
         Overview map of \aclp{LRWGW} located in Furtwangen.
         This map shows \aclp{LRWGW} that were placed during this thesis as well as already existing ones~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:gateways-placement-map}
@@ -57,7 +57,7 @@ The final selected sites will be described in the following sections along with 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/hardware/gateway-deployment/mikrotik-antenna-c-building.jpg}
-    \caption{
+    \caption[\ac{LoRa} antenna installed on top of the \acl{HFU} C building]{
         A \ac{LoRa} antenna installed on top of the \ac{HFU} C building.
         The exposed position of the roof in the valley where Furtwangen is located can be seen.
         In the background, on the right, the two buildings of the \acf{GHB} are visible.
@@ -86,7 +86,7 @@ With their help, it was possible to install \aclp{LRWGW} on the roofs of the \ac
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/lr8_ghb_installation.jpg}
-    \caption{
+    \caption[MikroTik LR8 wAP \acl{LRWGW} and its antenna installed on the roof of the \acl{GHB}]{
         The MikroTik LR8 wAP \acl{LRWGW} and its antenna installed on the roof of the \ac{GHB}.
         The impressive \ac{LoS} range of the \acl{GW} can be seen in the background.
         It can reach most of the valley in which Furtwangen is located.
@@ -109,7 +109,7 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_ash.jpg}
-        \caption{
+        \caption[Dragino DLOS8N \acl{LRWGW} with antenna on the roof of the \acl{ASH}]{
             Installed Dragino DLOS8N \acl{LRWGW} with antenna on the roof of the \ac{ASH}.
             Once again, the \ac{LoS} area of the \acl{GW} can be seen in the background.
             Also in the background, to the left and right of the \acl{LRWGW}'s antenna, are the two towers of the \ac{GHB}.
@@ -119,7 +119,7 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
-        \caption{
+        \caption[Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club]{
             Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
             The antenna has a gain of 8dBi and was connected to a Dragino LG308N \acl{LRWGW}.
             It was the most powerful antenna used in this thesis.
@@ -157,7 +157,7 @@ In this section, the \aclp{LRED} used for collecting \ac{GPS} data for \ac{TTNM}
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/loris_bare.jpg}
-        \caption{
+        \caption[ELV-AM-GPS module \acl{ED} mounted on the LoRIS \ac{LoRaWAN} base]{
             ELV-AM-GPS module \acl{ED} mounted on the LoRIS \ac{LoRaWAN} base.
             The brownish \ac{GPS} module can be seen on the right.
         }\label{pic:loris-node-bare}
@@ -166,8 +166,8 @@ In this section, the \aclp{LRED} used for collecting \ac{GPS} data for \ac{TTNM}
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/loris_with_case.jpg}
-        \caption{
-            ELV-AM-GPS \acl{LRWED} inside a quickly designed 3D printed case.
+        \caption[ELV-AM-GPS \acl{LRWED} inside a 3D printed case]{
+            ELV-AM-GPS \acl{LRWED} inside a 3D printed case.
             The case and the \acl{ED} are held together by a few rubber bands.
         }\label{pic:loris-node-with-case}
     \end{subfigure}
@@ -196,7 +196,7 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
-    \caption{
+    \caption[ELV-LW-GPS1 \acl{LRWED}]{
         ELV-LW-GPS1 \acl{LRWED}~\protect\cite{elv_elektronik_ag_elv_2023}.
         The brownish Quectel \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the left.
         It uses a similar \ac{LoRa} module as the ELV LW experimental platform.
@@ -233,7 +233,7 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/HTCC-AB02S.jpg}
-        \caption{
+        \caption[Heltec HTCC-AB02S \aclp{LRWED}]{
             One of the Heltec HTCC-AB02S \aclp{LRWED} used during this thesis.
             The \acs{OLED} display as well as the \ac{GPS} module as well as the \ac{LoRaWAN} antenna on the top right can be seen.
         }\label{pic:heltec-htcc-ab02s}
@@ -242,7 +242,7 @@ Because of those problems, the Heltec HTCC-AB02S was not used for data collectio
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gps-nodes/dnt-LW-ATS.jpg}
-        \caption{
+        \caption[dnt-LW-ATS \acl{LRWED}]{
             The dnt-LW-ATS \acl{LRWED}~\protect\cite{dnt_gmbh_dnt_nodate}.
             The solar module for power harvesting is between the two labels on the top of the \acl{ED}.
         }\label{pic:dnt-lw-ats}
@@ -299,7 +299,7 @@ The backend and frontend each have their own \emph{Dockerfiles}, which outline h
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/docker_desktop.png}
-    \caption{
+    \caption[Screenshot of the \emph{Docker Desktop} application that shows the running containers of the \acl{TTNL} application]{
         A screenshot of the \emph{Docker Desktop} application that shows the running containers of the \ac{TTNL} application~\cite{docker_inc_download_2021}.
         The \acl{PSQL} \ac{DB} as well as the pgadmin \ac{DB} management container are visible as well.
     }\label{pic:docker-desktop}
@@ -351,7 +351,7 @@ It also includes the \aclp{LRWGW}, \aclp{LRWED} and other parts such as the \ac{
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/program_structure.png}
-    \caption{
+    \caption[Program structure and data flow of the \acl{TTNL} application]{
         The program structure and data flow of the \ac{TTNL} application as a flowchart.
         \ac{TTNL}, the part that was created during this thesis, is highlighted in yellow.
         The diagram was made with Mermaid~\cite{mermaid_mermaid_2023}.
@@ -378,7 +378,7 @@ The tools and technologies used for the implementation are also explained.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{pictures/ttn-locator/backend/prisma-erd.eps}
-    \caption{
+    \caption[\acl{DB} structure of the \acl{TTNL} application as an \acl{ERD}]{
         The \ac{DB} structure of the \ac{TTNL} application as an \ac{ERD}.
         This image was generated using Simon Knott's \emph{Prisma ERD} generator that uses a Prisma schema definition file~\cite{simon_knott_prisma_2023}.
     }\label{pic:prisma-erd}
@@ -437,7 +437,7 @@ In addition, PostGIS is an extension available for \ac{PSQL} that adds support f
 \begin{lstlisting}[
     language=SQL,
     float,
-    caption={
+    caption={[Example of a PostGIS query to calculate the distance between two geolocation points]
         Example of a PostGIS query to calculate the distance between two geolocation points in meters.
         The result for the two example points would be about 26900.5 meters.
     },
@@ -463,7 +463,7 @@ Prisma also lets the developer define a \ac{DB} schema and can generate migratio
 
 \begin{lstlisting}[
     float,
-    caption={
+    caption={[Example of a Prisma schema]
         Example of a Prisma schema.
         It defines two \ac{DB} tables, \lstinline{User} and \lstinline{Post}, as well as their relationship: A User can have many Posts.
     },
@@ -512,7 +512,7 @@ Its usage as import-able predefined Vue.js components also allowed for a quick a
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/vuetify-form-example.png}
-    \caption{
+    \caption[Example of a form created using Vuetify components]{
         An example of a form created using Vuetify components.
         The values of the form fields can be accessed reactively from the Vue component's script part.
     }\label{fig:vuetify-form-example}
@@ -527,7 +527,7 @@ It uses several of Vuetify's components to enable the user to enter \ac{RSS} val
 Its use only requires attribution to the \ac{OSM} project and its contributors, which is usually done by placing a small attribution text in a corner of the displayed map.
 It was used in this thesis to display a map showing geolocation data in the frontend of the \ac{TTNL} application.
 
-\subsubsection{GeoJSON: Format for representing geographic data and structures}\label{sec:geojson}
+\subsubsection{GeoJSON:\@ Format for representing geographic data and structures}\label{sec:geojson}
 
 GeoJSON is a format used for representing geographic data using the popular \ac{JSON} format~\cite{butler_geojson_2016}.
 This format was used in this thesis as a means to standardize the data format used to represent geographic data as well as its communication between client and server.
@@ -535,7 +535,7 @@ This format was used in this thesis as a means to standardize the data format us
 \begin{lstlisting}[
     language=JSON,
     float,
-    caption={
+    caption={[Example of a GeoJSON representation of a rectangle]
         Example of a GeoJSON representation of a rectangle above the Furtwangen city center.
     },
     label={lst:geojson-example}
@@ -619,8 +619,8 @@ This cronjob runs every few hours and executes a \ac{SQL} query with Prisma's \l
 \begin{lstlisting}[
     language=SQL,
     float,
-    caption={
-        Part of the \ac{SQL} query that was used to remove outliers and duplicated from the collected \ac{TTNM} data.
+    caption={[Part of the \acl{SQL} query that was used to remove outliers and duplicates]
+        Part of the \ac{SQL} query that was used to remove outliers and duplicates from the collected \ac{TTNM} data.
         This section handles the calculation of the speed the \acl{ED} moved at between the current and the previous datapoint.
         The query was generated by \emph{Bing AI} and adjusted so that it could be used more easily with the existing Prisma \ac{DB} schema.
     },
@@ -647,7 +647,7 @@ The PostGIS function \lstinline|ST_DistanceSphere| was used to calculate the dis
 \begin{lstlisting}[
     language=SQL,
     float,
-    caption={
+    caption={[\acl{SQL} snippet that gets the latitude of the previous \acl{GPS} data point of the same \acl{ED}]
         Example of a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same \acl{ED}.
     },
     label={lst:get-preceding-datapoint-sql}
@@ -675,7 +675,7 @@ This correlation was explained in \cref{sec:background-free-space-path-loss}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/multilateration/rssi-multilateration-example.png}
-    \caption{
+    \caption[Example of the theory behind mapping \acl{RSS} values to distances]{
         An example of the theory behind mapping \ac{RSS} values to distances using three \aclp{LRWGW}, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
         The \acl{ED} (orange pin) is located at the intersection of the three circles originating from the \aclp{LRWGW} (green pins).
         The map was generated using the \ac{OSM} based tool \emph{umap}~\cite{noauthor_umap_nodate}.
@@ -726,7 +726,7 @@ This is demonstrated effectively by the example provided in \cref{fig:rssi-range
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_rssi_range_graph.png}
-    \caption{
+    \caption[Screenshot from the \acl{TTNL} frontend showing a positive example of a \acl{RSSI} to distance graph]{
         Screenshot from the \ac{TTNL} frontend showing a positive example of a \ac{RSSI} to distance graph.
         Some outliers are visible in the upper left of the graph.
     }\label{fig:rssi-range-graph-positive-example}
@@ -737,7 +737,7 @@ While there are outliers in the data, the graph still shows an average linear co
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_buehl_gw_rssi_range_graph.png}
-    \caption{
+    \caption[Screenshot from the \acl{TTNL} frontend showing a negative example of a \acl{RSSI} to distance graph]{
         Screenshot from the \ac{TTNL} frontend showing a negative example of a \ac{RSSI} to distance graph.
         The \ac{RSS} values do not decrease as the distance increases in this case.
         It is possible that this is caused by not enough data points being available as compared to the positive example in \cref{fig:rssi-range-graph-positive-example}.
@@ -764,7 +764,7 @@ Again, a cron-like job was used since recalculating those linear regression valu
 \begin{lstlisting}[
     language=SQL,
     float,
-    caption={
+    caption={[\acl{SQL} query that was used to calculate the linear regression values for each \acl{LRWGW}]
         \ac{SQL} query that was used to calculate the linear regression values for each \acl{LRWGW}.
         Using the \texttt{UPDATE} and \texttt{SET} statements, the results of the subquery are written into the \texttt{linear\-Re\-gres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} columns of the Gateway table for the corresponding \aclp{LRWGW}.
         This query was once more generated by Bing AI and adapted for better readability.
@@ -811,7 +811,7 @@ Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/data/gateway_ghb_snr_range_graph.jpg}
-    \caption{
+    \caption[Screenshot from the \acl{TTNL} frontend showing an example of a \acl{SNR} to distance graph]{
         Screenshot from the \ac{TTNL} frontend showing an example of a \acf{SNR} to distance graph.
         While the graph shows an attempt at fitting a linear regression function to the data, it is not accurate, since there is no strong linear correlation between \ac{SNR} and distance, either.
         Many outliers can be seen, making this approach unreliable as well.
@@ -839,7 +839,7 @@ Differences of up to 1 second between the timestamps of the same signal in diffe
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/toa_bad_data_example_prisma_studio.png}
-    \caption{
+    \caption[Example of divergent timestamp data that was planned to be used for \acl{ToA} multilateration]{
         Picture taken from Prisma's \emph{Prisma Studio} web frontend.
         Example of divergent timestamp data that was planned to be used for \ac{ToA} multilateration.
         The time difference between the first and second signal arrival amounts to more than one second.
@@ -860,7 +860,7 @@ A \ac{REST} endpoint was added to the backend that accepts a list of \acl{LRWGW}
 \begin{lstlisting}[
     language=TypeScript,
     float,
-    caption={
+    caption={[Prisma query that filters the fingerprint data points by their similarity to the \acl{RSS} values of \aclp{LRWGW}]
         Part of the Prisma query that filters the fingerprint data points by their similarity to the \ac{RSS} values of \aclp{LRWGW} provided by the frontend.
     },
     label={lst:prisma-rssi-fingerprinting-query}
@@ -896,7 +896,7 @@ The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that mat
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/frontend/rssi_similarity_form.png}
-    \caption{
+    \caption[Screenshot of the \acl{TTNL} frontend showing the form for entering \acl{LRWGW} fingerprinting values]{
         Screenshot of the \ac{TTNL} frontend showing the form for entering \acl{LRWGW} fingerprinting values.
         The top of the form shows the possibility of entering \ac{TTNM} datapoint IDs to load their respective similarity values from the \ac{DB}.
         A ``RSSI'' checking range of 3 has been set, meaning that the entered \ac{RSS} values will be checked against the \ac{RSS} values of the \ac{TTNM} datapoints with a tolerance of 3.
@@ -909,8 +909,8 @@ The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that mat
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/ttn-locator/frontend/fingerprinting/rssi_similarity_map_example.png}
-    \caption{
-        Screenshot of the \ac{TTNL} frontend showingan example for a fingerprinting result map generated by \ac{TTNL}.
+    \caption[Screenshot of the \acl{TTNL} frontend showing an example for a fingerprinting result map]{
+        Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map.
         The blue pin shows the actual position of the \acl{ED}.
         The blue circle (arbitrary radius) shows the position that \ac{TTNL} calculated out of the center of the matching datapoints.
     }\label{fig:fingerprinting-map-example-only-center}

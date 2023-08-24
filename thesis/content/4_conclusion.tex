@@ -14,7 +14,7 @@ This doesn't come as a surprise, given its exposed location on top of a hill in 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ghb_mikrotik_gw_range.png}
-    \caption{
+    \caption[Screenshot of a \acl{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the \acl{GHB}]{
         Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the \ac{GHB}.
         The data point on the lower left is the maximum range recorded for this \acl{LRWGW} --- \SI{14.2}{\kilo\meter}.
         However, it can be considered an outlier, as the next highest range is \SI{5.3}{\kilo\meter} away from the \acl{LRWGW} (on the far right)~\cite{ttn_mapper_ttn_2023}.
@@ -33,7 +33,7 @@ The ranges as a whole are slightly lower which stems from the fact that the \ac{
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/c_building_gw_range.png}
-    \caption{
+    \caption[Screenshot of a \acl{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the C building]{
         Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the C building.
         The slightly smaller range compared to \cref{pic:ghb_mikrotik_gw_range} is evident.
         The maximum range, however, is still \SI{4.3}{\kilo\meter} which is the rightmost blue point in the direction of Vöhrenbach~\cite{ttn_mapper_ttn_2023}.
@@ -66,7 +66,7 @@ It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} build
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/ash_gw_range.jpg}
-    \caption{
+    \caption[Screenshot of a \acl{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on the roof of the \acl{ASH} building]{
         Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on the roof of the \ac{ASH} building.
         It has a good range into most parts of the Furtwangen area~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ash_gw_range}
@@ -81,7 +81,7 @@ While the location of the \ac{LoRaWAN} on top of a hill between Furtwangen and G
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{pictures/ttn-mapper/gateway-ranges/dl0fis_gw_range.jpg}
-    \caption{
+    \caption[Screenshot of a \acl{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse]{
         Screenshot of a \ac{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse.
         While the range is not consistent in every direction due to the hills and mountains in the area, the longest range of around \SI{8.8}{\kilo\meter} is still very good.
         Coverage of Furtwangen is almost nonexistent due to the hills in the way~\cite{ttn_mapper_ttn_2023}.
@@ -94,9 +94,9 @@ The longest range measured was one data point in the south with a distance of \S
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateway-deployment/line-of-sight-dl0fis.png}
-    \caption{
+    \caption[\acl{LoS} between the \emph{DL0FIS} clubhouse and the Furtwangen city center]{
         Screenshot of the \emph{Ubiquiti UISP Design Center} tool.
-        It displays the line of sight between two points with customizable antenna elevation and can show any terrain elevation between them.
+        It displays the \ac{LoS} between two points with customizable antenna elevation and can show any terrain elevation between them.
         The multiple hills blocking the signal from the \emph{DL0FIS} clubhouse to the Furtwangen city center are visible~\cite{ubiquiti_inc_uisp_2023}.
     }\label{pic:dl0fis_gw_los}
 \end{figure}
@@ -137,7 +137,7 @@ This lead to a denser data coverage of \acl{TTNM} in the Furtwangen area.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-mapper/ttnm_heatmap_after_data_collection.jpg}
-    \caption{
+    \caption[Screenshot of the \acl{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023]{
         Screenshot of the \ac{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023.
         Compared to \cref{pic:ttnm-before-data-collection}, the coverage has improved significantly.
         Several \aclp{LRWGW} were deployed as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers~\cite{ttn_mapper_ttn_2023}.
@@ -163,7 +163,7 @@ Its purpose is to show how much the \ac{RSS} values correlate with the distance 
 \begin{lstlisting}[
     language=SQL,
     float,
-    caption={
+    caption={[\acl{SQL} query used to calculate the correlation coefficient between \acl{RSS} values and associated distances]
         \ac{SQL} query used to calculate the correlation coefficient between \ac{RSS} values and associated distances for a single gateway.
         This query was also generated by \emph{Bing AI} and adjusted to fit the the application's needs.
         The \lstinline|CORR| function was used to calculate the correlation coefficient over the gateway's data points.
@@ -218,7 +218,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_bad_example.png}
-    \caption{
+    \caption[Screenshot of the \acl{TTNL} frontend showing an example of a multilateration using a fixed \acl{RSSI} to range mapping]{
         Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three \aclp{LRWGW} using a fixed \ac{RSSI} to range mapping.
         It can be seen that the estimated position, where the three green annuli intersect, is quite far away from the actual position (blue pin) of the \acl{ED}.
         The width of the annuli is an arbitrary value of \SI{100}{\meter} in this case.
@@ -238,7 +238,7 @@ However, it cannot consider \ac{MPP} effects as well as \acl{ED} antenna gain.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_regression_example.png}
-    \caption{
+    \caption[Screenshot of the \acl{TTNL} frontend showing an example of a multilateration using a linear regression based \acl{RSSI} to range mapping]{
         Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three \aclp{LRWGW} using a linear regression based \ac{RSSI} to range mapping per gateway.
         It uses the same base data point as seen in \cref{pic:bad-rssi-to-range-multilateration-example}.
         The estimated position, where the three green annuli intersect, is more accurate compared to the fixed range mapping.
@@ -294,7 +294,7 @@ This section evaluates the fingerprinting approach as described in \cref{sec:fin
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/ttn-locator/frontend/fingerprinting/rssi_similarity_map_example_dynamic_radius.png}
-    \caption{
+    \caption[Example for a fingerprinting result map generated by \ac{TTNL} with \acl{RSS} values only]{
         Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
         The blue pin shows the actual position of the \acl{ED}.
         The yellow circle shows the estimated position that \ac{TTNL} calculated out of the center of the matching data points.
@@ -315,7 +315,7 @@ However, since \ac{SNR} values also depend on the \ac{SF} used, both should be u
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{pictures/ttn-locator/frontend/fingerprinting/fingerprinting_map_example_with_snr.png}
-    \caption{
+    \caption[Example for a fingerprinting result map generated by \ac{TTNL} with \acl{RSS} and \acl{SNR} values]{
         Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
         In addition to the example provided in \cref{fig:fingerprinting-map-example-dynamic-radius}, this example also includes \ac{SNR} values.
     }\label{fig:fingerprinting-map-example-with-snr}
@@ -338,7 +338,7 @@ That way, the \ac{SNR} values of the remaining data points are applicable to the
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/frontend/fingerprinting/fingerprinting_map_example_with_snr_sf.png}
-    \caption{
+    \caption[Example for a fingerprinting result map generated by \ac{TTNL} with \acl{RSS}, \acl{SF} and \acl{SNR} values]{
         Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
         In addition to the example provided in \cref{fig:fingerprinting-map-example-with-snr}, this example also filter according to the data point's \ac{SF} value.
     }\label{fig:fingerprinting-map-example-with-snr-and-sf}
@@ -393,7 +393,7 @@ Thus, since the \ac{TTNL} software currently updates the gateway locations after
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/moved_gateway_example.png}
-    \caption{
+    \caption[Example of false data being displayed on a \acl{TTNM} map due to a gateway being moved]{
         Screenshot of a \ac{TTNM} map showing an example of false data being displayed due to a gateway being moved.
         The gateway placed on the right is the one on the roof of the \emph{DL0FIS} clubhouse.
         The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building~\cite{ttn_mapper_ttn_2023}.
