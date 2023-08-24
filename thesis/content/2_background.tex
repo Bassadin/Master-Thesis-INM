@@ -40,7 +40,7 @@ This is due to a phenomenon known as \acf{MPP} which will later be explained in 
 \subsubsection{Correlation between \acs{RSS} values and distance — \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
 Usually, the higher the \ac{RSS} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
-When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between the sender and receiver and the \ac{RSSI} value.
+When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between sender and receiver and the \ac{RSSI} value.
 
 The equation to calculate this so-called \acl{FSPL} in decibels can be seen in \cref{eq:fspl}~\cite[p. 1321]{whitaker_electronics_1996}.
 
@@ -103,7 +103,7 @@ It will be explained in more detail in \cref{sec:lorawan}.
 
 \section{The \acs{LoRa} modulation}\label{sec:lora-modulation}
 
-The \ac{LoRa} modulation, also known as ``\ac{LoRa}\ PHY'', enables long-range communication with low power consumption.~\cite{chaudhari_understanding_2022}.
+The \ac{LoRa} modulation, also known as ``\ac{LoRa}\ PHY'', enables long-range communication with low power consumption~\cite{chaudhari_understanding_2022}.
 In the \ac{EU}, it operates mostly on the \SI{868}{\mega\hertz} frequency band to transmit data~\cite{lora_alliance_inc_lorawan_regional_2017}.
 This frequency spectrum was utilized exclusively for the experiments conducted in this thesis.
 
@@ -156,7 +156,7 @@ There are six different \aclp{SF} available in the \ac{EU} region, ranging from 
     \includegraphics[width=0.7\textwidth]{pictures/lora/SF_Comparison_7_12.png}
     \caption[Comparison of \aclp{SF} 7 to 12 in the time and frequency dimensions.]{
         Comparison of \aclp{SF} \ac{SF}7 to \ac{SF}12 in the time and frequency dimensions.
-        The doubling of the transmission time between increasing \aclp{SF} can be seen.\protect\cite{sakshama_ghoslya_lora_2017}
+        The doubling of the transmission time between increasing \aclp{SF} can be seen~\protect\cite{sakshama_ghoslya_lora_2017}.
     }\label{pic:lora-sf-comparison}
 \end{figure}
 
@@ -201,7 +201,7 @@ A well-known example of a \ac{WAN} is the Internet.
     \centering
     \includegraphics[width=.6\textwidth]{pictures/lorawan-structure/wan_diagram.png}
     \caption[An example connection between multiple \aclp{LAN} and \aclp{MAN}.]{
-        An example connection between multiple \acp{LAN} and \acp{MAN} using a \acf{WAN} as a diagram.\protect\cite{sadiku_fundamentals_2022}
+        An example connection between multiple \acp{LAN} and \acp{MAN} using a \acf{WAN} as a diagram~\protect\cite{sadiku_fundamentals_2022}.
     }\label{pic:wan-diagram}
 \end{figure}
 
@@ -218,8 +218,7 @@ These factors make them more suitable for handling large amounts of \aclp{ED} th
     \centering
     \includegraphics[width=.5\textwidth]{pictures/lorawan-structure/lpwan_network_structure.jpg}
     \caption[A diagram of \acl{LPWAN} network structure]{
-        A diagram of \ac{LPWAN} network structure.
-        The connections between the entities can be seen.\protect\cite{fernandez_assessing_2020}
+        A diagram of \ac{LPWAN} network structure~\protect\cite{fernandez_assessing_2020}.
     }\label{pic:lpwan-diagram}
 \end{figure}
 
@@ -251,10 +250,10 @@ This section will explain the structure of a \ac{LoRaWAN} network and how it wor
     }\label{pic:lorawan-network-structure}
 \end{figure}
 
-The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure} consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
+The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure}, consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
 
 \begin{itemize}
-    \item The end nodes (called \aclp{ED} during this thesis),
+    \item The end nodes (called \aclp{ED} in this thesis),
     \item the \aclp{GW} (also called concentrators or base stations),
     \item the \acf{LNS}, and
     \item the \acfp{AS}.
@@ -269,7 +268,7 @@ The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-stru
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateways/mikrotik-lr8-kit.png}
     \caption[Picture of a \acl{LRWGW}]{
         Picture of a \acl{LRWGW}, the MikroTik wAP LR8.
-        This was one of the \aclp{LRWGW} used during this thesis.~\protect\cite{the_things_industries_bv_lorawan_nodate}
+        This was one of the \aclp{LRWGW} used in this thesis.~\protect\cite{the_things_industries_bv_lorawan_nodate}
     }\label{pic:mikrotik-lr8-kit-gateway}
 \end{figure}
 
@@ -372,7 +371,7 @@ The security of the data sent is a major concern when talking about \ac{IoT} pro
 Each \acl{ED} usually has a unique 128-bit \ac{AES} key that is used to encrypt the payload~\cite[p. 24]{lora_alliance_inc_lorawan_specification_2017}.
 
 This \ac{E2EE} also makes \ac{LoRaWAN} packets secure against replay attacks (where a malicious attacker captures sent packets and sends them again), since a so-called \ac{MIC} is determined from the frame data.
-This \ac{MIC} contains a \emph{FCntUp} for uplinks and \emph{FCntDown} for downlinks, numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
+This \ac{MIC} contains numbers that are incremented with each packet sent and are also encrypted along with the payload~\cite[p. 22f.]{lora_alliance_inc_lorawan_specification_2017}.
 
 \section{\acl{TTN}: A community-based \acs{LoRaWAN} \acl{AS}}
 
@@ -463,7 +462,7 @@ This means that different integrations can be used for different applications.
 \subsection{Alternatives to \acl{TTN}}
 
 While anyone can use the public \ac{SaaS} version of \ac{TTN} for free, it is not the only \ac{LNS} available.
-\ac{TTN} can also be self-hosted, for example using Docker, using the open source \ac{LNS} \textbf{The Things Stack}~\cite{the_things_network_host_2023}.
+\ac{TTN} can also be self-hosted, for example with Docker, using the open source \ac{LNS} \textbf{The Things Stack}~\cite{the_things_network_host_2023}.
 
 There are also several other \acp{LNS} that can be used to build a private \ac{LoRaWAN} network:
 
@@ -682,13 +681,13 @@ In conjunction with the speed of light ($299792458\ \mathrm{m/s}$), this time di
 For GPS, usually four or more satellites are required to determine the position of a device accurately.
 
 \ac{ToA} based multilateration requires the reference stations to be time-synchronized with each other in order to produce good results.
-Since the speed of light is high, even minor differences in time synchronization between reference points can result in significant inaccuracies in the calculated distance between them.
+Since the speed of light is extremely high, even minor differences in time synchronization between reference points can result in significant inaccuracies in the calculated distance between them.
 
 \subsubsection{Using the \acl{RSSI} to determine distances}\label{sec:rssi-based-multilateration}
 
 This method uses the \acf{RSSI} values that were explained in \cref{sec:rssi} to determine the distance between sender and receiver.
 The distance between sender and receiver usually decreases in correlation with the measured \ac{RSSI} value as has been explained in \cref{sec:background-free-space-path-loss}.
-However, as was mentioned in \cref{sec:multipath-propagation}, the \ac{RSSI} value can be also affected by other factors like obstacles and the environment (\ac{MPP}).
+However, as mentioned in \cref{sec:multipath-propagation}, the \ac{RSSI} value can be also affected by other factors like obstacles and the environment (\ac{MPP}).
 
 These facts make \ac{RSSI}-based localization only work accurately in environments with little to no obstacles and thus a low amount of multipath propagation.
 \Cref{sec:rssi-based-multilateration-implementation} will describe how this method was implemented in two different forms in this thesis.
