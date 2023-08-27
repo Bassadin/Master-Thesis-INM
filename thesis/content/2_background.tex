@@ -623,7 +623,7 @@ The \emph{LC86L} module uses \SI{32}{\milli\ampere} during \ac{GNSS} acquisition
 This is during a cold start of the chip, which is often used for \ac{LoRaWAN} \ac{GNSS} trackers to save power since they go into a state referred to as deep sleep in between operating phases.
 
 \begin{equation}\label{eq:LC86L-fix-consumption}
-    mAh_{GPS\,Fix} = \SI{32}{\milli\ampere} \cdot \frac{\SI{35}{\second}}{3600} \approx \SI{0.311}{\milli\ampere\hour}
+    mAh_{GPS\,Fix} = \SI{32}{\milli\ampere} \cdot \frac{\SI{35}{\second}}{\SI{3600}{\second\per\hour}} \approx \SI{0.311}{\milli\ampere\hour}
 \end{equation}
 
 \Cref{eq:LC86L-fix-consumption} shows the power usage of the \emph{LC86L} module during a single \ac{GPS} acquisition.
@@ -634,7 +634,7 @@ The same airtime value can also be calculated using a tool called \emph{\ac{LoRa
 This transmission time can become even shorter when using a lower \ac{SF} or when fewer bytes are transmitted.
 
 \begin{equation}\label{eq:dnt-TRX-ST1-tx-consumption}
-    mAh_{\ac{LoRa}\,TX} = \SI{29}{\milli\ampere} \cdot \frac{\SI{0.246784}{\second}}{3600} \approx \SI{0.00198}{\milli\ampere\hour}
+    mAh_{\ac{LoRa}\,TX} = \SI{29}{\milli\ampere} \cdot \frac{\SI{0.246784}{\second}}{\SI{3600}{\second\per\hour}} \approx \SI{0.00198}{\milli\ampere\hour}
 \end{equation}
 
 \Cref{eq:dnt-TRX-ST1-tx-consumption} shows the power usage of the \emph{dnt-TRX-ST1} module during a single \ac{LoRa} transmission.
