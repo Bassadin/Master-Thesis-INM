@@ -385,7 +385,7 @@ Its source code is also available on GitHub under the Apache 2.0 license~\cite{t
 \end{figure}
 
 
-While it is officially called \acl{TTS Community Edition} since 2021, it is still commonly referred to as \acf{TTN} by the community itself~\cite{the_things_industries_bv_what_2022}.
+While it is officially called \acl{TTS} Community Edition since 2021, it is still commonly referred to as \acf{TTN} by the community itself~\cite{the_things_industries_bv_what_2022}.
 Its users provide \ac{TTN} with \aclp{LRWGW} that other users can use, making it a crowdsourced \ac{LoRaWAN} network.
 
 \subsection{Receiving packets from \aclp{LRWGW}}
@@ -630,7 +630,7 @@ This is during a cold start of the chip, which is often used for \ac{LoRaWAN} \a
 
 While the dnt-TRX-ST1 has a similar power usage of \SI{29}{\milli\ampere} during transmission of \ac{LoRaWAN} packets, it takes a considerably shorter amount of time to transmit a \ac{LoRa} packet than it takes to acquire a \ac{GNSS} fix.
 For example, when the ELV-LW-GPS1 module transmits one of its \ac{GPS} location data packets using \ac{SF}9, it uses only \SI{0.246784}{\second} of transmission time, according to \ac{TTN}.
-The same transmission time can also be calculated using a tool called \ac{LoRaWAN airtime calculator} with 18 input bytes, a \ac{SF} of 9, the EU868 region and a bandwidth of \SI{125}{\kilo\hertz}~\cite{the_things_network_lorawan_nodate}.
+The same transmission time can also be calculated using a tool called \ac{LoRaWAN} airtime calculator with 18 input bytes, a \ac{SF} of 9, the EU868 region and a bandwidth of \SI{125}{\kilo\hertz}~\cite{the_things_network_lorawan_nodate}.
 This transmission time can become even shorter when using a lower \ac{SF} or when fewer bytes are transmitted.
 
 \begin{equation}\label{eq:dnt-TRX-ST1-tx-consumption}
