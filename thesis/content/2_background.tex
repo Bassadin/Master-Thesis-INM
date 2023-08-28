@@ -27,7 +27,7 @@ Similarly, ZigBee's limited range makes it unsuitable for remote locations.
 While \ac{LTE} has a rather large range, is also unsuitable for battery powered \aclp{ED} either as it requires a lot of power.
 A rough comparison between selected wireless protocols can be seen in \Cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
-\subsection{Comparing signal strengths — \acl{RSSI}}\label{sec:rssi}
+\subsection{Comparing signal strengths – \acl{RSSI}}\label{sec:rssi}
 
 The \acf{RSSI} is a measure of the strength of the wireless signal strength as received by a receiver.
 As far as this thesis is concerned, \ac{RSS} values are measured in dBm since the \ac{TTN} \ac{LNS}, the basis for all data used, uses this unit as well~\cite{the_things_industries_bv_data_2023}.
@@ -37,7 +37,7 @@ Furthermore, \ac{RSS} values can only function reliably when there is nothing bl
 The \ac{RF} signal may be obstructed and weakened by structures, trees, or other physical barriers.
 This is due to a phenomenon known as \acf{MPP} which will later be explained in \Cref{sec:multipath-propagation}~\cite{kucherov_investigation_2021}.
 
-\subsubsection{Correlation between \acs{RSS} values and distance — \acf{FSPL}}\label{sec:background-free-space-path-loss}
+\subsubsection{Correlation between \acs{RSS} values and distance – \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
 Usually, the higher the \ac{RSS} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
 When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between sender and receiver and the \ac{RSSI} value.
@@ -59,7 +59,7 @@ As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, it
 
 As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
 
-\subsubsection{Influences of external factors on \acs{RSS} — \acl{MPP}}\label{sec:multipath-propagation}
+\subsubsection{Influences of external factors on \acs{RSS} – \acl{MPP}}\label{sec:multipath-propagation}
 
 In addition to a signal reaching its destination directly, a \ac{RF} transmission phenomenon called \acf{MPP} can occur.
 \acl{MPP} can cause the \ac{RSS} values to fluctuate even when neither the distance between the transmitter and receiver nor their antennas change~\cite[p. 136]{abdelfadeel_how_2019}.
@@ -76,7 +76,7 @@ In addition to a signal reaching its destination directly, a \ac{RF} transmissio
 
 This is because the signal can be reflected, diffracted, refracted and scattered, taking multiple paths (hence the term \acl{MPP}) as shown in \Cref{pic:figure_multipath_propagation}.
 
-\subsection{Describing influences of noise on the signal — \acf{SNR}}\label{sec:background-snr}
+\subsection{Describing influences of noise on the signal – \acf{SNR}}\label{sec:background-snr}
 
 Since the \SI{868}{\mega\hertz} frequency band used for \ac{LoRa} in the \ac{EU} is unlicensed, it is possible that other devices use the same frequency band~\cite{etsi_etsi_2012}.
 This can result in a relatively high level of so-called radio noise~\cite[p. 6]{fujdiak_insights_2022}.
@@ -209,7 +209,7 @@ A well-known example of a \ac{WAN} is the Internet.
 \acp{WAN} consist of various \acp{MAN}.
 \acp{MAN}, in turn, consist of various \acp{LAN}.
 
-\subsection{Less power, longer latencies, low data rates — \aclp{LPWAN}}
+\subsection{Less power, longer latencies, low data rates – \aclp{LPWAN}}
 
 While most \acp{WAN}, such as the Internet, typically have a high bandwidth and low latency, \acp{LPWAN}, on the other hand are designed to have ``low duty cycles, very low data rates, relatively longer latencies, low power consumption, and coverage over several kilometers''~\cite[p. 289]{kumar_connecting_2023}.
 These factors make them more suitable for handling large amounts of \aclp{ED} that only need to transmit small amounts of data infrequently over long distances.
@@ -226,7 +226,7 @@ These factors make them more suitable for handling large amounts of \aclp{ED} th
 Multiple \ac{IoT} devices connect to \aclp{GW} or base stations.
 Those \aclp{GW} are in turn connected to the network, enabling them to forward packets from \aclp{ED} to the network.
 
-\section{\acl{LoRaWAN} — connecting \acl{IoT} devices over long ranges}\label{sec:lorawan}
+\section{\acl{LoRaWAN} – connecting \acl{IoT} devices over long ranges}\label{sec:lorawan}
 
 \begin{figure}[htbp]
     \centering
@@ -240,7 +240,7 @@ Those \aclp{GW} are in turn connected to the network, enabling them to forward p
 It defines a secure way to transfer packets from the \acl{ED} to \acp{AS} by enforcing \ac{E2EE}.
 This section will explain the structure of a \ac{LoRaWAN} network and how it works.
 
-\subsection{\acs{LoRaWAN} network architecture — connecting \aclp{AS}, \aclp{GW} and \aclp{ED}}
+\subsection{\acs{LoRaWAN} network architecture – connecting \aclp{AS}, \aclp{GW} and \aclp{ED}}
 
 \begin{figure}[htbp]
     \centering
@@ -434,7 +434,7 @@ It instead uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
 
 Most of the other \aclp{LRWGW} deployed during this thesis, especially the ones from Dragino, were able to use \ac{LBS} and used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \Cref{sec:lorawan-lbs}.
 
-\subsection{\acl{TTN} Console — End Device and Gateway Management}\label{sec:web-interface-and-device-gateway-management}
+\subsection{\acl{TTN} Console – End Device and Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
 \ac{TTN} provides a web interface for managing \aclp{LRWED} and \aclp{LRWGW} that are registered to the network by the logged-in user.
 It also provides a \ac{REST} \ac{API} for managing \aclp{LRWED} and \aclp{LRWGW} programmatically.
@@ -472,7 +472,7 @@ It is, contrary to \ac{TTN}, not open source.
 Another popular \ac{LNS} is \textbf{ChirpStack}, which is open source and can be self-hosted~\cite{chirpstack_chirpstack_2023}.
 Contrary to \ac{TTN}, it does not provide a \ac{SaaS} version and also does not offer a public community instance.
 
-\section{\acl{TTNM} — Plotting \acs{LoRaWAN} reception on a map}
+\section{\acl{TTNM} – Plotting \acs{LoRaWAN} reception on a map}
 
 \acf{TTNM} was created by engineer JP Meijers in 2015~\cite{linkedin_23_nodate}.
 He first created it as a personal project to map the range of his own \acl{LRWGW}.
@@ -531,7 +531,7 @@ Such queries were not possible with the \ac{TTNM} \ac{API} alone, since it doesn
 Through building a \ac{DB} of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \Cref{sec:rssi-fingerprinting}.
 This was one of the techniques used to locate \aclp{LRWED} in this thesis.
 
-\section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
+\section{Multilateration – Locating devices using distances to reference points}\label{sec:multilateration-basics}
 
 In everyday language, people often use the term triangulation or when talking about the process of determining the location of a \acl{ED} based on the distance to multiple other \aclp{ED}.
 However, triangulation uses the angles between devices and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
@@ -562,7 +562,7 @@ However, \ac{GPS} is only one of the several \ac{GNSS} systems that are currentl
 To determine the distance from the \acl{ED} to the satellites, the time it takes for a signal to travel from the satellite to the \acl{ED} is measured and used in conjunction with the speed of light to calculate the distance.
 This approach is called \acf{ToA} and will be explained in more detail in \Cref{sec:toa-based-multilateration}.
 
-\subsection{The most well-known \acl{GNSS} — The \acl{GPS}}
+\subsection{The most well-known \acl{GNSS} – The \acl{GPS}}
 
 \ac{GPS} is the \ac{GNSS} system that is operated by the United States of America and is officially named NAVSTAR \ac{GPS}~\cite{department_of_defense_usa_gps_2020}.
 The version of \ac{GPS} the public has access to is called \acf{SPS}.
