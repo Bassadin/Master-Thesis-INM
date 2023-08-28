@@ -5,7 +5,7 @@
 At the beginning of this thesis, \ac{TTNM} already showed one existing \acl{LRWGW} in the Furtwangen area.
 It was located on top of the \ac{HFU} G building and was installed by a team of students of the Business Informatics (WING) faculty.
 
-However, to be able to get a good geolocation through multilateration for a \acl{LRWED}, it is necessary to have at least three \aclp{LRWGW} in its range, as shown in \cref{sec:multilateration-basics}.
+However, to be able to get a good geolocation through multilateration for a \acl{LRWED}, it is necessary to have at least three \aclp{LRWGW} in its range, as shown in \Cref{sec:multilateration-basics}.
 Thus, the first step was to research and order additional \aclp{LRWGW}.
 Finally, the \aclp{LRWGW} had to be installed in suitable locations.
 
@@ -21,9 +21,9 @@ This allows low-level access to the \ac{LoRa} module on the board, since it can 
 Two MikroTik wAP LR8 kit \aclp{LRWGW} were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
 The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established \ac{GUI} for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
-However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \cref{sec:lorawan-lbs}.
-A picture of this \acl{LRWGW} can be seen in \cref{pic:mikrotik-lr8-kit-gateway}.
-The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna as shown in \cref{pic:mikrotik-antenna-c-building}.
+However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \Cref{sec:lorawan-lbs}.
+A picture of this \acl{LRWGW} can be seen in \Cref{pic:mikrotik-lr8-kit-gateway}.
+The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna as shown in \Cref{pic:mikrotik-antenna-c-building}.
 
 The other \aclp{LRWGW} that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor \aclp{GW}.
 This \acl{LRWGW} was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
@@ -64,7 +64,7 @@ The final selected sites will be described in the following sections along with 
     }\label{pic:mikrotik-antenna-c-building}
 \end{figure}
 
-The first antenna and \acl{LRWGW} installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \cref{pic:mikrotik-antenna-c-building}.
+The first antenna and \acl{LRWGW} installed was a Dragino LG308 connected to a MikroTik antenna on top of the \ac{HFU} C building as seen in \Cref{pic:mikrotik-antenna-c-building}.
 
 While not as high in altitude as the \ac{GHB} building, it was thought to still be a good location to receive signals from the surrounding area.
 The roof of the C building is located in the center of the valley Furtwangen is situated in.
@@ -136,7 +136,7 @@ The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities install
 \subsubsection{\emph{DL0FIS} amateur radio club station atop Neueck, Gütenbach}
 
 The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
-With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \cref{pic:antenna-dl0fis-clubhouse}.
+With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \Cref{pic:antenna-dl0fis-clubhouse}.
 
 The exposed location of the clubhouse on a hillside between Gütenbach and Furtwangen was thought to be a good location for a \acl{LRWGW}.
 
@@ -178,7 +178,7 @@ In this section, the \aclp{LRED} used for collecting \ac{GPS} data for \ac{TTNM}
 \subsubsection{ELV LW experimental platform: modular and flexible}\label{subsubsec:elv-lw-experimental-platform}
 
 The ELV LW experimental platform was the \acl{LRWED} out of the ones used during this thesis that worked best out of the box as far as overall usability is concerned.
-The ELV LW experimental platform consists of a base module called ELV-BM-TRX1 and a number of different sensor modules that can be stacked on top of it as seen in~\cref{pic:loris-node-bare}\cite{elv_elektronik_ag_elv-lw-base_2023}.
+The ELV LW experimental platform consists of a base module called ELV-BM-TRX1 and a number of different sensor modules that can be stacked on top of it as seen in~\Cref{pic:loris-node-bare}\cite{elv_elektronik_ag_elv-lw-base_2023}.
 It has a USB-C port, which made powering the tracker with an external power bank simple.
 
 There are several other modules that can be stacked on top of the base, such as a CO\textsubscript{2} or temperature sensor.
@@ -189,7 +189,7 @@ Little had to be done in order to begin using the base with the additional \ac{G
 Flashing the firmware using a tool provided by the manufacturer was the first step.
 Additionally, the \ac{OTAA} credentials provided with the base LoRIS module had to be entered into \ac{TTN} in order to register the device.
 
-To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\cref{pic:loris-node-with-case}.
+To make the board a little more robust, a 3D printed case was designed in Fusion 360 and printed as can be seen in~\Cref{pic:loris-node-with-case}.
 
 \subsubsection{ELV \acs{GPS} Tracker: various power supply possibilities}\label{subsubsec:elv-gps-tracker-implementation}
 
@@ -198,14 +198,14 @@ To make the board a little more robust, a 3D printed case was designed in Fusion
     \includegraphics[width=0.4\textwidth]{pictures/hardware/gps-nodes/ELV-LW-GPS1.jpg}
     \caption[ELV-LW-GPS1 \acl{LRWED}]{
         ELV-LW-GPS1 \acl{LRWED}~\protect\cite{elv_elektronik_ag_elv_2023}.
-        The brownish Quectel \ac{GPS} module, similar to the one in \cref{pic:loris-node-bare}, can be seen on the left.
+        The brownish Quectel \ac{GPS} module, similar to the one in \Cref{pic:loris-node-bare}, can be seen on the left.
         It uses a similar \ac{LoRa} module as the ELV LW experimental platform.
         The header on the right is used to connect the 5 to 40V power supply as well as an optional physical contact to start a localization on demand.
     }
 \end{figure}
 
 The ELV-LW-GPS1 is another \acl{LRWED} designed to be used as a \ac{GPS} tracker.
-Usability-wise, it was similar to the ELV LW experimental platform described in~\cref{subsubsec:elv-lw-experimental-platform}.
+Usability-wise, it was similar to the ELV LW experimental platform described in~\Cref{subsubsec:elv-lw-experimental-platform}.
 
 It requires a power source that can range from 5 to 40 V, which makes it flexible in terms of power supply.
 For example, it can be used with a car battery, which usually has a voltage of 12V.
@@ -280,7 +280,7 @@ The frequency of the \ac{GPS} fixes was only several seconds after a short start
 \end{figure}
 
 \Cref{pic:ttnm-before-data-collection} shows the \ac{TTNM} heatmap view before additional data collection during this thesis.
-As mentioned in \cref{sec:collecting-additional-ttnm-data}, additional data needed to be collected in order to be able to create better fingerprinting results.
+As mentioned in \Cref{sec:collecting-additional-ttnm-data}, additional data needed to be collected in order to be able to create better fingerprinting results.
 \Cref{sec:ttm_heatmap_after} shows the heatmap view after additional data collection.
 
 \section{Used development tools}
@@ -328,7 +328,7 @@ Docker Compose was then used to assemble the different parts of the application:
 % PlatformIO is a plugin that enables the development of embedded systems with \ac{VSC}~\cite{platformio_platformio_nodate}.
 % It allows for a user to use \ac{VSC} instead of having to rely on the \emph{Arduino IDE}.
 
-% PlatformIO was used in this thesis to develop code for some of the \aclp{LRWED} used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \cref{subsubsec:heltec-htcc-ab02s}.
+% PlatformIO was used in this thesis to develop code for some of the \aclp{LRWED} used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \Cref{subsubsec:heltec-htcc-ab02s}.
 
 \subsection{GitHub Actions for \acl{CI/CD}}
 
@@ -398,7 +398,7 @@ These services are designed to operate inside Docker containers and are orchestr
 \subsubsection{Programming languages: \acl{JS} / \acl{TS}}
 
 \ac{JS} is an interpreted, \ac{JIT} compiled programming language that was designed for and is mostly used in web browsers to add interactivity to websites~\cite{mdn_javascript_2023}.
-However, it can also be used outside a browser to create server applications as is explained in \cref{sec:nodejs}.
+However, it can also be used outside a browser to create server applications as is explained in \Cref{sec:nodejs}.
 
 \ac{TS}, on the other hand, is a superset of \ac{JS} that adds static type checking to the language~\cite{microsoft_javascript_nodate}.
 Developers are required to declare variable and function parameter types, which the compiler then verifies.
@@ -577,7 +577,7 @@ It wraps Leaflet's functionality into Vue components and provides reactive bindi
 
 In most cases, a \ac{OSM} map was used to display the data.
 
-Leaflet is able to render GeoJSON objects, as seen in \cref{sec:geojson}.
+Leaflet is able to render GeoJSON objects, as seen in \Cref{sec:geojson}.
 This was used in this thesis to display some of the geolocation data on the map of the \ac{TTNL} frontend, e.g.,\ the multilateration annuli.
 
 \subsection{Consolidating \acl{TTNM} data into the \acl{TTNL} \acl{DB}}\label{sec:consolidating-ttnm-data-into-ttnl-db}
@@ -656,7 +656,7 @@ LAG(latitude) OVER (PARTITION BY "deviceId" ORDER BY timestamp AS prev_latitude
 \end{lstlisting}
 
 In order to get the previous datapoint, the SQL \lstinline|LAG| function was used.
-For example, \cref{lst:get-preceding-datapoint-sql} shows a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same \acl{ED}.
+For example, \Cref{lst:get-preceding-datapoint-sql} shows a \ac{SQL} snippet that gets the latitude of the previous \ac{GPS} data point of the same \acl{ED}.
 
 Duplicates were removed using a similar approach.
 Instead of calculating the distance between the two data points, their latitude, longitude, \ac{HDOP} and altitude values were compared.
@@ -670,13 +670,13 @@ This section will describe the different approaches that were taken to locate \a
 The general idea behind using \ac{RSS} values to determine the distance to a \acl{LRWGW} is simple.
 The \ac{RSSI} value measured by a \acl{LRWGW} is inversely proportional to the distance between the \acl{ED} and the \acl{GW}.
 The further away a \acl{LRWED} is from a \acl{LRWGW}, the lower the \ac{RSSI} value will be.
-This correlation was explained in \cref{sec:background-free-space-path-loss}.
+This correlation was explained in \Cref{sec:background-free-space-path-loss}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/multilateration/rssi-multilateration-example.png}
     \caption[Example of the theory behind mapping \acl{RSS} values to distances]{
-        An example of the theory behind mapping \ac{RSS} values to distances using three \aclp{LRWGW}, based on the correlation explained in \cref{sec:background-free-space-path-loss}.
+        An example of the theory behind mapping \ac{RSS} values to distances using three \aclp{LRWGW}, based on the correlation explained in \Cref{sec:background-free-space-path-loss}.
         The \acl{ED} (orange pin) is located at the intersection of the three circles originating from the \aclp{LRWGW} (green pins).
         The map was generated using the \ac{OSM} based tool \emph{umap}~\cite{noauthor_umap_nodate}.
     }\label{fig:rssi-multilateration-theoretical-example}
@@ -710,9 +710,9 @@ Although these values effectively model the \ac{LoS} reception behavior of the \
 Therefore, a single fixed \ac{RSSI} to range scale function is not appropriate for all gateways since their positions (indoor/outdoor) and antennas may differ from each other.
 
 Although rare, \ac{RSS} values that are larger than a certain threshold can also return negative range values.
-In the example given in \cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>=\SI{-50}{\dBm}$.
+In the example given in \Cref{eq:fixed-rssi-to-range-scale}, this is the case with values $>=\SI{-50}{\dBm}$.
 
-Another problem, as mentioned in \cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when the \acl{LRWED}, the \acl{LRWGW}, and the distance between them stay the same.
+Another problem, as mentioned in \Cref{sec:rssi-based-multilateration}, is that the \ac{MPP} phenomenon can cause the \ac{RSS} values to fluctuate, even when the \acl{LRWED}, the \acl{LRWGW}, and the distance between them stay the same.
 This makes RSSI values in general a rather unreliable metric for determining the distance between a \acl{LRWED} and a \acl{LRWGW} as long as there is no \ac{LoS} between them.
 
 \subsubsection{Plotting \acs{RSSI} to range from existing data}\label{sec:plotting-rssi-to-range-from-existing-data}
@@ -720,8 +720,8 @@ This makes RSSI values in general a rather unreliable metric for determining the
 \Cref{fig:rssi-range-graph-positive-example} shows an example of a \ac{RSSI} to distance graph in the frontend of \ac{TTNL}.
 The graph is generated by plotting the distance from the \acl{LRWED} to a given \acl{LRWGW} against the \ac{RSS} values for each of those distances.
 Afterwards, a linear regression function can be claculated to get an estimated distance to a \acl{LRWGW} when provided a new \ac{RSSI} value.
-This approach is superior to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale} because considering the behavior of each \acl{LRWGW} individually usually results in a more precise estimated range to each \acl{GW}.
-This is demonstrated effectively by the example provided in \cref{fig:rssi-range-graph-positive-example}.
+This approach is superior to the fixed \ac{RSSI} to range scale described in \Cref{sec:fixed-rssi-to-range-scale} because considering the behavior of each \acl{LRWGW} individually usually results in a more precise estimated range to each \acl{GW}.
+This is demonstrated effectively by the example provided in \Cref{fig:rssi-range-graph-positive-example}.
 
 \begin{figure}[htbp]
     \centering
@@ -740,7 +740,7 @@ While there are outliers in the data, the graph still shows an average linear co
     \caption[Screenshot from the \acl{TTNL} frontend showing a negative example of a \acl{RSSI} to distance graph]{
         Screenshot from the \ac{TTNL} frontend showing a negative example of a \ac{RSSI} to distance graph.
         The \ac{RSS} values do not decrease as the distance increases in this case.
-        It is possible that this is caused by not enough data points being available as compared to the positive example in \cref{fig:rssi-range-graph-positive-example}.
+        It is possible that this is caused by not enough data points being available as compared to the positive example in \Cref{fig:rssi-range-graph-positive-example}.
     }\label{fig:rssi-range-graph-negative-example}
 \end{figure}
 
@@ -752,12 +752,12 @@ For instance, this might result from a lack of available data points, as the neg
 
 \subsubsection{Using existing data to build a per-gateway \acs{RSSI} to range scale}\label{subsubsec:per-gateway-rssi-to-range-scale}
 
-Using a linear regression approach as described in \cref{sec:plotting-rssi-to-range-from-existing-data}, a \ac{RSSI} to range scale for each \acl{LRWGW} was realized.
+Using a linear regression approach as described in \Cref{sec:plotting-rssi-to-range-from-existing-data}, a \ac{RSSI} to range scale for each \acl{LRWGW} was realized.
 As was mentioned in that chapter, this allows for parameters specific to each \acl{LRWGW} such as positioning and antenna type to be taken into account.
 
 The Gateway table in the \ac{PSQL} \ac{DB} was extended two include two more columns: \texttt{linear\-Regres\-sion\-Slope} and \texttt{linear\-Re\-gres\-sion\-Inter\-cept} for the slope and the y axis intercept of the linear regression function, respectively.
-This was only done for \aclp{LRWGW} with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \cref{fig:rssi-range-graph-negative-example}.
-While the approach in \cref{sec:plotting-rssi-to-range-from-existing-data} calculated the regression client-side, this approach calculates the regression server-side and stores the results in the \ac{DB} for more efficient access.
+This was only done for \aclp{LRWGW} with more than 500 ttnMapperDatapoints in the \ac{DB} to avoid outliers skewing the results like in \Cref{fig:rssi-range-graph-negative-example}.
+While the approach in \Cref{sec:plotting-rssi-to-range-from-existing-data} calculated the regression client-side, this approach calculates the regression server-side and stores the results in the \ac{DB} for more efficient access.
 \Cref{lst:sql-calculate-linear-regression} shows the \ac{SQL} query that was used to calculate those linear regression values.
 Again, a cron-like job was used since recalculating those linear regression values for all \aclp{LRWGW} each time a new data point was received would be too resource intensive.
 
@@ -800,13 +800,13 @@ WHERE "Gateway"."gatewayId" = subquery."gatewayId";
 
 When requesting \acl{LRWGW} data from the \ac{TTNL} backend, it answers with the linear regression values for each \acl{GW}.
 The frontend then uses these values to display annuli around each \acl{LRWGW} on the map according to specific \ac{RSSI} values.
-If a \acl{LRWGW} does not have linear regression values set in the \ac{DB} (possibly due to not having enough ttnMapperDatapoints yet), the frontend will fall back to the fixed \ac{RSSI} to range scale described in \cref{sec:fixed-rssi-to-range-scale}.
+If a \acl{LRWGW} does not have linear regression values set in the \ac{DB} (possibly due to not having enough ttnMapperDatapoints yet), the frontend will fall back to the fixed \ac{RSSI} to range scale described in \Cref{sec:fixed-rssi-to-range-scale}.
 
 \Cref{subsubsec:conclusion-rssi-linear-regression} will show the results of using this technique and the accuracy improvements in more detail.
 
 \subsubsection{Plotting \acs{SNR} to range from existing data}\label{sec:plotting-snr-to-range-from-existing-data}
 
-Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was also made to plot \ac{SNR} values to range from existing data, instead of the \ac{RSS}.
+Similar to \Cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was also made to plot \ac{SNR} values to range from existing data, instead of the \ac{RSS}.
 
 \begin{figure}[htbp]
     \centering
@@ -819,18 +819,18 @@ Similar to \cref{sec:plotting-rssi-to-range-from-existing-data}, an attempt was 
 \end{figure}
 
 \Cref{fig:snr-range-graph-example} shows an example of this, using data from the \ac{GHB} \acl{LRWGW}.
-Compared to \cref{fig:rssi-range-graph-positive-example}, the graph also shows a rather weak correlation between \ac{SNR} and distance similar to that between \ac{RSSI} and distance.
+Compared to \Cref{fig:rssi-range-graph-positive-example}, the graph also shows a rather weak correlation between \ac{SNR} and distance similar to that between \ac{RSSI} and distance.
 
 Mapping \ac{SNR} values to distance on their own was very unreliable.
-This is to be expected, since, as was explained in \cref{sec:background-snr}, the \ac{SNR} value can be influenced by many things, such as external factors and the environment even more so than the \ac{RSS} value.
+This is to be expected, since, as was explained in \Cref{sec:background-snr}, the \ac{SNR} value can be influenced by many things, such as external factors and the environment even more so than the \ac{RSS} value.
 
 To plot the graphs, data points with varying \acp{SF} were used.
-Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be received, as explained in \cref{sec:sf-snr-correlation}, this could have also influenced the results.
+Since a higher \ac{SF} also allows for signals with worse \ac{SNR} to be received, as explained in \Cref{sec:sf-snr-correlation}, this could have also influenced the results.
 
 \subsection{\acf{ToA}-based multilateration}\label{subsec:toa-based-multilateration-implementation}
 
 One of the seemingly most promising techniques for locating \aclp{LRWED} is \ac{ToA}-based multilateration.
-As has been explained in \cref{sec:toa-based-multilateration}, this technique uses the \acl{ToA} of a \ac{LoRa} signal at multiple \aclp{LRWGW} to calculate the position of the \acl{ED} that sent the signal using the speed of light.
+As has been explained in \Cref{sec:toa-based-multilateration}, this technique uses the \acl{ToA} of a \ac{LoRa} signal at multiple \aclp{LRWGW} to calculate the position of the \acl{ED} that sent the signal using the speed of light.
 
 Unfortunately, this technique did not work as expected in the scope of this thesis.
 This was because the timestamps of signal arrival at the \aclp{LRWGW} that were used for this thesis were not accurate enough.
@@ -916,16 +916,16 @@ The query returns all deviceGPSDatapoints that have ttnMapperDatapoints that mat
     }\label{fig:fingerprinting-map-example-only-center}
 \end{figure}
 
-\ac{TTNL} can show the matching datapoints on its map as can be seen in \cref{fig:fingerprinting-map-example-only-center}.
+\ac{TTNL} can show the matching datapoints on its map as can be seen in \Cref{fig:fingerprinting-map-example-only-center}.
 The blue pin shows the actual position of the \acl{ED}.
 To calculate a position estimate, \ac{TTNL} takes the center of the matching datapoints and draws a circle around it with an arbitrary radius.
 
 This was improved later by fitting the radius of the estimated position circle to half of the matching datapoints.
-An explanation will be given in \cref{subsubsec:conclusion-rssi-linear-regression}.
+An explanation will be given in \Cref{subsubsec:conclusion-rssi-linear-regression}.
 
 \subsubsection{Adding \acf{SNR} and \acf{SF} to fingerprinting}\label{sec:adding-snr-to-fingerprinting}
 
 In an attempt to make fingerprinting results more accurate, the \ac{SNR} value of the \ac{TTNM} datapoints was added to the fingerprinting algorithm in addition to the raw \ac{RSSI} values.
 Since \ac{TTN} captures \ac{SNR} and \ac{SF} with each forwarded package anyway, this didn't affect the diffficulty of data collection and only required adding an extra column to the \ac{DB} schema.
 
-\cref{subsec:conclusion-fingerprinting} will show the improvements that each of those approaches brought.
+\Cref{subsec:conclusion-fingerprinting} will show the improvements that each of those approaches brought.

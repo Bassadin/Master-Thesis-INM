@@ -2,9 +2,9 @@
 
 \section{Gateway Locations}\label{sec:gateway-locations-conclusions}
 
-This section will evaluate the chosen \acl{LRWGW} locations as described in \cref{sec:gateway-locations} and give some examples of the ranges that can be achieved with them.
+This section will evaluate the chosen \acl{LRWGW} locations as described in \Cref{sec:gateway-locations} and give some examples of the ranges that can be achieved with them.
 The maps used to show range data were taken from the \emph{Advanced Maps} feature of \ac{TTNM}~\cite{ttn_mapper_ttn_2023-1}.
-Thus, as explained in \cref{subsec:cleaning-collected-data}, they may contain some inaccuracies and outliers.
+Thus, as explained in \Cref{subsec:cleaning-collected-data}, they may contain some inaccuracies and outliers.
 
 \subsection{\acl{GHB}}\label{subsec:ghb-student-dormitory-range-results}
 
@@ -21,12 +21,12 @@ This doesn't come as a surprise, given its exposed location on top of a hill in 
     }\label{pic:ghb_mikrotik_gw_range}
 \end{figure}
 
-The maximum range recorded for this \acl{LRWGW} is \SI{14.2}{\kilo\meter}, which is the blue point in the lower left-hand corner of \cref{pic:ghb_mikrotik_gw_range}.
+The maximum range recorded for this \acl{LRWGW} is \SI{14.2}{\kilo\meter}, which is the blue point in the lower left-hand corner of \Cref{pic:ghb_mikrotik_gw_range}.
 While that data point may be considered an error or outlier, a more realistic one is the blue point on the rightmost side of the image which is \SI{5.3}{\kilo\meter} away from the \acl{LRWGW}.
 
 \subsection{\acl{HFU} C building}
 
-When viewed alongside the results from the \ac{GHB} \acl{LRWGW} shown in \cref{subsec:ghb-student-dormitory-range-results}, the results from the \acl{LRWGW} on the roof of the \ac{HFU} C building are similar.
+When viewed alongside the results from the \ac{GHB} \acl{LRWGW} shown in \Cref{subsec:ghb-student-dormitory-range-results}, the results from the \acl{LRWGW} on the roof of the \ac{HFU} C building are similar.
 Since the Antenna was the same MikroTik one as the one used with the \ac{GHB} \acl{LRWGW}, the coverage behavior is comparable.
 The ranges as a whole are slightly lower which stems from the fact that the \ac{HFU} C building is located inside a valley and thus has a lower elevation than the \ac{GHB}.
 
@@ -35,13 +35,13 @@ The ranges as a whole are slightly lower which stems from the fact that the \ac{
     \includegraphics[width=1\textwidth]{pictures/ttn-mapper/gateway-ranges/c_building_gw_range.png}
     \caption[Screenshot of a \acl{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the C building]{
         Screenshot of a \ac{TTNM} map showing some data points taken from the \acl{LRWGW} deployed on top of the C building.
-        The slightly smaller range compared to \cref{pic:ghb_mikrotik_gw_range} is evident.
+        The slightly smaller range compared to \Cref{pic:ghb_mikrotik_gw_range} is evident.
         The maximum range, however, is still \SI{4.3}{\kilo\meter} which is the rightmost blue point in the direction of Vöhrenbach~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:c_building_gw_range}
 \end{figure}
 
 \Cref{pic:c_building_gw_range} shows the range of the \ac{HFU} C building \acl{LRWGW}.
-Clearly visible is the slightly smaller range compared to \cref{pic:ghb_mikrotik_gw_range}.
+Clearly visible is the slightly smaller range compared to \Cref{pic:ghb_mikrotik_gw_range}.
 The maximum range recorded for this \acl{LRWGW} is \SI{4.3}{\kilo\meter}, which is the rightmost blue point in the direction of Vöhrenbach again.
 
 Installing the \acl{LRWGW} on the roof of the \ac{HFU} C building was rather easy since accessing the roof is not difficult.
@@ -60,7 +60,7 @@ The roof is difficult to access, and the \acl{LRWGW} had to be installed on top 
 
 Getting a backhaul connection was rather easy, since a \ac{PoE} switch was available in the server room just beneath the roof.
 
-The range, as shown in \cref{pic:ash_gw_range}, is very good and covers almost the entire Furtwangen area.
+The range, as shown in \Cref{pic:ash_gw_range}, is very good and covers almost the entire Furtwangen area.
 It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} building is also a multi-story building on a hill.
 
 \begin{figure}[htbp]
@@ -72,7 +72,7 @@ It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} build
     }\label{pic:ash_gw_range}
 \end{figure}
 
-The longest range recorded from the \ac{ASH} building thus far is around \SI{4.8}{\kilo\meter} which is the blue point on the right of \cref{pic:ash_gw_range}.
+The longest range recorded from the \ac{ASH} building thus far is around \SI{4.8}{\kilo\meter} which is the blue point on the right of \Cref{pic:ash_gw_range}.
 
 \subsection{\emph{DL0FIS} amateur radio club station}
 
@@ -109,7 +109,7 @@ The gateway could thus be connected using Ethernet.
 
 \subsection{\acl{HFU} O building}\label{subsec:conclusion-hfu-o-building}
 
-Another possible location that was not mentioned in \cref{sec:gateway-locations} was the \ac{HFU} O building.
+Another possible location that was not mentioned in \Cref{sec:gateway-locations} was the \ac{HFU} O building.
 Located in the northern part of Furtwangen, it is a multi-story building that used to be a hospital.
 Since the \ac{HFU} is only a tenant there, permission was needed from the building owner to install the gateway.
 Fortunately, the owner, Mr.\ Odin Jäger, was very cooperative and allowed the gateway to be installed.
@@ -131,7 +131,7 @@ Alongside other protocols, they also use \ac{LoRaWAN} for some of their products
 
 \subsection{\acl{TTNM} heatmap view after additional data collection}\label{sec:ttm_heatmap_after}
 
-During this thesis, additional data was collected using the \ac{LoRaWAN} \ac{GPS} trackers mentioned in \cref{subsec:used-lora-devices}.
+During this thesis, additional data was collected using the \ac{LoRaWAN} \ac{GPS} trackers mentioned in \Cref{subsec:used-lora-devices}.
 This lead to a denser data coverage of \acl{TTNM} in the Furtwangen area.
 
 \begin{figure}[htbp]
@@ -139,13 +139,13 @@ This lead to a denser data coverage of \acl{TTNM} in the Furtwangen area.
     \includegraphics[width=0.7\textwidth]{pictures/ttn-mapper/ttnm_heatmap_after_data_collection.jpg}
     \caption[Screenshot of the \acl{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023]{
         Screenshot of the \ac{TTNM} heatmap view after data collection during this thesis, from the 21st of June 2023.
-        Compared to \cref{pic:ttnm-before-data-collection}, the coverage has improved significantly.
+        Compared to \Cref{pic:ttnm-before-data-collection}, the coverage has improved significantly.
         Several \aclp{LRWGW} were deployed as well as the additional data collection performed with \ac{LoRaWAN} \ac{GPS} trackers~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:ttnm-heatmap-after-data-collection}
 \end{figure}
 
 \Cref{pic:ttnm-heatmap-after-data-collection} shows a view of the \ac{TTNM} heatmap after the additional data collection that was done during this thesis.
-The much redder color of the map is visible, meaning that the signal strength measured in these areas is stronger than before, as visible in \cref{pic:ttn-mapper-heatmap-with-gateways}.
+The much redder color of the map is visible, meaning that the signal strength measured in these areas is stronger than before, as visible in \Cref{pic:ttn-mapper-heatmap-with-gateways}.
 
 While there are still some blank spots on the map, these are mostly due to the fact that these areas were not visited by \ac{GPS} trackers during the data collection in this thesis.
 
@@ -212,7 +212,7 @@ Still, this section will provide an overview over the techniques used during thi
 
 \paragraph{Accuracy of multilateration based on \aclp{RSS} with a fixed \acl{RSS} to range function}\label{subsubsec:conclusion-rssi-fixed-scale}
 
-As shown in \cref{sec:fixed-rssi-to-range-scale-impl}, a fixed \ac{RSS} to range mapping was implemented in the frontend first.
+As shown in \Cref{sec:fixed-rssi-to-range-scale-impl}, a fixed \ac{RSS} to range mapping was implemented in the frontend first.
 In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was poor.
 
 \begin{figure}[htbp]
@@ -231,7 +231,7 @@ In general, the accuracy of using such a fixed \ac{RSSI} to range mapping was po
 
 \paragraph{Accuracy of multilateration based on \aclp{RSS} with linear regression per gateway}\label{subsubsec:conclusion-rssi-linear-regression}
 
-As mentioned in \cref{subsubsec:per-gateway-rssi-to-range-scale}, another idea was to use linear regression to create a \ac{RSS} to range function to map \ac{RSS} values to ranges for each gateway.
+As mentioned in \Cref{subsubsec:per-gateway-rssi-to-range-scale}, another idea was to use linear regression to create a \ac{RSS} to range function to map \ac{RSS} values to ranges for each gateway.
 This approach considers gateway-specific parameters such as position and gateway antenna gain.
 However, it cannot consider \ac{MPP} effects as well as \acl{ED} antenna gain.
 
@@ -240,20 +240,20 @@ However, it cannot consider \ac{MPP} effects as well as \acl{ED} antenna gain.
     \includegraphics[width=0.8\textwidth]{pictures/ttn-locator/frontend/multilateration/rssi_range_multilateration_regression_example.png}
     \caption[Screenshot of the \acl{TTNL} frontend showing an example of a multilateration using a linear regression based \acl{RSSI} to range mapping]{
         Screenshot of the \ac{TTNL} frontend showing an example of a multilateration with three \aclp{LRWGW} using a linear regression based \ac{RSSI} to range mapping per gateway.
-        It uses the same base data point as seen in \cref{pic:bad-rssi-to-range-multilateration-example}.
+        It uses the same base data point as seen in \Cref{pic:bad-rssi-to-range-multilateration-example}.
         The estimated position, where the three green annuli intersect, is more accurate compared to the fixed range mapping.
         The width of the annuli is, again, an arbitrary value of \SI{100}{\meter}.
     }\label{pic:rssi-to-range-multilateration-example-with-linear-regression}
 \end{figure}
 
-\Cref{pic:rssi-to-range-multilateration-example-with-linear-regression} shows an example of the same parameters as in \cref{pic:bad-rssi-to-range-multilateration-example} but with a linear regression model that determines a mapping of \ac{RSS} values to ranges for each gateway.
-The example shows that the resulting position estimation where the three annuli intersect is better than in \cref{pic:bad-rssi-to-range-multilateration-example}.
+\Cref{pic:rssi-to-range-multilateration-example-with-linear-regression} shows an example of the same parameters as in \Cref{pic:bad-rssi-to-range-multilateration-example} but with a linear regression model that determines a mapping of \ac{RSS} values to ranges for each gateway.
+The example shows that the resulting position estimation where the three annuli intersect is better than in \Cref{pic:bad-rssi-to-range-multilateration-example}.
 However, since the linear regression model cannot account for \ac{MPP} effects either, the results still typically deviate from the actual position by a few hundred meters.
 
 \paragraph{Conclusion: \acl{RSS} approaches}
 
-As was explained in \cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSS} values to fluctuate heavily.
-In addition, as explained in \cref{sec:rssi}, different antennas on \aclp{LRWGW} and \aclp{LRWED} can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
+As was explained in \Cref{sec:multipath-propagation}, \acl{MPP} effects can cause the \ac{RSS} values to fluctuate heavily.
+In addition, as explained in \Cref{sec:rssi}, different antennas on \aclp{LRWGW} and \aclp{LRWED} can cause different \ac{RSS} values to be measured for the same distance due to different antenna gains.
 
 This makes multilateration with \ac{RSS} values as the only input data unreliable for precise geolocation.
 Even when using a linear regression model to generate a mapping of \ac{RSS} values to ranges for each gateway, the results were often only accurate to several hundred meters.
@@ -262,7 +262,7 @@ Even when using a linear regression model to generate a mapping of \ac{RSS} valu
 
 \Cref{subsec:toa-based-multilateration-implementation} mentioned the fact that using timestamps from \aclp{LRWGW} to determine the range to the \acl{ED} are too inaccurate to be used for \ac{ToA}-based geolocation.
 
-In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \cref{fig:toa-bad-data-example}, another factor has to be considered.
+In addition to the fact that timestamps arrive at \ac{TTN} with unrealistic offsets due to missing time synchronization as seen in \Cref{fig:toa-bad-data-example}, another factor has to be considered.
 \ac{TTN} captures timestamps for packets arriving at \aclp{LRWGW} in the following format: \lstinline|2000-01-01T12:00:00.123456Z|.
 These timestamps can be found in the \lstinline|uplink_message.rx_metadata[*].time| field of the \ac{JSON} payload that can be viewed in the \ac{TTN} console for each packet that arrives from a certain \acl{ED}~\cite{the_things_industries_bv_data_2023}.
 It uses the \ac{ISO} 8601 \ac{UTC} standard for timestamps~\cite{newman_date_2002}.
@@ -285,7 +285,7 @@ If every gateway in the network were accurately time-synchronized and \si{\nano\
 
 \subsection{Fingerprinting}\label{subsec:conclusion-fingerprinting}
 
-This section evaluates the fingerprinting approach as described in \cref{sec:fingerprinting-implementation}.
+This section evaluates the fingerprinting approach as described in \Cref{sec:fingerprinting-implementation}.
 
 \subsubsection{\acl{RSS} only}
 
@@ -302,13 +302,13 @@ This section evaluates the fingerprinting approach as described in \cref{sec:fin
     }\label{fig:fingerprinting-map-example-dynamic-radius}
 \end{figure}
 
-On the other hand, \cref{fig:fingerprinting-map-example-dynamic-radius} shows an approach where the error radius is not arbitrary, but is calculated based on fitting half the matched points inside the circle.
+On the other hand, \Cref{fig:fingerprinting-map-example-dynamic-radius} shows an approach where the error radius is not arbitrary, but is calculated based on fitting half the matched points inside the circle.
 This usually results in a larger error radius (low precision), but a higher rate of actually containing the actual position (high accuracy).
 
 \subsubsection{Adding \acl{SNR}}
 
 
-As mentioned in \cref{sec:adding-snr-to-fingerprinting}, \ac{SNR} values were also used in the fingerprinting approach in addition to \ac{RSSI}.
+As mentioned in \Cref{sec:adding-snr-to-fingerprinting}, \ac{SNR} values were also used in the fingerprinting approach in addition to \ac{RSSI}.
 Even though \ac{SNR} values are also affected by \ac{MPP} effects, this improved the accuracy of the results in some cases.
 However, since \ac{SNR} values also depend on the \ac{SF} used, both should be used in conjunction if the fingerprint \ac{DB} contains data with varying \acp{SF}.
 
@@ -317,7 +317,7 @@ However, since \ac{SNR} values also depend on the \ac{SF} used, both should be u
     \includegraphics[width=0.6\textwidth]{pictures/ttn-locator/frontend/fingerprinting/fingerprinting_map_example_with_snr.png}
     \caption[Example for a fingerprinting result map generated by \ac{TTNL} with \acl{RSS} and \acl{SNR} values]{
         Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
-        In addition to the example provided in \cref{fig:fingerprinting-map-example-dynamic-radius}, this example also includes \ac{SNR} values.
+        In addition to the example provided in \Cref{fig:fingerprinting-map-example-dynamic-radius}, this example also includes \ac{SNR} values.
     }\label{fig:fingerprinting-map-example-with-snr}
 \end{figure}
 
@@ -328,7 +328,7 @@ Nevertheless, data collection is not a problem, since \ac{TTN} already captures 
 
 \subsubsection{Adding \acl{SF}}
 
-As mentioned in \cref{sec:sf-snr-correlation}, the \ac{SF} used by the \acl{ED} has an influence on the \ac{SNR} values at which a signal can still be detected.
+As mentioned in \Cref{sec:sf-snr-correlation}, the \ac{SF} used by the \acl{ED} has an influence on the \ac{SNR} values at which a signal can still be detected.
 This means that the \ac{SF} value also plays a role in a more accurate location estimation of the \acl{ED}.
 
 The \ac{TTNL} frontend includes a checkbox that enables the addition of \ac{SF} values to the fingerprinting filter.
@@ -340,14 +340,14 @@ That way, the \ac{SNR} values of the remaining data points are applicable to the
     \includegraphics[width=0.7\textwidth]{pictures/ttn-locator/frontend/fingerprinting/fingerprinting_map_example_with_snr_sf.png}
     \caption[Example for a fingerprinting result map generated by \ac{TTNL} with \acl{RSS}, \acl{SF} and \acl{SNR} values]{
         Screenshot of the \ac{TTNL} frontend showing an example for a fingerprinting result map generated by \ac{TTNL}.
-        In addition to the example provided in \cref{fig:fingerprinting-map-example-with-snr}, this example also filter according to the data point's \ac{SF} value.
+        In addition to the example provided in \Cref{fig:fingerprinting-map-example-with-snr}, this example also filter according to the data point's \ac{SF} value.
     }\label{fig:fingerprinting-map-example-with-snr-and-sf}
 \end{figure}
 
 \Cref{fig:fingerprinting-map-example-with-snr-and-sf} shows an example with \ac{SF} filtering turned on.
 The result is dependent on the amount of training data that was collected for the area, but for most cases, also filtering by \ac{SF} further improves the accuracy of the results.
 This is because it removes results with a \ac{SF} different from the one used by the \acl{ED}, which could otherwise have \ac{SNR} values different from the actual \acl{ED} packets.
-As most \aclp{LRWED} used in this thesis were using \ac{SF}7, the example given in \cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \cref{fig:fingerprinting-map-example-with-snr}.
+As most \aclp{LRWED} used in this thesis were using \ac{SF}7, the example given in \Cref{fig:fingerprinting-map-example-with-snr-and-sf} doesn't show much improvement of accuracy over \Cref{fig:fingerprinting-map-example-with-snr}.
 However, if a larger dataset with a greater variation of \ac{SF} values were used, the improvement would be more visible.
 
 \subsubsection{Conclusion}
@@ -362,12 +362,12 @@ This is because it can take into account the \ac{SF} and \ac{SNR} values of the 
 In addition, performance inside buildings is also better than with the multilateration approach, since the fingerprinting approach does not assume \ac{LoS} between the \acl{LRWED} and the \aclp{LRWGW}.
 Thus, it can also take into account the \ac{MPP} effects such as attenuation that occur inside buildings or behind walls.
 
-In the example pictures given in \cref{fig:fingerprinting-map-example-dynamic-radius}, \cref{fig:fingerprinting-map-example-with-snr} and \cref{fig:fingerprinting-map-example-with-snr-and-sf}, the error radii improved from around \SI{250}{\meter} with only \ac{RSS} values to \SI{159}{\meter} with \ac{SNR} values and around \SI{164}{\meter} with \ac{SNR} and \ac{SF} values.
+In the example pictures given in \Cref{fig:fingerprinting-map-example-dynamic-radius}, \Cref{fig:fingerprinting-map-example-with-snr} and \Cref{fig:fingerprinting-map-example-with-snr-and-sf}, the error radii improved from around \SI{250}{\meter} with only \ac{RSS} values to \SI{159}{\meter} with \ac{SNR} values and around \SI{164}{\meter} with \ac{SNR} and \ac{SF} values.
 The worse performance with both \ac{SF} and \ac{SNR} values can be explained due to the fact that the amount of training data for the area did not include many \aclp{SF} other than \acs{SF}7.
 
 \section{Comparison of findings with existing work}
 
-Several of the approaches found in \cref{sec:related-work} have better success in locating endpoints than the work in this thesis.
+Several of the approaches found in \Cref{sec:related-work} have better success in locating endpoints than the work in this thesis.
 This could be due to the fact that these approaches use more tightly controlled environments, such as having \ac{LoS} between the \acl{LRWED} and the \aclp{LRWGW}.
 Additionally, most of these approaches use smaller testing areas, such as a single building or a small campus, as opposed to the entire city of Furtwangen.
 However, the work presented in this thesis was successful in achieving rough geolocation.
@@ -375,7 +375,7 @@ However, the work presented in this thesis was successful in achieving rough geo
 The hardware deployments in this thesis were less focused on getting good geolocation results and more focused on getting a large amount of data from a wide variety of \aclp{ED} and \aclp{GW}.
 This variety is also the case in real-world \ac{IoT} deployments.
 As far as \ac{LoRaWAN} coverage in the Furtwangen is concerned, this can be considered a success.
-As was shown in \cref{sec:gateway-locations-conclusions}, \ac{LoRaWAN} coverage in Furtwangen on \ac{TTNM} now looks a lot more complete than it did before the work during this thesis (\cref{pic:ttnm-before-data-collection}).
+As was shown in \Cref{sec:gateway-locations-conclusions}, \ac{LoRaWAN} coverage in Furtwangen on \ac{TTNM} now looks a lot more complete than it did before the work during this thesis (\Cref{pic:ttnm-before-data-collection}).
 
 \section{Outlook}
 
@@ -404,7 +404,7 @@ Thus, since the \ac{TTNL} software currently updates the gateway locations after
 It shows a gateway that was located on the \ac{HFU} B building, but was then moved to its final location, the roof of the \emph{DL0FIS} clubhouse.
 
 \ac{TTNM} is supposed to perform a similar data cleaning as was described earlier based on the section ``My results were showing on the map before, but is gone now.'' in their FAQ~\cite{ttn_mapper_faq_nodate}.
-However, as far as the duration of this thesis is concerned, this was not observed, as evidenced by \cref{pic:gateway-moved-example}.
+However, as far as the duration of this thesis is concerned, this was not observed, as evidenced by \Cref{pic:gateway-moved-example}.
 
 \ac{TTNL} could be improved by adding a feature to the \ac{TTNL} backend.
 If a gateway moves further than a certain distance, each associated TtnMapperDatapoint having a timestamp before the relocation should be deleted to avoid the usage of false data in the calculations.
@@ -442,7 +442,7 @@ Using Docker and Docker Compose also allows for easy reproducibility of the proj
 
 \paragraph{Full Stack Frameworks (SvelteKit, Nuxt.js)}
 
-As an alternative to the approach described in \cref{subsubsec:outlook-sharing-type-definitions}, the entire project could have been written using a full-stack framework such as SvelteKit or Nuxt.js.
+As an alternative to the approach described in \Cref{subsubsec:outlook-sharing-type-definitions}, the entire project could have been written using a full-stack framework such as SvelteKit or Nuxt.js.
 This would also have allowed the entire project to be in a single repository, which would have made sharing type definitions easier.
 
 However, this would also have meant a much tighter coupling of the \ac{TTNL} frontend and backend.
@@ -451,7 +451,7 @@ As a result, it would no longer be possible to deploy the \ac{TTNL} frontend and
 \paragraph{Prisma}
 
 While Prisma enables the developer to write type safe \ac{DB} queries using \ac{TS}, it does not support all possible queries (yet).
-Some advanced queries, such as the PostGIS one shown in \cref{lst:sql-remove-outliers}, had to be written ``by hand'' using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
+Some advanced queries, such as the PostGIS one shown in \Cref{lst:sql-remove-outliers}, had to be written ``by hand'' using \ac{SQL} and executed using Prisma's \lstinline|$executeRaw| method.
 There were several such cases in this thesis, which is why it might have been more suitable to not use Prisma at all and instead use \ac{SQL} in a more direct way.
 
 However, Prisma's ability to generate migrations from a schema and its type safety justified its use.
@@ -492,7 +492,7 @@ Alerting specific users if a gateway goes offline could also be implemented with
 
 \subsubsection{Improving timestamp accuracy for \acl{ToA} geolocation method}
 
-As mentioned in \cref{subsec:conclusion-toa-tdoa}, the accuracy of the \ac{ToA} method could be greatly improved if nanosecond level timestamps were available.
+As mentioned in \Cref{subsec:conclusion-toa-tdoa}, the accuracy of the \ac{ToA} method could be greatly improved if nanosecond level timestamps were available.
 Unfortunately, \ac{TTN} does not provide nanosecond level timestamps for the packets received by the \aclp{LRWGW}.
 To solve this problem, a \ac{LNS} would need to be set up that has the ability to do that.
 
@@ -512,7 +512,7 @@ For example, \ac{kNN} could be used to determine the location of a \acl{ED} base
 \ac{kNN} also uses a \ac{DB} of fingerprints.
 However, it does not calculate the center of the matching data points but uses the ``k nearest neighbors'' to determine the location of a \acl{ED}~\cite{anagnostopoulos_reproducible_2019}.
 
-As was mentioned in \cref{sec:related-work}, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization where they used a deep learning approach.
+As was mentioned in \Cref{sec:related-work}, Perković et al.\ published a paper on the topic of \ac{LoRa}-based indoor localization where they used a deep learning approach.
 They trained their network with \ac{RSS} values and position samples similar to the ones used in this thesis~\cite{perkovic_machine_2023}.
 
 A multi-dimensional regression could be performed to enable the multilateration approach by including \ac{SNR} and \ac{SF} values.
@@ -520,7 +520,7 @@ This could improve the accuracy of the multilateration method while only requiri
 
 \subsubsection{Gateway on the roof of the \acl{HFU} O building}
 
-As was mentioned in \cref{subsec:conclusion-hfu-o-building}, the roof of the O building would make another good location for a \acl{LRWGW}.
+As was mentioned in \Cref{subsec:conclusion-hfu-o-building}, the roof of the O building would make another good location for a \acl{LRWGW}.
 The permission by the building's owner was granted.
 The problem that would need to be solved is getting a network connection as well as power to the roof of the building.
 
@@ -534,7 +534,7 @@ Theoretically, a gateway to gateway communcation in pure \ac{LoRa} is possible~\
 However, this behavior is not implemented in the \ac{LoRaWAN} protocol.
 
 If this functionality could be implemented in the \ac{LoRaWAN} protocol, it would allow for a sort of meshed network of \aclp{LRWGW}.
-Gateways acting as repeaters in such a network could forward \ac{LoRaWAN} packets without the need for a backhaul connection as mentioned in \cref{sec:gateways}.
+Gateways acting as repeaters in such a network could forward \ac{LoRaWAN} packets without the need for a backhaul connection as mentioned in \Cref{sec:gateways}.
 Since the \ac{LoRaWAN} protocol doesn't provide this functionality yet, it would need to be tested with a custom implementation of gateway firmware first.
 
 A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing between \aclp{LRED} is \emph{Meshtastic}~\cite{meshtastic_llc_meshtastic_2023}.
@@ -560,12 +560,12 @@ Since the work in this thesis has shown that it is possible, at least at a rough
 \aclp{LRWED} are small and can be hidden easily while having a long battery life and long range.
 This means that such devices could be used to track people without their knowledge over long periods of time even when not having access to \ac{GNSS} at all as long as there are enough \aclp{LRWGW} around to perform a rough multilateration or fingerprinting.
 
-As \cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \acl{LRWGW} with enough data collection and time.
+As \Cref{subsec:factory-building-of-the-e-wehrle-company} showed, it is also possible to roughly locate a \acl{LRWGW} with enough data collection and time.
 This could allow bad actors to physically attack \aclp{LRWGW} connected to the public \ac{TTN} network even if they do not a have a public location set.
 
 \section{Conclusion}
 
-This section will summarize the results of the work in this thesis and aims to answer the research questions posed in \cref{sec:introduction-research-questions}.
+This section will summarize the results of the work in this thesis and aims to answer the research questions posed in \Cref{sec:introduction-research-questions}.
 
 This thesis deployed a full-stack application using \ac{LoRaWAN} technology, covering all aspects from hardware to software.
 The procedure involved the installation of \aclp{LRWGW}, collecting data using \aclp{LRWED} and transmitting the data packets to \acl{TTNM} through the \ac{TTN} \acl{LNS}.

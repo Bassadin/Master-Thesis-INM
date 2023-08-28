@@ -25,7 +25,7 @@ This makes low power sensors that can run on batteries for several months to yea
 For instance, Wi-Fi is unsuitable for battery-powered \aclp{ED} in remote areas, both because it requires relatively high power to operate and has a limited range.
 Similarly, ZigBee's limited range makes it unsuitable for remote locations.
 While \ac{LTE} has a rather large range, is also unsuitable for battery powered \aclp{ED} either as it requires a lot of power.
-A rough comparison between selected wireless protocols can be seen in \cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
+A rough comparison between selected wireless protocols can be seen in \Cref{pic:wireless-protocols-comparison}~\cite{wang_comparison_2021}.
 
 \subsection{Comparing signal strengths — \acl{RSSI}}\label{sec:rssi}
 
@@ -35,14 +35,14 @@ As far as this thesis is concerned, \ac{RSS} values are measured in dBm since th
 Different \aclp{ED} can have different \ac{RSS} values for the same distance because of factors such as antennas with different gains.
 Furthermore, \ac{RSS} values can only function reliably when there is nothing blocking the signal between the transmitting and receiving stations, e.g.,\ if there is a \ac{LoS} between the sender and receiver.
 The \ac{RF} signal may be obstructed and weakened by structures, trees, or other physical barriers.
-This is due to a phenomenon known as \acf{MPP} which will later be explained in \cref{sec:multipath-propagation}~\cite{kucherov_investigation_2021}.
+This is due to a phenomenon known as \acf{MPP} which will later be explained in \Cref{sec:multipath-propagation}~\cite{kucherov_investigation_2021}.
 
 \subsubsection{Correlation between \acs{RSS} values and distance — \acf{FSPL}}\label{sec:background-free-space-path-loss}
 
 Usually, the higher the \ac{RSS} value, the closer the sender is to the receiver since the signal is stronger when the radio waves have to travel a shorter distance~\cite{stutzman_antenna_1981}.
 When using two non-directional (isotropic) antennas, there is a certain correlation between the distance between sender and receiver and the \ac{RSSI} value.
 
-The equation to calculate this so-called \acl{FSPL} in decibels can be seen in \cref{eq:fspl}~\cite[p. 1321]{whitaker_electronics_1996}.
+The equation to calculate this so-called \acl{FSPL} in decibels can be seen in \Cref{eq:fspl}~\cite[p. 1321]{whitaker_electronics_1996}.
 
 \begin{equation}\label{eq:fspl}
     FSPL_{dB} = 20 \log_{10}\left(\frac{4 \pi d}{\lambda}\right)
@@ -54,7 +54,7 @@ $d$ is the distance between sender and receiver, while $\lambda$ is the waveleng
     \lambda = \frac{c}{f}
 \end{equation}
 
-To calculate the wavelength of a signal, the formula seen in \cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
+To calculate the wavelength of a signal, the formula seen in \Cref{eq:wavelength-of-a-signal} is used, where $\lambda$ is the wavelength, $c$ is the speed of light, and $f$ is the frequency.
 As the \ac{LoRa} modulation operates at \SI{868}{\mega\hertz} in the \ac{EU}, its wavelength can be calculated as $\lambda = \frac{299792458 \text{ m/s}}{868 \times 10^6 \text{ Hz}} \approx 0.345 \text{ m}$~\cite{lora_alliance_inc_lorawan_regional_2017}.
 
 As an example, the \acl{FSPL} in \si{\decibel} for a distance of \SI{1}{\kilo\metre} (\SI{1000}{\metre}) with the \ac{LoRa} frequency can be calculated as follows: $20 \log_{10}\left(\frac{4 \pi \times 1000}{0.345}\right) \approx 91.23 \text{ dB}$.
@@ -74,7 +74,7 @@ In addition to a signal reaching its destination directly, a \ac{RF} transmissio
     }\label{pic:figure_multipath_propagation}
 \end{figure}
 
-This is because the signal can be reflected, diffracted, refracted and scattered, taking multiple paths (hence the term \acl{MPP}) as shown in \cref{pic:figure_multipath_propagation}.
+This is because the signal can be reflected, diffracted, refracted and scattered, taking multiple paths (hence the term \acl{MPP}) as shown in \Cref{pic:figure_multipath_propagation}.
 
 \subsection{Describing influences of noise on the signal — \acf{SNR}}\label{sec:background-snr}
 
@@ -96,10 +96,10 @@ While the \ac{SNR} can also be expressed in \si{\decibel}, in this thesis it is 
 \section{Terminology: \acs{LoRa} vs. \acs{LoRaWAN}}
 
 \acf{LoRa} is a \ac{RF} communication modulation that offers a standardized way to send data packets over the air in a specific way~\cite{semtech_corporation_lora_2023}.
-A rough explanation of its technical details will be given in \cref{sec:lora-modulation}.
+A rough explanation of its technical details will be given in \Cref{sec:lora-modulation}.
 
 \ac{LoRaWAN} is a network protocol that uses \ac{LoRa} as its physical layer to transmit data packets.
-It will be explained in more detail in \cref{sec:lorawan}.
+It will be explained in more detail in \Cref{sec:lorawan}.
 
 \section{The \acs{LoRa} modulation}\label{sec:lora-modulation}
 
@@ -114,7 +114,7 @@ However, it will not go into detail about all technical details of the modulatio
 
 \ac{LoRa} uses a technique called \acl{CSS} to transmit data with the possibility for error detection and correction~\cite{reynders_chirp_2016}.
 \acs{CHIRP} stands for \acl{CHIRP}.
-It uses frequency hopping and different \aclp{SF} to encode signals in order to make them robust against interference, as will be explained in \cref{sec:spreading-factors}.
+It uses frequency hopping and different \aclp{SF} to encode signals in order to make them robust against interference, as will be explained in \Cref{sec:spreading-factors}.
 
 \subsection{Regio-specific parameters for the \acs{LoRa} modulation in the \acs{EU} region}\label{sec:duty-cycle}
 
@@ -131,7 +131,7 @@ In the \ac{EU} region, the duty cycle for transmissions in the \SI{868}{\mega\he
 This means that a \acl{LRED} using this frequency band may only transmit for \SI{1}{\percent} of a given time slot.
 For example, if a \acl{ED} transmits data for \SI{1}{\milli\second}, it must stay silent for the following \SI{99}{\milli\second}.
 
-An example for duty cycle time frames can be seen in \cref{pic:lora-duty-cycle}.
+An example for duty cycle time frames can be seen in \Cref{pic:lora-duty-cycle}.
 In this example, the duty cycle is \SI{20}{\percent}.
 The \acl{ED} that transmits for one block of time needs to stay silent for the next four time blocks before it can transmit again.
 To stay compliant with the \SI{20}{\percent} duty cycle, it may start a new transmission starting with the sixth time block.
@@ -166,7 +166,7 @@ In fact, the transmission time is proportional to $2^{\text{SF}}$~\cite{sakshama
 This means that, for example, a transmission using \ac{SF}10 takes twice as long as a transmission using \ac{SF}9.
 
 While a higher \acl{SF} means that data can be transmitted over a longer range, the transmission also takes longer.
-Given the 1\% duty cycle in the \ac{EU} region mentioned in \cref{sec:duty-cycle}, this also means that using a higher \acl{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
+Given the 1\% duty cycle in the \ac{EU} region mentioned in \Cref{sec:duty-cycle}, this also means that using a higher \acl{SF} reduces the maximum amount of data that can be transmitted in any given timeframe.
 
 Different \aclp{SF} are orthogonal to each other as far as \ac{RF} transmission through the air is concerned.
 This means they can be used simultaneously without causing any interference with one another~\cite{the_things_network_spreading_2023}.
@@ -179,18 +179,18 @@ In the \ac{EU} region, it ranges from \SI{222}{\byte} for \ac{SF}7 to \SI{51}{\b
 \aclp{SF} are important for this thesis because they interact with the \ac{SNR} values of a transmission.
 Higher \ac{SF} values allow for lower \ac{SNR} values (more noise, less signal) to still be decodable, since the wider spread of the signal makes it more resilient to noise.
 
-Because of this correlation between \acl{SF} and \acl{SNR}, it is essential to take both factors into account when performing similarity checks, such as fingerprinting as described in \cref{sec:fingerprinting-additional-values}.
+Because of this correlation between \acl{SF} and \acl{SNR}, it is essential to take both factors into account when performing similarity checks, such as fingerprinting as described in \Cref{sec:fingerprinting-additional-values}.
 
 \subsection{Why use \acs{LoRa} over other technologies?}
 
-As can be seen in \cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for \aclp{ED} that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
+As can be seen in \Cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good choice for \aclp{ED} that need to be able to operate battery-powered in remote locations for extended periods of time, as it has a long range and low power consumption.
 
 A \ac{LoRa} \acl{ED} that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 
 \emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering parameters such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
 It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of \SI{8}{\byte}, 1 hour of periodicity and a 2500 mAh AA type battery.
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
-Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \cref{sec:device-classes}).
+Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \Cref{sec:device-classes}).
 
 \section{Connecting smaller networks to each other with \aclp{WAN}}
 
@@ -250,7 +250,7 @@ This section will explain the structure of a \ac{LoRaWAN} network and how it wor
     }\label{pic:lorawan-network-structure}
 \end{figure}
 
-The \ac{LoRaWAN} network architecture, as seen in \cref{pic:lorawan-network-structure}, consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
+The \ac{LoRaWAN} network architecture, as seen in \Cref{pic:lorawan-network-structure}, consists of four main components~\cite[p. 8]{lora_alliance_inc_lorawan_specification_2017}:
 
 \begin{itemize}
     \item The end nodes (called \aclp{ED} in this thesis),
@@ -282,7 +282,7 @@ To achieve the connection to the \ac{LNS}, the \acl{LRWGW} needs to be connected
 This connection is also called \emph{backhaul}.
 The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections~\cite{the_things_industries_bv_lorawan_nodate}.
 
-One example of a \acl{GW} used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \cref{pic:mikrotik-lr8-kit-gateway}.
+One example of a \acl{GW} used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \Cref{pic:mikrotik-lr8-kit-gateway}.
 
 While some \aclp{LRWGW} may come equipped with an integrated antenna, their range is generally limited to small to medium-sized spaces or buildings.
 It is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \aclp{LRED} was the goal.
@@ -314,7 +314,7 @@ Every \acl{LRWED} must support at least the Class A mode~\cite[p. 11]{lora_allia
 A communication in Class A is always initiated by the \acl{LRWED} itself.
 
 Bidirectional communication is possible in Class A by means of two downlink receive windows, during which the \ac{LNS} can transmit data to the \acl{ED}~\cite[p. 13]{lora_alliance_inc_lorawan_specification_2017}.
-An example can be seen in \cref{pic:lorawan-device-class-a-schema}.
+An example can be seen in \Cref{pic:lorawan-device-class-a-schema}.
 
 Class A consumes the least amount of power of the three classes, because \aclp{LRWED} in this class specify when and how often they want to communicate with the \ac{LNS}.
 However, this also makes it impossible for the \ac{LNS} to send data to the \acl{ED} at any other time.
@@ -332,7 +332,7 @@ However, this also makes it impossible for the \ac{LNS} to send data to the \acl
 
 In addition to the functionality provided by Class A, Class B \aclp{LRWED} are also able to receive downlink messages from the \ac{LNS} during dedicated downlink receive windows~\cite[p. 67]{lora_alliance_inc_lorawan_specification_2017}.
 In order to realize this without the need for a per-device \ac{RTC}, such \aclp{ED} receive time synchronized beacons from the \aclp{LRWGW}.
-The communication schema for Class B \aclp{LRWED} can be seen in \cref{pic:lorawan-device-class-b-schema}.
+The communication schema for Class B \aclp{LRWED} can be seen in \Cref{pic:lorawan-device-class-b-schema}.
 
 These scheduled downlink windows result in a higher power consumption for Class B \aclp{LRWED}, because they need to be awake during these periods.
 
@@ -348,7 +348,7 @@ These scheduled downlink windows result in a higher power consumption for Class 
 \end{figure}
 
 Class C \aclp{LRWED} are always listening for downlink messages from the \ac{LNS} when not currently transmitting an uplink message~\cite[p. 86]{lora_alliance_inc_lorawan_specification_2017}.
-In essence, they keep the downlink windows as specified in Class B open all the time as seen in \cref{pic:lorawan-device-class-c-schema}.
+In essence, they keep the downlink windows as specified in Class B open all the time as seen in \Cref{pic:lorawan-device-class-c-schema}.
 
 As a result, \aclp{LRWED} in Class C consume the most power because they are always listening for downlink messages.
 The fact that they are always reachable by the \ac{LNS} also makes them the most suitable for applications that require a high data rate or reliable downlink accessibility.
@@ -417,7 +417,7 @@ Since \ac{TTN} v3, using the \ac{TCP}-based \acl{LBS} protocol is recommended ov
 \ac{LBS} uses \ac{TLS}-encrypted \ac{TCP} connections with token-based authentication to relay \ac{LoRaWAN} packets to the \ac{LNS}~\cite{the_things_industries_bv_lora_2022}.
 
 The two main components of \acl{LBS} are the \ac{LNS} connection itself as well as the \acf{CUPS}.
-The communication schema can be seen in \cref{pic:lora-basics-station-schema}.
+The communication schema can be seen in \Cref{pic:lora-basics-station-schema}.
 
 The \ac{LNS} uses the \ac{WSS} protocol for communication and is responsible for handling the \ac{LoRaWAN} packets whereas the \ac{CUPS} is responsible for handling the configuration of \aclp{LRWGW}.
 
@@ -432,7 +432,7 @@ Some \aclp{LRWGW} used in this thesis were unable to use the more modern \acl{LB
 This was the case for the MikroTik LR8 wAP \acl{LRWGW}, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
 It instead uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
 
-Most of the other \aclp{LRWGW} deployed during this thesis, especially the ones from \emph{Dragino}, were able to use \ac{LBS} and used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \cref{sec:lorawan-lbs}.
+Most of the other \aclp{LRWGW} deployed during this thesis, especially the ones from \emph{Dragino}, were able to use \ac{LBS} and used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \Cref{sec:lorawan-lbs}.
 
 \subsection{\acl{TTN} Console — End Device and Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
@@ -454,7 +454,7 @@ MQTT is a widely used, lightweight publish-subscribe messaging protocol that is 
 The MQTT protocol is not used in this thesis, so it will not be discussed further.
 
 \ac{TTNM}, the service that was used to collect geolocation data from \aclp{LRWED} in this thesis, uses a webhook integration to collect data from \ac{TTN}.
-This is explained in more detail in \cref{sec:ttm-data-collection}.
+This is explained in more detail in \Cref{sec:ttm-data-collection}.
 
 Integrations are managed on a per-application basis.
 This means that different integrations can be used for different applications.
@@ -486,7 +486,7 @@ This number was taken from the response of a \ac{TTN} \ac{API} route that \ac{TT
 Alongside the location information, packets from those \aclp{LRWED} that are processed by \ac{TTN} also include information about which \aclp{LRWGW} received them.
 
 Hence, \acl{TTNM} can use the information about which \aclp{LRWGW} received the message and the location information of the \ac{GNSS} modules of those \aclp{LRWED}.
-This is done by means of a webhook integration that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a \acl{LRWED} sends a packet to the \ac{TTN} network as has been explained in \cref{sec:forwarding-data-from-ttn-to-as}.
+This is done by means of a webhook integration that sends the data to an endpoint of the \acl{TTNM} \ac{API} whenever a \acl{LRWED} sends a packet to the \ac{TTN} network as has been explained in \Cref{sec:forwarding-data-from-ttn-to-as}.
 With this data, it can build a map displaying the coverage of \aclp{LRWGW} in the \ac{TTN} network.
 
 \subsection{\acl{TTNM} frontend data views}
@@ -525,10 +525,10 @@ This was the part of the \ac{API} that was used most for this thesis.
 \subsection{Importance of \acl{TTNM} for this thesis}\label{sec:ttn-mapper-importance}
 
 The data that is provided via the \ac{TTNM} \ac{REST} \ac{API} served as the foundation of this thesis.
-The \ac{TTNL} application that will be described in \cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
+The \ac{TTNL} application that will be described in \Cref{section:ttnl} was created to access this \ac{API} and request its data to make it possible to perform advanced queries on it.
 Such queries were not possible with the \ac{TTNM} \ac{API} alone, since it doesn't provide direct access to its underlying \ac{DB} or provide specific endpoints for the kind of complex data filtering that was needed for this thesis.
 
-Through building a \ac{DB} of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \cref{sec:rssi-fingerprinting}.
+Through building a \ac{DB} of \ac{RSSI} and location values, \ac{TTNM} also enables the use of the fingerprinting localization technique, as will be explained in \Cref{sec:rssi-fingerprinting}.
 This was one of the techniques used to locate \aclp{LRWED} in this thesis.
 
 \section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
@@ -547,7 +547,7 @@ This process requires the \acl{ED} to be able to determine the angles to the ref
 \end{figure}
 
 The correct term to use when using distances between an \acl{ED} and multiple receivers to achieve a localization of the \acl{ED} is \emph{multilateration}.
-An example of this in \ac{GNSS} is shown in \cref{pic:multilateration-gps-2d-3d-example}.
+An example of this in \ac{GNSS} is shown in \Cref{pic:multilateration-gps-2d-3d-example}.
 A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
 
 \section{Locating devices accurately outdoors with the \acl{GNSS}}
@@ -556,11 +556,11 @@ A specific case of multilateration is \emph{trilateration}, which specifies thre
 In everyday language, the term \ac{GPS} is often used as a synonym for \ac{GNSS}.
 However, \ac{GPS} is only one of the several \ac{GNSS} systems that are currently in use.
 
-\ac{GNSS} systems use multilateration to determine the location of \aclp{ED} as explained in \cref{sec:multilateration-basics}.
+\ac{GNSS} systems use multilateration to determine the location of \aclp{ED} as explained in \Cref{sec:multilateration-basics}.
 \Cref{pic:multilateration-gps-2d-3d-example} shows an example of how this works with \ac{GNSS} satellites in 2D and 3D.
 
 To determine the distance from the \acl{ED} to the satellites, the time it takes for a signal to travel from the satellite to the \acl{ED} is measured and used in conjunction with the speed of light to calculate the distance.
-This approach is called \acf{ToA} and will be explained in more detail in \cref{sec:toa-based-multilateration}.
+This approach is called \acf{ToA} and will be explained in more detail in \Cref{sec:toa-based-multilateration}.
 
 \subsection{The most well-known \acl{GNSS} — The \acl{GPS}}
 
@@ -578,7 +578,7 @@ For example, the Russian \emph{GLONASS}, the European Galileo, the Chinese \acf{
 Most modern smartphones support multiple \ac{GNSS} systems to enhance location accuracy.
 One of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, \emph{GLONASS}, Galileo, and \ac{BDS}, for example~\cite{gsmarena_samsung_2023}.
 
-The \aclp{LRWED} used in this thesis, as described in \cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
+The \aclp{LRWED} used in this thesis, as described in \Cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
 
 \subsection{A measure of \acl{GNSS} localization accuracy: \acl{HDOP}}
 
@@ -608,14 +608,14 @@ Therefore, \ac{PDOP} is a measure of the quality of the current \ac{GNSS} conste
 
 The \ac{HDOP} value is relevant to this thesis because it was used to filter out values that were not considered accurate enough to be used in further calculations.
 It is usually included in \ac{LoRaWAN} packets sent to \ac{TTN} from \ac{GPS} trackers.
-As mentioned in \cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes certain data points based on the \ac{HDOP} value.
+As mentioned in \Cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes certain data points based on the \ac{HDOP} value.
 
 \subsection{Power usage of localization via \acl{GPS} vs. \acs{LoRaWAN} metadata}\label{subsec:gnss-power-usage}
 
 In order to demonstrate the significance of employing \ac{RSS} values rather than \ac{GNSS} systems for locating \aclp{ED}, this section provides a comparison of power usage between the two methods.
 
 The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
-It will be evaluated in more detail in \cref{subsubsec:elv-gps-tracker-implementation}.
+It will be evaluated in more detail in \Cref{subsubsec:elv-gps-tracker-implementation}.
 As it is considerably well-documented on the manufacturer's website, it will be used to calculate some power usage values.
 The \emph{ELV-LW-GPS1} uses a \emph{Quectel LC86L} \ac{GNSS} chip as well as a \emph{dnt-TRX-ST1} \ac{LoRaWAN} module~\cite{elv_elektronik_ag_elv_2023}.
 
@@ -650,8 +650,8 @@ This section will explain several concepts relating to geolocation in conjunctio
 
 \subsection{Multilateration using various mappings}\label{sec:lorawan-multilateration}
 
-As explained in \cref{sec:multilateration-basics}, multilateration uses the distance between a device and multiple receivers to determine the location of the \acl{ED}.
-However, while the theoretical concept of multilateration, as shown in \cref{pic:multilateration-gps-2d-3d-example} is simple, there are several challenges when applying it to real-world scenarios.
+As explained in \Cref{sec:multilateration-basics}, multilateration uses the distance between a device and multiple receivers to determine the location of the \acl{ED}.
+However, while the theoretical concept of multilateration, as shown in \Cref{pic:multilateration-gps-2d-3d-example} is simple, there are several challenges when applying it to real-world scenarios.
 Distances measured between devices are often not accurate enough to determine the location of a device accurately.
 
 \begin{figure}[htbp]
@@ -659,7 +659,7 @@ Distances measured between devices are often not accurate enough to determine th
     \includegraphics[width=0.6\textwidth]{pictures/multilateration/multilateration_error_ranges.png}
     \caption[Example of multilateration in 2D with error ranges]{
         An example of multilateration in 2D with error ranges.
-        In contrast to the example shown in \cref{pic:multilateration-gps-2d-3d-example}, the margins of error can be seen as well as the non-definite margin of error around the estimated device position~\protect\cite{kapoor_novel_2016}.
+        In contrast to the example shown in \Cref{pic:multilateration-gps-2d-3d-example}, the margins of error can be seen as well as the non-definite margin of error around the estimated device position~\protect\cite{kapoor_novel_2016}.
     }\label{pic:multilateration-with-error-ranges-example}
 \end{figure}
 
@@ -685,9 +685,9 @@ Since the speed of light is extremely high, even minor differences in time synch
 
 \subsubsection{Using the \acl{RSSI} to determine distances}\label{sec:rssi-based-multilateration}
 
-This method uses the \acf{RSSI} values that were explained in \cref{sec:rssi} to determine the distance between sender and receiver.
-The distance between sender and receiver usually decreases in correlation with the measured \ac{RSSI} value as has been explained in \cref{sec:background-free-space-path-loss}.
-However, as mentioned in \cref{sec:multipath-propagation}, the \ac{RSSI} value can be also affected by other factors like obstacles and the environment (\ac{MPP}).
+This method uses the \acf{RSSI} values that were explained in \Cref{sec:rssi} to determine the distance between sender and receiver.
+The distance between sender and receiver usually decreases in correlation with the measured \ac{RSSI} value as has been explained in \Cref{sec:background-free-space-path-loss}.
+However, as mentioned in \Cref{sec:multipath-propagation}, the \ac{RSSI} value can be also affected by other factors like obstacles and the environment (\ac{MPP}).
 
 These facts make \ac{RSSI}-based localization only work accurately in environments with little to no obstacles and thus a low amount of multipath propagation.
 \Cref{sec:rssi-based-multilateration-implementation} will describe how this method was implemented in two different forms in this thesis.
@@ -702,10 +702,10 @@ By performing similarity comparisons with the known fingerprints, the device's l
 If multiple fingerprints match, the device's location can be estimated by calculating the average or center of the locations of the matching fingerprints.
 
 For the purposes of this thesis, fingerprinting specifically relied on the \ac{RSS} values it receives from surrounding \aclp{LRWGW} as well as some other values.
-The implementation of \ac{RSSI} fingerprinting for \ac{LoRaWAN} localization will be explained in \cref{sec:fingerprinting-implementation}.
+The implementation of \ac{RSSI} fingerprinting for \ac{LoRaWAN} localization will be explained in \Cref{sec:fingerprinting-implementation}.
 While \ac{ML} approaches can be used to improve fingerprinting, they were not used in this work, only simpler similarity calculations.
 
-Fortunately, building a \ac{DB} of fingerprints for the use case explored in this thesis is fairly straightforward, since the \ac{TTNM} \ac{API} already provides the necessary raw data, as mentioned in \cref{sec:ttn-mapper-importance}.
+Fortunately, building a \ac{DB} of fingerprints for the use case explored in this thesis is fairly straightforward, since the \ac{TTNM} \ac{API} already provides the necessary raw data, as mentioned in \Cref{sec:ttn-mapper-importance}.
 \Cref{sec:collecting-additional-ttnm-data} will explain the \aclp{LRWED} used to collect additional data for fingerprinting.
 
 \subsubsection{Using additional values for the fingerprinting approach}\label{sec:fingerprinting-additional-values}
