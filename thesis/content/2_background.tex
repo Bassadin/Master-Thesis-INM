@@ -140,7 +140,7 @@ LoRa packets are typically small, consisting of only a few bytes, allowing for t
 Even when using \acs{SF}12, which is the slowest \acs{SF} available, the maximum packet size of \SI{51}{\byte} can be transmitted in  \SI{1232.9}{\milli\second}~\cite[p. 6]{the_things_network_lorawan_nodate}\cite[p. 10f]{lora_alliance_inc_lorawan_regional_2017}.
 This makes it possible to transmit data up to every few minutes even with the largest possible packet size and still stay compliant with the duty cycle of \SI{1}{\percent}.
 
-The \emph{ETSI} standard also defines the \acf{ERP} that can be emitted from a \acl{ED}'s antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
+The ETSI standard also defines the \acf{ERP} that can be emitted from a \acl{ED}'s antenna in this frequency band as \SI{25}{\milli\watt}~\cite[p. 29]{etsi_etsi_2012}.
 ``\ac{ERP} is the power radiated from the tip of the antenna'' after taking into account the antenna's gain and the cable loss~\cite[p. 23]{faruque_radio_2015}.
 
 \subsection{\acl{SF}: a trade-off between transmission time and interference resistance}\label{sec:spreading-factors}
@@ -187,7 +187,7 @@ As can be seen in \Cref{pic:wireless-protocols-comparison}, \ac{LoRa} is a good 
 
 A \ac{LoRa} \acl{ED} that transmits \SI{75}{\byte} of payload data every 2 hours can theoretically last up to 10 years on a single 1000 mAh battery~\cite{cheong_comparison_2017}.
 
-\emph{LoRa Energy Calculator} is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering parameters such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
+LoRa Energy Calculator is a web application that can be used to roughly calculate the battery life of a \acl{LRED} by entering parameters such as payload size, data transmission periodicity and the battery type used~\cite{dramco_research_group_lora_2023}.
 It calculates a ``worst case'' battery life of 6 years, 2 months and 1 week for a configuration with a payload size of \SI{8}{\byte}, 1 hour of periodicity and a 2500 mAh AA type battery.
 The ``best case'' scenario is rated at 17 years, 4 months and 1 week.
 Best and worst case scenarios use different \aclp{SF} and \ac{TP} and also consider when the message is acknowledged (RX1 or RX2 window, explained later in \Cref{sec:device-classes}).
@@ -279,17 +279,17 @@ It can also receive packets from the \ac{LNS} and forward them to \aclp{LRWED}.
 The \ac{CPU} processes the incoming data and, if desired, forwards the packets to a \ac{LNS}.
 
 To achieve the connection to the \ac{LNS}, the \acl{LRWGW} needs to be connected to the internet.
-This connection is also called \emph{backhaul}.
+This connection is also called backhaul.
 The most widely used methods to realize this are Ethernet/\ac{LAN}, Wi-Fi and \ac{LTE} connections~\cite{the_things_industries_bv_lorawan_nodate}.
 
-One example of a \acl{GW} used during this thesis and therein installed in Furtwangen is the \emph{MikroTik wAP LR8 kit}, as seen in \Cref{pic:mikrotik-lr8-kit-gateway}.
+One example of a \acl{GW} used during this thesis and therein installed in Furtwangen is the MikroTik wAP LR8 kit, as seen in \Cref{pic:mikrotik-lr8-kit-gateway}.
 
 While some \aclp{LRWGW} may come equipped with an integrated antenna, their range is generally limited to small to medium-sized spaces or buildings.
 It is also possible to use external antennas if it is necessary to cover a much larger area as was the case in this thesis since a medium to long range localization of \aclp{LRED} was the goal.
 
 \subsection{Data Transmission between \aclp{LRWED} and \aclp{AS}}
 
-In LoRaWAN, data transmissions from the \acl{ED} to the server and vice versa are called \emph{uplink} and \emph{downlink}, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
+In LoRaWAN, data transmissions from the \acl{ED} to the server and vice versa are called uplink and downlink, respectively~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
 
 Uplinks are relayed to the \ac{LNS} by one or more \aclp{LRWGW} from the \acl{LRWED}.
 Downlinks, on the other hand, are only sent from the \ac{LNS} to the \acl{LRWED} using a single \acl{LRWGW}~\cite[p. 12]{lora_alliance_inc_lorawan_specification_2017}.
@@ -385,7 +385,7 @@ Its source code is also available on GitHub under the Apache 2.0 license~\cite{t
 \end{figure}
 
 
-While it is officially called \emph{\acl{TTS} Community Edition} since 2021, it is still commonly referred to as \acf{TTN} by the community itself~\cite{the_things_industries_bv_what_2022}.
+While it is officially called \acl{TTS Community Edition} since 2021, it is still commonly referred to as \acf{TTN} by the community itself~\cite{the_things_industries_bv_what_2022}.
 Its users provide \ac{TTN} with \aclp{LRWGW} that other users can use, making it a crowdsourced \ac{LoRaWAN} network.
 
 \subsection{Receiving packets from \aclp{LRWGW}}
@@ -429,17 +429,17 @@ As opposed to \ac{SUPF}, \ac{CUPS} also allows for remote configuration of \aclp
 \subsubsection{Conclusion: Which one was used?}
 
 Some \aclp{LRWGW} used in this thesis were unable to use the more modern \acl{LBS} protocol.
-This was the case for the MikroTik LR8 wAP \acl{LRWGW}, whose \ac{OS} \emph{RouterOS} hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
+This was the case for the MikroTik LR8 wAP \acl{LRWGW}, whose \ac{OS} RouterOS hadn't been updated to enable using \ac{LBS} at the time of writing this thesis.
 It instead uses the \ac{SUPF} to forward \ac{LoRaWAN} packets to the \ac{LNS}.
 
-Most of the other \aclp{LRWGW} deployed during this thesis, especially the ones from \emph{Dragino}, were able to use \ac{LBS} and used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \Cref{sec:lorawan-lbs}.
+Most of the other \aclp{LRWGW} deployed during this thesis, especially the ones from Dragino, were able to use \ac{LBS} and used it to forward \ac{LoRaWAN} packets to the \ac{LNS} in a more secure way as explained in \Cref{sec:lorawan-lbs}.
 
 \subsection{\acl{TTN} Console — End Device and Gateway Management}\label{sec:web-interface-and-device-gateway-management}
 
 \ac{TTN} provides a web interface for managing \aclp{LRWED} and \aclp{LRWGW} that are registered to the network by the logged-in user.
 It also provides a \ac{REST} \ac{API} for managing \aclp{LRWED} and \aclp{LRWGW} programmatically.
 
-\aclp{LRWED} are grouped into \emph{applications} that can be used to manage \aclp{LRWED} that belong to a bigger project or \acl{ED} group.
+\aclp{LRWED} are grouped into applications that can be used to manage \aclp{LRWED} that belong to a bigger project or \acl{ED} group.
 
 In this thesis, an application was used to group the \ac{LoRaWAN} \ac{GPS} trackers that were used for data collection.
 
@@ -495,7 +495,7 @@ With this data, it can build a map displaying the coverage of \aclp{LRWGW} in th
     \centering
     \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/heatmap_with_gateways.png}
     \caption[Screenshot of \acl{TTNM}'s heatmap view of the Furtwangen area.]{
-        A screenshot of \ac{TTNM}'s \emph{heatmap} view of the Furtwangen area.
+        A screenshot of \ac{TTNM}'s heatmap view of the Furtwangen area.
         The heatmap shows places where strong signals where received by \aclp{LRWGW} in reddish colors.
         Weaker signals are shown in blueish colors.
         Some \aclp{LRWGW} are visible as small blue and white circles.
@@ -533,7 +533,7 @@ This was one of the techniques used to locate \aclp{LRWED} in this thesis.
 
 \section{Multilateration — Locating devices using distances to reference points}\label{sec:multilateration-basics}
 
-In everyday language, people often use the term \emph{triangulation} or when talking about the process of determining the location of a \acl{ED} based on the distance to multiple other \aclp{ED}.
+In everyday language, people often use the term triangulation or when talking about the process of determining the location of a \acl{ED} based on the distance to multiple other \aclp{ED}.
 However, triangulation uses the angles between devices and three reference points to determine the location of the device, hence its name~\cite{yaro_multiangulation_2017}.
 This process requires the \acl{ED} to be able to determine the angles to the reference points, which needs specific hardware.
 
@@ -546,9 +546,9 @@ This process requires the \acl{ED} to be able to determine the angles to the ref
     }\label{pic:multilateration-gps-2d-3d-example}
 \end{figure}
 
-The correct term to use when using distances between an \acl{ED} and multiple receivers to achieve a localization of the \acl{ED} is \emph{multilateration}.
+The correct term to use when using distances between an \acl{ED} and multiple receivers to achieve a localization of the \acl{ED} is multilateration.
 An example of this in \ac{GNSS} is shown in \Cref{pic:multilateration-gps-2d-3d-example}.
-A specific case of multilateration is \emph{trilateration}, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
+A specific case of multilateration is trilateration, which specifies three receivers to get the ranges from~\cite{ruiz_efficient_2013}.
 
 \section{Locating devices accurately outdoors with the \acl{GNSS}}
 
@@ -564,7 +564,7 @@ This approach is called \acf{ToA} and will be explained in more detail in \Cref{
 
 \subsection{The most well-known \acl{GNSS} — The \acl{GPS}}
 
-\ac{GPS} is the \ac{GNSS} system that is operated by the United States of America and is officially named \emph{NAVSTAR \ac{GPS}}~\cite{department_of_defense_usa_gps_2020}.
+\ac{GPS} is the \ac{GNSS} system that is operated by the United States of America and is officially named NAVSTAR \ac{GPS}~\cite{department_of_defense_usa_gps_2020}.
 The version of \ac{GPS} the public has access to is called \acf{SPS}.
 Additionally, there is the \acf{PPS} that is only available to the military and other authorized users~\cite{department_of_defense_usa_gps_2007}.
 
@@ -573,10 +573,10 @@ Using an iPhone 6, Merry and Bettinger measured the accuracy of \ac{GPS} to be b
 \subsection{Other established \aclp{GNSS}}
 
 There are several other \ac{GNSS} systems in use or in development by different countries.
-For example, the Russian \emph{GLONASS}, the European Galileo, the Chinese \acf{BDS}, and the Indian \acf{IRNSS}.
+For example, the Russian GLONASS, the European Galileo, the Chinese \acf{BDS}, and the Indian \acf{IRNSS}.
 
 Most modern smartphones support multiple \ac{GNSS} systems to enhance location accuracy.
-One of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, \emph{GLONASS}, Galileo, and \ac{BDS}, for example~\cite{gsmarena_samsung_2023}.
+One of Samsung's most recent devices as of writing this thesis, the Galaxy S23 Ultra, supports \ac{GPS}, GLONASS, Galileo, and \ac{BDS}, for example~\cite{gsmarena_samsung_2023}.
 
 The \aclp{LRWED} used in this thesis, as described in \Cref{subsec:used-lora-devices}, only use \ac{GPS} to determine their location.
 
@@ -614,34 +614,34 @@ As mentioned in \Cref{subsec:cleaning-collected-data}, \ac{TTNM} also excludes c
 
 In order to demonstrate the significance of employing \ac{RSS} values rather than \ac{GNSS} systems for locating \aclp{ED}, this section provides a comparison of power usage between the two methods.
 
-The \emph{ELV-LW-GPS1} module is a \ac{GPS} tracker that was used for data collection during this thesis.
+The ELV-LW-GPS1 module is a \ac{GPS} tracker that was used for data collection during this thesis.
 It will be evaluated in more detail in \Cref{subsubsec:elv-gps-tracker-implementation}.
 As it is considerably well-documented on the manufacturer's website, it will be used to calculate some power usage values.
-The \emph{ELV-LW-GPS1} uses a \emph{Quectel LC86L} \ac{GNSS} chip as well as a \emph{dnt-TRX-ST1} \ac{LoRaWAN} module~\cite{elv_elektronik_ag_elv_2023}.
+The ELV-LW-GPS1 uses a Quectel LC86L \ac{GNSS} chip as well as a dnt-TRX-ST1 \ac{LoRaWAN} module~\cite{elv_elektronik_ag_elv_2023}.
 
-The \emph{LC86L} module uses \SI{32}{\milli\ampere} during \ac{GNSS} acquisition and has a \ac{TTFF} of \SI{35}{\second}~\cite{quectel_gnss_nodate}.
+The LC86L module uses \SI{32}{\milli\ampere} during \ac{GNSS} acquisition and has a \ac{TTFF} of \SI{35}{\second}~\cite{quectel_gnss_nodate}.
 This is during a cold start of the chip, which is often used for \ac{LoRaWAN} \ac{GNSS} trackers to save power since they go into a state referred to as deep sleep in between operating phases.
 
 \begin{equation}\label{eq:LC86L-fix-consumption}
     mAh_{GPS\,Fix} = \SI{32}{\milli\ampere} \cdot \frac{\SI{35}{\second}}{\SI{3600}{\second\per\hour}} \approx \SI{0.311}{\milli\ampere\hour}
 \end{equation}
 
-\Cref{eq:LC86L-fix-consumption} shows the power usage of the \emph{LC86L} module during a single \ac{GPS} acquisition.
+\Cref{eq:LC86L-fix-consumption} shows the power usage of the LC86L module during a single \ac{GPS} acquisition.
 
-While the \emph{dnt-TRX-ST1} has a similar power usage of \SI{29}{\milli\ampere} during transmission of \ac{LoRaWAN} packets, it takes a considerably shorter amount of time to transmit a \ac{LoRa} packet than it takes to acquire a \ac{GNSS} fix.
-For example, when the \emph{ELV-LW-GPS1} module transmits one of its \ac{GPS} location data packets using \ac{SF}9, it uses only \SI{0.246784}{\second} of transmission time, according to \ac{TTN}.
-The same transmission time can also be calculated using a tool called \emph{\ac{LoRaWAN} airtime calculator} with 18 input bytes, a \ac{SF} of 9, the EU868 region and a bandwidth of \SI{125}{\kilo\hertz}~\cite{the_things_network_lorawan_nodate}.
+While the dnt-TRX-ST1 has a similar power usage of \SI{29}{\milli\ampere} during transmission of \ac{LoRaWAN} packets, it takes a considerably shorter amount of time to transmit a \ac{LoRa} packet than it takes to acquire a \ac{GNSS} fix.
+For example, when the ELV-LW-GPS1 module transmits one of its \ac{GPS} location data packets using \ac{SF}9, it uses only \SI{0.246784}{\second} of transmission time, according to \ac{TTN}.
+The same transmission time can also be calculated using a tool called \ac{LoRaWAN airtime calculator} with 18 input bytes, a \ac{SF} of 9, the EU868 region and a bandwidth of \SI{125}{\kilo\hertz}~\cite{the_things_network_lorawan_nodate}.
 This transmission time can become even shorter when using a lower \ac{SF} or when fewer bytes are transmitted.
 
 \begin{equation}\label{eq:dnt-TRX-ST1-tx-consumption}
     mAh_{\ac{LoRa}\,TX} = \SI{29}{\milli\ampere} \cdot \frac{\SI{0.246784}{\second}}{\SI{3600}{\second\per\hour}} \approx \SI{0.00198}{\milli\ampere\hour}
 \end{equation}
 
-\Cref{eq:dnt-TRX-ST1-tx-consumption} shows the power usage of the \emph{dnt-TRX-ST1} module during a single \ac{LoRa} transmission.
+\Cref{eq:dnt-TRX-ST1-tx-consumption} shows the power usage of the dnt-TRX-ST1 module during a single \ac{LoRa} transmission.
 
 Because both modules operate at or around \SI{3.3}{\volt}, the power usages in \si{\milli\ampere\hour} are comparable.
-This means that acquiring a \ac{GNSS} fix with the \emph{ELV-LW-GPS1} module uses approximately \SI{157}{\times} more power than transmitting a \ac{LoRa} packet with the same module.
-Please note that this comparison does not consider the power consumption of other components of  the \emph{ELV-LW-GPS1} module or other overhead.
+This means that acquiring a \ac{GNSS} fix with the ELV-LW-GPS1 module uses approximately \SI{157}{\times} more power than transmitting a \ac{LoRa} packet with the same module.
+Please note that this comparison does not consider the power consumption of other components of  the ELV-LW-GPS1 module or other overhead.
 However, it still shows the dimensions of the difference in power consumption between \ac{GPS} and \ac{LoRaWAN} \ac{RSS} localization.
 
 \section{Localization techniques for usage with \acs{LoRaWAN}}\label{sec:lorawan-localization-techniques}

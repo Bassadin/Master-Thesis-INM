@@ -12,20 +12,20 @@ Finally, the \aclp{LRWGW} had to be installed in suitable locations.
 \subsection{Researching \aclp{LRWGW}}
 
 Some gateways that were used in this thesis were ones that were already in the possession of the \ac{HFU}.
-Such was the case for the \emph{Dragino LG308 / LG308N} indoor \aclp{GW} as well as a \emph{RAK7258} indoor \acl{GW}.
+Such was the case for the Dragino LG308 / LG308N indoor \aclp{GW} as well as a RAK7258 indoor \acl{GW}.
 
-Additionally, for development purposes, a \emph{Dragino PG1301} \acl{LRWGW} was used.
+Additionally, for development purposes, a Dragino PG1301 \acl{LRWGW} was used.
 The PG1301 is designed to be used with a Raspberry Pi and mounts on top of it in typical Raspberry Pi shield fashion.
 This allows low-level access to the \ac{LoRa} module on the board, since it can be directly accessed by the Raspberry Pi's serial interface.
 
 Two MikroTik wAP LR8 kit \aclp{LRWGW} were purchased for the thesis.
 They were chosen after recommendation by a member of the \ac{HSN-TTN} team~\cite{hochschwarzwald_smart_net_-_thethingsnetwork_eingesetzte_nodate}.
-The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's \emph{RouterOS}, a well-established \ac{GUI} for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
+The MikroTik wAP LR8 kit was a compelling offer due to its low price and the fact that it comes with MikroTik's RouterOS, a well-established \ac{GUI} for configuring networking devices~\cite{mikrotik_mikrotik_nodate}.
 However, it came with the caveat that it did not support \ac{LBS}, as was mentioned in \Cref{sec:lorawan-lbs}.
 A picture of this \acl{LRWGW} can be seen in \Cref{pic:mikrotik-lr8-kit-gateway}.
 The antenna used with the MikroTik wAP LR8 kit is also from MikroTik, which is a 6.5 dBi antenna as shown in \Cref{pic:mikrotik-antenna-c-building}.
 
-The other \aclp{LRWGW} that were purchased for the thesis were two \emph{Dragino DLOS8N} outdoor \aclp{GW}.
+The other \aclp{LRWGW} that were purchased for the thesis were two Dragino DLOS8N outdoor \aclp{GW}.
 This \acl{LRWGW} was chosen due to of difficulties in ordering the second MikroTik wAP LR8 kit.
 They were readily available at the time of the order and were chosen as a short-term replacement.
 It was used even after the second LR8 arrived because the user interface is identical to the one used in the Dragino LG308 \acl{LRWGW} which made it easy to set up.
@@ -119,8 +119,8 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=1\textwidth]{pictures/hardware/gateway-deployment/gateway_dl0fis_clubhouse.jpg}
-        \caption[Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club]{
-            Antenna installed on the roof of the clubhouse of the \emph{DL0FIS} amateur radio club.
+        \caption[Antenna installed on the roof of the clubhouse of the DL0FIS amateur radio club]{
+            Antenna installed on the roof of the clubhouse of the DL0FIS amateur radio club.
             The antenna has a gain of 8dBi and was connected to a Dragino LG308N \acl{LRWGW}.
             It was the most powerful antenna used in this thesis.
         }\label{pic:antenna-dl0fis-clubhouse}
@@ -133,9 +133,9 @@ This made getting it connected to \ac{HFU} network infrastructure possible even 
 This \acl{GW} is also powered by \ac{PoE}.
 The \acl{GHB-NA} already had a network switch with \ac{PoE} capabilities installed in the \ac{ASH} which made it possible to power the \acl{LRWGW}.
 
-\subsubsection{\emph{DL0FIS} amateur radio club station atop Neueck, Gütenbach}
+\subsubsection{DL0FIS amateur radio club station atop Neueck, Gütenbach}
 
-The \emph{DL0FIS} amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
+The DL0FIS amateur radio club station is located on a hill between Gütenbach and Furtwangen~\cite{dl0fis_clubstation_2023}.
 With their friendly support, it was possible to install an antenna on top of their clubhouse as shown in \Cref{pic:antenna-dl0fis-clubhouse}.
 
 The exposed location of the clubhouse on a hillside between Gütenbach and Furtwangen was thought to be a good location for a \acl{LRWGW}.
@@ -218,10 +218,10 @@ However, due to the lack of alternatives several such 9V batteries were used for
 
 \subsubsection{Heltec HTCC-AB02S: node with \acs{OLED} screen and \acs{GPS}}\label{subsubsec:heltec-htcc-ab02s}
 
-The \emph{Heltec HTCC-AB02S} is a \acl{LRWED} with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
+The Heltec HTCC-AB02S is a \acl{LRWED} with a small OLED screen and a built-in \ac{GPS} module~\cite{heltec_automation_cubecell_2020}.
 The package sounds very nice, but while the \ac{LoRa} module worked flawlessly, the same cannot be said for the \ac{GPS} module.
 \Cref{pic:heltec-htcc-ab02s} shows the \acl{ED}.
-Programming the \acl{ED} with the \ac{VSC} plugin \emph{PlatformIO} was quite easy.
+Programming the \acl{ED} with the \ac{VSC} plugin PlatformIO was quite easy.
 
 The \ac{GPS} module was not able to get a reliable fix on its own, even after ordering and using an external \ac{GPS} antenna.
 This seemed to be a hardware problem, since other users could get fixes reliably with external \ac{GPS} antennas.
@@ -259,7 +259,7 @@ At first glance, the dnt-LW-ATS was the most promising \acl{LRWED} for the task 
 It has a built-in \ac{GPS} module as well as a weatherproof, IP44 rated exterior case and a solar panel for charging the internal battery.
 
 However, it was challenging to set up and operate.
-The \acl{LRWED} offers a \emph{motion based cyclic} mode in which, during physical movement, it sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
+The \acl{LRWED} offers a motion based cyclic mode in which, during physical movement, it sends its \ac{GPS} coordinates to \ac{TTN} every few seconds.
 This did not work in practice and the \acl{LRWED} would only start to obtain a fix irregularly, if at all.
 The documentation was not helpful with finding the root cause and the manufacturer could only offer to replace the hardware.
 
@@ -289,24 +289,24 @@ This section will give an overview over some noteworthy development tools used f
 
 \subsection{Docker and Docker Compose for containerization and easier consistent deployments}
 
-To simplify deployment and development, \emph{Docker}~\cite{docker_inc_docker_2022} and \emph{Docker Compose}~\cite{docker_inc_docker_2023} were used extensively.
+To simplify deployment and development, Docker~\cite{docker_inc_docker_2022} and Docker Compose~\cite{docker_inc_docker_2023} were used extensively.
 Docker allows for applications to be run in lightweight containers that are isolated from the rest of the system.
 This allows for easy deployment of applications without having to worry about the underlying system.
 
 In this thesis, Docker was used to containerize the \ac{TTNL} application.
-The backend and frontend each have their own \emph{Dockerfiles}, which outline how to build these applications.
+The backend and frontend each have their own Dockerfiles, which outline how to build these applications.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{pictures/ttn-locator/docker_desktop.png}
-    \caption[Screenshot of the \emph{Docker Desktop} application that shows the running containers of the \acl{TTNL} application]{
-        A screenshot of the \emph{Docker Desktop} application that shows the running containers of the \ac{TTNL} application~\cite{docker_inc_download_2021}.
+    \caption[Screenshot of the Docker Desktop application that shows the running containers of the \acl{TTNL} application]{
+        A screenshot of the Docker Desktop application that shows the running containers of the \ac{TTNL} application~\cite{docker_inc_download_2021}.
         The \acl{PSQL} \ac{DB} as well as the pgadmin \ac{DB} management container are visible as well.
     }\label{pic:docker-desktop}
 \end{figure}
 
-Docker Compose was then used to assemble the different parts of the application: the backend, frontend, \acl{PSQL} \ac{DB} and \emph{pgadmin}, an admin interface to make viewing \acl{PSQL} data easier.
-\Cref{pic:docker-desktop} shows the running containers of the \ac{TTNL} application in the \emph{Docker Desktop} application~\cite{docker_inc_download_2021}.
+Docker Compose was then used to assemble the different parts of the application: the backend, frontend, \acl{PSQL} \ac{DB} and pgadmin, an admin interface to make viewing \acl{PSQL} data easier.
+\Cref{pic:docker-desktop} shows the running containers of the \ac{TTNL} application in the Docker Desktop application~\cite{docker_inc_download_2021}.
 
 % \subsection{\acf{VSC}}
 
@@ -326,18 +326,18 @@ Docker Compose was then used to assemble the different parts of the application:
 % \paragraph{PlatformIO}
 
 % PlatformIO is a plugin that enables the development of embedded systems with \ac{VSC}~\cite{platformio_platformio_nodate}.
-% It allows for a user to use \ac{VSC} instead of having to rely on the \emph{Arduino IDE}.
+% It allows for a user to use \ac{VSC} instead of having to rely on the Arduino IDE.
 
-% PlatformIO was used in this thesis to develop code for some of the \aclp{LRWED} used for data collection, for example for the \emph{Heltec HTCC-AB02S} mentioned in \Cref{subsubsec:heltec-htcc-ab02s}.
+% PlatformIO was used in this thesis to develop code for some of the \aclp{LRWED} used for data collection, for example for the Heltec HTCC-AB02S mentioned in \Cref{subsubsec:heltec-htcc-ab02s}.
 
 \subsection{GitHub Actions for \acl{CI/CD}}
 
-\emph{GitHub Actions} is a feature of the \emph{GitHub} platform that allows for automated \ac{CI/CD} workflows to be run on the platform~\cite{github_inc_features_2023}.
+GitHub Actions is a feature of the GitHub platform that allows for automated \ac{CI/CD} workflows to be run on the platform~\cite{github_inc_features_2023}.
 These automated workflows can be triggered by various events, such as a new commit being pushed to the repository or a new pull request being opened.
 
-In this thesis, \emph{GitHub Actions} was used to automatically test the \ac{TTNL} frontend and backend as well as build their respective \emph{Docker} images.
-These docker images are then pushed to the \emph{GitHub} container registry and can be pulled from there to be deployed later.
-This allows for the built images to be used in \emph{Docker compose} files on the deployment server without having to build them there.
+In this thesis, GitHub Actions was used to automatically test the \ac{TTNL} frontend and backend as well as build their respective Docker images.
+These docker images are then pushed to the GitHub container registry and can be pulled from there to be deployed later.
+This allows for the built images to be used in Docker compose files on the deployment server without having to build them there.
 
 \section{Program structure: \acl{TTNL}}\label{section:ttnl}
 
@@ -380,7 +380,7 @@ The tools and technologies used for the implementation are also explained.
     \includegraphics[width=0.4\textwidth]{pictures/ttn-locator/backend/prisma-erd.eps}
     \caption[\acl{DB} structure of the \acl{TTNL} application as an \acl{ERD}]{
         The \ac{DB} structure of the \ac{TTNL} application as an \ac{ERD}.
-        This image was generated using Simon Knott's \emph{Prisma ERD} generator that uses a Prisma schema definition file~\cite{simon_knott_prisma_2023}.
+        This image was generated using Simon Knott's Prisma ERD generator that uses a Prisma schema definition file~\cite{simon_knott_prisma_2023}.
     }\label{pic:prisma-erd}
 \end{figure}
 
@@ -407,7 +407,7 @@ If an incorrect variable type or function parameter is passed, a compile-time er
 \subsubsection{Node.js for server-side \acl{JS} code execution}\label{sec:nodejs}
 
 Node.js is a \ac{JS} runtime environment that allows for the execution of \ac{JS} code outside a web browser~\cite{openjs_foundation_nodejs_nodate}.
-It uses the \emph{V8} \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{google_llc_v8_nodate}.
+It uses the V8 \ac{JS} engine, which is also used in the Google Chrome web browser~\cite{google_llc_v8_nodate}.
 Its main benefit is being able to use a single language for both frontend and backend development --- \ac{JS}, or, in the case of \ac{TTNL}, \ac{TS}.
 
 Node.js is available as a Docker image, which makes it easy to use in the Docker Compose setup used in this thesis~\cite{docker_inc_node_2023}.
@@ -428,7 +428,7 @@ Additionally, routes for different parts of requested data can be defined and pu
 A \ac{RDBMS} was used because of the structured nature of the data that is stored in the \ac{DB} and its relations to other data.
 This makes using a \ac{RDBMS} in this case more suitable than using a NOSQL \ac{DB} where data is stored in a less structured way.
 
-\acl{PSQL} (also sometimes simply called \emph{Postgres}) is an open source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
+\acl{PSQL} (also sometimes simply called Postgres) is an open source \ac{RDBMS} that is available for a variety of operating systems~\cite{postgresql_global_development_group_postgresql_2023}.
 It is among the most popular \ac{DB} management systems worldwide~\cite{db-engines_most_2023}.
 
 For the \ac{TTNL} application, \ac{PSQL} was used as the \ac{DB} management system because of its popularity and its ability to be used with the \ac{ORM} Prisma.\
@@ -572,7 +572,7 @@ It currently has around 800,000 weekly downloads on the npm package repository~\
 It was used in this thesis to display the map on the frontend of the \ac{TTNL} web application.
 Leaflets widespread use and large community made it a good choice for this purpose since there are many examples and tutorials available online.
 
-To make Leaflet work with Vue.js, the \emph{vue2-leaflet} plugin was used~\cite{vue_leaflet_team_vue_nodate}.
+To make Leaflet work with Vue.js, the vue2-leaflet plugin was used~\cite{vue_leaflet_team_vue_nodate}.
 It wraps Leaflet's functionality into Vue components and provides reactive bindings for Leaflet's properties and map data.
 
 In most cases, a \ac{OSM} map was used to display the data.
@@ -589,7 +589,7 @@ However, the \ac{TTNL} application theoretically also allows for any other data 
 New \aclp{LRWED} to track can be added to the \ac{TTNL} \ac{DB} by using a specific backend \ac{API} route.
 
 To collect data from \ac{TTNM}, an \ac{API} endpoint was used that returns all data for a given \acl{ED} in a given time frame.
-For example, to get data for a \acl{LRWED} with the id \emph{blinkeding} from the first week of April 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
+For example, to get data for a \acl{LRWED} with the id blinkeding from the first week of April 2023, the following \ac{URL} could be used for a GET \ac{HTTP} request: \url{https://api.ttnmapper.org/device/data?dev_id=blinkeding&start_time=2023-04-01T00:00:00.000Z&end_time=2023-04-08T00:00:00.000Z}.
 This \ac{TTNM} \ac{API} route returns data in a \ac{JSON} format.
 This \ac{JSON} data was parsed and Prisma was used to insert it into the \ac{PSQL} \ac{DB}.
 
@@ -622,7 +622,7 @@ This cronjob runs every few hours and executes a \ac{SQL} query with Prisma's \l
     caption={[Part of the \acl{SQL} query that was used to remove outliers and duplicates]
         Part of the \ac{SQL} query that was used to remove outliers and duplicates from the collected \ac{TTNM} data.
         This section handles the calculation of the speed the \acl{ED} moved at between the current and the previous datapoint.
-        The query was generated by \emph{Bing AI} and adjusted so that it could be used more easily with the existing Prisma \ac{DB} schema.
+        The query was generated by Bing AI and adjusted so that it could be used more easily with the existing Prisma \ac{DB} schema.
     },
     label={lst:sql-remove-outliers}
 ]
@@ -678,7 +678,7 @@ This correlation was explained in \Cref{sec:background-free-space-path-loss}.
     \caption[Example of the theory behind mapping \acl{RSS} values to distances]{
         An example of the theory behind mapping \ac{RSS} values to distances using three \aclp{LRWGW}, based on the correlation explained in \Cref{sec:background-free-space-path-loss}.
         The \acl{ED} (orange pin) is located at the intersection of the three circles originating from the \aclp{LRWGW} (green pins).
-        The map was generated using the \ac{OSM} based tool \emph{umap}~\cite{noauthor_umap_nodate}.
+        The map was generated using the \ac{OSM} based tool umap~\cite{noauthor_umap_nodate}.
     }\label{fig:rssi-multilateration-theoretical-example}
 \end{figure}
 
@@ -840,7 +840,7 @@ Differences of up to 1 second between the timestamps of the same signal in diffe
     \centering
     \includegraphics[width=0.7\textwidth]{pictures/multilateration/toa_bad_data_example_prisma_studio.png}
     \caption[Example of divergent timestamp data that was planned to be used for \acl{ToA} multilateration]{
-        Picture taken from Prisma's \emph{Prisma Studio} web frontend.
+        Picture taken from Prisma's Prisma Studio web frontend.
         Example of divergent timestamp data that was planned to be used for \ac{ToA} multilateration.
         The time difference between the first and second signal arrival amounts to more than one second.
     }\label{fig:toa-bad-data-example}

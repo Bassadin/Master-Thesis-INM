@@ -3,7 +3,7 @@
 \section{Gateway Locations}\label{sec:gateway-locations-conclusions}
 
 This section will evaluate the chosen \acl{LRWGW} locations as described in \Cref{sec:gateway-locations} and give some examples of the ranges that can be achieved with them.
-The maps used to show range data were taken from the \emph{Advanced Maps} feature of \ac{TTNM}~\cite{ttn_mapper_ttn_2023-1}.
+The maps used to show range data were taken from the Advanced Maps feature of \ac{TTNM}~\cite{ttn_mapper_ttn_2023-1}.
 Thus, as explained in \Cref{subsec:cleaning-collected-data}, they may contain some inaccuracies and outliers.
 
 \subsection{\acl{GHB}}\label{subsec:ghb-student-dormitory-range-results}
@@ -74,30 +74,30 @@ It is similar to the coverage of the \ac{GHB} building, since the \ac{ASH} build
 
 The longest range recorded from the \ac{ASH} building thus far is around \SI{4.8}{\kilo\meter} which is the blue point on the right of \Cref{pic:ash_gw_range}.
 
-\subsection{\emph{DL0FIS} amateur radio club station}
+\subsection{DL0FIS amateur radio club station}
 
 While the location of the \ac{LoRaWAN} on top of a hill between Furtwangen and Gütenbach should have made for very good coverage, the reality looks different.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.8\textwidth]{pictures/ttn-mapper/gateway-ranges/dl0fis_gw_range.jpg}
-    \caption[Screenshot of a \acl{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse]{
-        Screenshot of a \ac{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse.
+    \caption[Screenshot of a \acl{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the DL0FIS clubhouse]{
+        Screenshot of a \ac{TTNM} map showing data points taken from the \acl{LRWGW} deployed on the roof of the DL0FIS clubhouse.
         While the range is not consistent in every direction due to the hills and mountains in the area, the longest range of around \SI{8.8}{\kilo\meter} is still very good.
         Coverage of Furtwangen is almost nonexistent due to the hills in the way~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:dl0fis_gw_range}
 \end{figure}
 
-\Cref{pic:dl0fis_gw_range} shows the coverage of the \acl{LRWGW} deployed on the roof of the \emph{DL0FIS} clubhouse.
+\Cref{pic:dl0fis_gw_range} shows the coverage of the \acl{LRWGW} deployed on the roof of the DL0FIS clubhouse.
 The longest range measured was one data point in the south with a distance of \SI{8.8}{\kilo\meter}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.6\textwidth]{pictures/hardware/gateway-deployment/line-of-sight-dl0fis.png}
-    \caption[\acl{LoS} between the \emph{DL0FIS} clubhouse and the Furtwangen city center]{
-        Screenshot of the \emph{Ubiquiti UISP Design Center} tool.
+    \caption[\acl{LoS} between the DL0FIS clubhouse and the Furtwangen city center]{
+        Screenshot of the Ubiquiti UISP Design Center tool.
         It displays the \ac{LoS} between two points with customizable antenna elevation and can show any terrain elevation between them.
-        The multiple hills blocking the signal from the \emph{DL0FIS} clubhouse to the Furtwangen city center are visible~\cite{ubiquiti_inc_uisp_2023}.
+        The multiple hills blocking the signal from the DL0FIS clubhouse to the Furtwangen city center are visible~\cite{ubiquiti_inc_uisp_2023}.
     }\label{pic:dl0fis_gw_los}
 \end{figure}
     
@@ -117,14 +117,14 @@ Fortunately, the owner, Mr.\ Odin Jäger, was very cooperative and allowed the g
 Unfortunately, it was not as easy to get a network connectivity and power on the roof as it was in the other buildings, so no gateway has been installed there yet.
 This may be done in the future if a way can be found to get a network and power to the roof.
 
-\subsection{Factory building of the \emph{E. Wehrle GmbH} company}\label{subsec:factory-building-of-the-e-wehrle-company}
+\subsection{Factory building of the E. Wehrle GmbH company}\label{subsec:factory-building-of-the-e-wehrle-company}
 
 During the initial weeks of collecting data with \ac{GPS} trackers in Furtwangen, a gateway without location information appeared in the \ac{TTN} packet metadata.
-Upon further investigation, it was discovered that the gateway was situated on the factory building roof of \emph{E. Wehrle GmbH}, a company located in the eastern region of Furtwangen.
-After contacting the company, Tom Lehmann, an external consultant for the company working at \emph{Netzint GmbH}, was very cooperative and entered its location into the \ac{TTN} console.
+Upon further investigation, it was discovered that the gateway was situated on the factory building roof of E. Wehrle GmbH, a company located in the eastern region of Furtwangen.
+After contacting the company, Tom Lehmann, an external consultant for the company working at Netzint GmbH, was very cooperative and entered its location into the \ac{TTN} console.
 This allowed the gateway to be displayed on the \ac{TTNM} map and for its data to also be considered in the \ac{TTNL} calculations.
 
-The \emph{E. Wehrle GmbH} company is a manufacturer of (among other products) smart metering sensors.
+The E. Wehrle GmbH company is a manufacturer of (among other products) smart metering sensors.
 Alongside other protocols, they also use \ac{LoRaWAN} for some of their products~\cite{e_wehrle_gmbh_wecount-s_nodate}.
 
 \section{Collected data in Furtwangen on \acl{TTNM}}\label{sec:collected-data-in-furtwangen-on-ttnm}
@@ -165,7 +165,7 @@ Its purpose is to show how much the \ac{RSS} values correlate with the distance 
     float,
     caption={[\acl{SQL} query used to calculate the correlation coefficient between \acl{RSS} values and associated distances]
         \ac{SQL} query used to calculate the correlation coefficient between \ac{RSS} values and associated distances for a single gateway.
-        This query was also generated by \emph{Bing AI} and adjusted to fit the the application's needs.
+        This query was also generated by Bing AI and adjusted to fit the the application's needs.
         The \lstinline|CORR| function was used to calculate the correlation coefficient over the gateway's data points.
     },
     label={lst:sql-calculate-correlation-coefficient}
@@ -395,13 +395,13 @@ Thus, since the \ac{TTNL} software currently updates the gateway locations after
     \includegraphics[width=0.9\textwidth]{pictures/ttn-mapper/moved_gateway_example.png}
     \caption[Example of false data being displayed on a \acl{TTNM} map due to a gateway being moved]{
         Screenshot of a \ac{TTNM} map showing an example of false data being displayed due to a gateway being moved.
-        The gateway placed on the right is the one on the roof of the \emph{DL0FIS} clubhouse.
+        The gateway placed on the right is the one on the roof of the DL0FIS clubhouse.
         The data points on the right are from before the gateway was moved there when it was still on the roof of the \ac{HFU} B building~\cite{ttn_mapper_ttn_2023}.
     }\label{pic:gateway-moved-example}
 \end{figure}
 
 \Cref{pic:gateway-moved-example} shows an example where this happened in \ac{TTNM}.
-It shows a gateway that was located on the \ac{HFU} B building, but was then moved to its final location, the roof of the \emph{DL0FIS} clubhouse.
+It shows a gateway that was located on the \ac{HFU} B building, but was then moved to its final location, the roof of the DL0FIS clubhouse.
 
 \ac{TTNM} is supposed to perform a similar data cleaning as was described earlier based on the section ``My results were showing on the map before, but is gone now.'' in their FAQ~\cite{ttn_mapper_faq_nodate}.
 However, as far as the duration of this thesis is concerned, this was not observed, as evidenced by \Cref{pic:gateway-moved-example}.
@@ -423,7 +423,7 @@ This would enable the \ac{TTNL} software to function without \ac{TTNM} and would
 Because the frontend and backend were separated into two distinct repositories, certain \ac{TS} type definitions had to be duplicated across the two.
 This resulted in some manual work when changing the type definitions, as changes had to be applied to both repositories.
 In the future, this could be improved in several ways.
-For example, the frontend and backend could be merged into a single repository, called a \emph{monorepo}~\cite{narwhal_technologies_inc_monorepo_2022}.
+For example, the frontend and backend could be merged into a single repository, called a monorepo~\cite{narwhal_technologies_inc_monorepo_2022}.
 
 The type definitions could also be moved to a separate repository that is used as a dependency in both the frontend and backend repositories.
 
@@ -436,7 +436,7 @@ This section will critically reflect on the choice of technologies used in this 
 The usage of Docker and Docker Compose was a good choice.
 While it required extra effort to integrate the backend and frontend in a Docker Compose environment, the end result was worthwhile.
 It made setting up a development environment on a \ac{VM} provided by the \ac{HFU} effortless.
-The only addition that needed to be made manually was adding a \emph{Traefik} reverse proxy to allow for secure \ac{HTTPS} connections to the frontend and backend services from outside the \ac{HFU} network~\cite{traefik_labs_traefik_2023}.
+The only addition that needed to be made manually was adding a Traefik reverse proxy to allow for secure \ac{HTTPS} connections to the frontend and backend services from outside the \ac{HFU} network~\cite{traefik_labs_traefik_2023}.
 
 Using Docker and Docker Compose also allows for easy reproducibility of the project, as the Docker Compose stack also includes the PostGIS \ac{DB} and can be started with a single command.
 
@@ -459,7 +459,7 @@ Furthermore, the schema file of Prisma serves as indirect documentation for the 
 
 An alternative to Prisma would have been PgTyped, which is a library that can generate typesafe \ac{SQL} queries from \ac{TS} type definitions~\cite{salakh_pgtyped_2023}.
 
-Another alternative would have been to use \emph{GraphQL} instead of \ac{HTTP} \ac{REST} calls.
+Another alternative would have been to use GraphQL instead of \ac{HTTP} \ac{REST} calls.
 GraphQL is a method for writing \ac{API} queries that lets the client specify which data it wants to receive from the server~\cite{graphql_foundation_graphql_2023}.
 It uses a syntax to modify and request data that is similar to \ac{JSON}.
 In doing so, GraphQL also ships its own type system that can be used to generate type definitions for the frontend.
@@ -472,7 +472,7 @@ This section will list some of these projects and describe how they could be imp
 
 \subsubsection{Measuring the water level of the Breg river}
 
-One of the \aclp{LRWED} ordered as part of this thesis is a \emph{Milesight EM310-UDL}, an ultrasonic distance/level sensor.
+One of the \aclp{LRWED} ordered as part of this thesis is a Milesight EM310-UDL, an ultrasonic distance/level sensor.
 As the \ac{LoRaWAN} network coverage of Furtwangen is now adequate for most outdoor \ac{LoRaWAN} sensor deployments, it would be possible to use this sensor to measure the water level of the Breg River flowing through the \ac{HFU} campus grounds.
 This could allow for a prediction of the water level of the Breg River, which could in turn allow for a prediction of the water level of the Danube River, for example.
 Installing this \acl{LRWED} as well as connecting it to \ac{TTN} and adding an \acf{AS} to it to allow monitoring of the water level of the Breg River would be a good future project for students of the \ac{HFU}, enabled by the \aclp{LRWGW} placed during this thesis.
@@ -485,7 +485,7 @@ The installation of \aclp{LRWGW} in Furtwangen helped him in this regard, as he 
 \subsubsection{Monitoring of \acl{LRWGW}}
 
 Another possible project would be an application that monitors the gateways and checks if they are still online.
-Such a project could be realized with software like \emph{Node-RED}~\cite{openjs_foundation_node-red_nodate}.
+Such a project could be realized with software like Node-RED~\cite{openjs_foundation_node-red_nodate}.
 Alerting specific users if a gateway goes offline could also be implemented with Node-RED.
 
 \subsection{Further research}
@@ -499,7 +499,7 @@ To solve this problem, a \ac{LNS} would need to be set up that has the ability t
 In addition, \aclp{LRWGW} would need to be time synchronized to achieve the best possible accuracy.
 The latter problem could be solved by using \ac{GPS} receivers to time-synchronize the \aclp{LRWGW}.
 While some \aclp{LRWGW} have built-in \ac{GPS} receivers, most do not.
-For example, the \emph{Dragino DLOS8N} that was used twice during this thesis has a \ac{GPS} built-in receiver~\cite{dragino_technology_co_ltd_dlos8n_2023}, but none of the others do.
+For example, the Dragino DLOS8N that was used twice during this thesis has a \ac{GPS} built-in receiver~\cite{dragino_technology_co_ltd_dlos8n_2023}, but none of the others do.
 
 Ultimately, using the \ac{ToA} method would require more specific hardware than what most of the \ac{TTN} community network currently uses.
 This makes it unsuitable for widespread use on that particular network.
@@ -537,19 +537,19 @@ If this functionality could be implemented in the \ac{LoRaWAN} protocol, it woul
 Gateways acting as repeaters in such a network could forward \ac{LoRaWAN} packets without the need for a backhaul connection as mentioned in \Cref{sec:gateways}.
 Since the \ac{LoRaWAN} protocol doesn't provide this functionality yet, it would need to be tested with a custom implementation of gateway firmware first.
 
-A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing between \aclp{LRED} is \emph{Meshtastic}~\cite{meshtastic_llc_meshtastic_2023}.
+A \ac{LoRaWAN} related project that also uses \ac{LoRa} and can do meshing between \aclp{LRED} is Meshtastic~\cite{meshtastic_llc_meshtastic_2023}.
 It uses hardware similar to the \aclp{LRWED} used in this thesis to create a meshed network of \aclp{LRED} that can communicate without the need for Internet access.
 
-The German company \emph{Dryad Networks GmbH} uses meshed \aclp{LRGW} to build a network that can be used with their products~\cite{dryad_networks_gmbh_silvanet_2023}.
+The German company Dryad Networks GmbH uses meshed \aclp{LRGW} to build a network that can be used with their products~\cite{dryad_networks_gmbh_silvanet_2023}.
 It is utilized for the early detection of wildfires via a network of \ac{LoRa} sensors transmitting their information over meshed \aclp{LRWGW}.
 This eliminates the requirement for a backhaul connection for every \aclp{LRWGW} spread throughout extensive forested regions.
 
 Anton Petrov is going to write his master thesis about this topic in the coming winter semester of 2023/2024.
 His thesis will also be supervised by Prof. Dr. Richard Zahoransky.
 
-\subsubsection{Self-hosting of \acl{TTS} or \emph{ChirpStack}}
+\subsubsection{Self-hosting of \acl{TTS} or ChirpStack}
 
-Another interesting project would be to self-host an instance of a \ac{LNS} like \ac{TTS} or \emph{ChirpStack} on \ac{HFU} infrastructure.
+Another interesting project would be to self-host an instance of a \ac{LNS} like \ac{TTS} or ChirpStack on \ac{HFU} infrastructure.
 This would give students the opportunity to learn more about the inner workings of a \ac{LNS} and would also give the \ac{HFU} the ability to exert more control over the data collected by the \ac{LNS}.
 Both of them are \ac{OSS} and can be self-hosted using Docker or Docker Compose.
 
